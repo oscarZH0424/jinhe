@@ -3,7 +3,7 @@
     <img class="logo" src="../assets/img/logo.png" alt="">
     <div class="menu-group">
       <div class="menu-item">公司介绍 > </div>
-      <div class="menu-item">项目与品牌</div>
+      <div class="menu-item">项目与品牌22</div>
       <div class="menu-item">管理团队</div>
       <div class="menu-item">新闻中心</div>
       <div class="menu-item">企业招聘</div>
