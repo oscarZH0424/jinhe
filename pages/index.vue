@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      
       <h1 class="title">
         jinhe11
       </h1>
