@@ -1,28 +1,10 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">
-        jinhe11
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentationaaa
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <a-carousel>
+      <Banner />
+      <Banner />
+      <Banner />
+    </a-carousel>
   </div>
 </template>
 
@@ -30,43 +12,49 @@
 export default {}
 </script>
 
-<style>
+<style scoped>
+
 .container {
+  width:100%;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+</style>
+<style>
+.ant-carousel {
+  width:100%;
+}
+.ant-carousel  .slick-slider {
+  text-align: center;
+  height: 1080px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.ant-carousel  .slick-slider h3 {
+  color: #fff;
 }
-
-.links {
-  padding-top: 15px;
+.ant-carousel .slick-dots li button{
+  width:15px;
+  height:15px;
+  margin-right:88px;
+}
+.ant-carousel .slick-dots-bottom{
+  bottom:41px;
+  height:15px;
+}
+.ant-carousel .slick-dots li:last-child button{
+  margin-right:0px;
+}
+.ant-carousel .slick-dots li.slick-active button{
+  width:15px;
+  background: #B21E27;
 }
 </style>
