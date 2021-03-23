@@ -1,0 +1,28 @@
+.page-banner{
+    position: relative;
+    width:100%;
+    height:330px;
+    img{
+        width:100%;
+        height:330px;
+        object-fit: cover;
+    }
+    .text{
+        position:absolute;
+        opacity: 1;
+        font-size: 48px;
+        font-family: PingFangSC, PingFangSC-Semibold;
+        font-weight: 600;
+        text-align: left;
+        color: #ffffff;
+        line-height: 67px;
+        text-shadow: 0px 2px 4px  rgba(0,0,0,0.85); 
+        top:50%;
+        transform: translateY(-50%);
+        left:360px;
+        &.dark{
+            color:#000;
+            text-shadow: none; 
+        }
+    }
+}
