@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <div class="page-banner">
-          <img src="~/assets/img/staff_banner.png" alt="" aspect="fill">
+          <img src="~/assets/img/staff_banner.png" alt="" aspect="fill"/>
           <div class="text dark">企业招聘</div>
       </div>
       <div class="staff-container">
@@ -54,7 +54,8 @@
 
 <script>
 export default {
-
+    
+    
 }
 </script>
 

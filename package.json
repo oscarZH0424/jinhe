@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/pwa": "^3.3.5",
     "ant-design-vue": "^1.7.4",
+    "babel-plugin-import": "^1.13.3",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3"
   },

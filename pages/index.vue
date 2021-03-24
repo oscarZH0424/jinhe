@@ -6,15 +6,15 @@
       <Banner />
     </a-carousel>
     <div class="desc-panel">
-      <img class="bg-img bl" src="~/assets/img/desc_bg_1.png" alt="">
+      <img class="bg-img bl" src="~/assets/img/desc_bg_1.png" alt=""/>
       <div class="panel-mask br"></div>
       <div class="desc-info p1">
         <div class="desc-title">锦和资产管理公司</div>
         <div class="desc-text">锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。</div>
       </div>
     </div>
-    <div class="desc-panel">
-      <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt="">
+    <div class="desc-panel" id="glgm">
+      <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt=""/>
       <div class="panel-mask bl"></div>
       <div class="desc-info p2">
         <div class="desc-title">锦和资管的管理规模</div>
@@ -39,8 +39,8 @@
         <div class="desc-tip">*截至2020年12月30号</div>
       </div>
     </div>
-    <div class="desc-panel">
-      <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt="">
+    <div class="desc-panel"  id="dytyy">
+      <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
         <div class="desc-title">锦和资管的多业态运营</div>
         <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
@@ -64,14 +64,14 @@
         </div>
       </div>
     </div>
-    <div class="desc-panel">
-      <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt="">
+    <div class="desc-panel" id="hzf">
+      <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr"></div>
       <div class="desc-info p3">
         <div class="desc-title">锦和资管合作方</div>
         <div class="multi-intro">
           <div class="multi-main">
-            <img class="main-logo" src="~/assets/img/logo_1.png" alt="">
+            <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
             <div class="main-title">国际领先的私募股权投资公司</div>
             <div class="main-subtitle">自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。</div>
             <div class="text-group">
@@ -103,27 +103,27 @@
           </div>
           <div class="multi-sub">
             <div class="sub-intro-item">
-              <img style="margin-top:27px;" src="~/assets/img/logo_2.png" alt="">
+              <img style="margin-top:27px;" src="~/assets/img/logo_2.png" alt=""/>
               <div class="sub-text" style="margin-top:27px;"><span>首创钜大有限公司</span>主要从事商业物业开发及运营管理，致力成为中国领先的商业地产运营商。</div>
             </div>
             <div class="sub-intro-item">
-              <img style="margin-top:36px;" src="~/assets/img/logo_3.png" alt="">
+              <img style="margin-top:36px;" src="~/assets/img/logo_3.png" alt=""/>
               <div class="sub-text" style="margin-top:43px;"><span>万科企业股份有限公司</span>成立于1984年，1988年进入房地产行业，经过三十余年的发展，已成为国内领先的城市配套服务商。</div>
             </div>
             <div class="sub-intro-item">
-              <img style="margin-top:18px;" src="~/assets/img/logo_4.png" alt="">
+              <img style="margin-top:18px;" src="~/assets/img/logo_4.png" alt=""/>
               <div class="sub-text" style="margin-top:39px;"><span>“InfraRed南丰大中华房地产基金”</span>为南丰集团于2007年与汇丰银行合作发展的私募房地产基金，致力于中国增值型物业的投资。</div>
             </div>
             <div class="sub-intro-item">
-              <img  src="~/assets/img/logo_5.png" alt="">
+              <img  src="~/assets/img/logo_5.png" alt=""/>
               <div class="sub-text" style="margin-top:25px;"><span>GIC</span>成立于1981年，是一家来自新加坡的主权投资基金，其主要任务是管理新加坡的外汇储备，跨出新加坡国界向海外大举投资…</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="desc-panel">
-      <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt="">
+    <div class="desc-panel" id="syms">
+      <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt=""/>
       <div class="panel-mask tl"></div>
       <div class="desc-info p4">
         <div class="desc-title" style="margin-bottom:22px;">锦和资管的商业模式</div>
@@ -147,8 +147,8 @@
         </div>
       </div>
     </div>
-    <div class="desc-panel">
-      <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt="">
+    <div class="desc-panel" id="yyys">
+      <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
         <div class="desc-title" style="margin-bottom:85px;margin-top:277px;">锦和资管的运营优势</div>
         <div class="desc-intro-group">
@@ -175,7 +175,32 @@
 </template>
 
 <script>
-export default {}
+import bus from '@/assets/js/eventBus';
+export default {
+    mounted() {
+      bus.$on('hashchange',()=>{
+        setTimeout(()=>{
+          if (window.location.hash) {
+              this.goAnchor(window.location.hash)
+          }
+        },10)
+      })
+      if (window.location.hash) {
+          this.goAnchor(window.location.hash)
+      }
+      
+    },
+    methods: {
+        goAnchor(selector) {
+            // 最好加个定时器给页面缓冲时间
+            setTimeout(() => {
+                // 获取锚点元素
+                let anchor = this.$el.querySelector(selector)
+                anchor.scrollIntoView()
+            }, 500)
+        }
+    },
+}
 </script>
 
 <style lang="scss" scoped>

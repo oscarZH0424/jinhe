@@ -1,12 +1,12 @@
 <template>
   <div class="container">
       <div class="page-banner">
-          <img src="~/assets/img/pro_banner.png" alt="" aspect="fill">
+          <img src="~/assets/img/pro_banner.png" alt="" />
           <div class="text">项目与品牌</div>
       </div>
       <div class="pro-list">
           <div class="pro-item">
-              <img class="bg-img" src="~/assets/img/pro_1.png" alt="">
+              <img class="bg-img" src="~/assets/img/pro_1.png" alt=""/>
               <div class="pro-mask">
                   <div class="pro-info-container">
                       <div class="pro-title">上海御锦<br>凯宾斯基全套房酒店</div>
@@ -16,7 +16,7 @@
               </div>
           </div>
           <div class="pro-item">
-              <img class="bg-img" src="~/assets/img/pro_2.png" alt="">
+              <img class="bg-img" src="~/assets/img/pro_2.png" alt=""/>
               <div class="pro-mask">
                   <div class="pro-info-container">
                       <div class="pro-title">上海御锦<br>凯宾斯基全套房酒店</div>

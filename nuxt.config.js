@@ -14,7 +14,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'ant-design-vue/dist/antd.css','~/assets/css/main.scss'
+    // 'ant-design-vue/dist/antd.css',
+    '~/assets/css/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -56,5 +57,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ["ant-design-vue"],
+    babel: {
+      plugins: [
+        [
+          "import",
+          {
+            libraryName: "ant-design-vue",
+            libraryDirectory: "es",
+            style: "css" // 如果需要使用 less 方式去按需加载的话，则需要改为 true ，并且添加下面loaders 配置
+          },
+          "ant-design-vue"
+        ]
+      ]
+    },
+
   }
 }

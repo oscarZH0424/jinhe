@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <div class="page-banner">
-          <img src="~/assets/img/team_banner.png" alt="" aspect="fill">
+          <img src="~/assets/img/team_banner.png" alt="" aspect="fill"/>
           <div class="text">管理团队</div>
       </div>
       <div class="main-leader">
@@ -17,31 +17,14 @@
       <div class="leader-group">
           <div class="leader-group-content">
               <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt="">
+                  <img src="~/assets/img/leader_1.png" alt=""/>
                   <div class="leader-info">
                       <div class="leader-title">范英<span>首席财务官</span></div>
                       <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
                   </div>
               </div>
               <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt="">
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-          </div>
-          <div class="leader-group-divide"></div>
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt="">
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt="">
+                  <img src="~/assets/img/leader_1.png" alt=""/>
                   <div class="leader-info">
                       <div class="leader-title">范英<span>首席财务官</span></div>
                       <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
@@ -51,7 +34,24 @@
           <div class="leader-group-divide"></div>
           <div class="leader-group-content">
               <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt="">
+                  <img src="~/assets/img/leader_1.png" alt=""/>
+                  <div class="leader-info">
+                      <div class="leader-title">范英<span>首席财务官</span></div>
+                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                  </div>
+              </div>
+              <div class="leader-item">
+                  <img src="~/assets/img/leader_1.png" alt=""/>
+                  <div class="leader-info">
+                      <div class="leader-title">范英<span>首席财务官</span></div>
+                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                  </div>
+              </div>
+          </div>
+          <div class="leader-group-divide"></div>
+          <div class="leader-group-content">
+              <div class="leader-item">
+                  <img src="~/assets/img/leader_1.png" alt=""/>
                   <div class="leader-info">
                       <div class="leader-title">范英<span>首席财务官</span></div>
                       <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>

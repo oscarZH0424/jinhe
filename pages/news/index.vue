@@ -16,7 +16,7 @@
                   </div>
               </div>
               <div class="news-cover">
-                  <img src="~/assets/img/news_1.png" alt="">
+                  <img src="~/assets/img/news_1.png" alt=""/>
               </div>
           </div>
           <div class="news-item">
@@ -30,7 +30,7 @@
                   </div>
               </div>
               <div class="news-cover">
-                  <img src="~/assets/img/news_2.png" alt="">
+                  <img src="~/assets/img/news_2.png" alt=""/>
               </div>
           </div>
       </div>
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-
+    scrollToTop: true
 }
 </script>
 
