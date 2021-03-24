@@ -1,15 +1,15 @@
 <template>
   <div class="page-foot">
     <div class="menu-group">
-        <div class="menu-item">公司介绍</div>
+        <div class="menu-item"><nuxt-link to="/">公司介绍</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item">项目品牌</div>
+        <div class="menu-item"><nuxt-link to="/product">项目品牌</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item">管理团队</div>
+        <div class="menu-item"><nuxt-link to="/team">管理团队</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item">新闻中心</div>
+        <div class="menu-item"><nuxt-link to="/news">新闻中心</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item">企业招聘</div>
+        <div class="menu-item"><nuxt-link to="/staff">企业招聘</nuxt-link></div>
     </div>
     <div class="foot-info">ADD .： 上海市徐汇区虹漕路68号锦和中心 邮编200233 <span class="text-divide"></span>   TEL ： 021-52341623 <span class="text-divide"></span>FAX：86-21-52385827 <br> Copyright @2020 上海锦和投资集团有限公司 <span class="line">|</span> 工信部备案号： 沪ICP备11022539号</div>
   </div>
@@ -44,6 +44,9 @@ export default {
         }
         .menu-divide{
             padding:0px 50px;
+        }
+        .menu-item a{
+            color: #ffffff;
         }
     }
     .foot-info{

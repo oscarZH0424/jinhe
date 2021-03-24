@@ -1,12 +1,12 @@
 <template>
   <div class="nav-head">
-    <img class="logo" src="../assets/img/logo.png" alt="">
+    <nuxt-link to="/"><img class="logo" src="../assets/img/logo.png" alt=""></nuxt-link>  
     <div class="menu-group">
       <div class="menu-item">公司介绍 > </div>
-      <div class="menu-item">项目与品牌22</div>
-      <div class="menu-item">管理团队</div>
-      <div class="menu-item">新闻中心</div>
-      <div class="menu-item">企业招聘</div>
+      <div class="menu-item">项目与品牌 ></div>
+      <nuxt-link to="/team"><div class="menu-item">管理团队</div></nuxt-link>
+      <nuxt-link to="/news"><div class="menu-item">新闻中心</div></nuxt-link>
+      <nuxt-link to="/staff"><div class="menu-item">企业招聘</div></nuxt-link>
     </div>
   </div>
 </template>
@@ -36,9 +36,12 @@ export default {}
         justify-content: flex-start;
         align-items: center;
         user-select: none;
+        a{
+          line-height: 135px;
+        }
         .menu-item{
             width:223px;
-            height:100%;
+            height:108px;
             opacity: 1;
             font-size: 18px;
             font-family: PingFangSC, PingFangSC-Medium;
@@ -50,6 +53,7 @@ export default {}
                 background:white;
                 color:#B21E27;
             }
+            
         }
     }
 }
