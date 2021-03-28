@@ -2,18 +2,16 @@
   <div class="nav-head">
     <nuxt-link to="/"><img class="logo" src="../assets/img/logo.png" alt=""></nuxt-link>  
     <div class="menu-group">
-      <nuxt-link to="/">
-        <div class="menu-item">
-          <span>公司介绍 ></span>
-          <div class="drop-down-group">
-            <nuxt-link to="/#glgm"><div class="drop-down-item" @click="tapMenu">管理规模</div></nuxt-link>
-            <nuxt-link to="/#dytyy"><div class="drop-down-item" @click="tapMenu">多业态运营</div></nuxt-link>
-            <nuxt-link to="/#hzf"><div class="drop-down-item" @click="tapMenu">合作方</div></nuxt-link>
-            <nuxt-link to="/#syms"><div class="drop-down-item" @click="tapMenu">商业模式</div></nuxt-link>
-            <nuxt-link to="/#yyys"><div class="drop-down-item" @click="tapMenu">运营优势</div></nuxt-link>
-          </div>
+      <div class="menu-item">
+        <span>公司介绍 ></span>
+        <div class="drop-down-group">
+          <nuxt-link to="/#glgm"><div class="drop-down-item" @click="tapMenu">管理规模</div></nuxt-link>
+          <nuxt-link to="/#dytyy"><div class="drop-down-item" @click="tapMenu">多业态运营</div></nuxt-link>
+          <nuxt-link to="/#hzf"><div class="drop-down-item" @click="tapMenu">合作方</div></nuxt-link>
+          <nuxt-link to="/#syms"><div class="drop-down-item" @click="tapMenu">商业模式</div></nuxt-link>
+          <nuxt-link to="/#yyys"><div class="drop-down-item" @click="tapMenu">运营优势</div></nuxt-link>
         </div>
-      </nuxt-link> 
+      </div>
       <nuxt-link to="/product">
         <div class="menu-item">
           <span>项目与品牌 ></span> 
