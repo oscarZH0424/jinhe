@@ -51,7 +51,9 @@ export default {
       lang: 'en'
     }
   },
-
+  router:{
+    middleware:["common"]
+  },
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 

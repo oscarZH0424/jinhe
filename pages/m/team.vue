@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-        <Pagebanner keystr="team"/>
+      <Pagebanner keystr="team"/>
       <div class="main-leader">
           <div class="leader-mask">
               <div class="leader-info">
@@ -68,59 +68,61 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
+    margin-top:64px;
 }
 .main-leader{
     position:relative;
     width:100%;
-    height:642px;
+    height:490px;
     .leader-mask{
         position:absolute;
         left:0;
         top:0;
-        height:642px;
-        width:1278px;
-        border-bottom:642px solid rgba(128,0,0,.9);
+        height:100%;
+        width:100%;
+        border-bottom:490px solid rgba(128,0,0,.9);
         border-left:0px solid transparent;
-        border-right:300px solid transparent;
+        border-right:200px solid transparent;
         .leader-info{
             position:absolute;
-            top:73px;
-            left:360px;
+            top:95px;
+            left:23px;
             .leader-title{
                 position: relative;
                 opacity: 1;
-                font-size: 32px;
+                font-size: 18px;
                 font-family: PingFangSC, PingFangSC-Semibold;
                 font-weight: 600;
                 text-align: left;
                 color: #ffffff;
-                line-height: 45px;
-                margin-bottom:31px;
+                line-height: 25px;
+                margin-bottom:30px;
                 >span{
                     display: inline-block;
-                    margin-left:20px;
-                    font-size:22px;
+                    margin-left:13px;
+                    font-size:11px;
                 }
                 &::after{
                     position:absolute;
                     content:' ';
-                    width:98px;
-                    height:4px;
+                    width:50px;
+                    height:2px;
                     background:#8f6d39;
-                    bottom:-13px;
+                    bottom:-5px;
                     left:0px;
 
                 }
             }
             .leader-desc{
                 opacity: 1;
-                font-size: 18px;
+                font-size: 11px;
                 font-family: PingFangSC, PingFangSC-Regular;
                 font-weight: 400;
                 text-align: left;
                 color: #ffffff;
-                line-height: 42px;
+                line-height: 23px;
+                width:182px;
             }
         }
     }
