@@ -1,12 +1,12 @@
 <template>
     <div class="menu-item">
-        <div class="menu-fa" @click="tapHead" :class="{'active':open}">
+        <div class="menu-fa" @click="tapHead($event)" :class="{'active':open}">
             <div class="menu-title">{{menu.name}}</div>
             <div v-show="menu.child && menu.child.length>0" class="menu-arrow" :class="{'active':open}">></div>
         </div>
         <div  class="menu-ch" :class="{'show':open}">
             <div v-for="(item,index) in menu.child" :key="index">
-                <menu-item :menu="item"></menu-item>
+                <menu-item :menu="item" @tap="onTap"></menu-item>
             </div>
         </div>
     </div>
@@ -24,11 +24,21 @@
             }
         },
         methods:{
-            tapHead(){
+            tapHead(e){
+                e.stopPropagation();
                 if(this.menu.child && this.menu.child.length>0){
                  this.open = !this.open;
                 }
-            }
+                if(this.menu.path){
+                    this.$router.push({
+                        path:this.menu.path
+                    })
+                    this.$emit('tap');
+                }
+            },
+            onTap(){
+                this.$emit('tap');
+            },
         }
     }
 </script>

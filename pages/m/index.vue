@@ -17,13 +17,13 @@
       <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt=""/>
       <div class="panel-mask bl"></div>
       <div class="desc-info p2">
-        <div class="desc-title">锦和资管的管理规模</div>
+        <div class="desc-title" style="margin-bottom:50px;">锦和资管的管理规模</div>
         <div class="desc-label-group">
-          <div class="label-item">
+          <div class="label-item" style="margin-right:100px;">
             <div class="label-val">151亿RMB</div>
             <div class="label-name">资产规模</div>
           </div>
-          <div class="label-item">
+          <div class="label-item" style="margin-right:100px;">
             <div class="label-val">19个</div>
             <div class="label-name">全国项目</div>
           </div>
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div class="desc-panel" id="hzf">
+    <div class="desc-panel long" id="hzf">
       <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr"></div>
       <div class="desc-info p3">
@@ -103,20 +103,20 @@
           </div>
           <div class="multi-sub">
             <div class="sub-intro-item">
-              <img style="margin-top:27px;" src="~/assets/img/logo_2.png" alt=""/>
-              <div class="sub-text" style="margin-top:27px;"><span>首创钜大有限公司</span>主要从事商业物业开发及运营管理，致力成为中国领先的商业地产运营商。</div>
+              <img style="margin-top:13px;height:30px;" src="~/assets/img/logo_2.png" alt=""/>
+              <div class="sub-text" style="margin-top:13px;"><span>首创钜大有限公司</span>主要从事商业物业开发及运营管理，致力成为中国领先的商业地产运营商。</div>
             </div>
             <div class="sub-intro-item">
-              <img style="margin-top:36px;" src="~/assets/img/logo_3.png" alt=""/>
-              <div class="sub-text" style="margin-top:43px;"><span>万科企业股份有限公司</span>成立于1984年，1988年进入房地产行业，经过三十余年的发展，已成为国内领先的城市配套服务商。</div>
+              <img style="margin-top:18px;height:25px;" src="~/assets/img/logo_3.png" alt=""/>
+              <div class="sub-text" style="margin-top:20px;"><span>万科企业股份有限公司</span>成立于1984年，1988年进入房地产行业，经过三十余年的发展，已成为国内领先的城市配套服务商。</div>
             </div>
             <div class="sub-intro-item">
-              <img style="margin-top:18px;" src="~/assets/img/logo_4.png" alt=""/>
-              <div class="sub-text" style="margin-top:39px;"><span>“InfraRed南丰大中华房地产基金”</span>为南丰集团于2007年与汇丰银行合作发展的私募房地产基金，致力于中国增值型物业的投资。</div>
+              <img style="margin-top:9px;height:32px;" src="~/assets/img/logo_4.png" alt=""/>
+              <div class="sub-text" style="margin-top:12px;"><span>“InfraRed南丰大中华房地产基金”</span>为南丰集团于2007年与汇丰银行合作发展的私募房地产基金，致力于中国增值型物业的投资。</div>
             </div>
             <div class="sub-intro-item">
-              <img  src="~/assets/img/logo_5.png" alt=""/>
-              <div class="sub-text" style="margin-top:25px;"><span>GIC</span>成立于1981年，是一家来自新加坡的主权投资基金，其主要任务是管理新加坡的外汇储备，跨出新加坡国界向海外大举投资…</div>
+              <img  style="margin-top:0px;height:50px;" src="~/assets/img/logo_5.png" alt=""/>
+              <div class="sub-text" style="margin-top:11px;"><span>GIC</span>成立于1981年，是一家来自新加坡的主权投资基金，其主要任务是管理新加坡的外汇储备，跨出新加坡国界向海外大举投资…</div>
             </div>
           </div>
         </div>
@@ -126,8 +126,8 @@
       <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt=""/>
       <div class="panel-mask tl"></div>
       <div class="desc-info p4">
-        <div class="desc-title" style="margin-bottom:22px;">锦和资管的商业模式</div>
-        <div class="desc-subtitle" style="margin-bottom:63px;">锦和资管全生命周期管控系<br>“一站式”资产管理服务</div>
+        <div class="desc-title" style="margin-bottom:10px;">锦和资管的商业模式</div>
+        <div class="desc-subtitle" style="margin-bottom:33px;">锦和资管全生命周期管控系<br>“一站式”资产管理服务</div>
         <div class="tag-group">
           <div class="tag-item">
             <div class="tag-text">物业收购</div>
@@ -150,7 +150,7 @@
     <div class="desc-panel" id="yyys">
       <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
-        <div class="desc-title" style="margin-bottom:85px;margin-top:277px;">锦和资管的运营优势</div>
+        <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">锦和资管的运营优势</div>
         <div class="desc-intro-group">
           <div class="desc-intro-item">
             <div class="intro-title no-border">资源</div>
@@ -206,8 +206,9 @@ export default {
 <style lang="scss" scoped>
 
 .container {
-  width:1920px;
+  width:100%;
   margin: 0 auto;
+  margin-top:64px;
   min-height: 90vh;
   display: flex;
   flex-flow: column nowrap;
@@ -218,36 +219,69 @@ export default {
 .desc-panel{
   position: relative;
   width:100%;
-  height:1080px;
+  min-height:554px;
   overflow: hidden;
   .panel-mask{
     position:absolute;
-    height:1080px;
-    width:1320px;
+    height:554px;
+    width:100%;
     top:0;
     &.br{
-      border-bottom:1080px solid rgba(128,0,0,.8);
-      border-left:280px solid transparent;
+      border-bottom:554px solid rgba(128,0,0,.8);
+      border-left:140px solid transparent;
       border-right:0px solid transparent;
       right:0;
     }
     &.bl{
-      border-bottom:1080px solid rgba(128,0,0,.8);
-      border-right:280px solid transparent;
+      border-bottom:554px solid rgba(128,0,0,.8);
+      border-right:140px solid transparent;
       border-left:0px solid transparent;
       left:0;
     }
     &.tr{
-      border-top:1080px solid rgba(128,0,0,.8);
-      border-left:280px solid transparent;
+      border-top:554px solid rgba(128,0,0,.8);
+      border-left:140px solid transparent;
       border-right:0px solid transparent;
       right:0;
     }
     &.tl{
-      border-top:1080px solid rgba(128,0,0,.8);
-      border-right:280px solid transparent;
+      border-top:554px solid rgba(128,0,0,.8);
+      border-right:140px solid transparent;
       border-left:0px solid transparent;
       left:0;
+    }
+  }
+  &.long{
+    height:854px;
+    .panel-mask{
+      position:absolute;
+      height:854px;
+      width:100%;
+      top:0;
+      &.br{
+        border-bottom:854px solid rgba(128,0,0,.8);
+        border-left:140px solid transparent;
+        border-right:0px solid transparent;
+        right:0;
+      }
+      &.bl{
+        border-bottom:854px solid rgba(128,0,0,.8);
+        border-right:140px solid transparent;
+        border-left:0px solid transparent;
+        left:0;
+      }
+      &.tr{
+        border-top:854px solid rgba(128,0,0,.8);
+        border-left:140px solid transparent;
+        border-right:0px solid transparent;
+        right:0;
+      }
+      &.tl{
+        border-top:854px solid rgba(128,0,0,.8);
+        border-right:140px solid transparent;
+        border-left:0px solid transparent;
+        left:0;
+      }
     }
   }
   .bg-img{
@@ -272,192 +306,189 @@ export default {
   .desc-info{
     position:absolute;
     &.p1{
-      top:198px;
-      right:192px;
-      width:639px;
+      top:132px;
+      right:23px;
+      width:199px;
     }
     &.p2{
-      left:250px;
-      top:193px;
+      left:23px;
+      top:60px;
     }
     &.p3{
-      right:192px;
-      top:170px;
+      right:23px;
+      top:51px;
       .desc-title{
         text-align: right;
       }
     }
     &.p4{
-      top:147px;
-      left:282px;
+      top:63px;
+      left:23px;
     }
 
     .desc-title{
       opacity: 1;
-      font-size: 62px;
+      font-size: 25px;
       font-family: PingFangSC, PingFangSC-Semibold;
       font-weight: 600;
       color: #ffffff;
       text-align: left;
-      line-height: 87px;
-      margin-bottom:88px;
+      line-height: 35px;
+      margin-bottom:14px;
     }
     .desc-subtitle{
       opacity: 1;
-      font-size: 28px;
+      font-size: 13px;
       font-family: PingFangSC, PingFangSC-Regular;
       font-weight: 400;
       text-align: left;
       color: #ffffff;
-      line-height: 40px;
+      line-height: 23px;
     }
     .desc-text{
       opacity: 1;
-      font-size: 30px;
+      font-size: 13px;
       font-family: PingFangSC, PingFangSC-Regular;
       font-weight: 400;
       text-align: left;
       color: #ffffff;
-      line-height: 56px;
+      line-height: 23px;
     }
     .desc-label-group{
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: flex-start;
-      width:700px;
+      width:250px;
       .label-item{
         position: relative;
-        margin-bottom:118px;
+        margin-bottom:30px;
         &::after{
           position:absolute;
           content:' ';
-          width:111px;
-          height:4px;
+          width:56px;
+          height:2px;
           background:#8f6d39;
           top:-10px;
           left:0px;
         }
         .label-val{
           opacity: 1;
-          font-size: 55px;
+          font-size: 21px;
           font-family: Arial, Arial-BoldMT;
           font-weight: bold;
           text-align: left;
           color: #ffffff;
-          line-height: 64px;
+          line-height: 24px;
         }
         .label-name{
           opacity: 1;
-          font-size: 29px;
+          font-size: 15px;
           font-family: PingFangSC, PingFangSC-Regular;
           font-weight: 400;
           text-align: left;
           color: #ffffff;
-          line-height: 41px;
+          line-height: 20px;
         }
       }
     }
     .desc-tip{
-      margin-top:181px;
+      margin-top:50px;
       opacity: 1;
-      font-size: 18px;
+      font-size: 10px;
       font-family: LucidaGrande;
       text-align: left;
       color: #ffffff;
-      line-height: 21px;
+      line-height: 14px;
     }
     .multi-intro{
       display: flex;
-      flex-flow:row nowrap;
-      justify-content: flex-start;
+      flex-flow:column nowrap;
+      justify-content: center;
       align-items: stretch;
       .multi-main{
-        width:815px;
-        height:531px;
+        width:330px;
+        min-height:351px;
         background: white;
         border:1px solid #898989;
         text-align:center;
-        margin-right:31px;
-        padding:67px 60px 30px 60px;
+        padding:30px;
         .main-title{
           opacity: 1;
-          font-size: 16px;
+          font-size: 10px;
           font-family: PingFangSC, PingFangSC-Regular;
           font-weight: 400;
           color: #231815;
-          line-height: 22px;
-          margin-top:20px;
+          line-height: 14px;
+          margin-top:10px;
         }
         .main-subtitle{
           margin:0 auto;
-          width:488px;
+          width:275px;
           opacity: 1;
-          font-size: 16px;
+          font-size: 10px;
           font-family: LucidaGrande;
           text-align: center;
           color: #898989;
-          line-height: 18px;
-          margin-top:7px;
-          margin-bottom:37px;
+          line-height: 14px;
+          margin-top:5px;
+          margin-bottom:12px;
         }
         .text-group{
           border-top:1px dashed #898989;
-          padding-top:26px;
+          padding-top:12px;
           display: flex;
           flex-flow: row wrap;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           .text-item{
-            min-width:144px;
-            margin-bottom:49px;
-            &:nth-child(3n-1){
-              padding:0px 90px;
-            }
+            width:128px;
+            padding:22px;
             .text-title{
               opacity: 1;
-              font-size: 35px;
+              font-size: 17px;
               font-family: Arial, Arial-BoldMT;
               font-weight: BoldMT;
               color: #af1f22;
-              line-height: 41px;
+              line-height: 20px;
             }
             .text-info{
               opacity: 1;
-              font-size: 18px;
+              font-size: 10px;
               font-family: PingFangSC, PingFangSC-Regular;
               font-weight: 400;
               color: #898989;
-              line-height: 25px;
+              line-height: 12px;
+              white-space: nowrap;
             }
           }
         }
       }
       .multi-sub{
-        width:555px;
-        height:531px;
+        width:330px;
+        min-height:331px;
         display: flex;
         flex-flow:row wrap;
         justify-content: space-between;
         align-items: center;
+        margin-top:20px;
         .sub-intro-item{
-          width:261px;
-          height:244px;
-          margin-right:31px;
-          margin-bottom:41px;
+          width:156px;
+          height:146px;
+          margin-bottom:20px;
           background: white;
-          padding:30px;
+          padding:15px;
           &:nth-child(2n){
             margin-right:0px;
           }
           .sub-text{
             text-align: left;
             opacity: 1;
-            font-size: 12px;
+            font-size: 8px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             color: #000;
-            line-height: 17px;
+            line-height: 14px;
             >span{
               color: #af1e23;
             }
@@ -467,16 +498,16 @@ export default {
 
     }
     .tag-group{
-      width:555px;
+      width:300px;
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: center;
       .tag-item{
-        width:261px;
-        height:244px;
-        margin-right:31px;
-        margin-bottom:38px;
+        width:130px;
+        height:122px;
+        margin-right:15px;
+        margin-bottom:19px;
         background: rgba(255,255,255,.85);
         display: flex;
         flex-flow: column nowrap;
@@ -487,11 +518,11 @@ export default {
         }
         .tag-text{
           opacity: 1;
-          font-size: 34px;
+          font-size: 17px;
           font-family: PingFangSC, PingFangSC-Regular;
           font-weight: 400;
           color: #af1e23;
-          line-height: 48px;
+          line-height: 24px;
         }
       }
     }
@@ -502,45 +533,46 @@ export default {
     height:100%;
     background:rgba(0,0,0,.6);
     text-align: center;
-    padding:0px 399px;
+    padding:0px 23px;
     .desc-title{
-      margin-top:255px;
+      margin-top:65px;
       opacity: 1;
-      font-size: 62px;
+      font-size: 25px;
       font-family: PingFangSC, PingFangSC-Semibold;
       font-weight: 600;
       color: #ffffff;
-      line-height: 87px;
-      margin-bottom:27px;
+      line-height: 35px;
+      margin-bottom:13px;
     }
     .desc-subtitle{
       opacity: 1;
-      font-size: 24px;
+      font-size: 12px;
       font-family: PingFangSC, PingFangSC-Regular;
       font-weight: 400;
       color: #ffffff;
-      line-height: 33px;
-      margin-bottom:103px;
+      line-height: 16px;
+      margin-bottom:42px;
     }
     .desc-intro-group{
       display: flex;
-      flex-flow:row nowrap;
+      flex-flow:row wrap;
       justify-content: space-between;
       align-items: center;
       .desc-intro-item{
-        width: 261px;
-        height: 244px;
+        width: 157px;
+        height: 147px;
         opacity: 1;
         border: 1px solid #898989;
-        padding:67px 30px 20px  30px;
+        padding:20px 18px 20px  18px;
         background: rgba(255,255,255,.8);
+        margin-bottom:16px;
         .intro-title{
           opacity: 1;
-          font-size: 27px;
+          font-size: 16px;
           font-family: LucidaGrande;
           color: #af1e23;
-          line-height: 32px;
-          padding-bottom:19px;
+          line-height: 19px;
+          padding-bottom:12px;
           border-bottom:1px dashed #af1e23;
           text-align: left;
           &.no-border{
@@ -549,7 +581,7 @@ export default {
           }
         }
         .intro-text{
-          margin-top:15px;
+          margin-top:4px;
           opacity: 1;
           font-size: 12px;
           font-family: PingFangSC, PingFangSC-Regular;
@@ -569,7 +601,7 @@ export default {
 }
 .ant-carousel  .slick-slider {
   text-align: center;
-  height: 1080px;
+  height: 554px !important;
   line-height: 160px;
   background: #364d79;
   overflow: hidden;

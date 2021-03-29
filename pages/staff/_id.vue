@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-      <div class="page-banner">
-          <img src="~/assets/img/staff_banner.png" alt="" aspect="fill"/>
-          <div class="text dark">企业招聘</div>
-      </div>
+        <Pagebanner keystr="staffd"/>
       <div class="paragraph">
           <div class="title">集团管培生 （幕墙设计方向）-2021届毕业生</div>
           <div class="subtitle">

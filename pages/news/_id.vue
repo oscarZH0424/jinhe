@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-      <div class="page-banner">
-          <img src="~/assets/img/news_id_banner.png" alt="" aspect="fill"/>
-          <div class="text">新闻中心</div>
-      </div>
+      <Pagebanner keystr="newsd"/>
       <div class="paragraph">
           <div class="title">锦和越界陕康里</div>
           <div class="subtitle">
@@ -27,10 +24,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .container{
     margin:0 auto;
     width:1920px;
 }
+
 .paragraph{
     position:relative;
     width:1200px;

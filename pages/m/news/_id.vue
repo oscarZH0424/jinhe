@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-      <div class="page-banner">
-          <img src="~/assets/img/news_id_banner.png" alt="" aspect="fill"/>
-          <div class="text">新闻中心</div>
-      </div>
+      <Pagebanner keystr="newsd"/>
       <div class="paragraph">
           <div class="title">锦和越界陕康里</div>
           <div class="subtitle">
@@ -29,60 +26,99 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
+    margin-top:64px;
 }
 .paragraph{
     position:relative;
-    width:1200px;
+    width:100%;
     margin:0 auto;
-    padding-top:87px;
-    padding-bottom:145px;
+    padding-top:22px;
+    padding-bottom:80px;
     .title{
         opacity: 1;
-        font-size: 32px;
+        font-size: 20px;
         font-family: PingFangSC, PingFangSC-Semibold;
         font-weight: 600;
         text-align: left;
         color: #000000;
-        line-height: 45px;
+        line-height: 28px;
+        margin-bottom:10px;
+        padding:0px 24px;
     }
     .subtitle{
         position:relative;
-        
+        padding:0px 24px;
+        .top{
+            opacity: 1;
+            font-size: 12px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            text-align: left;
+            color: #000000;
+            line-height: 16px;
+        }
         .line{
             width:100%;
-            height: 1px;
+            height: 0px;
             opacity: 0.26;
-            border: 1px dotted #979797;
-            margin:5px auto;
+            border: 1px solid #979797;
+            margin:10px auto;
         }
         .bottom{
             opacity: 1;
-            font-size: 16px;
+            font-size: 14px;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
-            color: #000000;
-            line-height: 22px;
+            color: #787878;
+            line-height: 20px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            .bottom-info{
+                width:215px;
+                >span{
+                    display: block;
+                }
+            }
+            .tag{
+                height:30px;
+                width:82px;
+                border-bottom:30px solid #b21e27;
+                border-right:0px solid transparent;
+                border-left:20px solid transparent;
+                opacity: 1;
+                font-size: 12px;
+                font-family: PingFangSC, PingFangSC-Medium;
+                font-weight: 500;
+                text-align: right;
+                color: #ffffff;
+                line-height: 30px;
+                padding-right:10px;
+            }
         }
        
     }
     .content{
-        margin-top:30px;
+        margin-top:15px;
         p{
             opacity: 1;
-            font-size: 14px;
+            font-size: 13px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             text-align: left;
             color: #787878;
-            line-height: 28px;
+            line-height: 23px;
+            margin-bottom:15px;
+            padding:0px 24px;
         }
         img{
-            max-width:1200px;
+            max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:68px;
+            margin-bottom:30px;
         }
     }
     

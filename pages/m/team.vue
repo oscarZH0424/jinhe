@@ -12,49 +12,34 @@
           </div>
       </div>
       <div class="leader-group">
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-          </div>
-          <div class="leader-group-divide"></div>
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-          </div>
-          <div class="leader-group-divide"></div>
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
-                  </div>
-              </div>
-          </div>
+           <div class="leader-item">
+                <img src="~/assets/img/leader_1.png" alt=""/>
+                <div class="leader-info">
+                    <div class="leader-title">范英<span>首席财务官</span></div>
+                    <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                </div>
+            </div>
+            <div class="leader-item">
+                <img src="~/assets/img/leader_1.png" alt=""/>
+                <div class="leader-info">
+                    <div class="leader-title">范英<span>首席财务官</span></div>
+                    <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                </div>
+            </div>
+            <div class="leader-item">
+                <img src="~/assets/img/leader_1.png" alt=""/>
+                <div class="leader-info">
+                    <div class="leader-title">范英<span>首席财务官</span></div>
+                    <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                </div>
+            </div>
+            <div class="leader-item">
+                <img src="~/assets/img/leader_1.png" alt=""/>
+                <div class="leader-info">
+                    <div class="leader-title">范英<span>首席财务官</span></div>
+                    <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                </div>
+            </div>
       </div>
   </div>
 </template>
@@ -128,66 +113,63 @@ export default {
     }
 }
 .leader-group{
-    padding:134px 220px;
+    padding:0px 23px;
     background: rgba(0,0,0,.9);
     box-sizing: border-box;
-    .leader-group-content{
+    
+    .leader-item{
         display: flex;
         flex-flow:row nowrap;
-        justify-content: space-between;
-        align-items: center;
-        .leader-item{
-            display: flex;
-            flex-flow:row nowrap;
-            justify-content: flex-start;
-            align-items: flex-start;
-            img{
-                width:250px;
-                height:336px;
-                object-fit: cover;
-            }
-            .leader-info{
-                width:364px;
-                margin-left:55px;
-                margin-top:36px;
-                .leader-title{
-                    position: relative;
-                    opacity: 1;
-                    font-size: 32px;
-                    font-family: PingFangSC, PingFangSC-Semibold;
-                    font-weight: 600;
-                    text-align: left;
-                    color: #ffffff;
-                    line-height: 45px;
-                    margin-bottom:36px;
-                    >span{
-                        display: inline-block;
-                        margin-left:20px;
-                        font-size:22px;
-                    }
-                    &::after{
-                        position:absolute;
-                        content:' ';
-                        width:62px;
-                        height:4px;
-                        background:#8f6d39;
-                        bottom:-13px;
-                        left:0px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding:30px 0px;
+        border-bottom:1px solid #979797;
+        img{
+            width:125px;
+            height:168px;
+            object-fit: cover;
+        }
+        .leader-info{
+            width:177px;
+            margin-left:28px;
+            .leader-title{
+                position: relative;
+                opacity: 1;
+                font-size: 16px;
+                font-family: PingFangSC, PingFangSC-Semibold;
+                font-weight: 600;
+                text-align: left;
+                color: #ffffff;
+                line-height: 23px;
+                margin-bottom:21px;
+                >span{
+                    display: inline-block;
+                    margin-left:10px;
+                    font-size:11px;
+                }
+                &::after{
+                    position:absolute;
+                    content:' ';
+                    width:31px;
+                    height:2px;
+                    background:#8f6d39;
+                    bottom:-6px;
+                    left:0px;
 
-                    }
                 }
-                .leader-desc{
-                    opacity: 1;
-                    font-size: 18px;
-                    font-family: PingFangSC, PingFangSC-Regular;
-                    font-weight: 400;
-                    text-align: left;
-                    color: #ffffff;
-                    line-height: 28px;
-                }
+            }
+            .leader-desc{
+                opacity: 1;
+                font-size: 11px;
+                font-family: PingFangSC, PingFangSC-Regular;
+                font-weight: 400;
+                text-align: left;
+                color: #ffffff;
+                line-height: 18px;
             }
         }
     }
+    
     .leader-group-divide{
         width:100%;
         height:1px;

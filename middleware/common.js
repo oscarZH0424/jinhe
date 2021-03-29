@@ -2,7 +2,7 @@ export default function ({store,req,redirect,route}){
     let isMobile = (ua)=>{
         return !!ua.match(/AppleWebKit.*Mobile.*/);
     }
-    let userAgent =req ? req.headers['user-agent'] : "";
+    let userAgent =req ? req.headers['user-agent'] : navigator.userAgent || '';
     let ismobile = isMobile(userAgent);
     store.commit('SET_ISMOBILE',ismobile);
     const path = route.fullPath;
