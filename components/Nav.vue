@@ -3,7 +3,7 @@
     <nuxt-link to="/"><img class="logo" src="../assets/img/logo.png" alt="" @click="tapMenu"></nuxt-link>  
     <div v-show="!isMobile" class="menu-group">
       <div class="menu-item">
-        <span>公司介绍 ></span>
+        <span>公司介绍 <span class="arrow1">></span></span>
         <div class="drop-down-group">
           <nuxt-link to="/#glgm"><div class="drop-down-item" @click="tapMenu">管理规模</div></nuxt-link>
           <nuxt-link to="/#dytyy"><div class="drop-down-item" @click="tapMenu">多业态运营</div></nuxt-link>
@@ -14,9 +14,19 @@
       </div>
       <nuxt-link to="/product">
         <div class="menu-item">
-          <span>项目与品牌 ></span> 
+          <span>项目与品牌 <span class="arrow1">></span></span> 
           <div class="drop-down-group" style="width:358px">
-            <div class="drop-down-item">11</div>
+            <div class="drop-down-item" @click="choose('pro')" :class="{'active':proShow}">项目<span class="arrow2">></span></div>
+            <div v-show="proShow">
+               <div class="drop-down-item">上海御锦轩凯宾斯基全套房酒店</div>
+               <div class="drop-down-item">北京广安门越都荟</div>
+               <div class="drop-down-item">锦和越界陕康里</div>
+               <div class="drop-down-item">越界锦和尚城</div>
+            </div>
+            <div class="drop-down-item" @click="choose('brand')" :class="{'active':brandShow}">品牌<span class="arrow2">></span></div>
+            <div v-show="brandShow">
+               <div class="drop-down-item">base佰舍</div>
+            </div>
           </div>
         </div>
       </nuxt-link> 
@@ -24,10 +34,10 @@
       <nuxt-link to="/news"><div class="menu-item">新闻中心</div></nuxt-link>
       <nuxt-link to="/staff"><div class="menu-item">企业招聘</div></nuxt-link>
       <div class="text-btn-group" :class="{'open':isSearch}">
-        <div v-show="!isSearch" @click="toSearch">搜索</div>
+        <div v-show="!isSearch" @click="toSearch"><img class="search-btn" src="~/assets/img/ic_search.png" alt=""></div>
         <div v-show="isSearch" class="search-input">
           <input type="text" v-model="searchKey" v-on:keydown.enter="onInputKeyDown">
-          <div class="close" @click="close">关闭</div>
+          <div class="close" @click="close"><img class="close-btn" src="~/assets/img/ic_close.png" alt=""></div>
         </div>
       </div>
     </div>
@@ -64,7 +74,9 @@ export default {
         {name:'公司介绍',child:[{name:'管理规模',path:'/#glgm'},{name:'多业态运营',path:'/#dytyy'},{name:'合作方',path:'/#hzf'},{name:'商业模式',path:'/#syms'},{name:'运营优势',path:'/#yyys'}]},
         {name:'项目与品牌',child:[{name:'项目',child:[{name:'上海xxx'},{name:'上海xxx'},{name:'上海xxx'}]},{name:'品牌',child:[{name:'品牌xxx'}]}]},
         {name:'管理团队',path:'/team'},{name:'新闻中心',path:'/news'},{name:'企业招聘',path:'/staff'}
-      ]
+      ],
+      proShow:false,
+      brandShow:false
     }
   },
   mounted(){
@@ -72,6 +84,14 @@ export default {
     this.isMobile = this.$store.state.isMobile;
   },
   methods:{
+    choose(type){
+      if(type=='pro'){
+        this.proShow = !this.proShow;
+      }
+       if(type=='brand'){
+        this.brandShow = !this.brandShow;
+      }
+    },
     tapMask(e){
       this.open = false;
     },
@@ -108,7 +128,8 @@ a{
   color:white;
 }
 .nav-head{
-    position:relative;
+    position:fixed;
+    top:0px;
     width:100%;
     height:108px;
     background: #B21E27;
@@ -147,6 +168,12 @@ a{
           background: #B21E27;
           &.open{
             width:100%;
+          }
+          .search-btn{
+            width:26px;
+          }
+          .close-btn{
+            width:26px;
           }
           .search-input{
             position:relative;
@@ -197,6 +224,10 @@ a{
                   opacity:1;
                   visibility: visible;
                 }
+                .arrow1{
+                  display: inline-block;
+                  transform: rotate(90deg);
+                }
             }
             .drop-down-group{
               position:absolute;
@@ -220,10 +251,17 @@ a{
                 font-weight: 500;
                 text-align: left;
                 color: #000;
-                &:hover{
+                &:hover,&.active{
                   background: #B21E27;
                   color:white;
                 }
+                &.active{
+                  .arrow2{
+                    display: inline-block;
+                    transform: rotate(90deg);
+                  }
+                }
+                
               }
             }
         }

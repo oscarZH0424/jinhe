@@ -1,9 +1,10 @@
 <template>
   <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile}">
-      <img src="" alt="">
+      <img v-show="!isMobile" src="~/assets/img/home-banner.png" alt="">
+      <img v-show="isMobile" src="~/assets/img/m/home-banner.png" alt="">
       <div class="title-area">
-          <div class="title">sssss</div>
-        <div class="sub-title">ssss</div>
+          <div class="title">提升城市活力<br>激发城市经济增长</div>
+        <div class="sub-title">ENHANCE THE VITALITY OF THE CITY <br> STIMULATE URBAN ECONOMIC GROWTH</div>
       </div>
   </div>
 </template>

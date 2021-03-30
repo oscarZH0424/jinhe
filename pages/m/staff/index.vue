@@ -5,8 +5,8 @@
           <div class="staff-title">招聘职位</div>
           <div class="position-group">
               <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
+                  <div class="position-title">幕墙设计方向</div>
+                  <div class="position-desc">锦和资管管培生 -2021届毕业生</div>
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
@@ -15,33 +15,33 @@
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
+                  <div class="position-title">装饰装修方向</div>
+                  <div class="position-desc">锦和资管管培生 -2021届毕业生</div>
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
+                  <div class="position-title">机电事业部</div>
+                  <div class="position-desc">水电工程师</div>
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
+                  <div class="position-title">运营中心</div>
+                  <div class="position-desc">营销助理</div>
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
+                  <div class="position-title">云采购事业部</div>
+                  <div class="position-desc">总经理</div>
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
+                  <div class="position-title">幕墙事业部</div>
+                  <div class="position-desc">幕墙预算员</div>
                   <div class="position-btn">了解更多</div>
               </div>
               <div class="position-item">
-                  <div class="position-title">机电工程方向机</div>
-                  <div class="position-desc">锦和资管管培生锦和</div>
+                  <div class="position-title">幕墙事业部</div>
+                  <div class="position-desc">幕墙项目经理</div>
                   <div class="position-btn">了解更多</div>
               </div>
           </div>

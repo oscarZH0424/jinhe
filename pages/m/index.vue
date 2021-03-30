@@ -4,9 +4,11 @@
       <Banner />
       <Banner />
       <Banner />
+      <Banner />
+      <Banner />
     </a-carousel>
     <div class="desc-panel">
-      <img class="bg-img bl" src="~/assets/img/desc_bg_1.png" alt=""/>
+      <img class="bg-img bl" src="~/assets/img/m/desc_bg_1.png" alt=""/>
       <div class="panel-mask br"></div>
       <div class="desc-info p1">
         <div class="desc-title">锦和资产管理公司</div>
@@ -14,7 +16,7 @@
       </div>
     </div>
     <div class="desc-panel" id="glgm">
-      <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt=""/>
+      <img class="bg-img br" src="~/assets/img/m/desc_bg_2.png" alt=""/>
       <div class="panel-mask bl"></div>
       <div class="desc-info p2">
         <div class="desc-title" style="margin-bottom:50px;">锦和资管的管理规模</div>
@@ -40,7 +42,7 @@
       </div>
     </div>
     <div class="desc-panel"  id="dytyy">
-      <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
+      <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
         <div class="desc-title">锦和资管的多业态运营</div>
         <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
@@ -65,7 +67,7 @@
       </div>
     </div>
     <div class="desc-panel long" id="hzf">
-      <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt=""/>
+      <img class="bg-img tl" src="~/assets/img/m/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr"></div>
       <div class="desc-info p3">
         <div class="desc-title">锦和资管合作方</div>
@@ -123,7 +125,7 @@
       </div>
     </div>
     <div class="desc-panel" id="syms">
-      <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt=""/>
+      <img class="bg-img br" src="~/assets/img/m/desc_bg_4.png" alt=""/>
       <div class="panel-mask tl"></div>
       <div class="desc-info p4">
         <div class="desc-title" style="margin-bottom:10px;">锦和资管的商业模式</div>
@@ -148,7 +150,7 @@
       </div>
     </div>
     <div class="desc-panel" id="yyys">
-      <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
+      <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
         <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">锦和资管的运营优势</div>
         <div class="desc-intro-group">
@@ -286,6 +288,7 @@ export default {
   }
   .bg-img{
     position:absolute;
+    width:100%;
     &.bl{
       bottom:0px;
       left:0;
@@ -611,13 +614,13 @@ export default {
   color: #fff;
 }
 .ant-carousel .slick-dots li button{
-  width:15px;
-  height:15px;
-  margin-right:88px;
+  width:7px !important;
+  height:7px !important;
+  margin-right:10px !important;
 }
 .ant-carousel .slick-dots-bottom{
-  bottom:41px;
-  height:15px;
+  bottom:20px !important;
+  height:15px !important;
 }
 .ant-carousel .slick-dots li:last-child button{
   margin-right:0px;

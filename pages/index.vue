@@ -1,9 +1,11 @@
 <template>
   <div class="container">
     <client-only>
-      <full-page :options="option" ref="page">
+      <full-page :options="option" ref="fullpage">
         <div class="section">
           <a-carousel dotPosition="bottom">
+            <Banner />
+            <Banner />
             <Banner />
             <Banner />
             <Banner />
@@ -20,7 +22,7 @@
           </div>
         </div>      
         <div class="section">
-          <div class="desc-panel" id="glgm">
+          <div class="desc-panel">
             <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt=""/>
             <div class="panel-mask bl"></div>
             <div class="desc-info p2">
@@ -48,7 +50,7 @@
           </div>
         </div>
         <div class="section">
-          <div class="desc-panel"  id="dytyy">
+          <div class="desc-panel" >
             <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
               <div class="desc-title">锦和资管的多业态运营</div>
@@ -75,7 +77,7 @@
           </div>
         </div>
         <div class="section">
-          <div class="desc-panel" id="hzf">
+          <div class="desc-panel" id="">
             <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt=""/>
             <div class="panel-mask tr"></div>
             <div class="desc-info p3">
@@ -135,7 +137,7 @@
           </div>
         </div>
         <div class="section">
-          <div class="desc-panel" id="syms">
+          <div class="desc-panel" id="">
             <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt=""/>
             <div class="panel-mask tl"></div>
             <div class="desc-info p4">
@@ -201,15 +203,18 @@ export default {
           licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
           resize: true,
           scrollOverflow: true,
-          navigation: true,//是否显示导航，默认为false
+          navigation: false,//是否显示导航，默认为false
           navigationPosition: 'right',//导航小圆点的位置
           scrollBar: false,
-          keyboardScrolling: false,//是否可以使用键盘方向键导航，默认为true
+          anchors: ["banner", "desc", "glgm","dytyy","hzf","syms","yyys"],
+          lockAnchors: true,
+          afterLoad: this.afterLoad,
         }
       }
     },
     mounted() {
       bus.$on('hashchange',()=>{
+        console.log('hashChange',window.location.hash);
         setTimeout(()=>{
           if (window.location.hash) {
               this.goAnchor(window.location.hash)
@@ -222,13 +227,18 @@ export default {
       
     },
     methods: {
+        afterLoad(){
+          console.log(arguments);
+        },
         goAnchor(selector) {
             // 最好加个定时器给页面缓冲时间
-            setTimeout(() => {
-                // 获取锚点元素
-                let anchor = this.$el.querySelector(selector)
-                anchor.scrollIntoView()
-            }, 500)
+            selector = selector.substring(1,100);
+            setTimeout(()=>{
+              if(this.$refs.fullpage){
+                this.$refs.fullpage.api.moveTo(selector,1);
+              }
+            },100)
+            
         }
     },
 }
@@ -237,14 +247,18 @@ export default {
 <style lang="scss" scoped>
 
 .container {
+  position:relative;
+  left:50%;
+  transform: translateX(-50%);
   width:1920px;
   margin: 0 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
+  
 }
+.section{
+  width:100%;
+  height:100%;
+}
+
 .desc-panel{
   position: relative;
   width:100%;
@@ -255,7 +269,8 @@ export default {
     height:1080px;
     width:1320px;
     top:0;
-    &.br{
+    mix-blend-mode: multiply;
+    &.br{     
       border-bottom:1080px solid rgba(128,0,0,.8);
       border-left:280px solid transparent;
       border-right:0px solid transparent;
@@ -594,6 +609,10 @@ export default {
 }
 </style>
 <style>
+
+fp-scroller{
+  height:100%;
+}
 .ant-carousel {
   width:100%;
 }
