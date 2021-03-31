@@ -12,24 +12,22 @@
           <nuxt-link to="/#yyys"><div class="drop-down-item" @click="tapMenu">运营优势</div></nuxt-link>
         </div>
       </div>
-      <nuxt-link to="/product">
-        <div class="menu-item">
-          <span>项目与品牌 <span class="arrow1">></span></span> 
-          <div class="drop-down-group" style="width:358px">
-            <div class="drop-down-item" @click="choose('pro')" :class="{'active':proShow}">项目<span class="arrow2">></span></div>
-            <div v-show="proShow">
-               <div class="drop-down-item">上海御锦轩凯宾斯基全套房酒店</div>
-               <div class="drop-down-item">北京广安门越都荟</div>
-               <div class="drop-down-item">锦和越界陕康里</div>
-               <div class="drop-down-item">越界锦和尚城</div>
-            </div>
-            <div class="drop-down-item" @click="choose('brand')" :class="{'active':brandShow}">品牌<span class="arrow2">></span></div>
-            <div v-show="brandShow">
-               <div class="drop-down-item">base佰舍</div>
-            </div>
+      <div class="menu-item">
+        <span  @click="tapMenu('/product')">项目与品牌 <span class="arrow1">></span></span> 
+        <div class="drop-down-group" style="width:358px">
+          <div class="drop-down-item" @click="choose('pro')" :class="{'active':proShow}">项目<span class="arrow2">></span></div>
+          <div v-show="proShow">
+              <div class="drop-down-item" @click="tapMenu('/product#pro1')">上海御锦轩凯宾斯基全套房酒店</div>
+              <div class="drop-down-item" @click="tapMenu('/product#pro2')">北京广安门越都荟</div>
+              <div class="drop-down-item" @click="tapMenu('/product#pro3')">锦和越界陕康里</div>
+              <div class="drop-down-item" @click="tapMenu('/product#pro4')">越界锦和尚城</div>
+          </div>
+          <div class="drop-down-item" @click="choose('brand')" :class="{'active':brandShow}">品牌<span class="arrow2">></span></div>
+          <div v-show="brandShow">
+            <div class="drop-down-item" @click="tapMenu('/product#pro5')">base佰舍</div> 
           </div>
         </div>
-      </nuxt-link> 
+      </div>
       <nuxt-link to="/team"><div class="menu-item">管理团队</div></nuxt-link>
       <nuxt-link to="/news"><div class="menu-item">新闻中心</div></nuxt-link>
       <nuxt-link to="/staff"><div class="menu-item">企业招聘</div></nuxt-link>
@@ -72,7 +70,7 @@ export default {
       open:false,
       menus:[
         {name:'公司介绍',child:[{name:'管理规模',path:'/#glgm'},{name:'多业态运营',path:'/#dytyy'},{name:'合作方',path:'/#hzf'},{name:'商业模式',path:'/#syms'},{name:'运营优势',path:'/#yyys'}]},
-        {name:'项目与品牌',child:[{name:'项目',child:[{name:'上海xxx'},{name:'上海xxx'},{name:'上海xxx'}]},{name:'品牌',child:[{name:'品牌xxx'}]}]},
+        {name:'项目与品牌',child:[{name:'项目',child:[{name:'上海御锦轩凯宾斯基全套房酒店',path:'/product#pro1'},{name:'北京广安门越都荟',path:'/product#pro2'},{name:'锦和越界陕康里',path:'/product#pro3'},{name:'越界锦和尚城',path:'/product#pro4'}]},{name:'品牌',child:[{name:'base佰舍',path:'/product#pro5'}]}]},
         {name:'管理团队',path:'/team'},{name:'新闻中心',path:'/news'},{name:'企业招聘',path:'/staff'}
       ],
       proShow:false,
@@ -99,8 +97,14 @@ export default {
       this.open = false;
       bus.$emit('hashchange');
     },
-    tapMenu(){
+    tapMenu(path){
       this.open = false;
+      if(path && typeof path == 'string'){
+        console.log(path);
+        this.$router.push({
+          path:path
+        })
+      }
       bus.$emit('hashchange');
     },
     tapMenuBtn(){
@@ -271,8 +275,8 @@ a{
   position:fixed;
   top:0px;
   width:100%;
-  padding:15px;
-  height:64px;
+  padding:30px;
+  height:128px;
   background: #B21E27;
   z-index: 100;
   display: flex;
@@ -280,13 +284,13 @@ a{
   justify-content: space-between;
   align-items: center;
   .logo{
-    height:33.5px;
+    height:67px;
   }
   .m-drop-container{
     position:absolute;
     width:100%;
     height:100vh;
-    top:64px;
+    top:128px;
     right:0;
     background: transparent;
     visibility: hidden;
@@ -303,8 +307,8 @@ a{
       width:60%;
       .drop-menu-item{
         width:100%;
-        height:44px;
-        padding:12px;
+        height:88px;
+        padding:24px;
         background:#B21E27;
         display: flex;
         flex-flow:row nowrap;
@@ -312,17 +316,17 @@ a{
         align-items: center;
         .menu-title{
           opacity: 1;
-          font-size: 15px;
+          font-size: 30px;
           font-family: PingFangSC, PingFangSC-Regular;
           font-weight: 400;
           text-align: left;
           color: #ffffff;
-          line-height: 21px;
+          line-height: 42px;
           input{
             background: transparent;
             outline: none;
             color:white;
-            width:150px;
+            width:300px;
             border:0px;
             &::-webkit-input-placeholder {
               color: #fff;
@@ -336,7 +340,7 @@ a{
           }
         }
         .menu-arrow{
-          font-size: 15px;
+          font-size: 30px;
           color: #ffffff;
         }
       }
@@ -345,11 +349,11 @@ a{
   
 }
 
-.menu{display:inline-block;cursor:pointer;height:35px;width:35px;position:relative;}
-.menu span{display:inline-block;width:35px;height:1px;background-color:#fff;border-radius: 5px;position:absolute;top:20px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
-.menu span:before{content:'';display:inline-block;width:35px;height:1px;background-color:#fff;border-radius: 5px;position:absolute;top:-12px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
-.menu span:after{content:'';display:inline-block;width:35px;height:1px;background-color:#fff;border-radius: 5px;position:absolute;top:12px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu{display:inline-block;cursor:pointer;height:70px;width:70px;position:relative;}
+.menu span{display:inline-block;width:70px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:40px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
+.menu span:before{content:'';display:inline-block;width:70px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:-24px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span:after{content:'';display:inline-block;width:70px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:24px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
 .menu.menu_click span{background-color:transparent;}
-.menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:2px;width:30px;}
-.menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:2px;width:30px;}
+.menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:60px;}
+.menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:60px;}
 </style>

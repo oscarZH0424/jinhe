@@ -46,9 +46,9 @@
 <style lang="scss" scoped>
 .menu-item{
     width:100%;
-    min-height:44px;
+    min-height:88px;
     .menu-fa{
-        padding:12px;
+        padding:24px;
         display: flex;
         flex-flow:row nowrap;
         justify-content: space-between;
@@ -57,15 +57,16 @@
         border-bottom:1px solid white;
         .menu-title{
             opacity: 1;
-            font-size: 15px;
+            font-size: 30px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             text-align: left;
             color: #ffffff;
-            line-height: 21px;
+            line-height: 42px;
+            white-space:nowrap;
         }
         .menu-arrow{
-            font-size: 15px;
+            font-size: 30px;
             color: #ffffff;
             &.active{
                 transform: rotate(90deg);

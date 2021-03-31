@@ -60,25 +60,25 @@ export default {
 .container{
     margin:0 auto;
     width:100%;
-    margin-top:64px;
+    margin-top:128px;
 }
 .staff-container{
     width:100%;
     background: rgba(0,0,0,.9);
-    padding-top:30px;
-    padding-left:23px;
-    padding-right:23px;
-    padding-bottom:50px;
+    padding-top:63px;
+    padding-left:45px;
+    padding-right:45px;
+    padding-bottom:100px;
     .staff-title{
         text-align:center;
         opacity: 1;
-        font-size: 20px;
+        font-size: 40px;
         font-family: PingFangSC, PingFangSC-Medium;
         font-weight: 500;
         text-align: left;
         color: #ffffff;
-        line-height: 37px;
-        margin-bottom:17px;
+        line-height: 75px;
+        margin-bottom:34px;
     }
     .position-group{
         display: flex;
@@ -87,47 +87,53 @@ export default {
         align-items: center;
         .position-item{
             position: relative;
-            width:158px;
-            height:149px;
+            width:316px;
+            height:297px;
             background:white;
-            margin-bottom:13px;
-            margin-right:13px;
-            padding:20px 16px 15px 16px;
+            margin-bottom:26px;
+            margin-right:26px;
+            padding:40px 32px 30px 32px;
             box-sizing: border-box;
             cursor: pointer;
             &:nth-child(2n){
                 margin-right:0px;
             }
             .position-title{
+                height:90px;
+                overflow : hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
                 opacity: 1;
-                font-size: 16px;
+                font-size: 32px;
                 font-family: PingFangSC, PingFangSC-Semibold;
                 font-weight: 600;
                 text-align: left;
                 color: #a80101;
-                line-height: 23px;
-                margin-bottom:5px;
+                line-height: 45px;
+                margin-bottom:10px;
             }
             .position-desc{
                 opacity: 1;
-                font-size: 12px;
+                font-size: 24px;
                 font-family: PingFangSC, PingFangSC-Regular;
                 font-weight: 400;
                 text-align: left;
                 color: #000000;
-                line-height: 16px;
+                line-height: 33px;
             }
             .position-btn{
                 position:absolute;
-                left:16px;
-                bottom:15px;
+                left:32px;
+                bottom:30px;
                 opacity: 1;
-                font-size: 12px;
+                font-size: 24px;
                 font-family: PingFangSC, PingFangSC-Medium;
                 font-weight: 500;
                 text-align: center;
                 color: #a80101;
-                line-height: 16px;
+                line-height: 33px;
             }
             &:hover{
                 background: #B21E27;

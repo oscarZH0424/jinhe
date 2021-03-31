@@ -1,6 +1,6 @@
 <template>
   <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile}">
-      <img v-show="!isMobile" src="~/assets/img/home-banner.png" alt="">
+      <!-- <img v-show="!isMobile" src="~/assets/img/home-banner.png" alt=""> -->
       <img v-show="isMobile" src="~/assets/img/m/home-banner.png" alt="">
       <div class="title-area">
           <div class="title">提升城市活力<br>激发城市经济增长</div>
@@ -25,33 +25,40 @@ export default {
 <style lang="scss" scoped>
 .banner-item{
     position: relative;
-    background: grey;
     width:100%;
     min-height:1080px;
+    background: url('~/assets/img/home-banner.png');
+    background-size:100% 100%;
     img{
         width:100%;
     }
     .title-area{
         position:absolute;
         top:187px;
-        left:218px;
+        // top:18.31vh;
+        // left:218px;
+        left:11.354vw;
         .title{
             opacity: 1;
-            font-size: 86px;
+            // font-size: 86px;
+            font-size:4.4vw;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
             color: #ffffff;
-            line-height: 120px;
+            // line-height: 120px;
+            line-height:6.26vw;
         }
         .sub-title{
             opacity: 1;
-            font-size: 38px;
+            // font-size: 38px;
+            font-size:1.979vw;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
             color: #ffffff;
-            line-height: 53px;
+            // line-height: 53px;
+            line-height: 2.76vw;
         }
     }
 }
@@ -60,31 +67,32 @@ export default {
     position: relative;
     background: grey;
     width:100%;
-    min-height:554px;
+    height:1108px;
     img{
         width:100%;
     }
     .title-area{
         position:absolute;
-        top:140px;
-        left:23px;
+        top:280px;
+        left:45px;
         .title{
             opacity: 1;
-            font-size: 23px;
+            font-size: 46px;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
             color: #ffffff;
-            line-height: 35px;
+            line-height: 69px;
         }
         .sub-title{
+            margin-top:11px;
             opacity: 1;
-            font-size: 11px;
+            font-size: 22px;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
             color: #ffffff;
-            line-height: 19px;
+            line-height: 38px;
         }
     }
 }

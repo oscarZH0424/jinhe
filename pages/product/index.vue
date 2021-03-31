@@ -2,7 +2,7 @@
   <div class="container">
       <Pagebanner keystr="pro"/>
       <div class="pro-list">
-          <div class="pro-item">
+          <div class="pro-item" id="pro1">
               <img class="bg-img" src="~/assets/img/pro_1.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
@@ -11,7 +11,7 @@
                 <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">了解详情</div>
             </div>
           </div>
-          <div class="pro-item">
+          <div class="pro-item" id="pro2">
               <img class="bg-img" src="~/assets/img/pro_2.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
@@ -20,7 +20,7 @@
                 <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
             </div>
           </div>
-          <div class="pro-item">
+          <div class="pro-item" id="pro3">
               <img class="bg-img" src="~/assets/img/pro_3.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
@@ -29,7 +29,7 @@
                 <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
             </div>
           </div>
-          <div class="pro-item">
+          <div class="pro-item" id="pro4">
               <img class="bg-img" src="~/assets/img/pro_4.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
@@ -38,7 +38,7 @@
                 <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
             </div>
           </div>
-          <div class="pro-item">
+          <div class="pro-item" id="pro5">
               <img class="bg-img" src="~/assets/img/pro_5.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
@@ -52,11 +52,30 @@
 </template>
 
 <script>
+import bus from '@/assets/js/eventBus';
 export default {
-    mounted(){
-        console.log('aa',this.$store.state.isMobile);
+    mounted() {
+      bus.$on('hashchange',()=>{
+        setTimeout(()=>{
+          if (window.location.hash) {
+              this.goAnchor(window.location.hash)
+          }
+        },10)
+      })
+      if (window.location.hash) {
+          this.goAnchor(window.location.hash)
+      }
+      
     },
-    methods:{
+    methods: {
+        goAnchor(selector) {
+            // 最好加个定时器给页面缓冲时间
+            setTimeout(() => {
+                // 获取锚点元素
+                let anchor = this.$el.querySelector(selector)
+                anchor.scrollIntoView()
+            }, 500)
+        },
         toDetail(link){
             window.open(link);
         }

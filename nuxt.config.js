@@ -9,7 +9,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script:[
+      {src:'/js/flexible.js',type:'text/javascript',charset:'utf-8'}
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -20,9 +23,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    {src:'@/plugins/antd-ui',ssr:true},{src:'@/plugins/fullpage',ssr:false}
+    {src:'@/plugins/antd-ui',ssr:true},{src:'@/plugins/fullpage',ssr:false},{src:'@/plugins/router',ssr:false}
   ],
-
+  
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -52,7 +55,10 @@ export default {
     }
   },
   router:{
-    middleware:"common"
+    middleware:"common",
+    scrollBehavior (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
@@ -73,6 +79,8 @@ export default {
         ]
       ]
     },
-
+    postcss:[
+      require('postcss-px2rem')({remUnit:75})
+    ]
   }
 }

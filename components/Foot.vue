@@ -15,8 +15,7 @@
     <div class="foot-info" v-show="isMobile">
         <div>ADD .： 上海市徐汇区虹漕路68号锦和中心 邮编200233</div>
         <div><span>TEL ： 021-52341623</span><span>FAX：86-21-52385827</span></div>
-        <div>Copyright @2020 上海锦和投资集团有限公司</div>
-        <div>工信部备案号：沪ICP备11022539号</div>
+        <div>Copyright @2020 上海锦和投资集团有限公司 | 工信部备案号：沪ICP备11022539号</div>
     </div>
   </div>
 </template>
@@ -81,7 +80,7 @@ export default {
     }
 }
 .m-page-foot{
-    height:139px;
+    height:278px;
     width:100%;
     display: flex;
     flex-flow:column nowrap;
@@ -96,14 +95,14 @@ export default {
         .menu-item,.menu-divide{
             white-space: nowrap;
             opacity: 1;
-            font-size: 10px;
+            font-size: 20px;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             color: #ffffff;
-            line-height: 14px;
+            line-height: 28px;
         }
         .menu-divide{
-            padding:0px 5px;
+            padding:0px 10px;
         }
         .menu-item a{
             color: #ffffff;
@@ -111,22 +110,22 @@ export default {
     }
     .foot-info{
         white-space: nowrap;
-        margin-top:10px;
+        margin-top:31px;
         opacity: 1;
-        font-size: 9px;
+        font-size: 18px;
         font-family: LucidaGrande;
         text-align: center;
         color: #ffffff;
-        line-height: 14px;
+        line-height: 34px;
         >div{
             margin-top:10px;
         }
         .text-divide{
             display: inline-block;
-            width:20px;
+            width:40px;
         }
         .line{
-            padding:0px 5px;
+            padding:0px 10px;
         }
     }
 }

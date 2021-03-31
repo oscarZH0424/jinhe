@@ -2,7 +2,7 @@
   <div class="container">
     <client-only>
       <full-page :options="option" ref="fullpage">
-        <div class="section">
+        <div class="section" id="bannerSection">
           <a-carousel dotPosition="bottom">
             <Banner />
             <Banner />
@@ -77,7 +77,7 @@
           </div>
         </div>
         <div class="section">
-          <div class="desc-panel" id="">
+          <div class="desc-panel">
             <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt=""/>
             <div class="panel-mask tr"></div>
             <div class="desc-info p3">
@@ -137,7 +137,7 @@
           </div>
         </div>
         <div class="section">
-          <div class="desc-panel" id="">
+          <div class="desc-panel">
             <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt=""/>
             <div class="panel-mask tl"></div>
             <div class="desc-info p4">
@@ -164,7 +164,7 @@
           </div>
         </div>      
         <div class="section">
-          <div class="desc-panel" id="yyys">
+          <div class="desc-panel">
             <img class="bg-img br" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
               <div class="desc-title" style="margin-bottom:85px;margin-top:277px;">锦和资管的运营优势</div>
@@ -248,8 +248,6 @@ export default {
 
 .container {
   position:relative;
-  left:50%;
-  transform: translateX(-50%);
   width:1920px;
   margin: 0 auto;
   
