@@ -62,7 +62,10 @@ export default {
   },
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
-
+  server:{
+    port:3080,
+    host:'0.0.0.0'
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ["ant-design-vue"],
