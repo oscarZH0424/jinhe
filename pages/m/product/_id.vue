@@ -34,76 +34,76 @@ export default {
 .container{
     margin:0 auto;
     width:100%;
-    margin-top:64px;
+    margin-top:128px;
 }
 .paragraph{
     position:relative;
     width:100%;
     margin:0 auto;
-    padding-top:22px;
-    padding-bottom:80px;
+    padding-top:44px;
+    padding-bottom:160px;
     .title{
         opacity: 1;
-        font-size: 20px;
+        font-size: 40px;
         font-family: PingFangSC, PingFangSC-Semibold;
         font-weight: 600;
         text-align: left;
         color: #000000;
-        line-height: 28px;
-        margin-bottom:10px;
-        padding:0px 24px;
+        line-height: 56px;
+        margin-bottom:20px;
+        padding:0px 48px;
     }
     .subtitle{
         position:relative;
-        padding:0px 24px;
+        padding:0px 48px;
         .top{
             opacity: 1;
-            font-size: 12px;
+            font-size: 24px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             text-align: left;
             color: #000000;
-            line-height: 16px;
+            line-height: 32px;
         }
         .line{
             width:100%;
             height: 0px;
             opacity: 0.26;
             border: 1px solid #979797;
-            margin:10px auto;
+            margin:20px auto;
         }
         .bottom{
             opacity: 1;
-            font-size: 14px;
+            font-size: 28px;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
             color: #787878;
-            line-height: 20px;
+            line-height: 40px;
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
             align-items: flex-end;
             .bottom-info{
-                width:215px;
+                width:430px;
                 >span{
                     display: block;
                 }
             }
             .tag{
-                height:30px;
-                width:82px;
-                border-bottom:30px solid #b21e27;
+                height:60px;
+                width:164px;
+                border-bottom:60px solid #b21e27;
                 border-right:0px solid transparent;
-                border-left:20px solid transparent;
+                border-left:40px solid transparent;
                 opacity: 1;
-                font-size: 12px;
+                font-size: 24px;
                 font-family: PingFangSC, PingFangSC-Medium;
                 font-weight: 500;
                 text-align: right;
                 color: #ffffff;
-                line-height: 30px;
-                padding-right:10px;
+                line-height: 60px;
+                padding-right:20px;
             }
         }
        
@@ -112,20 +112,20 @@ export default {
         margin-top:30px;
         p{
             opacity: 1;
-            font-size: 13px;
+            font-size: 26px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             text-align: left;
             color: #787878;
-            line-height: 23px;
-            margin-bottom:15px;
-            padding:0px 24px;
+            line-height: 46px;
+            margin-bottom:30px;
+            padding:0px 48px;
         }
         img{
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:30px;
+            margin-bottom:60px;
         }
     }
     

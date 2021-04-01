@@ -525,7 +525,7 @@ export default {
 
     }
     .tag-group{
-      width:275px;
+      width:550px;
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;

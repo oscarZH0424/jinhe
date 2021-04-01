@@ -29,7 +29,7 @@ export default {
     data(){
         return {
             newsList:[
-                {time:'2020-10-29',title:'锦和商业上市后并购项目第一单',src:require('~/assets/img/news_1.png'),link:'http://www.iyuejie.com/#/newDatail?id=a52ca4e053a34630ab9d7642a63d2963'},
+                {time:'2020-10-29',title:'锦和商业上市后并购项目第一单',src:require('~/assets/img/news_1.png'),link:'/news/1'},
                 {time:'2020-12-28',title:'锦和越界陕康里荣获2020【金文旅奖】上海在线新文旅20强',src:require('~/assets/img/news_2.png'),link:'http://www.iyuejie.com/#/newDatail?id=56bc342f2b1342cc9a0e231537b6a556'},
                 {time:'2020-10-18',title:'锦和商业荣膺财联社“2020中国新经济最具投资价值上市公司奖”',src:require('~/assets/img/news_3.png'),link:'http://www.iyuejie.com/#/newDatail?id=c924c597e5054240a87f559f4a038eae'},
                 {time:'2020-8-24',title:'疫”境前行 | 锦和受邀与沪上商办行业共论创变新机遇',src:require('~/assets/img/news_4.png'),link:'http://www.iyuejie.com/#/newDatail?id=c6dddab283c1442fb3257f0a6531ee27'},

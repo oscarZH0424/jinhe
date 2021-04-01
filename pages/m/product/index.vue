@@ -26,7 +26,7 @@
               <div class="pro-info-container">
                 <div class="pro-title">锦和越界陕康里</div>
                 <div class="pro-desc">2020年8月焕新登场，位于老静安的核心区域， 是由锦和资管操盘，锦和商业运营管理的经典案例，通过设计改造和综合运管能力提升物业价值，打造引领现代生活方式的经典街区。</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
+                <div class="pro-btn" @click="toDetail2('/product/1')">了解详情</div>
             </div>
           </div>
           <div class="pro-item" id="pro4">
@@ -78,6 +78,9 @@ export default {
         },
         toDetail(link){
             window.open(link);
+        },
+        toDetail2(path){
+            window.open(path);
         }
     }
 }

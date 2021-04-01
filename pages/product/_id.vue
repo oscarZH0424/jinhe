@@ -34,6 +34,7 @@ export default {
 .container{
     margin:0 auto;
     width:1920px;
+    margin-top:108px;
 }
 .paragraph{
     position:relative;

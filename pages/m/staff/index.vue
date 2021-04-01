@@ -4,7 +4,7 @@
       <div class="staff-container">
           <div class="staff-title">招聘职位</div>
           <div class="position-group">
-              <div class="position-item">
+              <div class="position-item" @click="toDetail">
                   <div class="position-title">幕墙设计方向</div>
                   <div class="position-desc">锦和资管管培生 -2021届毕业生</div>
                   <div class="position-btn">了解更多</div>
@@ -12,7 +12,7 @@
               <div class="position-item">
                   <div class="position-title">机电工程方向机电工程方向机电工程…</div>
                   <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
-                  <div class="position-btn">了解更多</div>
+                  <div class="position-btn" >了解更多</div>
               </div>
               <div class="position-item">
                   <div class="position-title">装饰装修方向</div>
@@ -51,7 +51,11 @@
 
 <script>
 export default {
-    
+    methods:{
+        toDetail(){
+            window.open('/staff/1');
+        }
+    }
     
 }
 </script>
