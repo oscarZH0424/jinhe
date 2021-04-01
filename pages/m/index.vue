@@ -525,7 +525,7 @@ export default {
 
     }
     .tag-group{
-      width:600px;
+      width:275px;
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
@@ -533,7 +533,6 @@ export default {
       .tag-item{
         width:260px;
         height:244px;
-        margin-right:33px;
         margin-bottom:38px;
         background: rgba(255,255,255,.85);
         display: flex;
