@@ -1,6 +1,6 @@
 <template>
   <div class="page-foot" :class="{'page-foot':!isMobile,'m-page-foot':isMobile}">
-    <div class="menu-group">
+    <div v-show="lan=='ch'" class="menu-group">
         <div class="menu-item"><nuxt-link to="/">公司介绍</nuxt-link></div>
         <div class="menu-divide">|</div>
         <div class="menu-item"><nuxt-link to="/product">项目品牌</nuxt-link></div>
@@ -11,11 +11,28 @@
         <div class="menu-divide">|</div>
         <div class="menu-item"><nuxt-link to="/staff">企业招聘</nuxt-link></div>
     </div>
-    <div class="foot-info" v-show="!isMobile">ADD .： 上海市徐汇区虹漕路68号锦和中心 邮编200233 <span class="text-divide"></span>   TEL ： 021-52341623 <span class="text-divide"></span>FAX：86-21-52385827 <br> Copyright @2020 上海锦和投资集团有限公司 <span class="line">|</span> 工信部备案号： 沪ICP备11022539号</div>
-    <div class="foot-info" v-show="isMobile">
+    <div class="foot-info" v-show="!isMobile && lan=='ch'">ADD .： 上海市徐汇区虹漕路68号锦和中心 邮编200233 <span class="text-divide"></span>   TEL ： 021-52341623 <span class="text-divide"></span>FAX：86-21-52385827 <br> Copyright @2020 上海锦和投资集团有限公司 <span class="line">|</span> 工信部备案号： 沪ICP备11022539号</div>
+    <div class="foot-info" v-show="isMobile && lan=='ch'">
         <div>ADD .： 上海市徐汇区虹漕路68号锦和中心 邮编200233</div>
         <div><span>TEL ： 021-52341623</span><span>FAX：86-21-52385827</span></div>
         <div>Copyright @2020 上海锦和投资集团有限公司 | 工信部备案号：沪ICP备11022539号</div>
+    </div>
+    <div v-show="lan=='en'" class="menu-group">
+        <div class="menu-item"><nuxt-link to="/en/">About Us</nuxt-link></div>
+        <div class="menu-divide">|</div>
+        <div class="menu-item"><nuxt-link to="/en/product">Projects and Brands</nuxt-link></div>
+        <div class="menu-divide">|</div>
+        <div class="menu-item"><nuxt-link to="/en/team">Management Team</nuxt-link></div>
+        <div class="menu-divide">|</div>
+        <div class="menu-item"><nuxt-link to="/en/news">Media Center</nuxt-link></div>
+        <div class="menu-divide">|</div>
+        <div class="menu-item"><nuxt-link to="/en/staff">Join Us</nuxt-link></div>
+    </div>
+    <div class="foot-info" v-show="!isMobile&&lan=='en'">ADD .： Jinhe Center, No 68 Hongcao Road, Xuhui District, Shanghai, China Zip Code:200233 <span class="text-divide"></span>   TEL ： 021-52341623 <span class="text-divide"></span>FAX：86-21-52385827 <br> Copyright ©2020 Shanghai Jinhe Investment Group Co.,Ltd.<span class="line">|</span> MIIT Record / License Number: Shanghai ICP preparation No. 11022539</div>
+    <div class="foot-info" v-show="isMobile&&lan=='en'">
+        <div>ADD .： Jinhe Center, No 68 Hongcao Road, Xuhui District, Shanghai, China Zip Code:200233</div>
+        <div><span>TEL ： 021-52341623</span><span>FAX：86-21-52385827</span></div>
+        <div>Copyright ©2020 Shanghai Jinhe Investment Group Co.,Ltd.司 | MIIT Record / License Number: Shanghai ICP preparation No. 11022539</div>
     </div>
   </div>
 </template>
@@ -23,8 +40,12 @@
 export default {
     data(){
         return {
-            isMobile:false
+            isMobile:false,
+            lan:'ch',
         }
+    },
+    created(){
+        this.lan = this.$store.state.lan;
     },
     mounted(){
         this.isMobile = this.$store.state.isMobile;

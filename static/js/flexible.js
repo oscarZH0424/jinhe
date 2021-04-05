@@ -30,6 +30,7 @@ function(a, b) {
             if(banner){
                 banner.style.width = b + 'px';
             }
+            
             if(!browser.versions().mobile){
                 b = b > 1200 ? b : 1200;
             }

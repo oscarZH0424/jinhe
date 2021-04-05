@@ -30,8 +30,10 @@
                  this.open = !this.open;
                 }
                 if(this.menu.path){
+                    let base = this.$store.state.lan == 'en' ? '/en' : '';
+                    let path = `${base}${this.menu.path}` ;
                     this.$router.push({
-                        path:this.menu.path
+                        path
                     })
                     this.$emit('tap');
                 }

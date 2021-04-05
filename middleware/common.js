@@ -6,6 +6,11 @@ export default function ({store,req,redirect,route}){
     let ismobile = isMobile(userAgent);
     store.commit('SET_ISMOBILE',ismobile);
     const path = route.fullPath;
+    if(path.indexOf('/en/')!=-1){
+        store.commit('SET_LAN','en');
+    }else{
+        store.commit('SET_LAN','ch');
+    }
     let pathArr = path.split('/');
     let url = '';
     if(ismobile){

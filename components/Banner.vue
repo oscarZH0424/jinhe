@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile}">
+  <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile}" :style="styleCss">
       <!-- <img v-show="!isMobile" src="~/assets/img/home-banner.png" alt=""> -->
       <img v-show="isMobile" src="~/assets/img/m/home-banner.png" alt="">
       <div class="title-area">
@@ -13,11 +13,23 @@
 export default {
     data(){
         return {
-            isMobile:false
+            isMobile:false,
+            styleCss:{
+                height:''
+            }
         }
     },
     mounted(){
         this.isMobile = this.$store.state.isMobile;
+        this.setHeight();
+        window.addEventListener('resize', this.setHeight);
+    },
+    methods:{
+        setHeight(){
+            if(!this.isMobile){
+                this.styleCss.height = `${document.documentElement.clientHeight}px`;
+            }
+        }
     }
 }
 </script>
@@ -26,7 +38,6 @@ export default {
 .banner-item{
     position: relative;
     width:100%;
-    min-height:1080px;
     background: url('~/assets/img/home-banner.png');
     background-size:100% 100%;
     img{

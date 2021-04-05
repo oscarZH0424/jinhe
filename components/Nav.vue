@@ -1,8 +1,20 @@
 <template>
   <div :class="{'nav-head':!isMobile,'m-nav-head':isMobile}">
-    <nuxt-link to="/"><img class="logo" src="../assets/img/logo.png" alt="" @click="tapMenu"></nuxt-link>  
+    <img class="logo" src="../assets/img/logo.png" alt="" @click="tapMenu('/')">  
     <div v-show="!isMobile" class="menu-group">
-      <div class="menu-item">
+      <div class="menu-item" v-for="(menu,index) in menus[lan]" :key="index" @click="tapMenu(menu.path)">
+        <span>{{menu.name}} <span v-show="menu.child" class="arrow1">></span> </span>
+        <div class="drop-down-group" v-show="menu.child" :style="{width:index==1?'375px':''}">
+          <div v-for="(item,index2) in menu.child" :key="index2">
+            <div v-show="!item.child" class="drop-down-item" @click="tapMenu(item.path)" >{{item.name}}</div>
+            <div v-show="item.child" class="drop-down-item" @click="choose(item.type)" :class="{'active':isActive(item.type)}">{{item.name}} <span v-show="item.child" class="arrow2">></span></div>
+            <div v-show="isActive(item.type)">
+              <div class="drop-down-item" v-for="(subMenu,index3) in item.child" :key="index3" @click="tapMenu(subMenu.path)">{{subMenu.name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="menu-item">
         <span>公司介绍 <span class="arrow1">></span></span>
         <div class="drop-down-group">
           <nuxt-link to="/#glgm"><div class="drop-down-item" @click="tapMenu">管理规模</div></nuxt-link>
@@ -30,9 +42,10 @@
       </div>
       <nuxt-link to="/team"><div class="menu-item">管理团队</div></nuxt-link>
       <nuxt-link to="/news"><div class="menu-item">新闻中心</div></nuxt-link>
-      <nuxt-link to="/staff"><div class="menu-item">企业招聘</div></nuxt-link>
+      <nuxt-link to="/staff"><div class="menu-item">企业招聘</div></nuxt-link> -->
       <div class="text-btn-group" :class="{'open':isSearch}">
-        <div v-show="!isSearch" @click="toSearch"><img class="search-btn" src="~/assets/img/ic_search.png" alt=""></div>
+        
+        <div v-show="!isSearch" ><span class="en" @click="toggleLan">{{lan=='ch'?'EN':'中文'}}</span><img @click="toSearch" class="search-btn" src="~/assets/img/ic_search.png" alt=""></div>
         <div v-show="isSearch" class="search-input">
           <input type="text" v-model="searchKey" v-on:keydown.enter="onInputKeyDown">
           <div class="close" @click="close"><img class="close-btn" src="~/assets/img/ic_close.png" alt=""></div>
@@ -45,7 +58,7 @@
       </div>
       <div class="m-drop-container" :class="{'show':open}" @click="tapMask($event)">
         <div class="m-drop-menu" >
-          <div v-for="(menu,index) in menus" :key="index">
+          <div v-for="(menu,index) in menus[lan]" :key="index">
             <Menu :menu="menu" @tap="onMenuTap"/>
           </div>
           <div>
@@ -70,18 +83,50 @@ export default {
       open:false,
       menus:[
         {name:'公司介绍',child:[{name:'管理规模',path:'/#glgm'},{name:'多业态运营',path:'/#dytyy'},{name:'合作方',path:'/#hzf'},{name:'商业模式',path:'/#syms'},{name:'运营优势',path:'/#yyys'}]},
-        {name:'项目与品牌',child:[{name:'项目',child:[{name:'上海御锦轩凯宾斯基全套房酒店',path:'/product#pro1'},{name:'北京广安门越都荟',path:'/product#pro2'},{name:'锦和越界陕康里',path:'/product#pro3'},{name:'越界锦和尚城',path:'/product#pro4'}]},{name:'品牌',child:[{name:'base佰舍',path:'/product#pro5'}]}]},
+        {name:'项目与品牌',child:[{name:'项目',type:'pro',child:[{name:'上海御锦轩凯宾斯基全套房酒店',path:'/product#pro1'},{name:'北京广安门越都荟',path:'/product#pro2'},{name:'锦和越界陕康里',path:'/product#pro3'},{name:'越界锦和尚城',path:'/product#pro4'}]},{name:'品牌',type:'brand',child:[{name:'base佰舍',path:'/product#pro5'}]}]},
         {name:'管理团队',path:'/team'},{name:'新闻中心',path:'/news'},{name:'企业招聘',path:'/staff'}
       ],
+      menus:{
+        ch:[
+        {name:'公司介绍',child:[{name:'管理规模',path:'/#glgm'},{name:'多业态运营',path:'/#dytyy'},{name:'合作方',path:'/#hzf'},{name:'商业模式',path:'/#syms'},{name:'运营优势',path:'/#yyys'}]},
+        {name:'项目与品牌',child:[{name:'项目',type:'pro',child:[{name:'上海御锦轩凯宾斯基全套房酒店',path:'/product#pro1'},{name:'北京广安门越都荟',path:'/product#pro2'},{name:'锦和越界陕康里',path:'/product#pro3'},{name:'越界锦和尚城',path:'/product#pro4'}]},{name:'品牌',type:'brand',child:[{name:'base佰舍',path:'/product#pro5'}]}]},
+        {name:'管理团队',path:'/team'},{name:'新闻中心',path:'/news'},{name:'企业招聘',path:'/staff'}
+      ],
+      en:[
+        {name:'About Us',child:[{name:'Management Scale',path:'/#glgm'},{name:'Multi-Format Operation',path:'/#dytyy'},{name:'Partners',path:'/#hzf'},{name:'Business Model',path:'/#syms'},{name:'Operational Advantages',path:'/#yyys'}]},
+        {name:'Projects and Brands',child:[{name:'Projects',type:'pro',child:[{name:'Kempinski The One Suites Hotel Shanghai Dowtown',path:'/product#pro1'},{name:'Inspace at Guang’anmen, Beijing',path:'/product#pro2'},{name:'Shan Kang Courtyard',path:'/product#pro3'},{name:'Surpass space Jinhe Shang city',path:'/product#pro4'}]},{name:'Brands',type:'brand',child:[{name:'baseLIVING',path:'/product#pro5'}]}]},
+        {name:'Management Team',path:'/team'},{name:'Media Center',path:'/news'},{name:'Join Us',path:'/staff'}
+      ],
+      },
       proShow:false,
-      brandShow:false
+      brandShow:false,
+      lan:'ch'
     }
+  },
+  created(){
+    this.lan = this.$store.state.lan;
   },
   mounted(){
     console.log('isMobile',this.$store.state.isMobile);
     this.isMobile = this.$store.state.isMobile;
   },
   methods:{
+    isActive(type){
+      return this[`${type}Show`];
+    },
+    toggleLan(){
+      this.lan = this.lan == 'ch' ? 'en' : 'ch';
+      if(this.lan == 'ch'){
+        this.$router.push({
+          path:'/'
+        })
+      }else{
+         this.$router.push({
+          path:'/en/'
+        })
+      }
+      
+    },
     choose(type){
       if(type=='pro'){
         this.proShow = !this.proShow;
@@ -100,10 +145,12 @@ export default {
     tapMenu(path){
       this.open = false;
       if(path && typeof path == 'string'){
+        let base = this.lan == 'en' ? '/en' : '';
+        path = `${base}${path}` ;
         console.log(path);
         this.$router.push({
-          path:path
-        })
+          path 
+        }) 
       }
       bus.$emit('hashchange');
     },
@@ -131,6 +178,7 @@ export default {
 a{
   color:white;
 }
+
 .nav-head{
     position:fixed;
     top:0px;
@@ -173,11 +221,21 @@ a{
           &.open{
             width:100%;
           }
+          .en{
+            opacity: 1;
+            font-size: 14px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            text-align: left;
+            color: #ffffff;
+            line-height: 20px;
+            margin-right:25px;
+          }
           .search-btn{
-            width:26px;
+            width:14px;
           }
           .close-btn{
-            width:26px;
+            width:14px;
           }
           .search-input{
             position:relative;
@@ -255,6 +313,7 @@ a{
                 font-weight: 500;
                 text-align: left;
                 color: #000;
+                overflow: hidden;
                 &:hover,&.active{
                   background: #B21E27;
                   color:white;
