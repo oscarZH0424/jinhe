@@ -53,6 +53,7 @@
       </div>
     </div>
     <div v-show="isMobile">
+      <span class="en"  @click="toggleLan">{{lan=='ch'?'EN':'中'}}</span>
       <div class="menu"  :class="{'menu_click':open}" @click="tapMenuBtn">
         <span></span>
       </div>
@@ -63,8 +64,8 @@
           </div>
           <div>
             <div class="drop-menu-item">
-            <span class="menu-title"><input type="text" v-model="searchKey" placeholder="输入关键词搜索"></span>
-            <span class="menu-arrow">搜索</span>
+            <span class="menu-title"><input @click="inputClick($event)" type="text" v-model="searchKey" :placeholder="placeholdStr[lan]"></span>
+            <span class="menu-arrow"><img @click="toSearch2" class="search-btn" src="~/assets/img/ic_search.png" alt=""></span>
           </div>
           </div>
         </div>
@@ -93,14 +94,15 @@ export default {
         {name:'管理团队',path:'/team'},{name:'新闻中心',path:'/news'},{name:'企业招聘',path:'/staff'}
       ],
       en:[
-        {name:'About Us',child:[{name:'Management Scale',path:'/#glgm'},{name:'Multi-Format Operation',path:'/#dytyy'},{name:'Partners',path:'/#hzf'},{name:'Business Model',path:'/#syms'},{name:'Operational Advantages',path:'/#yyys'}]},
-        {name:'Projects and Brands',child:[{name:'Projects',type:'pro',child:[{name:'Kempinski The One Suites Hotel Shanghai Dowtown',path:'/product#pro1'},{name:'Inspace at Guang’anmen, Beijing',path:'/product#pro2'},{name:'Shan Kang Courtyard',path:'/product#pro3'},{name:'Surpass space Jinhe Shang city',path:'/product#pro4'}]},{name:'Brands',type:'brand',child:[{name:'baseLIVING',path:'/product#pro5'}]}]},
-        {name:'Management Team',path:'/team'},{name:'Media Center',path:'/news'},{name:'Join Us',path:'/staff'}
+        {name:'About',child:[{name:'Management Scale',path:'/#glgm'},{name:'Multi-format Operation',path:'/#dytyy'},{name:'Partners',path:'/#hzf'},{name:'Business Model',path:'/#syms'},{name:'Operational Advantages',path:'/#yyys'}]},
+        {name:'Projects and Brands',child:[{name:'Projects',type:'pro',child:[{name:'Kempinski The One Suites Hotel Shanghai Downtown',path:'/product#pro1'},{name:'INFINITE SPACE BEIJING',path:'/product#pro2'},{name:'SURPASS SPACE SHANKANG ALLEY',path:'/product#pro3'},{name:'SURPASS SPACE GOLDEN UNION SHANG CITY',path:'/product#pro4'}]},{name:'Brands',type:'brand',child:[{name:'base service apartment',path:'/product#pro5'}]}]},
+        {name:'Leadership',path:'/team'},{name:'Media',path:'/news'},{name:'Careers',path:'/staff'}
       ],
       },
       proShow:false,
       brandShow:false,
-      lan:'ch'
+      lan:'ch',
+      placeholdStr:{ch:'输入关键词搜索',en:'Enter keywords'}
     }
   },
   created(){
@@ -111,6 +113,9 @@ export default {
     this.isMobile = this.$store.state.isMobile;
   },
   methods:{
+    inputClick(e){
+      e.stopPropagation();
+    },
     isActive(type){
       return this[`${type}Show`];
     },
@@ -159,6 +164,8 @@ export default {
     },
     toSearch(){
       this.isSearch = true;
+    },
+    toSearch2(){
     },
     close(){
       this.isSearch = false;
@@ -210,7 +217,7 @@ a{
         }
         .text-btn-group{
           position:absolute;
-          right:80px;
+          right:5px;
           bottom:0px;
           height:108px;
           color: white;
@@ -345,6 +352,19 @@ a{
   .logo{
     height:67px;
   }
+  .en{
+    font-size: 30px;
+    font-family: PingFangSC, PingFangSC-Regular;
+    font-weight: 400;
+    text-align: left;
+    color: #ffffff;
+    line-height: 42px;
+    letter-spacing: 0px;
+    margin-right:34px;
+  }
+  .search-btn{
+    width:40px;
+  }
   .m-drop-container{
     position:absolute;
     width:100%;
@@ -408,11 +428,11 @@ a{
   
 }
 
-.menu{display:inline-block;cursor:pointer;height:70px;width:70px;position:relative;}
-.menu span{display:inline-block;width:70px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:40px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
-.menu span:before{content:'';display:inline-block;width:70px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:-24px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
-.menu span:after{content:'';display:inline-block;width:70px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:24px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu{display:inline-block;cursor:pointer;height:35px;width:35px;position:relative;}
+.menu span{display:inline-block;width:35px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:20px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
+.menu span:before{content:'';display:inline-block;width:35px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:-12px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span:after{content:'';display:inline-block;width:35px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:12px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
 .menu.menu_click span{background-color:transparent;}
-.menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:60px;}
-.menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:60px;}
+.menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:35px;}
+.menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:35px;}
 </style>

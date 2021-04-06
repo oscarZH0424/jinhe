@@ -3,8 +3,9 @@
       <!-- <img v-show="!isMobile" src="~/assets/img/home-banner.png" alt=""> -->
       <img v-show="isMobile" src="~/assets/img/m/home-banner.png" alt="">
       <div class="title-area">
-          <div class="title">提升城市活力<br>激发城市经济增长</div>
-        <div class="sub-title">ENHANCE THE VITALITY OF THE CITY <br> STIMULATE URBAN ECONOMIC GROWTH</div>
+          <div v-show="lan=='ch'" class="title">提升城市活力<br>激发城市经济增长</div>
+          <div v-show="lan=='ch'" class="sub-title">ENHANCE THE VITALITY OF THE CITY <br> STIMULATE URBAN ECONOMIC GROWTH</div>
+          <div v-show="lan=='en'" class="title">ENHANCE THE VITALITY OF THE CITY <br> STIMULATE URBAN ECONOMIC GROWTH</div>
       </div>
   </div>
 </template>
@@ -16,10 +17,15 @@ export default {
             isMobile:false,
             styleCss:{
                 height:''
-            }
+            },
+            lan:'ch'
         }
     },
+    created(){
+        this.lan = this.$store.state.lan;
+    },
     mounted(){
+        this.lan = this.$store.state.lan;
         this.isMobile = this.$store.state.isMobile;
         this.setHeight();
         window.addEventListener('resize', this.setHeight);
@@ -46,6 +52,7 @@ export default {
     .title-area{
         position:absolute;
         top:187px;
+        width:60%;
         // top:18.31vh;
         // left:218px;
         left:11.354vw;
@@ -86,6 +93,7 @@ export default {
         position:absolute;
         top:280px;
         left:45px;
+        width:80%;
         .title{
             opacity: 1;
             font-size: 46px;

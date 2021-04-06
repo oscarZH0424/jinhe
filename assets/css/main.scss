@@ -5,9 +5,11 @@
     position: relative;
     width:100%;
     height:330px;
+    height:17.1875vw;
     img{
         width:100%;
         height:330px;
+        height:17.1875vw;
         object-fit: cover;
     }
     .text{
@@ -23,6 +25,10 @@
         top:50%;
         transform: translateY(-50%);
         left:360px;
+        left:18.75vw;
+        font-size: 2.5vw;
+        line-height: 3.489583vw;
+
         &.dark{
             color:#000;
             text-shadow: none; 

@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .paragraph{
@@ -42,6 +42,11 @@ export default {
     margin:0 auto;
     padding-top:87px;
     padding-bottom:145px;
+
+    width:62.5vw;
+    padding-top:4.53125vw;
+    padding-bottom:7.552083vw;
+
     .title{
         opacity: 1;
         font-size: 32px;
@@ -51,6 +56,11 @@ export default {
         color: #000000;
         line-height: 45px;
         margin-bottom:20px;
+
+        font-size: 1.67vw;
+        line-height: 2.34375vw;
+        margin-bottom:1.04167vw;
+
     }
     .subtitle{
         position:relative;
@@ -62,6 +72,11 @@ export default {
             text-align: left;
             color: #000000;
             line-height: 20px;
+
+            font-size: 0.729167vw;
+            line-height: 1.04167vw;
+
+
         }
         .line{
             width:100%;
@@ -78,9 +93,14 @@ export default {
             text-align: left;
             color: #787878;
             line-height: 20px;
+
+            font-size: 0.729167vw;
+            line-height: 1.04167vw;
             >span{
                 display: inline-block;
                 margin-right:40px;
+                margin-right:2.083vw;
+
             }
         }
        .tag{
@@ -100,10 +120,21 @@ export default {
             color: #ffffff;
             line-height: 30px;
             padding-right:10px;
+
+            top:-0.52083vw;
+            height:1.5625vw;
+            width:79px;
+            border-bottom:1.5625vw solid #b21e27;
+            border-left:1.04167vw solid transparent;
+            font-size: 0.625vw;
+            line-height: 1.5625vw;
+            padding-right:0.52083vw;
+
         }
     }
     .content{
         margin-top:30px;
+        margin-top:1.5625vw;
         p{
             opacity: 1;
             font-size: 16px;
@@ -113,12 +144,21 @@ export default {
             color: #787878;
             line-height: 28px;
             margin-bottom:30px;
+
+            font-size: 0.83vw;
+            line-height: 1.4583vw;
+            margin-bottom:1.5625vw;
         }
         img{
             max-width:1200px;
             margin:0 auto;
             display: block;
             margin-bottom:68px;
+            
+            max-width:62.5vw;
+            margin-bottom:3.54167vw;
+
+
         }
     }
     

@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;        
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .paragraph{
@@ -51,6 +51,10 @@ export default {
     margin:0 auto;
     padding-top:87px;
     padding-bottom:145px;
+
+    width:62.5vw;
+    padding-top:4.53125vw;
+    padding-bottom:7.552083vw;
     .title{
         opacity: 1;
         font-size: 32px;
@@ -59,6 +63,11 @@ export default {
         text-align: left;
         color: #000000;
         line-height: 45px;
+
+        font-size: 1.67vw;
+        line-height: 2.34375vw;
+
+
     }
     .subtitle{
         position:relative;
@@ -78,11 +87,18 @@ export default {
             text-align: left;
             color: #000000;
             line-height: 22px;
+
+            font-size: 0.83vw;
+            line-height: 1.14583vw;
+
+
         }
        
     }
     .content{
         margin-top:30px;
+        margin-top:1.5625vw;
+
         .position-info{
             .position-label{
                 display: inline-block;
@@ -93,6 +109,10 @@ export default {
                 text-align: left;
                 color: #000000;
                 line-height: 30px;
+
+                font-size: 0.83vw;
+                line-height: 1.5625vw;
+
                 &.block{
                     display: block;
                 }
@@ -106,6 +126,9 @@ export default {
                 text-align: left;
                 color: #787878;
                 line-height: 30px;
+
+                font-size: 0.83vw;
+                line-height: 1.5625vw;
             }
             
         } 
@@ -119,6 +142,11 @@ export default {
             color: #B21E27;
             line-height: 30px;
             margin-top:50px;
+
+            font-size: 0.83vw;
+            line-height: 1.5625vw;
+            margin-top:2.63158vw;
+
         }
     }
     

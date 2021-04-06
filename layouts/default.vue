@@ -26,7 +26,7 @@ html {
   box-sizing: border-box;
 }
 html,body{
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 *,

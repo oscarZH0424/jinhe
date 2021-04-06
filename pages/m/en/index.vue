@@ -11,57 +11,57 @@
       <img class="bg-img bl" src="~/assets/img/m/desc_bg_1.png" alt=""/>
       <div class="panel-mask br"></div>
       <div class="desc-info p1">
-        <div class="desc-title">锦和资产管理公司</div>
-        <div class="desc-text">锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。</div>
-      </div>
+        <div class="desc-title">Jinghe Asset Management Company</div>
+        <div class="desc-text">Founded in 2020, Jinhe Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It is committed to creating more value for stock assets, enhancing urban vitality and stimulating urban economic growth.</div>
+      </div> 
     </div>
     <div class="desc-panel" id="glgm">
       <img class="bg-img br" src="~/assets/img/m/desc_bg_2.png" alt=""/>
       <div class="panel-mask bl"></div>
       <div class="desc-info p2">
-        <div class="desc-title" style="margin-bottom:50px;">锦和资管的管理规模</div>
+        <div class="desc-title" style="margin-bottom:50px;">Management <br> Scale</div>
         <div class="desc-label-group">
           <div class="label-item" style="margin-right:100px;">
-            <div class="label-val">151亿RMB</div>
-            <div class="label-name">资产规模</div>
+            <div class="label-val">RMB 15.1 billion</div>
+            <div class="label-name">A total asset scale</div>
           </div>
           <div class="label-item" style="margin-right:100px;">
-            <div class="label-val">19个</div>
-            <div class="label-name">全国项目</div>
+            <div class="label-val">19</div>
+            <div class="label-name">projects</div>
           </div>
           <div class="label-item">
-            <div class="label-val">39.6万平方米</div>
-            <div class="label-name">总建筑面积</div>
+            <div class="label-val">396,000 m²</div>
+            <div class="label-name">A total construction area</div>
           </div>
-          <div class="label-item">
-            <div class="label-val">2个</div>
-            <div class="label-name">全国城市</div>
+          <div class="label-item" style="margin-left:40px;">
+            <div class="label-val">2</div>
+            <div class="label-name">cities</div>
           </div>
         </div>
-        <div class="desc-tip">*截至2020年12月30号</div>
+        <div class="desc-tip">* By December 30.2020</div>
       </div>
     </div>
     <div class="desc-panel"  id="dytyy">
       <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
-        <div class="desc-title">锦和资管的多业态运营</div>
-        <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
+        <div class="desc-title">Multi-format Operation</div>
+        <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
         <div class="desc-intro-group">
           <div class="desc-intro-item">
-            <div class="intro-title">base 长租公寓</div>
-            <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+            <div class="intro-title">base long-term rental apartment</div>
+            <div class="intro-text">An inspirational living space that serves mid-to-high-end customer base. Through modern minimalist design, the old buildings of the city are transformed to inject new vitality into the community.</div>
           </div>
           <div class="desc-intro-item">
-            <div class="intro-title">base 长租公寓</div>
-            <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+            <div class="intro-title">Tulu youth apartment</div>
+            <div class="intro-text">Design-led modern urban co-living space is built to inspire and promote communication among young people with similar interests and exploring spirits.</div>
           </div>
           <div class="desc-intro-item">
-            <div class="intro-title">base 长租公寓</div>
-            <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+            <div class="intro-title">Surpass space <br> Office building</div>
+            <div class="intro-text">It provides office space solutions for enterprises of different sizes to meet the needs of modern office, covering various types of business office buildings, boutique offices, creative campus, etc.</div>
           </div>
           <div class="desc-intro-item">
-            <div class="intro-title">base 长租公寓</div>
-            <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+            <div class="intro-title">Surpass space/ Inspace Community Business</div>
+            <div class="intro-text">The incorporation of distinctive supporting commerce and community commerce...</div>
           </div>
         </div>
       </div>
@@ -70,55 +70,55 @@
       <img class="bg-img tl" src="~/assets/img/m/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr"></div>
       <div class="desc-info p3">
-        <div class="desc-title">锦和资管合作方</div>
+        <div class="desc-title">Partners</div>
         <div class="multi-intro">
           <div class="multi-main">
             <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-            <div class="main-title">国际领先的私募股权投资公司</div>
-            <div class="main-subtitle">自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。</div>
+            <div class="main-title">A leading global private equity firm focused on growth investing</div>
+            <div class="main-subtitle">Since its establishment in 1966, it has established close partnerships with thousands of entrepreneurs and management teams around the world, and has accumulated rich industry experience.</div>
             <div class="text-group">
               <div class="text-item">
-                <div class="text-title">50年</div>
-                <div class="text-info">产业投资管理经验</div>
+                <div class="text-title">50 years</div>
+                <div class="text-info" style="text-align:left;">ln industrial investment management</div>
               </div>
               <div class="text-item">
-                <div class="text-title">370亿美元</div>
-                <div class="text-info">目前管理资产额</div>
+                <div class="text-title">$37 billion</div>
+                <div class="text-info">AUM</div>
               </div>
               <div class="text-item">
-                <div class="text-title">700家</div>
-                <div class="text-info">迄今投资企业总数</div>
+                <div class="text-title">700</div>
+                <div class="text-info">Invested companies</div>
               </div>
               <div class="text-item">
-                <div class="text-title">120家</div>
-                <div class="text-info">目前持有投资企业</div>
+                <div class="text-title">120</div>
+                <div class="text-info">Companies currently owned and invested</div>
               </div>
               <div class="text-item no">
-                <div class="text-title">480亿美元</div>
-                <div class="text-info">迄今投资额</div>
+                <div class="text-title">$48 billion</div>
+                <div class="text-info">Investment volume</div>
               </div>
               <div class="text-item no">
-                <div class="text-title">1994年</div>
-                <div class="text-info">走进中国</div>
+                <div class="text-title">1994</div>
+                <div class="text-info">Entered China</div>
               </div>
             </div>
           </div>
           <div class="multi-sub">
             <div class="sub-intro-item">
               <img style="margin-top:13px;height:30px;" src="~/assets/img/logo_2.png" alt=""/>
-              <div class="sub-text" style="margin-top:13px;"><span>首创钜大有限公司</span>主要从事商业物业开发及运营管理，致力成为中国领先的商业地产运营商。</div>
+              <div class="sub-text" style="margin-top:13px;"><span>Beijing Capital Grand Limited (“Capital Grand”)</span>is mainly engaged in commercial property development and operation management, and is committed to becoming a leading commercial property developer in China. </div>
             </div>
             <div class="sub-intro-item">
               <img style="margin-top:18px;height:19px;" src="~/assets/img/logo_3.png" alt=""/>
-              <div class="sub-text" style="margin-top:20px;"><span>万科企业股份有限公司</span>成立于1984年，1988年进入房地产行业，经过三十余年的发展，已成为国内领先的城市配套服务商。</div>
+              <div class="sub-text" style="margin-top:20px;">China Vanke Co., Ltd.was established in 1984. After 30 years of development in property industry since 1988, it has become a leading city supporting service provider in China.</div>
             </div>
             <div class="sub-intro-item">
               <img style="margin-top:9px;height:32px;" src="~/assets/img/logo_4.png" alt=""/>
-              <div class="sub-text" style="margin-top:12px;"><span>“InfraRed南丰大中华房地产基金”</span>为南丰集团于2007年与汇丰银行合作发展的私募房地产基金，致力于中国增值型物业的投资。</div>
+              <div class="sub-text" style="margin-top:12px;"><span>“InfraRed Nan Fung Greater China Real Estate Fund”</span>is a private property fund developed by Nan Fung Group in cooperation with HSBC in 2007, dedicated to the investment of value-added properties in China.</div>
             </div>
             <div class="sub-intro-item">
               <img  style="margin-top:0px;height:50px;" src="~/assets/img/logo_5.png" alt=""/>
-              <div class="sub-text" style="margin-top:5px;"><span>GIC</span>成立于1981年，是一家来自新加坡的主权投资基金，其主要任务是管理新加坡的外汇储备，跨出新加坡国界向海外大举投资…</div>
+              <div class="sub-text" style="margin-top:5px;"><span>GIC</span>Private Limited is a sovereign wealth fund established by the Government of Singapore in 1981 to manage Singapore's foreign reserves. Its mission is to manage Singapore’s foreign reserves and to invest overseas. It currently invests more than $100 billion across 6 core asset classes in more than 40 countries around the world, beside Singapore.</div>
             </div>
           </div>
         </div>
@@ -128,23 +128,23 @@
       <img class="bg-img br" src="~/assets/img/m/desc_bg_4.png" alt=""/>
       <div class="panel-mask tl"></div>
       <div class="desc-info p4">
-        <div class="desc-title" style="margin-bottom:10px;">锦和资管的商业模式</div>
-        <div class="desc-subtitle" style="margin-bottom:33px;">锦和资管全生命周期管控系<br>“一站式”资产管理服务</div>
+        <div class="desc-title" style="margin-bottom:10px;">Business Model</div>
+        <div class="desc-subtitle" style="margin-bottom:33px;">Jinhe Asset Management Full Lifecycle Control System<br>"One-stop" Asset Management Service</div>
         <div class="tag-group">
           <div class="tag-item">
-            <div class="tag-text">物业收购</div>
+            <div class="tag-text">Property acquisition</div>
           </div>
           <div class="tag-item">
-            <div class="tag-text">产品定位</div>
-            <div class="tag-text">工程管理</div>
+            <div class="tag-text">Product Positioning</div>
+            <div class="tag-text">Engineering management</div>
           </div>
           <div class="tag-item">
-            <div class="tag-text">多元化的</div>
-            <div class="tag-text">盈利基础</div>
+            <div class="tag-text">Diversified</div>
+            <div class="tag-text">Profit Base</div>
 
           </div>
           <div class="tag-item">
-            <div class="tag-text">运营管理</div>
+            <div class="tag-text">Operation Management</div>
           </div>
         </div>
       </div>
@@ -152,23 +152,23 @@
     <div class="desc-panel" id="yyys">
       <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
-        <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">锦和资管的运营优势</div>
+        <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">Operational Advantages</div>
         <div class="desc-intro-group">
           <div class="desc-intro-item">
-            <div class="intro-title no-border">资源</div>
-            <div class="intro-text">优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势</div>
+            <div class="intro-title no-border">Resource</div>
+            <div class="intro-text">High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage</div>
           </div>
           <div class="desc-intro-item">
-            <div class="intro-title no-border">资本</div>
-            <div class="intro-text">强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投</div>
+            <div class="intro-title no-border">Capital</div>
+            <div class="intro-text">Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States</div>
           </div>
           <div class="desc-intro-item">
-            <div class="intro-title no-border">市场</div>
-            <div class="intro-text">敏锐的市场洞察力<br>精准的市场定位</div>
+            <div class="intro-title no-border">Market</div>
+            <div class="intro-text">Sharp market insight<br>Precise market positioning</div>
           </div>
           <div class="desc-intro-item">
-            <div class="intro-title no-border">创新</div>
-            <div class="intro-text">产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力</div>
+            <div class="intro-title no-border">Innovation</div>
+            <div class="intro-text">Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities</div>
           </div>
         </div>
       </div>
@@ -313,6 +313,12 @@ export default {
       top:264px;
       right:45px;
       width:398px;
+      .desc-title{
+        text-align: right;
+      }
+      .desc-text{
+        text-align: right;
+      }
     }
     &.p2{
       left:45px;
@@ -361,9 +367,9 @@ export default {
     .desc-label-group{
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: flex-start;
-      width:500px;
+      width:600px;
       .label-item{
         position: relative;
         margin-bottom:55px;
@@ -452,10 +458,10 @@ export default {
           .text-item{
             width:212px;
             height:112px;
-            padding:24px 0px;
+            padding-top:20px;
             display: flex;
             flex-flow:column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             &:nth-child(odd){
               border-right:1PX dashed #c5c1c1;
@@ -474,8 +480,8 @@ export default {
               font-weight: BoldMT;
               color: #af1f22;
               line-height: 39px;
-              white-space: nowrap;
               text-align: center;
+              white-space: nowrap;
             }
             .text-info{
               opacity: 1;
@@ -485,7 +491,6 @@ export default {
               text-align: center;
               color: #898989;
               line-height: 25px;
-              white-space: nowrap;
             }
           }
         }
@@ -516,6 +521,10 @@ export default {
             font-weight: 400;
             color: #000;
             line-height: 28px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
             >span{
               color: #af1e23;
             }
@@ -543,12 +552,15 @@ export default {
           margin-right:0px;
         }
         .tag-text{
+          width:100%;
           opacity: 1;
           font-size: 34px;
           font-family: PingFangSC, PingFangSC-Regular;
           font-weight: 400;
           color: #af1e23;
           line-height: 48px;
+          text-align: left;
+          padding:0px 20px;
         }
       }
     }
@@ -589,7 +601,7 @@ export default {
         height: 294px;
         opacity: 1;
         border: 1px solid #898989;
-        padding:40px 36px 40px  36px;
+        padding:30px 20px 20px 20px;
         background: rgba(255,255,255,.8);
         margin-bottom:33px;
         .intro-title{
@@ -598,7 +610,7 @@ export default {
           font-family: LucidaGrande;
           color: #af1e23;
           line-height: 38px;
-          padding-bottom:25px;
+          padding-bottom:10px;
           border-bottom:1PX dashed #af1e23 ;
           text-align: left;
           &.no-border{
@@ -609,11 +621,11 @@ export default {
         .intro-text{
           margin-top:9px;
           opacity: 1;
-          font-size: 18px;
+          font-size: 16px;
           font-family: PingFangSC, PingFangSC-Regular;
           font-weight: 400;
           color: #231815;
-          line-height: 32px;
+          line-height: 28px;
           text-align: left;
         }
       }

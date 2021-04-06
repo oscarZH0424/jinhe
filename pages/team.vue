@@ -17,15 +17,15 @@
               <div class="leader-item">
                   <img src="~/assets/img/leader_1.png" alt=""/>
                   <div class="leader-info">
-                      <div class="leader-title">范英<span>首席财务官</span></div>
-                      <div class="leader-desc">中山大学经济学学士。曾就职于和记黄埔地产、财富控股、万邦集团等房地产企业，拥有20多年房地产企业工作经验。她在项目投资、并购、融资、财务管理和税收安排等领域有着丰富的经验。</div>
+                      <div class="leader-title">黄浩云<span>财务副总</span></div>
+                      <div class="leader-desc">伯明翰大学金融硕士，曾在LCA基金担任大中华区执行董事，2011年加入华平并在投资的砂之船商业地产担任CFO，并于2018年成功在新加坡发行亚洲第一个奥特莱斯REITs。之前在日本大和证券担任中国区执行董事及多家欧美上市公司中国区CFO等职位。</div>
                   </div>
               </div>
               <div class="leader-item">
                   <img src="~/assets/img/leader_2.png" alt=""/>
                   <div class="leader-info">
                       <div class="leader-title">俞晨君<span>投资总监</span></div>
-                      <div class="leader-desc">曾任中国华信集团资产管理公司投资总监、集团投资评审会评审委员及投资顾问，7年深耕于开发公司，从事前期土地购置及市场研策工作，9年专注于境内外不动产项目的资产及股权收并购，经手投资总额近百亿人民币，对资产价值判断、交易架构搭建、风险评估及把控等具有极为丰富的实操经验。</div>
+                      <div class="leader-desc">曾任中国华信集团资产管理公司投资总监、集团投资评审会评审委员及投资顾问，7年深耕于开发公司，从事前期土地购置及市场研策工作，11年专注于境内外不动产项目的资产及股权收并购，经手投资总额近百亿人民币，对资产价值判断、交易架构搭建、风险评估及把控等具有极为丰富的实操经验。</div>
                   </div>
               </div>
           </div>
@@ -69,18 +69,22 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .main-leader{
     position:relative;
     width:100%;
     height:642px;
+    height:33.4375vw;
     >img{
         height:614px;
         position:absolute;
         bottom:0;
         right: 465px;
+        height:33.4375vw;
+        right: 24.21875vw;
+
     }
     .leader-mask{
         position:absolute;
@@ -93,10 +97,17 @@ export default {
         border-left:0px solid transparent;
         border-right:300px solid transparent;
         z-index: 1;
+        height:33.4375vw;
+        width:66.5625vw;
+        border-bottom:33.4375vw solid #b21e27;
+        border-right:15.625vw solid transparent;
+
         .leader-info{
             position:absolute;
             top:73px;
             left:360px;
+            top:3.802083vw;
+            left:18.75vw;
             .leader-title{
                 position: relative;
                 opacity: 1;
@@ -107,10 +118,15 @@ export default {
                 color: #ffffff;
                 line-height: 45px;
                 margin-bottom:31px;
+                font-size: 1.67vw;
+                line-height: 2.34375vw;
+                margin-bottom:1.614583vw;
                 >span{
                     display: inline-block;
                     margin-left:20px;
                     font-size:22px;
+                    margin-left:1.04167vw;
+                    font-size:1.14583vw;
                 }
                 &::after{
                     position:absolute;
@@ -120,6 +136,10 @@ export default {
                     background:#8f6d39;
                     bottom:-13px;
                     left:0px;
+                    width:5.104167vw;
+                    height:0.2083vw;
+                    bottom:-0.677083vw;
+
 
                 }
             }
@@ -131,6 +151,9 @@ export default {
                 text-align: left;
                 color: #ffffff;
                 line-height: 42px;
+                font-size: 0.9375vw;
+                line-height: 2.1875vw;
+
             }
         }
     }
@@ -139,6 +162,7 @@ export default {
     padding:134px 220px;
     background: rgba(0,0,0,.9);
     box-sizing: border-box;
+    padding:6.979167vw 11.4583vw;
     .leader-group-content{
         display: flex;
         flex-flow:row nowrap;
@@ -153,11 +177,16 @@ export default {
                 width:250px;
                 height:336px;
                 object-fit: cover;
+                width:13.02083vw;
+                height:17.5vw;
             }
             .leader-info{
                 width:364px;
                 margin-left:55px;
                 margin-top:36px;
+                width:18.9583vw;
+                margin-left:2.864583vw;
+                margin-top:1.875vw;
                 .leader-title{
                     position: relative;
                     opacity: 1;
@@ -168,10 +197,15 @@ export default {
                     color: #ffffff;
                     line-height: 45px;
                     margin-bottom:36px;
+                    font-size: 1.67vw;
+                    line-height: 2.34375vw;
+                    margin-bottom:1.875vw;
                     >span{
                         display: inline-block;
                         margin-left:20px;
                         font-size:22px;
+                        margin-left:1.04167vw;
+                        font-size:1.14583vw;
                     }
                     &::after{
                         position:absolute;
@@ -181,6 +215,9 @@ export default {
                         background:#8f6d39;
                         bottom:-13px;
                         left:0px;
+                        width:3.229167vw;
+                        height:0.2083vw;
+                        bottom:-0.677083vw;
 
                     }
                 }
@@ -192,6 +229,8 @@ export default {
                     text-align: left;
                     color: #ffffff;
                     line-height: 28px;
+                    font-size: 0.9375vw;
+                    line-height: 1.4583vw;
                 }
             }
         }
@@ -202,6 +241,8 @@ export default {
         border: 1px solid #979797;
         margin:90px auto;
         opacity: .7;
+        margin:4.6875vw auto;
+
     }
 }
 

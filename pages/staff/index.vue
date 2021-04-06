@@ -63,16 +63,21 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .staff-container{
     width:100%;
-    height:1080px;
     background: rgba(0,0,0,.9);
     padding-top:133px;
     padding-left:359px;
     padding-right:359px;
+    padding-bottom:133px;
+
+    padding-top:6.927083vw;
+    padding-left:17.5979167vw;
+    padding-right:17.5979167vw;
+    padding-bottom:6.927083vw;
     .staff-title{
         text-align:center;
         opacity: 1;
@@ -82,6 +87,13 @@ export default {
         color: #ffffff;
         line-height: 65px;
         margin-bottom:115px;
+
+        font-size: 2.39583vw;
+        line-height: 3.3854167vw;
+        margin-bottom:5.989583vw;
+
+
+
     }
     .position-group{
         display: flex;
@@ -98,6 +110,12 @@ export default {
             padding:44px 37px 0px 39px;
             box-sizing: border-box;
             cursor: pointer;
+
+            width:13.54167vw;
+            height:12.7083vw;
+            padding:2.29167vw 1.927083vw 0px 2.03125vw;
+            margin-bottom:3.229167vw;
+            margin-right:2.7083vw;
             &:nth-child(4n){
                 margin-right:0px;
             }
@@ -110,6 +128,9 @@ export default {
                 color: #a80101;
                 line-height: 28px;
                 margin-bottom:10px;
+                font-size: 1.04167vw;
+                line-height: 1.4583vw;
+                margin-bottom:0.52083vw;
             }
             .position-desc{
                 opacity: 1;
@@ -119,6 +140,9 @@ export default {
                 text-align: left;
                 color: #000000;
                 line-height: 22px;
+                font-size: 0.83vw;
+                line-height: 1.14583vw;
+
             }
             .position-btn{
                 position:absolute;
@@ -131,6 +155,13 @@ export default {
                 text-align: center;
                 color: #a80101;
                 line-height: 20px;
+
+                left:2.03125vw;
+                bottom:2.239583vw;
+                font-size: 0.721967vw;
+                line-height: 1.04167vw;
+
+
             }
             &:hover{
                 background: #B21E27;

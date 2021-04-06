@@ -18,7 +18,7 @@
             <div class="desc-info p1">
               <div class="desc-title">Jinghe Asset Management Company</div>
               <div class="desc-text">Founded in 2020, Jinhe Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It is committed to creating more value for stock assets, enhancing urban vitality and stimulating urban economic growth.</div>
-            </div>
+            </div> 
           </div>
         </div>      
         <div class="section">
@@ -26,26 +26,26 @@
             <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt=""/>
             <div class="panel-mask bl" :style="maskBottomStyle"></div>
             <div class="desc-info p2">
-              <div class="desc-title">锦和资管的管理规模</div>
+              <div class="desc-title">Management Scale</div>
               <div class="desc-label-group">
                 <div class="label-item">
-                  <div class="label-val">¥ 15.1 billion</div>
-                  <div class="label-name">Total AUM</div>
+                  <div class="label-val">RMB 15.1 billion</div>
+                  <div class="label-name">A total asset scale</div>
                 </div>
                 <div class="label-item">
                   <div class="label-val">19</div>
-                  <div class="label-name">Projects</div>
+                  <div class="label-name">projects</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">396,000 sqm</div>
-                  <div class="label-name">GFA</div>
+                  <div class="label-val">396,000 m²</div>
+                  <div class="label-name">A total construction area</div>
                 </div>
-                <div class="label-item">
+                <div class="label-item" style="width:6vw;">
                   <div class="label-val">2</div>
-                  <div class="label-name">Cities</div>
+                  <div class="label-name">cities</div>
                 </div>
               </div>
-              <div class="desc-tip">* As of 30 December 2020</div>
+              <div class="desc-tip">* By December 30.2020</div>
             </div>
           </div>
         </div>
@@ -53,24 +53,24 @@
           <div class="desc-panel" >
             <img class="bg-img br full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
-              <div class="desc-title">Multi-Format Operation</div>
+              <div class="desc-title">Multi-format Operation</div>
               <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
-                  <div class="intro-title">base Long-term Rental Apartment</div>
+                  <div class="intro-title">base long-term rental apartment</div>
                   <div class="intro-text">An inspirational living space that serves mid-to-high-end customer base. Through modern minimalist design, the old buildings of the city are transformed to inject new vitality into the community.</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Tulu Youth Apartment</div>
+                  <div class="intro-title">Tulu youth apartment</div>
                   <div class="intro-text">Design-led modern urban co-living space is built to inspire and promote communication among young people with similar interests and exploring spirits.</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Surpass Space  Office Space</div>
+                  <div class="intro-title">Surpass space <br> Office building</div>
                   <div class="intro-text">It provides office space solutions for enterprises of different sizes to meet the needs of modern office, covering various types of business office buildings, boutique offices, creative campus, etc.</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Inspace Community Business</div>
-                  <div class="intro-text">The incorporation of distinctive supporting commerce and community commerce in the lifestyle and fashion block not only provides convenience for tenants and surrounding communities, but is also a comprehensive manifestation of property upgrades.</div>
+                  <div class="intro-title">Surpass space/ Inspace Community Business</div>
+                  <div class="intro-text">The incorporation of distinctive supporting commerce and community commerce...</div>
                 </div>
               </div>
             </div>
@@ -85,51 +85,51 @@
               <div class="multi-intro">
                 <div class="multi-main">
                   <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-                  <div class="main-title">leading global private equity firm</div>
-                  <div class="main-subtitle">Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams around the world, and has accumulated rich industry experience.</div>
+                  <div class="main-title">A leading global private equity firm focused on growth investing</div>
+                  <div class="main-subtitle">Since its establishment in 1966, it has established close partnerships with thousands of entrepreneurs and management teams around the world, and has accumulated rich industry experience.</div>
                   <div class="text-group">
                     <div class="text-item">
-                      <div class="text-title">50 YEARS </div>
-                      <div class="text-info">INVESTING</div>
+                      <div class="text-title">50 years</div>
+                      <div class="text-info">In industrial investment management</div>
                     </div>
                     <div class="text-item">
-                      <div class="text-title">US$ 37 Billion</div>
+                      <div class="text-title">$37 billion</div>
                       <div class="text-info">AUM</div>
                     </div>
                     <div class="text-item">
                       <div class="text-title">700</div>
-                      <div class="text-info">COMPANIES SINCE INCEPTION</div>
+                      <div class="text-info">Invested companies</div>
                     </div>
                     <div class="text-item">
                       <div class="text-title">120</div>
-                      <div class="text-info">PORTFOLIO COMPANIES</div>
+                      <div class="text-info">Companies currently owned and invested</div>
                     </div>
                     <div class="text-item">
-                      <div class="text-title">US$ 48 Billion</div>
-                      <div class="text-info">INVESTMENTS</div>
+                      <div class="text-title">$48 billion</div>
+                      <div class="text-info">Investment volume</div>
                     </div>
                     <div class="text-item">
                       <div class="text-title">1994</div>
-                      <div class="text-info">MARKS ITS INCEPTION IN CHINA</div>
+                      <div class="text-info">Entered China</div>
                     </div>
                   </div>
                 </div>
                 <div class="multi-sub">
                   <div class="sub-intro-item">
                     <img style="margin-top:27px;width:265px;width:10.52083vw;margin-top:1.40625vw;" src="~/assets/img/logo_2.png" alt=""/>
-                    <div class="sub-text" style="margin-top:27px;margin-top:1.40625vw;"><span>Beijing Capital Grand Limited (“Capital Grand”)</span>is mainly engaged in commercial property development and operation management, and is committed to becoming a leading commercial property developer in China. </div>
+                    <div class="sub-text over" style="margin-top:27px;margin-top:1.40625vw;"><span>Beijing Capital Grand Limited (“Capital Grand”)</span>is mainly engaged in commercial property development and operation management, and is committed to becoming a leading commercial property developer in China. </div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:36px;width:134px;margin-top:1.875vw;width:6.979167vw;" src="~/assets/img/logo_3.png" alt=""/>
-                    <div class="sub-text" style="margin-top:43px;margin-top:2.239583vw;"><span>China Vanke Co., Ltd.</span>was established in 1984. After 30 years of development in property industry since 1988, it has become a leading city supporting service provider in China.</div>
+                    <div class="sub-text over" style="margin-top:43px;margin-top:2.239583vw;">China Vanke Co., Ltd.was established in 1984. After 30 years of development in property industry since 1988, it has become a leading city supporting service provider in China.</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:18px;width:206px;margin-top:0.9375vw;width:10.72916vw;" src="~/assets/img/logo_4.png" alt=""/>
-                    <div class="sub-text" style="margin-top:39px;margin-top:2.03125vw;"><span>“InfraRed NF Greater China Real Estate Fund”</span>is a private property fund developed by Nan Fung Group in cooperation with HSBC in 2007, dedicated to the investment of value-added properties in China.</div>
+                    <div class="sub-text over" style="margin-top:39px;margin-top:2.03125vw;"><span>“InfraRed Nan Feng Greater China Real Estate Fund”</span>is a private property fund developed by Nan Fung Group in cooperation with HSBC in 2007, dedicated to the investment of value-added properties in China.</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="width:178px;width:9.27083vw;" src="~/assets/img/logo_5.png" alt=""/>
-                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>GIC</span>Private Limited is a sovereign wealth fund established by the Government of Singapore in 1981 to manage Singapore's foreign reserves. Its mission is to manage Singapore’s foreign reserves and to invest overseas. It currently invests more than $100 billion across 6 core asset classes in more than 40 countries around the world, beside Singapore.</div>
+                    <div class="sub-text over" style="margin-top:25px;margin-top:1.302083vw;"><span>GIC</span>Private Limited is a sovereign wealth fund established by the Government of Singapore in 1981 to manage Singapore's foreign reserves. Its mission is to manage Singapore’s foreign reserves and to invest overseas. It currently invests more than $100 billion across 6 core asset classes in more than 40 countries around the world, beside Singapore.</div>
                   </div>
                 </div>
               </div>
@@ -152,7 +152,8 @@
                   <div class="tag-text">Engineering management</div>
                 </div>
                 <div class="tag-item">
-                  <div class="tag-text">Diversified Profit base</div>
+                  <div class="tag-text">Diversified</div>
+                  <div class="tag-text">Profit Base</div>
                 </div>
                 <div class="tag-item">
                   <div class="tag-text">Operation Management</div>
@@ -165,7 +166,7 @@
           <div class="desc-panel">
             <img class="bg-img br  full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
-              <div class="desc-title" style="margin-bottom:85px;margin-top:277px;">Operational advantages</div>
+              <div class="desc-title" style="margin-bottom:85px;margin-top:277px;">Operational Advantages</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
                   <div class="intro-title no-border">Resource</div>
@@ -331,9 +332,15 @@ export default {
       top:198px;
       right:192px;
       width:639px;
-      top:10.3125vw;
+      top:9.3125vw;
       right:10vw;
       width:33.28125vw;
+      .desc-title{
+        text-align: right;
+      }
+      .desc-text{
+        text-align: right;
+      }
     }
     &.p2{
       left:250px;
@@ -364,7 +371,7 @@ export default {
       margin-bottom:88px;
       font-size:3.2292vw;
       line-height: 4.53125vw;
-      margin-bottom:4.583vw;
+      margin-bottom:3.583vw;
     }
     .desc-subtitle{
       opacity: 1;
@@ -388,7 +395,6 @@ export default {
       line-height: 56px;
       font-size: 1.5625vw;
       line-height: 2.9167vw;
-
     }
     .desc-label-group{
       display: flex;
@@ -497,7 +503,7 @@ export default {
           font-size: 0.83vw;
           line-height: 0.9375vw;
           margin-top:0.364583vw;
-          margin-bottom:1.927083vw;
+          margin-bottom:0.927083vw;
         }
         .text-group{
           border-top:1px dashed #898989;
@@ -505,18 +511,19 @@ export default {
           display: flex;
           flex-flow: row wrap;
           justify-content: space-between;
-          align-items: center;
+          align-items: flex-start;
           padding-top:1.354167vw;
 
           .text-item{
             min-width:144px;
             margin-bottom:49px;
              min-width:7.5vw;
-            margin-bottom:2.552083vw;
-            &:nth-child(3n-1){
-              padding:0px 90px;
-              padding:0px 4.6875vw;
-            }
+            margin-bottom:0.552083vw;
+            width:30%;
+            // &:nth-child(3n-1){
+            //   padding:0px 90px;
+            //   padding:0px 4.6875vw;
+            // }
             .text-title{
               opacity: 1;
               font-size: 35px;
@@ -579,7 +586,10 @@ export default {
             line-height: 17px;
             font-size: 0.625vw;
             line-height: 0.8854167vw;
-
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
             >span{
               color: #af1e23;
             }
@@ -672,11 +682,11 @@ export default {
         height: 244px;
         opacity: 1;
         border: 1px solid #898989;
-        padding:67px 30px 20px  30px;
+        padding:20px;
         background: rgba(255,255,255,.8);
         width: 13.59375vw;
         height: 12.7083vw;
-        padding:3.489583vw 1.5625vw 1.0417vw  1.5625vw;
+        padding:1.0417vw;
 
         .intro-title{
           opacity: 1;
@@ -684,19 +694,19 @@ export default {
           font-family: LucidaGrande;
           color: #af1e23;
           line-height: 32px;
-          padding-bottom:19px;
+          padding-bottom:10px;
           border-bottom:1px dashed #af1e23;
           text-align: left;
           font-size: 1.40625vw;
           line-height: 1.67vw;
-          padding-bottom:0.989583vw;
+          padding-bottom:0.52083vw;
           &.no-border{
-             padding-bottom:0px;
+            padding-bottom:0px;
             border-bottom:0;
           }
         }
         .intro-text{
-          margin-top:15px;
+          margin-top:10px;
           opacity: 1;
           font-size: 12px;
           font-family: PingFangSC, PingFangSC-Regular;
@@ -704,9 +714,16 @@ export default {
           color: #231815;
           line-height: 17px;
           text-align: left;
-          margin-top:0.78125vw;
+          margin-top:0.52083vw;
           font-size: 0.625vw;
           line-height: 0.88541vw;
+          &.over{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+          }
+          
 
         }
       }

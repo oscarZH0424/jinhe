@@ -6,45 +6,45 @@
               <img class="bg-img" src="~/assets/img/m/pro_1.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
-                <div class="pro-title">上海御锦<br>凯宾斯基全套房酒店</div>
-                <div class="pro-desc">酒店位于静安区凤阳路601号，与顶级商圈“梅、泰、恒”咫尺之遥，地铁一、二号线汇聚左右，联袂凯宾斯基酒店管理品牌将其打造为上海市中心顶级酒店公寓。</div>
-                <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">了解详情</div>
-            </div>
+                <div class="pro-title">Kempinski The One Suites Hotel Shanghai Dowtown</div>
+                <div class="pro-desc">The hotel is located at No.601 Fengyang Road, Jing'an District, just a few steps away from the top business circle Westgate Plaza, CITIC Pacific Plaza and Plaza 66, with Metro Lines 1 and 2 on its left and right. Such geographical advantage, together with the effort of Kempinski hotel management brand, makes it become the top hotel apartment in downtown Shanghai.</div>
+                <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">Learn More</div>
+            </div> 
           </div>
           <div class="pro-item" id="pro2">
               <img class="bg-img" src="~/assets/img/m/pro_2.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
-                <div class="pro-title">北京广安门<br>越都荟</div>
-                <div class="pro-desc">2019年，北京广安门越都荟的开业标志着锦和城市更新项目成功进军北京市场，为集团走出长三角地区开疆扩土。</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
+                <div class="pro-title">Surpass space/ Inspace</div>
+                <div class="pro-desc">In 2019, the opening of Beijing Guang 'anmen Inspace marked the successful entry of the urban renewal project of Jinhe Group into the Beijing market, helping the Group to expand out of the Yangtze River Delta region.</div>
+                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro3">
               <img class="bg-img" src="~/assets/img/m/pro_3.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
-                <div class="pro-title">锦和越界陕康里</div>
-                <div class="pro-desc">2020年8月焕新登场，位于老静安的核心区域， 是由锦和资管操盘，锦和商业运营管理的经典案例，通过设计改造和综合运管能力提升物业价值，打造引领现代生活方式的经典街区。</div>
-                <div class="pro-btn" @click="toDetail2('/product/1')">了解详情</div>
+                <div class="pro-title">Shan Kang Courtyard </div>
+                <div class="pro-desc">Renewal debut in August 2020, it is located in the core area of old Jing'an. It is a typical case run and managed by Jinhe Asset Management and Golden Union. It enhances property value through design transformation and comprehensive operation and management capabilities, and creates a leading modern lifestyle classic neighborhood.</div>
+                <div class="pro-btn" @click="toDetail2('/product/1')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro4">
               <img class="bg-img" src="~/assets/img/m/pro_4.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
-                <div class="pro-title">越界锦和尚城</div>
-                <div class="pro-desc">位于漕河泾核心区域，前身为上海金星电视机厂， 后为越界创意园，是锦和进入城市更新领域的第一个项目。 <br> 2019年起，对越界创意园重新设计改造，新项目将成为融合街区社区、商业办公、商务休闲为一体的大型综合体。</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
+                <div class="pro-title">Surpass Space Jinhe Shang Cit</div>
+                <div class="pro-desc">The project is located in the core area of Caohejing, formerly known as Shanghai Jinxing TV Factory and later as Surpass Space Creative Park. It is Jinhe's first project of urban renewal. Starting in 2019, the Surpass Space Creative Park will be redesigned and transformed to a large-scale complex integrating neighborhood communities, commercial offices, and business leisure.</div>
+                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro5">
               <img class="bg-img" src="~/assets/img/m/pro_5.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
-                    <div class="pro-title">base佰舍</div>
-                    <div class="pro-desc">2020年底，base佰舍在上海运营管理着中高端服务公寓项目16家共1455套公寓。<br> 是目前上海市场上管理中高端服务公寓数量最多的运营品牌。<br> base将继续致力于成为引领现代生活方式的中高端服务公寓运营商。</div>
-                    <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
+                    <div class="pro-title">baseLIVING</div>
+                    <div class="pro-desc">At the end of 2020, baseLIVING has operated and managed 16 mid-to-high-end serviced apartment projects in Shanghai, with a total of 1455 apartments. It is currently the operating brand that manages the largest number of mid-to-high-end service apartments in the Shanghai market. Base will continue to be committed to becoming a mid-to-high-end serviced apartment operator leading the modern lifestyle.</div>
+                    <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
                 </div>
           </div>
       </div>
@@ -80,6 +80,7 @@ export default {
             window.open(link);
         },
         toDetail2(path){
+            path = (this.lan == 'en' ? '/en' :'')+path;
             window.open(path);
         }
     }
@@ -141,6 +142,10 @@ export default {
                 color: #ffffff;
                 line-height: 45px;
                 margin-bottom:30px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                overflow: hidden;
             }
             .pro-btn{
                 display: inline-block;

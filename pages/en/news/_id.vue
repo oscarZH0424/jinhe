@@ -29,7 +29,7 @@ export default {
 
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 
@@ -39,6 +39,10 @@ export default {
     margin:0 auto;
     padding-top:87px;
     padding-bottom:145px;
+
+    width:62.5vw;
+    padding-top:4.53125vw;
+    padding-bottom:7.552083vw;
     .title{
         opacity: 1;
         font-size: 32px;
@@ -47,6 +51,9 @@ export default {
         text-align: left;
         color: #000000;
         line-height: 45px;
+
+        font-size: 1.67vw;
+        line-height: 2.34375vw;
     }
     .subtitle{
         position:relative;
@@ -66,11 +73,16 @@ export default {
             text-align: left;
             color: #000000;
             line-height: 22px;
+
+            font-size: 0.83vw;
+            line-height: 1.14583vw;
         }
        
     }
     .content{
         margin-top:30px;
+        margin-top:1.5625vw;
+
         p{
             opacity: 1;
             font-size: 14px;
@@ -79,16 +91,25 @@ export default {
             text-align: left;
             color: #787878;
             line-height: 28px;
+
+            font-size: 0.729167vw;
+            line-height: 1.4583vw;
         }
         img{
             max-width:1200px;
             margin:0 auto;
             display: block;
             margin-bottom:68px;
+
+            max-width:62.5vw;
+            margin-bottom:3.54167vw;
+
+
         }
     }
     
 }
+
 
 
 </style>

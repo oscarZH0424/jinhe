@@ -7,7 +7,7 @@
               <div class="pro-mask"></div>
               <div class="pro-info-container">
                 <div class="pro-title">上海御锦<br>凯宾斯基全套房酒店</div>
-                <div class="pro-desc">酒店位于静安区凤阳路601号，与顶级商圈“梅、泰、恒”咫尺之遥，地铁一、二号线汇聚左右，联袂凯宾斯基酒店管理品牌将其打造为上海市中心顶级酒店公寓。</div>
+                <div class="pro-desc">酒店坐落于静安区凤阳路601号，毗邻繁华商圈“梅、泰、恒”。步行可至地铁一、二、十二、十三号线，出行便捷。锦和投资集团联袂凯宾斯基，将其打造为上海市中心独一无二的酒店式公寓。</div>
                 <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">了解详情</div>
             </div>
           </div>
@@ -42,8 +42,8 @@
               <img class="bg-img" src="~/assets/img/pro_5.png" alt=""/>
               <div class="pro-mask"></div>
               <div class="pro-info-container">
-                    <div class="pro-title">base佰舍</div>
-                    <div class="pro-desc">2020年底，base佰舍在上海运营管理着中高端服务公寓项目16家共1455套公寓。<br> 是目前上海市场上管理中高端服务公寓数量最多的运营品牌。<br> base将继续致力于成为引领现代生活方式的中高端服务公寓运营商。</div>
+                    <div class="pro-title">base佰舍<br>服务式公寓</div>
+                    <div class="pro-desc">2021年初，base佰舍 服务式公寓在上海及北京等一线城市中心区域运营管理着服务式公寓项目17家共1532套公寓。是目前上海市场上管理服务公寓数量最多的运营品牌。base佰舍 服务式公寓将继续致力于成为引领现代生活方式，注重品质生活的设计型服务式公寓运营商。</div>
                     <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
                 </div>
           </div>
@@ -91,8 +91,9 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
+    overflow-x:hidden ;
 }
 
 .pro-list{
@@ -100,19 +101,23 @@ export default {
         position: relative;
         width:100%;
         height:1080px;
+        height:56.25vw;
         .bg-img{
             position:absolute;
             height:1080px;
+            height:56.25vw;
             bottom:0;
         }
         .pro-mask{
             position:absolute;
             height:1080px;
+            height:56.25vw;
             mix-blend-mode: multiply;
         }
         .pro-info-container{
             position:absolute;
             top:212px;
+            top:11.04167vw;
             .pro-title{
                 position: relative;
                 opacity: 1;
@@ -123,6 +128,9 @@ export default {
                 color: #ffffff;
                 line-height: 93px;
                 margin-bottom:74px;
+                font-size: 3.229167vw;
+                line-height: 4.84375vw;
+                margin-bottom:3.854167vw;
                 &::after{
                     position:absolute;
                     content:' ';
@@ -130,6 +138,9 @@ export default {
                     width:100px;
                     height:4px;
                     background: #8f6d39;
+                    bottom:-0.9375vw;
+                    width:5.2083vw;
+                    height:0.2083vw;
                 }
             }
             .pro-desc{
@@ -141,7 +152,13 @@ export default {
                 text-align: left;
                 color: #ffffff;
                 line-height: 42px;
-                    margin-bottom:50px;
+                margin-bottom:50px;
+
+                width:29.479167vw;
+                font-size: 1.25vw;
+                line-height: 2.1875vw;
+                margin-bottom:2.604167vw;
+
             }
             .pro-btn{
                 display: inline-block;
@@ -155,6 +172,12 @@ export default {
                 font-family: PingFangSC, PingFangSC-Medium;
                 font-weight: 500;
                 color: #b21e27;
+
+                width:11.14583vw;
+                height:3.4375vw;
+                line-height:3.4375vw;
+                font-size: 1.04167vw;
+
             }
         }
         &:nth-child(odd){
@@ -165,12 +188,20 @@ export default {
                 left:0;
                 top:0;
                 border-bottom: 1080px solid #b21e27;
+                border-bottom: 56.25vw solid #b21e27;
+
                 border-left: 0px solid transparent;
                 border-right: 400px solid transparent; 
+                border-right: 20.83vw solid transparent; 
+
                 width: 1320px;
+                width: 68.75vw;
+
             }
             .pro-info-container{
                 left:241px;
+                left:12.552083vw;
+
                 text-align:left;
                 .pro-title{
                     &::after{
@@ -186,13 +217,21 @@ export default {
             .pro-mask{
                 right:0;
                 top:0;
-                border-bottom: 1080px solid rgba(128,0,0,.9);
+                border-bottom: 1080px solid #b21e27;
+                border-bottom: 56.25vw solid #b21e27;
+
                 border-right: 0px solid transparent;
                 border-left: 400px solid transparent; 
+                border-left: 20.83vw solid transparent; 
+
                 width: 1320px;
+                width: 68.75vw;
+
+
             }
             .pro-info-container{
                 right:241px;
+                right:12.552083vw;
                 text-align: right;
                 .pro-title{
                     text-align: right;

@@ -1,5 +1,5 @@
 <template>
-  <div class="page-foot" :class="{'page-foot':!isMobile,'m-page-foot':isMobile}">
+  <div  :class="{'page-foot':!isMobile,'m-page-foot':isMobile}">
     <div v-show="lan=='ch'" class="menu-group">
         <div class="menu-item"><nuxt-link to="/">公司介绍</nuxt-link></div>
         <div class="menu-divide">|</div>
@@ -17,22 +17,24 @@
         <div><span>TEL ： 021-52341623</span><span>FAX：86-21-52385827</span></div>
         <div>Copyright @2020 上海锦和投资集团有限公司 | 工信部备案号：沪ICP备11022539号</div>
     </div>
-    <div v-show="lan=='en'" class="menu-group">
-        <div class="menu-item"><nuxt-link to="/en/">About Us</nuxt-link></div>
+    <div v-show="lan=='en'" class="menu-group en">
+        <div class="menu-item"><nuxt-link to="/en/">About</nuxt-link></div>
         <div class="menu-divide">|</div>
         <div class="menu-item"><nuxt-link to="/en/product">Projects and Brands</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item"><nuxt-link to="/en/team">Management Team</nuxt-link></div>
+        <div class="menu-item"><nuxt-link to="/en/team">Leadership</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item"><nuxt-link to="/en/news">Media Center</nuxt-link></div>
+        <div class="menu-item"><nuxt-link to="/en/news">Media</nuxt-link></div>
         <div class="menu-divide">|</div>
-        <div class="menu-item"><nuxt-link to="/en/staff">Join Us</nuxt-link></div>
+        <div class="menu-item"><nuxt-link to="/en/staff">Careers</nuxt-link></div>
     </div>
-    <div class="foot-info" v-show="!isMobile&&lan=='en'">ADD .： Jinhe Center, No 68 Hongcao Road, Xuhui District, Shanghai, China Zip Code:200233 <span class="text-divide"></span>   TEL ： 021-52341623 <span class="text-divide"></span>FAX：86-21-52385827 <br> Copyright ©2020 Shanghai Jinhe Investment Group Co.,Ltd.<span class="line">|</span> MIIT Record / License Number: Shanghai ICP preparation No. 11022539</div>
+    <div class="foot-info" v-show="!isMobile&&lan=='en'">ADD .： Golden Union Center, No 68 Hongcao Road, Xuhui District, Shanghai, China  Zip Code:200233 <span class="text-divide"></span>   TEL ： 021-52341623 <span class="text-divide"></span>FAX：86-21-52385827 <br> Copyright ©2020 Shanghai Golden Union Investment Co., Ltd. | MIIT Record / License Number: Shanghai ICP preparation No. 11022539</div>
     <div class="foot-info" v-show="isMobile&&lan=='en'">
-        <div>ADD .： Jinhe Center, No 68 Hongcao Road, Xuhui District, Shanghai, China Zip Code:200233</div>
+        <div>ADD .：Golden Union Center, No 68 Hongcao Road, Xuhui District, Shanghai, China </div>
+        <div>Zip Code:200233</div>
         <div><span>TEL ： 021-52341623</span><span>FAX：86-21-52385827</span></div>
-        <div>Copyright ©2020 Shanghai Jinhe Investment Group Co.,Ltd.司 | MIIT Record / License Number: Shanghai ICP preparation No. 11022539</div>
+        <div>Copyright ©2020 Shanghai Golden Union Investment Co., Ltd.</div>
+        <div>MIIT Record / License Number: Shanghai ICP preparation No. 11022539</div>
     </div>
   </div>
 </template>
@@ -49,6 +51,8 @@ export default {
     },
     mounted(){
         this.isMobile = this.$store.state.isMobile;
+        this.lan = this.$store.state.lan;
+
     }
 }
 </script>
@@ -61,6 +65,7 @@ export default {
     justify-content: center;
     align-items: center;
     background: #806842;
+    overflow: hidden;
     .menu-group{
         display: flex;
         flex-flow:row nowrap;
@@ -83,7 +88,6 @@ export default {
         }
     }
     .foot-info{
-        white-space: nowrap;
         margin-top:34px;
         opacity: 1;
         font-size: 16px;
@@ -101,18 +105,23 @@ export default {
     }
 }
 .m-page-foot{
-    height:278px;
     width:100%;
+    height: auto;
     display: flex;
     flex-flow:column nowrap;
     justify-content: center;
     align-items: center;
     background: #806842;
+    padding:50px 0px;
     .menu-group{
         display: flex;
         flex-flow:row nowrap;
         justify-content: center;
         align-items: center;
+        &.en{
+            flex-flow: row wrap;
+            width:80%;
+        }
         .menu-item,.menu-divide{
             white-space: nowrap;
             opacity: 1;

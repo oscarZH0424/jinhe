@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-      <div class="page-banner">
-          <img src="~/assets/img/news_banner.png" alt="" aspect="fill">
-          <div class="text">新闻中心</div>
-      </div>
+      <Pagebanner keystr="news"/>
       <div class="news-list">
           <div class="news-item" v-for="(news,index) in newsList" :key="index">
               <div class="news-mask">
@@ -48,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .news-list{
@@ -56,16 +53,21 @@ export default {
         position: relative;
         width:100%;
         height:642px;
+        height:33.4375vw;
+
         display: flex;
         align-items: stretch;
+        overflow: hidden;
         .news-mask{
             width:960px;
             height:100%;
+            width:50vw;
             .mask-item{
                 position: relative;
                 .news-info{
                     position:absolute;
                     top:166px;
+                    top:8.64583vw;
                     .news-time{
                         position: relative;
                         opacity: 1;
@@ -75,6 +77,9 @@ export default {
                         color: #ffffff;
                         line-height: 33px;
                         margin-bottom:45px;
+                        font-size: 1.25vw;
+                        line-height: 1.71875vw;
+                        margin-bottom:2.34375vw;
                         &::after{
                              position:absolute;
                             content:' ';
@@ -82,6 +87,9 @@ export default {
                             width:62px;
                             height:4px;
                             bottom:-9px;
+                            width:3.22917vw;
+                            height:0.2083vw;
+                            bottom:-0.46875vw;
                         }
                     }
                     .news-title{
@@ -93,6 +101,10 @@ export default {
                         color: #ffffff;
                         line-height: 48px;
                         margin-bottom:32px;
+                        width:29.479167vw;
+                        font-size: 1.67vw;
+                        line-height: 2.5vw;
+                        margin-bottom:1.67vw;
                     }
                     .news-btn{
                         display: inline-block;
@@ -106,12 +118,17 @@ export default {
                         font-family: PingFangSC, PingFangSC-Medium;
                         font-weight: 500;
                         color: #b21e27;
+                         width:11.14583vw;
+                        height:3.4375vw;
+                        line-height:3.4375vw;
+                        font-size: 1.04167vw;
+
                     }
                 }
             }
         }
         .news-cover{
-            width:960px;
+            width:50vw;
             height:100%;
             img{
                 width:100%;
@@ -125,12 +142,15 @@ export default {
             flex-flow:row nowrap;
             .news-mask{
                 .mask-item{
-                    width:960px;
+                    width:50vw;
                     border-bottom:642px solid #b21e27;
+                    border-bottom:33.4375vw solid #b21e27;
                     border-left:320px solid transparent;
+                    border-left:16.67vw solid transparent;
                     border-right:0px solid transparent;
                     .news-info{
                         right:81px;
+                        right:4.21875vw;
                         text-align: right;
                         .news-time{
                             &::after{
@@ -145,12 +165,15 @@ export default {
             flex-flow: row-reverse nowrap;
             .news-mask{
                 .mask-item{
-                    width:960px;
+                    width:50vw;
                     border-bottom:642px solid #b21e27;
+                    border-bottom:33.4375vw solid #b21e27;
                     border-right:320px solid transparent;
+                    border-right:16.67vw solid transparent;
                     border-left:0px solid transparent;
                     .news-info{
                         left:81px;
+                        left:4.21875vw;
                         text-align: left;
                         .news-time{
                             &::after{
