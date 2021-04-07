@@ -16,8 +16,8 @@
             <img class="bg-img bl" src="~/assets/img/desc_bg_1.png" alt=""/>
             <div class="panel-mask br" :style="maskBottomStyle"></div>
             <div class="desc-info p1">
-              <div class="desc-title">Jinghe Asset Management Company</div>
-              <div class="desc-text">Founded in 2020, Jinhe Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It is committed to creating more value for stock assets, enhancing urban vitality and stimulating urban economic growth.</div>
+              <div class="desc-title" style="margin-bottom:2vw;">Golden Union Asset Management Co., Ltd.</div>
+              <div class="desc-text">Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.</div>
             </div> 
           </div>
         </div>      
@@ -29,23 +29,23 @@
               <div class="desc-title">Management Scale</div>
               <div class="desc-label-group">
                 <div class="label-item">
-                  <div class="label-val">RMB 15.1 billion</div>
-                  <div class="label-name">A total asset scale</div>
+                  <div class="label-val">¥ 15.1 billion</div>
+                  <div class="label-name">Total AUM</div>
                 </div>
                 <div class="label-item">
                   <div class="label-val">19</div>
-                  <div class="label-name">projects</div>
+                  <div class="label-name">Projects</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">396,000 m²</div>
-                  <div class="label-name">A total construction area</div>
+                  <div class="label-val">396,000 sqm</div>
+                  <div class="label-name">GFA</div>
                 </div>
                 <div class="label-item" style="width:6vw;">
                   <div class="label-val">2</div>
-                  <div class="label-name">cities</div>
+                  <div class="label-name"> Cities</div>
                 </div>
               </div>
-              <div class="desc-tip">* By December 30.2020</div>
+              <div class="desc-tip">*By the date of 30th Dec. 2020</div>
             </div>
           </div>
         </div>
@@ -54,23 +54,23 @@
             <img class="bg-img br full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
               <div class="desc-title">Multi-format Operation</div>
-              <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
+              <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format management, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
-                  <div class="intro-title">base long-term rental apartment</div>
-                  <div class="intro-text">An inspirational living space that serves mid-to-high-end customer base. Through modern minimalist design, the old buildings of the city are transformed to inject new vitality into the community.</div>
+                  <div class="intro-title">base Serviced Apartment</div>
+                  <div class="intro-text">An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Tulu youth apartment</div>
-                  <div class="intro-text">Design-led modern urban co-living space is built to inspire and promote communication among young people with similar interests and exploring spirits.</div>
+                  <div class="intro-title">Tulu Co-Living Apartment</div>
+                  <div class="intro-text">Design-led modern urban co-living space is built to inspire and promote communication among young sprits.</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Surpass space <br> Office building</div>
-                  <div class="intro-text">It provides office space solutions for enterprises of different sizes to meet the needs of modern office, covering various types of business office buildings, boutique offices, creative campus, etc.</div>
+                  <div class="intro-title">Surpass Space <br> Office Space</div>
+                  <div class="intro-text">It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Surpass space/ Inspace Community Business</div>
-                  <div class="intro-text">The incorporation of distinctive supporting commerce and community commerce...</div>
+                  <div class="intro-title">Surpass / Infinity Space Community Business</div>
+                  <div class="intro-text over">It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.</div>
                 </div>
               </div>
             </div>
@@ -85,51 +85,51 @@
               <div class="multi-intro">
                 <div class="multi-main">
                   <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-                  <div class="main-title">A leading global private equity firm focused on growth investing</div>
-                  <div class="main-subtitle">Since its establishment in 1966, it has established close partnerships with thousands of entrepreneurs and management teams around the world, and has accumulated rich industry experience.</div>
+                  <div class="main-title">A leading global private equity firm</div>
+                  <div class="main-subtitle">Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.</div>
                   <div class="text-group">
                     <div class="text-item">
-                      <div class="text-title">50 years</div>
-                      <div class="text-info">In industrial investment management</div>
+                      <div class="text-title">50 YEARS</div>
+                      <div class="text-info">INVESTING</div>
                     </div>
                     <div class="text-item">
-                      <div class="text-title">$37 billion</div>
+                      <div class="text-title">$37 Billion</div>
                       <div class="text-info">AUM</div>
                     </div>
                     <div class="text-item">
                       <div class="text-title">700</div>
-                      <div class="text-info">Invested companies</div>
+                      <div class="text-info"> COMPANIES SINCE INCEPTION</div>
                     </div>
                     <div class="text-item">
                       <div class="text-title">120</div>
-                      <div class="text-info">Companies currently owned and invested</div>
+                      <div class="text-info">PORTFOLIO COMPANIES</div>
                     </div>
                     <div class="text-item">
-                      <div class="text-title">$48 billion</div>
-                      <div class="text-info">Investment volume</div>
+                      <div class="text-title">$48 Billion</div>
+                      <div class="text-info">INVESTMENTS</div>
                     </div>
                     <div class="text-item">
                       <div class="text-title">1994</div>
-                      <div class="text-info">Entered China</div>
+                      <div class="text-info">MARKS ITS INCEPTION IN CHINA</div>
                     </div>
                   </div>
                 </div>
                 <div class="multi-sub">
                   <div class="sub-intro-item">
                     <img style="margin-top:27px;width:265px;width:10.52083vw;margin-top:1.40625vw;" src="~/assets/img/logo_2.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:27px;margin-top:1.40625vw;"><span>Beijing Capital Grand Limited (“Capital Grand”)</span>is mainly engaged in commercial property development and operation management, and is committed to becoming a leading commercial property developer in China. </div>
+                    <div class="sub-text over" style="margin-top:27px;margin-top:1.40625vw;"><span>Beijing Capital Grand Limited (“Capital Grand”)</span>is mainly engaged in commercial property development and operation management, and aims at a leading commercial real estate operator in China.</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:36px;width:134px;margin-top:1.875vw;width:6.979167vw;" src="~/assets/img/logo_3.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:43px;margin-top:2.239583vw;">China Vanke Co., Ltd.was established in 1984. After 30 years of development in property industry since 1988, it has become a leading city supporting service provider in China.</div>
+                    <div class="sub-text over" style="margin-top:43px;margin-top:2.239583vw;">China Vanke Co., Ltd. was established in 1984. After more than 30 years of development in real estate industry since 1988, it has been a leading city supporting service provider in China.</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:18px;width:206px;margin-top:0.9375vw;width:10.72916vw;" src="~/assets/img/logo_4.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:39px;margin-top:2.03125vw;"><span>“InfraRed Nan Feng Greater China Real Estate Fund”</span>is a private property fund developed by Nan Fung Group in cooperation with HSBC in 2007, dedicated to the investment of value-added properties in China.</div>
+                    <div class="sub-text over" style="margin-top:39px;margin-top:2.03125vw;"><span>“InfraRed NF Greater China Real Estate Fund"</span>is a private property fund developed by Nan Fung Group in cooperation with HSBC in 2007, striving for investing the value-added properties in China.</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="width:178px;width:9.27083vw;" src="~/assets/img/logo_5.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:25px;margin-top:1.302083vw;"><span>GIC</span>Private Limited is a sovereign wealth fund established by the Government of Singapore in 1981 to manage Singapore's foreign reserves. Its mission is to manage Singapore’s foreign reserves and to invest overseas. It currently invests more than $100 billion across 6 core asset classes in more than 40 countries around the world, beside Singapore.</div>
+                    <div class="sub-text over" style="margin-top:25px;margin-top:1.302083vw;"><span>GIC</span>Private Limited is a sovereign wealth fund established by the Government of Singapore in 1981 to manage Singapore's foreign reserves. Its mission is to manage Singapore’s foreign reserves and to invest overseas. It currently invests more than $100 billion across 6 core asset classes in more than 40 countries around the world.</div>
                   </div>
                 </div>
               </div>
@@ -142,14 +142,14 @@
             <div class="panel-mask tl"  :style="maskTopStyle"></div>
             <div class="desc-info p4">
               <div class="desc-title" style="margin-bottom:22px;">Business Model</div>
-              <div class="desc-subtitle" style="margin-bottom:63px;">Jinhe Asset Management Full Lifecycle Control System<br>"One-stop" Asset Management Service</div>
+              <div class="desc-subtitle" style="margin-bottom:63px;">Golden Union Asset Management’s Full Lifecycle Control System<br>"One-stop" Asset Management Service</div>
               <div class="tag-group">
                 <div class="tag-item">
-                  <div class="tag-text">Property acquisition</div>
+                  <div class="tag-text">Property Acquisition</div>
                 </div>
                 <div class="tag-item">
                   <div class="tag-text">Product Positioning</div>
-                  <div class="tag-text">Engineering management</div>
+                  <div class="tag-text">Construction Management</div>
                 </div>
                 <div class="tag-item">
                   <div class="tag-text">Diversified</div>
@@ -332,7 +332,7 @@ export default {
       top:198px;
       right:192px;
       width:639px;
-      top:9.3125vw;
+      top:7.3125vw;
       right:10vw;
       width:33.28125vw;
       .desc-title{
@@ -484,7 +484,7 @@ export default {
           color: #231815;
           line-height: 22px;
           margin-top:20px;
-          font-size: 0.09765625vw;
+          font-size: 0.83vw;
           line-height: 1.14583vw;
           margin-top:1.04167vw;
         }

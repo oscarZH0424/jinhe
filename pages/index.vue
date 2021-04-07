@@ -57,20 +57,20 @@
               <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
-                  <div class="intro-title">base 长租公寓</div>
-                  <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+                  <div class="intro-title">base佰舍 服务式公寓</div>
+                  <div class="intro-text">灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">base 长租公寓</div>
-                  <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+                  <div class="intro-title">Tulu途楼 青年公寓</div>
+                  <div class="intro-text">设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">base 长租公寓</div>
-                  <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+                  <div class="intro-title">越界 办公</div>
+                  <div class="intro-text">为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">base 长租公寓</div>
-                  <div class="intro-text">灵感生活空间，服务中高端客户群，通过现代极简设计，改造城市老旧建筑，为社区注入新生活力。</div>
+                  <div class="intro-title">越界/越都荟社区商业</div>
+                  <div class="intro-text">生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。</div>
                 </div>
               </div>
             </div>
@@ -480,7 +480,7 @@ export default {
           color: #231815;
           line-height: 22px;
           margin-top:20px;
-          font-size: 0.09765625vw;
+          font-size: 0.83vw;
           line-height: 1.14583vw;
           margin-top:1.04167vw;
         }

@@ -277,7 +277,7 @@ a{
         }
         .menu-item{
             position:relative;
-            width:223px;
+            // width:223px;
             height:108px;
             opacity: 1;
             font-size: 18px;
@@ -286,6 +286,7 @@ a{
             text-align: center;
             color: white;
             line-height: 135px;
+            padding:0px 42px;
             &:hover{
                 background:white;
                 color:#B21E27;
@@ -312,7 +313,7 @@ a{
               .drop-down-item{
                 width:100%;
                 height:50px;
-                padding-left:67px;
+                padding-left:42px;
                 line-height:50px;
                 opacity: 1;
                 font-size: 16px;

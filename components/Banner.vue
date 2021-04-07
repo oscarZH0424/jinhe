@@ -4,8 +4,8 @@
       <img v-show="isMobile" src="~/assets/img/m/home-banner.png" alt="">
       <div class="title-area">
           <div v-show="lan=='ch'" class="title">提升城市活力<br>激发城市经济增长</div>
-          <div v-show="lan=='ch'" class="sub-title">ENHANCE THE VITALITY OF THE CITY <br> STIMULATE URBAN ECONOMIC GROWTH</div>
-          <div v-show="lan=='en'" class="title">ENHANCE THE VITALITY OF THE CITY <br> STIMULATE URBAN ECONOMIC GROWTH</div>
+          <div v-show="lan=='ch'" class="sub-title">Enhance Urban Vitality And <br> Stimulate Urban Economic Growth</div>
+          <div v-show="lan=='en'" class="title">Enhance Urban Vitality And <br> Stimulate Urban Economic Growth</div>
       </div>
   </div>
 </template>
