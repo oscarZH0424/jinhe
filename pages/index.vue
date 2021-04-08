@@ -163,7 +163,7 @@
             </div>
           </div>
         </div>      
-        <div class="section">
+        <div class="section">  
           <div class="desc-panel">
             <img class="bg-img br  full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
@@ -472,6 +472,10 @@ export default {
         padding:3.489583vw 3.125vw 1.5625vw 3.125vw;
         min-width:516px;
         min-height:336px;
+        .main-logo{
+          width:273px;
+          width:14.21875vw;
+        }
         .main-title{
           opacity: 1;
           font-size: 16px;
@@ -497,7 +501,7 @@ export default {
           margin-bottom:37px;
           width:25.4167vw;
           font-size: 0.83vw;
-          line-height: 0.9375vw;
+          // line-height: 0.9375vw;
           margin-top:0.364583vw;
           margin-bottom:1.927083vw;
         }
@@ -579,8 +583,12 @@ export default {
             font-weight: 400;
             color: #000;
             line-height: 17px;
-            font-size: 0.625vw;
-            line-height: 0.8854167vw;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+            // font-size: 0.625vw;
+            // line-height: 0.8854167vw;
 
             >span{
               color: #af1e23;
@@ -678,7 +686,6 @@ export default {
         width: 13.59375vw;
         height: 12.7083vw;
         padding:3.489583vw 1.5625vw 1.0417vw  1.5625vw;
-
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -706,8 +713,8 @@ export default {
           line-height: 17px;
           text-align: left;
           margin-top:0.78125vw;
-          font-size: 0.625vw;
-          line-height: 0.88541vw;
+          // font-size: 0.625vw;
+          // line-height: 0.88541vw;
 
         }
       }

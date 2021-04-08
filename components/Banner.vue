@@ -51,7 +51,7 @@ export default {
     }
     .title-area{
         position:absolute;
-        top:187px;
+        top:295px;
         width:60%;
         // top:18.31vh;
         // left:218px;

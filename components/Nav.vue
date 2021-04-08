@@ -277,7 +277,6 @@ a{
         }
         .menu-item{
             position:relative;
-            // width:223px;
             height:108px;
             opacity: 1;
             font-size: 18px;
@@ -287,6 +286,7 @@ a{
             color: white;
             line-height: 135px;
             padding:0px 42px;
+            min-width:193px;
             &:hover{
                 background:white;
                 color:#B21E27;
