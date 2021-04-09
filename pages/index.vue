@@ -13,7 +13,7 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img bl" src="~/assets/img/desc_bg_1.png" alt=""/>
+            <img class="bg-img bl" style="height:100vh;" src="~/assets/img/desc_bg_1.png" alt=""/>
             <div class="panel-mask br" :style="maskBottomStyle"></div>
             <div class="desc-info p1">
               <div class="desc-title">锦和资产管理公司</div>
@@ -23,7 +23,7 @@
         </div>      
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br" src="~/assets/img/desc_bg_2.png" alt=""/>
+            <img class="bg-img br" style="width:56.25vw;" src="~/assets/img/desc_bg_2.png" alt=""/>
             <div class="panel-mask bl" :style="maskBottomStyle"></div>
             <div class="desc-info p2">
               <div class="desc-title">锦和资管的管理规模</div>
@@ -78,7 +78,7 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img tl" src="~/assets/img/desc_bg_3.png" alt=""/>
+            <img class="bg-img tl desc-bg-3" style="" src="~/assets/img/desc_bg_3.png" alt=""/>
             <div class="panel-mask tr" :style="maskTopStyle"></div>
             <div class="desc-info p3">
               <div class="desc-title">锦和资管合作方</div>
@@ -88,27 +88,27 @@
                   <div class="main-title">国际领先的私募股权投资公司</div>
                   <div class="main-subtitle">自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。</div>
                   <div class="text-group">
-                    <div class="text-item">
+                    <div class="text-item bottom right">
                       <div class="text-title">50年</div>
                       <div class="text-info">产业投资管理经验</div>
                     </div>
-                    <div class="text-item">
+                    <div class="text-item bottom right">
                       <div class="text-title">370亿美元</div>
                       <div class="text-info">目前管理资产额</div>
                     </div>
-                    <div class="text-item">
+                    <div class="text-item bottom ">
                       <div class="text-title">700家</div>
                       <div class="text-info">迄今投资企业总数</div>
                     </div>
-                    <div class="text-item">
+                    <div class="text-item right tb">
                       <div class="text-title">120家</div>
                       <div class="text-info">目前持有投资企业</div>
                     </div>
-                    <div class="text-item">
+                    <div class="text-item right tb">
                       <div class="text-title">480亿美元</div>
                       <div class="text-info">迄今投资额</div>
                     </div>
-                    <div class="text-item">
+                    <div class="text-item tb">
                       <div class="text-title">1994年</div>
                       <div class="text-info">走进中国</div>
                     </div>
@@ -134,15 +134,17 @@
                 </div>
               </div>
             </div>
+            <img class="desc-hand" style="" src="~/assets/img/desc_head.png" alt="">
           </div>
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br" src="~/assets/img/desc_bg_4.png" alt=""/>
+            <img class="bg-img br" style="height:100vh" src="~/assets/img/desc_bg_4.png" alt=""/>
             <div class="panel-mask tl"  :style="maskTopStyle"></div>
             <div class="desc-info p4">
               <div class="desc-title" style="margin-bottom:22px;">锦和资管的商业模式</div>
-              <div class="desc-subtitle" style="margin-bottom:63px;">锦和资管全生命周期管控系<br>“一站式”资产管理服务</div>
+              <div class="desc-subtitle tag">锦和资管全生命周期管控系</div>
+              <div class="desc-subtitle tag" style="margin-bottom:63px;">“一站式”资产管理服务</div>
               <div class="tag-group">
                 <div class="tag-item">
                   <div class="tag-text">物业收购</div>
@@ -167,7 +169,7 @@
           <div class="desc-panel">
             <img class="bg-img br  full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
-              <div class="desc-title" style="margin-bottom:85px;margin-top:277px;">锦和资管的运营优势</div>
+              <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">锦和资管的运营优势</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
                   <div class="intro-title no-border">资源</div>
@@ -280,25 +282,25 @@ export default {
     top:0;
     mix-blend-mode: multiply;
     &.br{     
-      border-bottom:1080px solid rgba(128,0,0,.8);
+      border-bottom:1080px solid #af1e23;
       border-left:14.583vw solid transparent;
       border-right:0px solid transparent;
       right:0;
     }
     &.bl{
-      border-bottom:1080px solid rgba(128,0,0,.8);
+      border-bottom:1080px solid #af1e23;
       border-right:14.583vw solid transparent;
       border-left:0px solid transparent;
       left:0;
     }
     &.tr{
-      border-top:1080px solid rgba(128,0,0,.8);
+      border-top:1080px solid #af1e23;
       border-left:14.583vw solid transparent;
       border-right:0px solid transparent;
       right:0;
     }
     &.tl{
-      border-top:1080px solid rgba(128,0,0,.8);
+      border-top:1080px solid #af1e23;
       border-right:14.583vw solid transparent;
       border-left:0px solid transparent;
       left:0;
@@ -327,13 +329,19 @@ export default {
       height:100%;
     }
   }
+  .desc-bg-3{
+    width:57.604167vw;
+  }
+  .desc-hand{
+    position:absolute;left:10.3125vw;top:11.614583vw;width:16.5104167vw;
+  }
   .desc-info{
     position:absolute;
     &.p1{
       top:198px;
       right:192px;
       width:639px;
-      top:10.3125vw;
+      // top:10.3125vw;
       right:10vw;
       width:33.28125vw;
     }
@@ -341,11 +349,12 @@ export default {
       left:250px;
       top:193px;
       left:13.0208vw;
-      top:10.052vw;
+      // top:17.8703vh;
     }
     &.p3{
       right:192px;
       top:170px;
+      right:10vw;
       .desc-title{
         text-align: right;
       }
@@ -353,6 +362,7 @@ export default {
     &.p4{
       top:147px;
       left:282px;
+      left:14.6875vw;
     }
 
     .desc-title{
@@ -375,10 +385,11 @@ export default {
       font-weight: 400;
       text-align: left;
       color: #ffffff;
+      margin-bottom:15px;
       line-height: 40px;
       font-size: 1.4583vw;
       line-height: 2.083vw;
-
+      margin-bottom:0.78125vw;
     }
     .desc-text{
       opacity: 1;
@@ -402,7 +413,8 @@ export default {
       .label-item{
         position: relative;
         margin-bottom:118px;
-        margin-bottom:6.14583vw;
+        margin-bottom:10.9259vh;
+        margin-bottom:6.1458vw;
         &::after{
           position:absolute;
           content:' ';
@@ -449,7 +461,7 @@ export default {
       text-align: left;
       color: #ffffff;
       line-height: 21px;
-      margin-top:9.427083vw;
+      margin-top:16.7592vh;
       font-size: 0.9375vw;
       line-height: 1.09375vw;
     }
@@ -462,7 +474,7 @@ export default {
         width:815px;
         height:531px;
         background: white;
-        border:1px solid #898989;
+        border:1px solid #b3b3b3;
         text-align:center;
         margin-right:31px;
         padding:67px 60px 30px 60px;
@@ -470,8 +482,8 @@ export default {
         height:27.65625vw;
         margin-right:1.614583vw;
         padding:3.489583vw 3.125vw 1.5625vw 3.125vw;
-        min-width:516px;
-        min-height:336px;
+        min-width:612px;
+        min-height:399px;
         .main-logo{
           width:273px;
           width:14.21875vw;
@@ -490,7 +502,7 @@ export default {
         }
         .main-subtitle{
           margin:0 auto;
-          width:488px;
+          width:70.4%;
           opacity: 1;
           font-size: 16px;
           font-family: LucidaGrande;
@@ -499,7 +511,7 @@ export default {
           line-height: 18px;
           margin-top:7px;
           margin-bottom:37px;
-          width:25.4167vw;
+          // width:25.4167vw;
           font-size: 0.83vw;
           // line-height: 0.9375vw;
           margin-top:0.364583vw;
@@ -515,13 +527,27 @@ export default {
           padding-top:1.354167vw;
 
           .text-item{
-            min-width:144px;
-            margin-bottom:49px;
-             min-width:7.5vw;
-            margin-bottom:2.552083vw;
+            width:33%;
+            height:94px;
+            height:4.89583vw;
+            min-height:70px;
+            display: flex;
+            flex-flow:column;
+            align-items: center;
+            &.bottom{
+              border-bottom:1px dashed #b3b3b3;
+            }
+            &.right{
+              border-right:1px dashed #b3b3b3;
+            }
+            &.tb{
+              justify-content: flex-end;
+            }
+            // margin-bottom:49px;
+            // margin-bottom:2.552083vw;
             &:nth-child(3n-1){
-              padding:0px 90px;
-              padding:0px 4.6875vw;
+              // padding:0px 90px;
+              // padding:0px 4.6875vw;
             }
             .text-title{
               opacity: 1;
@@ -543,7 +569,6 @@ export default {
               line-height: 25px;
               font-size: 0.9375vw;
               line-height: 1.302083vw;
-
             }
           }
         }
@@ -557,7 +582,7 @@ export default {
         align-items: center;
         width:28.90625vw;
         height:27.65625vw;
-        min-width:351px;
+        min-width:417px;
         .sub-intro-item{
           width:261px;
           height:244px;
@@ -570,8 +595,8 @@ export default {
           margin-right:1.614583vw;
           margin-bottom:2.1354167vw;
           padding:1.5625vw;
-          min-width:165px;
-          min-height:154px;
+          min-width:196.3px;
+          min-height:183.5px;
           &:nth-child(2n){
             margin-right:0px;
           }
@@ -605,6 +630,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       width:28.90625vw;
+      min-width:361px;
       .tag-item{
         width:261px;
         height:244px;
@@ -619,6 +645,8 @@ export default {
         height:12.7083vw;
         margin-right:1.614583vw;
         margin-bottom:1.979167vw;
+        min-width:170px;
+        min-height:160px;
         &:nth-child(2n){
           margin-right:0px;
         }
@@ -642,10 +670,10 @@ export default {
     height:100%;
     background:rgba(0,0,0,.6);
     text-align: center;
-    padding:0px 399px;
-    padding:0px 20.78125vw;
+    padding:0px 50px;
+    padding-top:108px;
     .desc-title{
-      margin-top:255px;
+      margin-top:147px;
       opacity: 1;
       font-size: 62px;
       font-family: PingFangSC, PingFangSC-Semibold;
@@ -653,7 +681,7 @@ export default {
       color: #ffffff;
       line-height: 87px;
       margin-bottom:27px;
-      margin-top:13.28125vw;
+      margin-top:7.65625vw;
       font-size: 3.22917vw;
       line-height: 4.53125vw;
       margin-bottom:1.40625vw;
@@ -673,19 +701,25 @@ export default {
     }
     .desc-intro-group{
       display: flex;
-      flex-flow:row nowrap;
-      justify-content: space-between;
+      flex-flow:row wrap;
+      justify-content: center;
       align-items: center;
       .desc-intro-item{
+        flex: 0 0 13.59375vw;
         width: 261px;
         height: 244px;
         opacity: 1;
         border: 1px solid #898989;
-        padding:67px 30px 20px  30px;
+        padding:64px 30px 20px  30px;
+        margin-right:30px;
         background: rgba(255,255,255,.8);
         width: 13.59375vw;
         height: 12.7083vw;
         padding:3.489583vw 1.5625vw 1.0417vw  1.5625vw;
+        margin-right:1.5625vw;
+        margin-bottom:1.5625vw;
+        min-width:170px;
+        min-height:147px;
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -698,6 +732,9 @@ export default {
           font-size: 1.40625vw;
           line-height: 1.67vw;
           padding-bottom:0.989583vw;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
           &.no-border{
              padding-bottom:0px;
             border-bottom:0;
@@ -713,6 +750,10 @@ export default {
           line-height: 17px;
           text-align: left;
           margin-top:0.78125vw;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
           // font-size: 0.625vw;
           // line-height: 0.88541vw;
 
@@ -720,6 +761,59 @@ export default {
       }
     }
   }
+}
+
+@media screen and  (max-width:765px) {
+  .desc-text{
+    line-height:20px !important;
+  }
+}
+
+@media screen and  (max-width:960px) {
+  .desc-title{
+    font-size:31px !important;
+    line-height:43.5px !important;
+  }
+  .desc-subtitle{
+    font-size:12px !important;
+    line-height:16.5px !important;
+  }
+}
+@media screen and  (max-width:1255px) {
+  .tag-text{
+    font-size:22px !important;
+    line-height:32px !important;
+  }
+  .desc-subtitle.tag{
+    font-size:18px !important;
+    line-height:26px !important;
+  }
+  .intro-title{
+    font-size:17px !important;
+    line-height:21px !important;
+  }
+}
+@media screen and  (max-width:1445px) {
+  .sub-intro-item{
+    margin-bottom:30.8px !important;
+  }
+  .main-subtitle{
+    margin-top:5px !important;
+    margin-bottom:27px !important;
+  }
+  .text-item{
+    height:70px !important;
+  }
+  .text-group{
+    padding-top:20px !important;
+  }
+  .main-title{
+    margin-top:15px !important;
+  }
+  // .desc-hand{
+  //   left:138.6px !important;
+  //   top:156.1px !important;
+  // }
 }
 </style>
 <style>
@@ -745,10 +839,17 @@ fp-scroller{
   width:15px;
   height:15px;
   margin-right:88px;
+
+  width:0.78125vw;
+  height:0.78125vw;
+  margin-right:4.583vw;
 }
 .ant-carousel .slick-dots-bottom{
   bottom:41px;
   height:15px;
+
+  bottom:2.1354vw;
+  height:0.78125vw;
 }
 .ant-carousel .slick-dots li:last-child button{
   margin-right:0px;
@@ -756,5 +857,6 @@ fp-scroller{
 .ant-carousel .slick-dots li.slick-active button{
   width:15px;
   background: #B21E27;
+  width:0.78125vw;
 }
 </style>

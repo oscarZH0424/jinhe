@@ -13,6 +13,9 @@ export default {
     script:[
       {src:'/js/flexible.js',type:'text/javascript',charset:'utf-8'}
     ],
+    htmlAttrs:{
+      style:'font-size:75px;'
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
