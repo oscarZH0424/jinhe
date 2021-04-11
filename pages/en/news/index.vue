@@ -58,6 +58,7 @@ export default {
         display: flex;
         align-items: stretch;
         overflow: hidden;
+        min-height:321px;
         .news-mask{
             width:960px;
             height:100%;
@@ -186,5 +187,34 @@ export default {
         }
     }
 }
-
+@media screen and (max-width:960px) {
+    .news-title{
+        font-size:16px !important;
+        line-height:24px !important;
+    }
+    .news-btn{
+        width:107px !important;
+        height:33px !important;
+        line-height:33px !important;
+    }
+    
+    .news-item{
+        &:nth-child(odd){
+            .mask-item{
+                border-left:160px solid transparent !important;
+            }
+        }
+        &:nth-child(even){
+            .mask-item{
+               border-right:160px solid transparent !important;
+            }
+        }
+    }
+    .mask-item{
+        border-bottom:321px solid #b21e27 !important;
+    }
+    .news-info{
+        top:83px !important;
+    }
+}
 </style>

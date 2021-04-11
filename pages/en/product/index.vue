@@ -102,16 +102,19 @@ export default {
         width:100%;
         height:1080px;
         height:56.25vw;
+        min-height:540px;
         .bg-img{
             position:absolute;
             height:1080px;
             height:56.25vw;
+            min-height:540px;
             bottom:0;
         }
         .pro-mask{
             position:absolute;
             height:1080px;
             height:56.25vw;
+            min-height:540px;
             mix-blend-mode: multiply;
         }
         .pro-info-container{
@@ -158,6 +161,7 @@ export default {
                 font-size: 1.25vw;
                 line-height: 2.1875vw;
                 margin-bottom:2.604167vw;
+                min-width:400px;
 
             }
             .pro-btn{
@@ -177,6 +181,8 @@ export default {
                 height:3.4375vw;
                 line-height:3.4375vw;
                 font-size: 1.04167vw;
+                min-width:106px;
+                min-height:33px;
 
             }
         }
@@ -239,8 +245,32 @@ export default {
                         right:0;
                     }
                 }
+                .pro-desc{
+                    text-align: right;
+                }
             }
         }
+    }
+}
+
+@media screen and (max-width:960px) {
+
+    .pro-title{
+        font-size:31px !important;
+        line-height:46.5px !important;
+    }
+    .pro-desc{
+        font-size:12px !important;
+        line-height:21px !important;
+    }
+    .pro-mask{
+        border-bottom: 540px solid #b21e27 !important;
+    }
+    .pro-info-container{
+        top:106px !important;
+    }
+    .pro-btn{
+        line-height:33px !important;
     }
 }
 </style>

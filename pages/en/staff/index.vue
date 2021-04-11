@@ -75,8 +75,8 @@ export default {
     padding-bottom:133px;
 
     padding-top:6.927083vw;
-    padding-left:17.5979167vw;
-    padding-right:17.5979167vw;
+    padding-left:16.5979167vw;
+    padding-right:16.5979167vw;
     padding-bottom:6.927083vw;
     .staff-title{
         text-align:center;
@@ -116,9 +116,9 @@ export default {
             padding:2.29167vw 1.927083vw 0px 2.03125vw;
             margin-bottom:3.229167vw;
             margin-right:2.7083vw;
-            &:nth-child(4n){
-                margin-right:0px;
-            }
+            // &:nth-child(4n){
+            //     margin-right:0px;
+            // }
             .position-title{
                 opacity: 1;
                 font-size: 20px;
@@ -172,5 +172,36 @@ export default {
         }
     }
 }
+@media screen and (max-width:660px) {
+    .position-group{
+        justify-content: center !important;
+    }
+}
 
+@media screen and (max-width:1440px) {
+    .staff-container{
+        padding-top:99px !important;
+    }
+    .staff-title{
+        font-size:34.5px !important;
+        margin-bottom:86.5px !important;
+    }
+    .position-item{
+        width:195px !important;
+        height:183px !important;
+        padding:33px 28px 0px 29px !important;
+    }
+    .position-title{
+        font-size:15px !important;
+        line-height:21px !important;
+    }
+    .position-desc{
+        font-size:12px !important;
+        line-height:16px !important;
+    }
+    .position-btn{
+        bottom:27.7px !important;
+        left:25px !important;
+    }
+}
 </style>

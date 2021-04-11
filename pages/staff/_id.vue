@@ -152,5 +152,24 @@ export default {
     
 }
 
+@media screen and (max-width:1445px) {
+    .paragraph{
+        .title{
+            font-size:24px !important;
+            line-height:34px !important;
+        }
+        .content{
+            margin-top:22.5px !important;
+            .position-label,.position-text,.bottom-info{
+                font-size:12px !important;
+                line-height:22.5px !important;
+            }
+            .bottom-info{
+                margin-top:38px !important;
+            }
+        }
+    }
+    
+}
 
 </style>

@@ -110,5 +110,28 @@ export default {
     
 }
 
-
+@media screen and (max-width:1450px) {
+    .paragraph{
+        .title{
+            font-size:24px !important;
+            line-height:34px !important;
+            margin-bottom:15px !important;
+        }
+        .subtitle{
+            
+            .bottom{
+                font-size:12px !important;
+                line-height:15px !important;
+            }
+            
+        }
+    }
+    .content{
+        margin-top:22.6px !important;
+    }
+    .content p{
+        font-size:12px !important;
+        line-height:21px !important;
+    }
+}
 </style>
