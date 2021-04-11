@@ -3,45 +3,45 @@
       <Pagebanner keystr="pro"/>
       <div class="pro-list">
           <div class="pro-item" id="pro1">
-              <img class="bg-img" src="~/assets/img/pro_1.png" alt=""/>
-              <div class="pro-mask"></div>
-              <div class="pro-info-container"> 
+              <img class="bg-img wow fadeIn" src="~/assets/img/pro_1.png" alt=""/>
+              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
+              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s"> 
                 <div class="pro-title">Kempinski The One Suites <br> Hotel Shanghai Downtown</div>
                 <div class="pro-desc">The hotel is located at No.601 Fengyang Road, Jing'an District, adjacent to the bustling business circle Plaza 66, CITIC Pacific Plaza and Westgate Plaza, with Metro Lines 1, Line 2, Line 12 and Line 13 nearby that is convenient for travel and is accessible by walking. Shanghai Golden Union Investment and Kempinski Hotels co-create a unique service apartment in downtown Shanghai.</div>
                 <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro2">
-              <img class="bg-img" src="~/assets/img/pro_2.png" alt=""/>
-              <div class="pro-mask"></div>
-              <div class="pro-info-container">
+              <img class="bg-img wow fadeIn" src="~/assets/img/pro_2.png" alt=""/>
+              <div class="pro-mask wow fadeInRight"  data-wow-delay="1s"></div>
+              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">Infinity Space Beijing</div>
                 <div class="pro-desc">In 2019, the opening of Infinity Space Beijing marked the successful entry into the Beijing market. The Group to scale out of the Yangtze River Delta region to northern part of China.</div>
                 <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro3">
-              <img class="bg-img" src="~/assets/img/pro_3.png" alt=""/>
-              <div class="pro-mask"></div>
-              <div class="pro-info-container">
+              <img class="bg-img wow fadeIn" src="~/assets/img/pro_3.png" alt=""/>
+              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
+              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">Surpass Space Shankang Alley</div>
                 <div class="pro-desc">Renewal debut in August 2020, it is located in the core area of Jing’an district. It is a typical case run and managed by Golden Union Asset Management. It enhances property value through design and comprehensive management, and creates a modern lifestyle to the neighborhood.</div>
                 <div class="pro-btn" @click="toDetail2('/product/1')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro4">
-              <img class="bg-img" src="~/assets/img/pro_4.png" alt=""/>
-              <div class="pro-mask"></div>
-              <div class="pro-info-container">
+              <img class="bg-img wow fadeIn" src="~/assets/img/pro_4.png" alt=""/>
+              <div class="pro-mask wow fadeInRight" data-wow-delay="1s"></div>
+              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">Surpass Space <br> Golden Union Shang City</div>
                 <div class="pro-desc">The project is located in the core area of Caohejing, formerly known as Shanghai Jinxing TV Factory and later as Surpass Space Creative Park. It is Golden Union's first project of urban renewal. Starting in 2019, the Surpass Space Creative Park will be redesigned and transformed into a large-scale complex integrated with neighborhood communities, commercial offices, business and leisure.</div>
                 <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
             </div>
           </div>
           <div class="pro-item" id="pro5">
-              <img class="bg-img" src="~/assets/img/pro_5.png" alt=""/>
-              <div class="pro-mask"></div>
-              <div class="pro-info-container">
+              <img class="bg-img wow fadeIn" src="~/assets/img/pro_5.png" alt=""/>
+              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
+              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                     <div class="pro-title">base Serviced Apartment</div>
                     <div class="pro-desc">Base serviced apartment has managed and operated total number of 17 projects with 1532 apartments in city center of Shanghai and Beijing at the beginning of 2021. It currently manages the largest number of serviced apartments in the Shanghai market. base service apartment will continue to be the brand that leading the modern lifestyle and providing high quality of life.</div>
                     <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
@@ -55,6 +55,7 @@
 import bus from '@/assets/js/eventBus';
 export default {
     mounted() {
+        new this.$wow.WOW({live:true}).init();
       bus.$on('hashchange',()=>{
         setTimeout(()=>{
           if (window.location.hash) {
@@ -157,7 +158,7 @@ export default {
                 line-height: 42px;
                 margin-bottom:50px;
 
-                width:29.479167vw;
+                width:40.479167vw;
                 font-size: 1.25vw;
                 line-height: 2.1875vw;
                 margin-bottom:2.604167vw;

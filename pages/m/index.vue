@@ -8,17 +8,17 @@
       <Banner />
     </a-carousel>
     <div class="desc-panel">
-      <img class="bg-img bl" src="~/assets/img/m/desc_bg_1.png" alt=""/>
-      <div class="panel-mask br"></div>
-      <div class="desc-info p1">
+      <img class="bg-img bl wow fadeIn" src="~/assets/img/m/desc_bg_1.png" alt=""/>
+      <div class="panel-mask br wow fadeInRight"  data-wow-delay="1s"></div>
+      <div class="desc-info p1 wow fadeInUp" data-wow-delay="2s">
         <div class="desc-title">锦和资产管理公司</div>
         <div class="desc-text">锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。</div>
       </div>
     </div>
     <div class="desc-panel" id="glgm">
-      <img class="bg-img br" src="~/assets/img/m/desc_bg_2.png" alt=""/>
-      <div class="panel-mask bl"></div>
-      <div class="desc-info p2">
+      <img class="bg-img br  wow fadeIn" src="~/assets/img/m/desc_bg_2.png" alt=""/>
+      <div class="panel-mask bl wow fadeInLeft" data-wow-delay="1s"></div>
+      <div class="desc-info p2 wow fadeInUp" data-wow-delay="2s">
         <div class="desc-title" style="margin-bottom:50px;">锦和资管的管理规模</div>
         <div class="desc-label-group">
           <div class="label-item" style="margin-right:100px;">
@@ -44,32 +44,35 @@
     <div class="desc-panel"  id="dytyy">
       <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
-        <div class="desc-title">锦和资管的多业态运营</div>
-        <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
-        <div class="desc-intro-group">
-          <div class="desc-intro-item">
-            <div class="intro-title">base佰舍 服务式公寓</div>
-            <div class="intro-text">灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。</div>
-          </div>
-          <div class="desc-intro-item">
-            <div class="intro-title">Tulu途楼 青年公寓</div>
-            <div class="intro-text">设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。</div>
-          </div>
-          <div class="desc-intro-item">
-            <div class="intro-title">越界 办公</div>
-            <div class="intro-text">为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。</div>
-          </div>
-          <div class="desc-intro-item">
-            <div class="intro-title">越界/越都荟社区商业</div>
-            <div class="intro-text">生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。</div>
+        <div class="wow fadeInUp">
+          <div class="desc-title">锦和资管的多业态运营</div>
+          <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
+          <div class="desc-intro-group">
+            <div class="desc-intro-item">
+              <div class="intro-title">base佰舍 服务式公寓</div>
+              <div class="intro-text">灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。</div>
+            </div>
+            <div class="desc-intro-item">
+              <div class="intro-title">Tulu途楼 青年公寓</div>
+              <div class="intro-text">设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。</div>
+            </div>
+            <div class="desc-intro-item">
+              <div class="intro-title">越界 办公</div>
+              <div class="intro-text">为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。</div>
+            </div>
+            <div class="desc-intro-item">
+              <div class="intro-title">越界/越都荟社区商业</div>
+              <div class="intro-text">生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。</div>
+            </div>
           </div>
         </div>
+        
       </div>
     </div>
     <div class="desc-panel long" id="hzf">
-      <img class="bg-img tl" src="~/assets/img/m/desc_bg_3.png" alt=""/>
-      <div class="panel-mask tr"></div>
-      <div class="desc-info p3">
+      <img class="bg-img tl wow fadeIn" src="~/assets/img/m/desc_bg_3.png" alt=""/>
+      <div class="panel-mask tr wow fadeInRight"  data-wow-delay="1s"></div>
+      <div class="desc-info p3 wow fadeInUp" data-wow-delay="2s">
         <div class="desc-title">锦和资管合作方</div>
         <div class="multi-intro">
           <div class="multi-main">
@@ -125,9 +128,9 @@
       </div>
     </div>
     <div class="desc-panel" id="syms">
-      <img class="bg-img br" src="~/assets/img/m/desc_bg_4.png" alt=""/>
-      <div class="panel-mask tl"></div>
-      <div class="desc-info p4">
+      <img class="bg-img br wow fadeIn" src="~/assets/img/m/desc_bg_4.png" alt=""/>
+      <div class="panel-mask tl wow fadeInLeft" data-wow-delay="1s"></div>
+      <div class="desc-info p4 wow fadeInUp" data-wow-delay="2s">
         <div class="desc-title" style="margin-bottom:10px;">锦和资管的商业模式</div>
         <div class="desc-subtitle" style="margin-bottom:33px;">锦和资管全生命周期管控系<br>“一站式”资产管理服务</div>
         <div class="tag-group">
@@ -152,25 +155,28 @@
     <div class="desc-panel" id="yyys">
       <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
       <div class="desc-dark">
-        <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">锦和资管的运营优势</div>
-        <div class="desc-intro-group">
-          <div class="desc-intro-item">
-            <div class="intro-title no-border">资源</div>
-            <div class="intro-text">优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势</div>
-          </div>
-          <div class="desc-intro-item">
-            <div class="intro-title no-border">资本</div>
-            <div class="intro-text">强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投</div>
-          </div>
-          <div class="desc-intro-item">
-            <div class="intro-title no-border">市场</div>
-            <div class="intro-text">敏锐的市场洞察力<br>精准的市场定位</div>
-          </div>
-          <div class="desc-intro-item">
-            <div class="intro-title no-border">创新</div>
-            <div class="intro-text">产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力</div>
+        <div class="wow fadeInUp">
+          <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">锦和资管的运营优势</div>
+          <div class="desc-intro-group">
+            <div class="desc-intro-item">
+              <div class="intro-title no-border">资源</div>
+              <div class="intro-text">优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势</div>
+            </div>
+            <div class="desc-intro-item">
+              <div class="intro-title no-border">资本</div>
+              <div class="intro-text">强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投</div>
+            </div>
+            <div class="desc-intro-item">
+              <div class="intro-title no-border">市场</div>
+              <div class="intro-text">敏锐的市场洞察力<br>精准的市场定位</div>
+            </div>
+            <div class="desc-intro-item">
+              <div class="intro-title no-border">创新</div>
+              <div class="intro-text">产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力</div>
+            </div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -180,6 +186,8 @@
 import bus from '@/assets/js/eventBus';
 export default {
     mounted() {
+      new this.$wow.WOW({live:true}).init();
+
       bus.$on('hashchange',()=>{
         setTimeout(()=>{
           if (window.location.hash) {

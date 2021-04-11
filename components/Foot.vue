@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import bus from '@/assets/js/eventBus';
 export default {
     data(){
         return {
@@ -51,8 +52,9 @@ export default {
     },
     mounted(){
         this.isMobile = this.$store.state.isMobile;
-        this.lan = this.$store.state.lan;
-
+        bus.$on('lanchange',(lan)=>{
+            this.lan = lan;
+        })
     }
 }
 </script>

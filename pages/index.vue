@@ -13,9 +13,9 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img bl" style="height:100vh;" src="~/assets/img/desc_bg_1.png" alt=""/>
-            <div class="panel-mask br" :style="maskBottomStyle"></div>
-            <div class="desc-info p1">
+            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==1}" style="height:100vh;" src="~/assets/img/desc_bg_1.png" alt=""/>
+            <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==1}" :style="maskBottomStyle"></div>
+            <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==1}">
               <div class="desc-title">锦和资产管理公司</div>
               <div class="desc-text">锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。</div>
             </div>
@@ -23,9 +23,9 @@
         </div>      
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br" style="width:56.25vw;" src="~/assets/img/desc_bg_2.png" alt=""/>
-            <div class="panel-mask bl" :style="maskBottomStyle"></div>
-            <div class="desc-info p2">
+            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==2}" style="width:56.25vw;" src="~/assets/img/desc_bg_2.png" alt=""/>
+            <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==2}" :style="maskBottomStyle"></div>
+            <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==2}">
               <div class="desc-title">锦和资管的管理规模</div>
               <div class="desc-label-group">
                 <div class="label-item">
@@ -52,8 +52,9 @@
         <div class="section">
           <div class="desc-panel" >
             <img class="bg-img br full" src="~/assets/img/desc_bg_5.png" alt=""/>
-            <div class="desc-dark">
-              <div class="desc-title">锦和资管的多业态运营</div>
+            <div class="desc-dark" >
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==3}">
+                <div class="desc-title">锦和资管的多业态运营</div>
               <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
@@ -73,14 +74,16 @@
                   <div class="intro-text">生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。</div>
                 </div>
               </div>
+              </div>
+              
             </div>
           </div>
         </div>
         <div class="section">
           <div class="desc-panel">
             <img class="bg-img tl desc-bg-3" style="" src="~/assets/img/desc_bg_3.png" alt=""/>
-            <div class="panel-mask tr" :style="maskTopStyle"></div>
-            <div class="desc-info p3">
+            <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==4}" :style="maskTopStyle"></div>
+            <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==4}">
               <div class="desc-title">锦和资管合作方</div>
               <div class="multi-intro">
                 <div class="multi-main">
@@ -139,9 +142,9 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br" style="height:100vh" src="~/assets/img/desc_bg_4.png" alt=""/>
-            <div class="panel-mask tl"  :style="maskTopStyle"></div>
-            <div class="desc-info p4">
+            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==5}" style="height:100vh" src="~/assets/img/desc_bg_4.png" alt=""/>
+            <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==5}" :style="maskTopStyle"></div>
+            <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==5}">
               <div class="desc-title" style="margin-bottom:22px;">锦和资管的商业模式</div>
               <div class="desc-subtitle tag">锦和资管全生命周期管控系</div>
               <div class="desc-subtitle tag" style="margin-bottom:63px;">“一站式”资产管理服务</div>
@@ -169,23 +172,25 @@
           <div class="desc-panel">
             <img class="bg-img br  full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
-              <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">锦和资管的运营优势</div>
-              <div class="desc-intro-group">
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">资源</div>
-                  <div class="intro-text">优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">资本</div>
-                  <div class="intro-text">强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">市场</div>
-                  <div class="intro-text">敏锐的市场洞察力<br>精准的市场定位</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">创新</div>
-                  <div class="intro-text">产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
+                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">锦和资管的运营优势</div>
+                <div class="desc-intro-group">
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">资源</div>
+                    <div class="intro-text">优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">资本</div>
+                    <div class="intro-text">强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">市场</div>
+                    <div class="intro-text">敏锐的市场洞察力<br>精准的市场定位</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">创新</div>
+                    <div class="intro-text">产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,7 +222,8 @@ export default {
         },
         maskTopStyle:{
            borderTopWidth:``
-        }
+        },
+        activeIndex:0
       }
     },
     mounted() {
@@ -240,8 +246,9 @@ export default {
         this.maskBottomStyle.borderBottomWidth = `${document.documentElement.clientHeight}px`;
         this.maskTopStyle.borderTopWidth = `${document.documentElement.clientHeight}px`;
       },
-        afterLoad(){
+        afterLoad(pre,cur,direction){
           console.log(arguments);
+          this.activeIndex = cur.index;
         },
         goAnchor(selector) {
             // 最好加个定时器给页面缓冲时间
@@ -269,7 +276,12 @@ export default {
   width:100%;
   height:100%;
 }
-
+.hidden{
+  opacity:0;
+}
+.visible{
+  opacity:1;
+}
 .desc-panel{
   position: relative;
   width:100%;

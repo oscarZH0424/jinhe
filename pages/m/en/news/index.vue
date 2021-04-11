@@ -6,9 +6,9 @@
               <div class="news-cover">
                   <img :src="news.src" alt=""/>
               </div>
-              <div class="news-mask"></div>
+              <div class="news-mask wow" :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==1}"></div>
               <div class="mask-item">
-                <div class="news-info">
+                <div class="news-info wow fadeInUp"  data-wow-delay="1s">
                     <div class="news-time">{{news.time}}</div>
                     <div class="news-title">{{news.title}}</div>
                     <div class="news-btn" @click="toDetail(news.link)">more</div>
@@ -32,6 +32,9 @@ export default {
                 {time:'2020-4-18',title:'Deng Wugui,Vice Minister of Publicity Department of Hubei provincial...',src:require('~/assets/img/m/news_5.png'),link:'http://www.iyuejie.com/#/newDatail?id=42491e810ff14474a934a33e487a5ffb'},
             ]
         }
+    },
+    mounted(){
+      new this.$wow.WOW({live:true}).init();
     },
     methods:{
         toDetail(link){

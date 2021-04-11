@@ -13,9 +13,9 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img bl" style="height:100vh;" src="~/assets/img/desc_bg_1.png" alt=""/>
-            <div class="panel-mask br" :style="maskBottomStyle"></div>
-            <div class="desc-info p1">
+            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==1}" style="height:100vh;" src="~/assets/img/desc_bg_1.png" alt=""/>
+            <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==1}" :style="maskBottomStyle"></div>
+            <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==1}">
               <div class="desc-title" style="margin-bottom:2vw;">Golden Union Asset Management Co., Ltd.</div>
               <div class="desc-text">Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.</div>
             </div> 
@@ -23,9 +23,9 @@
         </div>      
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br" style="width:56.25vw;" src="~/assets/img/desc_bg_2.png" alt=""/>
-            <div class="panel-mask bl" :style="maskBottomStyle"></div>
-            <div class="desc-info p2">
+            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==2}" style="width:56.25vw;" src="~/assets/img/desc_bg_2.png" alt=""/>
+            <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==2}" :style="maskBottomStyle"></div>
+            <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==2}">
               <div class="desc-title">Management Scale</div>
               <div class="desc-label-group">
                 <div class="label-item">
@@ -53,24 +53,26 @@
           <div class="desc-panel" >
             <img class="bg-img br full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
-              <div class="desc-title">Multi-format Operation</div>
-              <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format management, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
-              <div class="desc-intro-group">
-                <div class="desc-intro-item">
-                  <div class="intro-title">base Serviced Apartment</div>
-                  <div class="intro-text hidden">An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title">Tulu Co-Living Apartment</div>
-                  <div class="intro-text hidden">Design-led modern urban co-living space is built to inspire and promote communication among young sprits.</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title">Surpass Space <br> Office Space</div>
-                  <div class="intro-text hidden">It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title">Surpass / Infinity Space Community Business</div>
-                  <div class="intro-text hidden">It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==3}">
+                <div class="desc-title">Multi-format Operation</div>
+                <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format management, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
+                <div class="desc-intro-group">
+                  <div class="desc-intro-item">
+                    <div class="intro-title">base Serviced Apartment</div>
+                    <div class="intro-text hidden">An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title">Tulu Co-Living Apartment</div>
+                    <div class="intro-text hidden">Design-led modern urban co-living space is built to inspire and promote communication among young sprits.</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title">Surpass Space <br> Office Space</div>
+                    <div class="intro-text hidden">It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title">Surpass / Infinity Space Community Business</div>
+                    <div class="intro-text hidden">It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -79,8 +81,8 @@
         <div class="section">
           <div class="desc-panel">
             <img class="bg-img tl desc-bg-3" src="~/assets/img/desc_bg_3.png" alt=""/>
-            <div class="panel-mask tr" :style="maskTopStyle"></div>
-            <div class="desc-info p3">
+            <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==4}" :style="maskTopStyle"></div>
+            <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==4}">
               <div class="desc-title">Partners</div>
               <div class="multi-intro">
                 <div class="multi-main">
@@ -139,9 +141,9 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br" style="height:100vh" src="~/assets/img/desc_bg_4.png" alt=""/>
-            <div class="panel-mask tl"  :style="maskTopStyle"></div>
-            <div class="desc-info p4">
+            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==5}" style="height:100vh" src="~/assets/img/desc_bg_4.png" alt=""/>
+            <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==5}" :style="maskTopStyle"></div>
+            <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==5}">
               <div class="desc-title" style="margin-bottom:22px;">Business Model</div>
               <div class="desc-subtitle tag">Golden Union Asset Management’s Full Lifecycle Control System</div>
               <div class="desc-subtitle tag" style="margin-bottom:63px;">"One-stop" Asset Management Service</div>
@@ -168,25 +170,28 @@
           <div class="desc-panel">
             <img class="bg-img br  full" src="~/assets/img/desc_bg_5.png" alt=""/>
             <div class="desc-dark">
-              <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">Operational Advantages</div>
-              <div class="desc-intro-group">
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">Resource</div>
-                  <div class="intro-text">High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">Capital</div>
-                  <div class="intro-text hidden">Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">Market</div>
-                  <div class="intro-text">Sharp market insight<br>Precise market positioning</div>
-                </div>
-                <div class="desc-intro-item">
-                  <div class="intro-title no-border">Innovation</div>
-                  <div class="intro-text">Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
+                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">Operational Advantages</div>
+                <div class="desc-intro-group">
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">Resource</div>
+                    <div class="intro-text">High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">Capital</div>
+                    <div class="intro-text hidden">Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">Market</div>
+                    <div class="intro-text">Sharp market insight<br>Precise market positioning</div>
+                  </div>
+                  <div class="desc-intro-item">
+                    <div class="intro-title no-border">Innovation</div>
+                    <div class="intro-text">Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities</div>
+                  </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>      
@@ -216,7 +221,8 @@ export default {
         },
         maskTopStyle:{
            borderTopWidth:``
-        }
+        },
+        activeIndex:0
       }
     },
     mounted() {
@@ -239,8 +245,9 @@ export default {
         this.maskBottomStyle.borderBottomWidth = `${document.documentElement.clientHeight}px`;
         this.maskTopStyle.borderTopWidth = `${document.documentElement.clientHeight}px`;
       },
-        afterLoad(){
+        afterLoad(pre,cur,direction){
           console.log(arguments);
+          this.activeIndex = cur.index;
         },
         goAnchor(selector) {
             // 最好加个定时器给页面缓冲时间
@@ -268,7 +275,12 @@ export default {
   width:100%;
   height:100%;
 }
-
+.hidden{
+  opacity:0;
+}
+.visible{
+  opacity:1;
+}
 .desc-panel{
   position: relative;
   width:100%;

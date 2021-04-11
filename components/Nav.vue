@@ -73,6 +73,8 @@ export default {
   },
   created(){
     this.lan = this.$store.state.lan;
+        console.log('nav',this.lan);
+
   },
   mounted(){
     this.isMobile = this.$store.state.isMobile;
@@ -94,6 +96,7 @@ export default {
     },
     toggleLan(){
       this.lan = this.lan == 'ch' ? 'en' : 'ch';
+      bus.$emit('lanchange',this.lan);
       if(this.lan == 'ch'){
         this.$router.push({
           path:'/'
@@ -103,7 +106,6 @@ export default {
           path:'/en/'
         })
       }
-      
     },
     choose(type){
       if(type=='pro'){

@@ -26,7 +26,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    {src:'@/plugins/antd-ui',ssr:true},{src:'@/plugins/fullpage',ssr:false},{src:'@/plugins/router',ssr:false}
+    {src:'@/plugins/antd-ui',ssr:true},{src:'@/plugins/fullpage',ssr:false},{src:'@/plugins/animate',ssr:false},{src:'@/plugins/router',ssr:false}
   ],
   
   // Auto import components: https://go.nuxtjs.dev/config-components
