@@ -1,13 +1,12 @@
 <template>
     <div :class="{'page-banner':!isMobile,'m-page-banner':isMobile}">
-         <img v-show="isMobile" :src="map.m[keystr].src" alt="" />
-         <img v-show="!isMobile" :src="map.pc[keystr].src" alt="" />
-         <div v-show="isMobile" class="text">{{map.m[keystr].name[lan]}}</div>
-         <div v-show="!isMobile" class="text">{{map.pc[keystr].name[lan]}}</div>
+         <img  :src="banner.coverUrl" alt="" />
+         <div  class="text">{{banner.firstTitle}}</div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
     export default {
         props:{
             keystr:String,
@@ -38,7 +37,8 @@
 
                     }
                 },
-                lan:'ch'
+                lan:'ch',
+                banner:{}
             }
         },
         created(){
@@ -48,6 +48,15 @@
             this.isMobile = this.$store.state.isMobile;
             this.lan = this.$store.state.lan;
             console.log(this.lan);
+            this.getData();
+        },
+        methods:{
+            async getData(){
+                let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/banner/screen',{data:{status:true,belong:this.keystr,types:[this.isMobile?'mobile':'pc']},start:0,limit:1000});
+                if(code == 0){
+                    this.banner = data[0] || {};
+                }
+            }
         }
     }
 </script>

@@ -2,7 +2,7 @@
   <div class="container">
       <Pagebanner keystr="staff"/>
       <div class="staff-container">
-          <div class="staff-title">Job offerings</div>
+          <div class="staff-title">Careers</div>
           <div class="position-group">
               <div class="position-item" @click="toDetail">
                   <div class="position-title">Curtain wall design direction</div>

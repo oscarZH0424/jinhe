@@ -1,15 +1,24 @@
 <template>
   <div :class="{'nav-head':!isMobile && !mobileStyle,'m-nav-head':isMobile || mobileStyle,'m-pc':mobileStyle}">
-    <img class="logo" src="../assets/img/logo.png" alt="" @click="tapMenu('/')">  
+    <img class="logo" src="../assets/img/logo.png" alt="" @click="tapMenu($event,'/')">  
     <div v-show="!isMobile && !mobileStyle" class="menu-group">
-      <div class="menu-item" v-for="(menu,index) in menus[lan]" :key="index" @click="tapMenu(menu.path)">
-        <span>{{menu.name}} <span v-show="menu.child" class="arrow1">></span> </span>
-        <div class="drop-down-group" v-show="menu.child" :style="{width:index==1?'19.53125vw':''}">
-          <div v-for="(item,index2) in menu.child" :key="index2">
-            <div v-show="!item.child" class="drop-down-item" @click="tapMenu(item.path)" >{{item.name}}</div>
-            <div v-show="item.child" class="drop-down-item" @click="choose(item.type)" :class="{'active':isActive(item.type)}">{{item.name}} <span v-show="item.child" class="arrow2">></span></div>
-            <div v-show="isActive(item.type)">
-              <div class="drop-down-item" v-for="(subMenu,index3) in item.child" :key="index3" @click="tapMenu(subMenu.path)">{{subMenu.name}}</div>
+      <div class="menu-item" v-for="(menu,index) in menus[lan]" :key="index" @click="tapMenu($event,menu.banner)">
+        <span>{{menu.name}} <span v-show="menu.children && menu.children.length>0" class="arrow1">></span> </span>
+        <div class="drop-down-group" v-show="menu.children && menu.children.length>0" >
+          <!-- :style="{width:index==1?'19.53125vw':''}" -->
+          <div v-for="(item,index2) in menu.children" :key="index2">
+            <div v-show="!item.children || item.children.length<=0" class="drop-down-item" @click="tapMenu($event,item.banner)" >{{item.name}}</div>
+            <div v-show="item.children && item.children.length>0" class="drop-down-item" @click="choose(`${index}-${index2}`)" :class="{'active':isActive(`${index}-${index2}`)}">{{item.name}} <span v-show="item.children && item.children.length>0" class="arrow2">></span></div>
+            <div v-show="isActive(`${index}-${index2}`)">
+              <div  v-for="(subMenu,index3) in item.children" :key="index3" @click="tapMenu($event,subMenu.banner)">
+                <div v-show="!subMenu.children || subMenu.children.length<=0" class="drop-down-item" @click="tapMenu($event,subMenu.banner)" >{{subMenu.name}}</div>
+                <div v-show="subMenu.children && subMenu.children.length>0" class="drop-down-item" @click="choose(`${index}-${index2}-${index3}`)" :class="{'active':isActive(`${index}-${index2}-${index3}`)}">{{subMenu.name}} <span v-show="subMenu.children && subMenu.children.length>0" class="arrow2">></span></div>
+                <div v-show="isActive(`${index}-${index2}-${index3}`)">
+                  <div  v-for="(subMenu2,index4) in subMenu.children" :key="index4" @click="tapMenu($event,subMenu2.banner)">
+                      <div class="drop-down-item" @click="tapMenu($event,subMenu2.banner)" >{{subMenu2.name}}</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -59,21 +68,26 @@ export default {
         {name:'管理团队',path:'/team'},{name:'新闻中心',path:'/news'},{name:'企业招聘',path:'/staff'}
       ],
       en:[
-        {name:'About',child:[{name:'Management Scale',path:'/#glgm'},{name:'Multi-format Operation',path:'/#dytyy'},{name:'Partners',path:'/#hzf'},{name:'Business Model',path:'/#syms'},{name:'Operational Advantages',path:'/#yyys'}]},
-        {name:'Projects and Brands',child:[{name:'Projects',type:'pro',child:[{name:'Kempinski The One Suites Hotel Shanghai Downtown',path:'/product#pro1'},{name:'INFINITE SPACE BEIJING',path:'/product#pro2'},{name:'SURPASS SPACE SHANKANG ALLEY',path:'/product#pro3'},{name:'SURPASS SPACE GOLDEN UNION SHANG CITY',path:'/product#pro4'}]},{name:'Brands',type:'brand',child:[{name:'base service apartment',path:'/product#pro5'}]}]},
-        {name:'Leadership',path:'/team'},{name:'Media',path:'/news'},{name:'Careers',path:'/staff'}
+        {name:'About',children:[{name:'Management Scale',banner:'/#glgm'},{name:'Multi-format Operation',banner:'/#dytyy'},{name:'Partners',banner:'/#hzf'},{name:'Business Model',banner:'/#syms'},{name:'Operational Advantages',banner:'/#yyys'}]},
+        {name:'Projects and Brands',children:[{name:'Projects',type:'pro',children:[{name:'Kempinski The One Suites Hotel Shanghai Downtown',banner:'/product#pro1'},{name:'INFINITE SPACE BEIJING',banner:'/product#pro2'},{name:'SURPASS SPACE SHANKANG ALLEY',banner:'/product#pro3'},{name:'SURPASS SPACE GOLDEN UNION SHANG CITY',banner:'/product#pro4'}]},{name:'Brands',type:'brand',children:[{name:'base service apartment',banner:'/product#pro5'}]}]},
+        {name:'Leadership',banner:'/team'},{name:'Media',banner:'/news'},{name:'Careers',banner:'/staff'}
       ],
       },
       proShow:false,
       brandShow:false,
       lan:'ch',
       placeholdStr:{ch:'输入关键词搜索',en:'Enter keywords'},
-      mobileStyle:false
+      mobileStyle:false,
+      activeIndexMap:{},
+
     }
   },
   created(){
     this.lan = this.$store.state.lan;
-        console.log('nav',this.lan);
+    // console.log('nav',this.lan);
+    let menuList = this.$store.state.menu;
+    // console.log('menuList',menuList);
+    this.menus.ch = menuList;
 
   },
   mounted(){
@@ -91,9 +105,7 @@ export default {
     inputClick(e){
       e.stopPropagation();
     },
-    isActive(type){
-      return this[`${type}Show`];
-    },
+    
     toggleLan(){
       this.lan = this.lan == 'ch' ? 'en' : 'ch';
       bus.$emit('lanchange',this.lan);
@@ -107,14 +119,17 @@ export default {
         })
       }
     },
-    choose(type){
-      if(type=='pro'){
-        this.proShow = !this.proShow;
-      }
-       if(type=='brand'){
-        this.brandShow = !this.brandShow;
+    choose(index){
+      if(!this.activeIndexMap[index]){
+        this.$set(this.activeIndexMap,index,1);
+      }else{
+        this.activeIndexMap[index] = 0;
       }
     },
+    isActive(index){
+      return this.activeIndexMap[index];
+    },
+    
     tapMask(e){
       this.open = false;
     },
@@ -122,7 +137,8 @@ export default {
       this.open = false;
       bus.$emit('hashchange');
     },
-    tapMenu(path){
+    tapMenu(e,path){
+      e.stopPropagation();
       this.open = false;
       if(path && typeof path == 'string'){
         let base = this.lan == 'en' ? '/en' : '';
@@ -141,6 +157,9 @@ export default {
       this.isSearch = true;
     },
     toSearch2(){
+      this.$router.push({
+        path:`/search/${this.searchKey}`
+      })
     },
     close(){
       this.isSearch = false;
@@ -260,19 +279,18 @@ a{
             height:108px;
             opacity: 1;
             font-size: 18px;
-            font-family: PingFangSC, PingFangSC-Medium;
-            font-weight: 500;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
             text-align: center;
             color: white;
             line-height: 135px;
             padding:0px 42px;
-            min-width:193px;
             padding:0px 2.1875vw;
-            min-width:10.05208vw;
             white-space: nowrap;
             &:hover{
                 background:white;
                 color:#B21E27;
+                font-weight: 600;
                 .drop-down-group{
                   opacity:1;
                   visibility: visible;
@@ -285,7 +303,7 @@ a{
             .drop-down-group{
               position:absolute;
               top:108px;
-              width:100%;
+              min-width:100%;
               left:0px;
               height:auto;
               background: rgba(255,255,255,.9);
@@ -300,15 +318,17 @@ a{
                 line-height:50px;
                 opacity: 1;
                 font-size: 16px;
-                font-family: PingFangSC, PingFangSC-Medium;
-                font-weight: 500;
+                font-family: PingFangSC, PingFangSC-Regular;
+                font-weight: 400;
                 text-align: left;
                 color: #000;
                 overflow: hidden;
                 padding-left:2.1875vw;
+                padding-right:2.1875vw;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 &:hover,&.active{
+                  font-weight: 600;
                   background: #B21E27;
                   color:white;
                 }

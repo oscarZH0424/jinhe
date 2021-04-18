@@ -65,3 +65,160 @@
     }
 }
 
+.ant-pagination{
+    text-align: center;
+    .ant-pagination-prev{
+        background: transparent;
+        .ant-pagination-item-link{
+            background: transparent;
+            color:#787878;
+            border:0px;
+            font-size:16px;
+            &:hover,&:active,&:focus{
+                color:#B21E27;
+            }
+        }
+    }
+    .ant-pagination-next{
+        .ant-pagination-item-link{
+            background: transparent;
+            color:#787878;
+            border:0px;
+            font-size:16px;
+            &:hover,&:active,&:focus{
+                color:white;
+            }
+        }
+    }
+    .ant-pagination-item{
+        width:32px;
+        height:32px;
+        background: transparent;
+        a{
+            color:#787878;
+        }
+        &:hover,&:focus{
+            border-color:#B21E27;
+            background: #B21E27;
+            a{
+                color:white;
+            }
+        }
+    }
+    .ant-pagination-item-container{
+        color:#787878;
+        &:hover,&:focus{
+            color:#B21E27;
+        }
+    }
+    .ant-pagination-item-active{
+        border-color:#B21E27;
+        background: #B21E27;
+    }
+    .ant-pagination-item-active a{
+        color:white;
+    }
+    .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon{
+        color:#B21E27;
+    }
+    .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis{
+        color:#787878;
+    }
+    .ant-pagination-prev:focus .ant-pagination-item-link, .ant-pagination-next:focus .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link{
+        color:#B21E27;
+    }
+    .ant-pagination-options-quick-jumper{
+        color:#787878;
+    }
+    .ant-pagination-options-quick-jumper input{
+        background: transparent;
+        color:#787878;
+    }
+    .ant-pagination-options-quick-jumper input:focus{
+        border-color:#B21E27;
+        box-shadow:0 0 0 0.026667rem rgba(128, 0, 0, 0.2);
+    }
+    .ant-pagination-options-quick-jumper input:hover{
+        border-color:#B21E27;
+    }
+}
+
+.ant-pagination.dark{
+    text-align: center;
+    .ant-pagination-prev{
+        background: transparent;
+        .ant-pagination-item-link{
+            background: transparent;
+            color:white;
+            border:0px;
+            font-size:16px;
+            &:hover,&:active,&:focus{
+                color:#B21E27;
+            }
+        }
+    }
+    .ant-pagination-next{
+        .ant-pagination-item-link{
+            background: transparent;
+            color:white;
+            border:0px;
+            font-size:16px;
+            &:hover,&:active,&:focus{
+                color:#B21E27;
+            }
+        }
+    }
+    .ant-pagination-item{
+        width:32px;
+        height:32px;
+        background: transparent;
+        a{
+            color:white;
+        }
+        &:hover,&:focus{
+            border-color:#B21E27;
+            background: #B21E27;
+            a{
+                color:white;
+            }
+        }
+    }
+    .ant-pagination-item-container{
+        color:white;
+        &:hover,&:focus{
+            color:#B21E27;
+        }
+    }
+    .ant-pagination-item-active{
+        border-color:#B21E27;
+        background: #B21E27;
+    }
+    .ant-pagination-item-active a{
+        color:white;
+    }
+    .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon{
+        color:#B21E27;
+    }
+    .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis{
+        color:white;
+    }
+    .ant-pagination-prev:focus .ant-pagination-item-link, .ant-pagination-next:focus .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link{
+        color:#B21E27;
+    }
+    .ant-pagination-options-quick-jumper{
+        color:white;
+    }
+    .ant-pagination-options-quick-jumper input{
+        background: transparent;
+        color:white;
+    }
+    .ant-pagination-options-quick-jumper input:focus{
+        border-color:#B21E27;
+        box-shadow:0 0 0 0.026667rem rgba(128, 0, 0, 0.2);
+    }
+    .ant-pagination-options-quick-jumper input:hover{
+        border-color:#B21E27;
+    }
+}
+
+

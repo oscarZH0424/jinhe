@@ -4,44 +4,9 @@
       <div class="staff-container">
           <div class="staff-title">招聘职位</div>
           <div class="position-group">
-              <div class="position-item" @click="toDetail">
-                  <div class="position-title">幕墙设计方向</div>
-                  <div class="position-desc">锦和资管管培生 -2021届毕业生</div>
-                  <div class="position-btn">了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">机电工程方向机电工程方向机电工程…</div>
-                  <div class="position-desc">锦和资管管培生锦和资管管培生锦和资管管培生生</div>
-                  <div class="position-btn" >了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">装饰装修方向</div>
-                  <div class="position-desc">锦和资管管培生 -2021届毕业生</div>
-                  <div class="position-btn">了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">机电事业部</div>
-                  <div class="position-desc">水电工程师</div>
-                  <div class="position-btn">了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">运营中心</div>
-                  <div class="position-desc">营销助理</div>
-                  <div class="position-btn">了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">云采购事业部</div>
-                  <div class="position-desc">总经理</div>
-                  <div class="position-btn">了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">幕墙事业部</div>
-                  <div class="position-desc">幕墙预算员</div>
-                  <div class="position-btn">了解更多</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">幕墙事业部</div>
-                  <div class="position-desc">幕墙项目经理</div>
+              <div class="position-item" v-for="(job,index) in jobs" :key="index" @click="toDetail(job)">
+                  <div class="position-title">{{job.title}}</div>
+                  <div class="position-desc">{{job.titleDesc}}</div>
                   <div class="position-btn">了解更多</div>
               </div>
           </div>
@@ -50,13 +15,46 @@
 </template>
 
 <script>
+import axios from 'axios'
+const PAGESIZE = 8;
 export default {
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8282/job/list',
+        data:{limit:PAGESIZE,start:0}
+	    })
+	    .then(function (res) {
+            let jobs = [];
+            let total = 0;
+            if(res.data.code == 0){
+                jobs = res.data.data;
+                total = res.data.totalRecord;
+            }
+		  return { jobs,total }
+	    })
+	},
     methods:{
-        toDetail(){
-            window.open('/staff/1');
-        }
+        toDetail(job){
+            this.$router.push({
+                path:`/staff/${job.id}`
+            })
+        },
+        getData(){
+            let _this = this;
+            axios({
+            method: 'post',
+            url: 'http://www.dream-fly.com.cn:8282/job/list',
+            data:{limit:this.pageSize,start:this.pageSize*this.pageNum}
+            })
+            .then( (res)=> {
+                if(res.data.code == 0){
+                    _this.total = res.data.totalRecord;
+                    _this.jobs = res.data.data;
+                }
+            })
+        },
     }
-    
 }
 </script>
 

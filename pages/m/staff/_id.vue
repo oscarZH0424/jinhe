@@ -2,30 +2,30 @@
   <div class="container">
      <Pagebanner keystr="staffd"/>
       <div class="paragraph">
-          <div class="title">集团管培生 （幕墙设计方向）-2021届毕业生</div>
+          <div class="title">{{detail.name}}</div>
           <div class="subtitle">
               <div class="line"></div>
           </div>
           <div class="content">
               <div class="position-info">
                   <div class="position-label">所属部门：</div>
-                  <div class="position-text">市场部</div>
+                  <div class="position-text">{{detail.depart}}</div>
               </div>
               <div class="position-info">
                   <div class="position-label">工作地点：</div>
-                  <div class="position-text">上海</div>
+                  <div class="position-text">{{detail.city}}</div>
               </div>
               <div class="position-info">
                   <div class="position-label">招聘人数：</div>
-                  <div class="position-text">10人</div>
+                  <div class="position-text">{{detail.headCount}}</div>
               </div>
               <div class="position-info">
                   <div class="position-label">发布日期：</div>
-                  <div class="position-text">2020-08-27</div>
+                  <div class="position-text">{{detail.createTime}}</div>
               </div>
               <div class="position-info">
                   <div class="position-label block">招聘要求：</div>
-                  <div class="position-text">1、2021年本科及以上学历应届毕业生，身体健康，沟通表达能力强，有强烈的成功欲望； <br> 2、学生会干部、演说能力强、中共党员、奖学金获得者优先录取； <br>3、土木工程、机械设计与制造、室内设计、环境艺术设计、建筑设计、土木工程等相关专业；<br> 4、面试者需有个人简历、成绩单、四六级英语证书、各类获奖证书、三方协议原件及复印件；<br> 5、若发现被聘用人员提供的应聘资料有虚假信息，集团公司有权解除其就业协议书及劳动合同。<br> 6、对于工作期间考研/考公成功的同学，公司配合无条件解约，不收取任何违约金！</div>
+                  <div class="position-text" v-html="brStr(detail.description)"></div>
               </div>
               <div class="bottom-info">人力资源经理/管培生项目招聘负责人：某 <br> 手机：137********* <br>人才专线：021-******** <br>邮箱：********@163.com</div>
           </div>
@@ -34,8 +34,35 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-
+    asyncData ({ params }) {//请求
+        console.log(params);
+        return  axios({
+        method: 'post',
+        url: 'http://www.dream-fly.com.cn:8282/job/detail',
+        data:{data:params.id}
+        })
+        .then(function (res) {
+            let detail;
+            if(res.data.code == 0){
+                detail = res.data.data;
+            }
+            return { detail }
+        })
+    },
+    mounted(){
+        console.log(this.detail);
+    },
+    methods:{
+        brStr(val){
+            if(val){
+                return val.split('\n').join('<br>');
+            }else{
+                return '';
+            }
+        }
+    }
 }
 </script>
 

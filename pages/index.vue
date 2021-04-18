@@ -4,74 +4,70 @@
       <full-page :options="option" ref="fullpage">
         <div class="section" id="bannerSection">
           <a-carousel dotPosition="bottom">
-            <Banner />
-            <Banner />
-            <Banner />
-            <Banner />
-            <Banner />
+            <Banner v-for="(banner,index) in banners" :info="banner" :key="index"/>
           </a-carousel>
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==1}" style="height:100vh;" src="~/assets/img/desc_bg_1.png" alt=""/>
+            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==1}" style="height:100vh;" :src="configObj[1].coverUrl || require('~/assets/img/desc_bg_1.png')" alt=""/>
             <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==1}" :style="maskBottomStyle"></div>
             <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==1}">
-              <div class="desc-title">锦和资产管理公司</div>
-              <div class="desc-text">锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。</div>
+              <div class="desc-title">{{configObj[1].text1 || '锦和资产管理公司'}}</div>
+              <div class="desc-text">{{configObj[1].text2 || '锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。'}}</div>
             </div>
           </div>
         </div>      
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==2}" style="width:56.25vw;" src="~/assets/img/desc_bg_2.png" alt=""/>
+            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==2}" style="width:56.25vw;" :src="configObj[2].coverUrl || require('~/assets/img/desc_bg_2.png')" alt=""/>
             <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==2}" :style="maskBottomStyle"></div>
             <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==2}">
-              <div class="desc-title">锦和资管的管理规模</div>
+              <div class="desc-title">{{configObj[2].text || '锦和资管的管理规模'}}</div>
               <div class="desc-label-group">
                 <div class="label-item">
-                  <div class="label-val">151亿RMB</div>
-                  <div class="label-name">资产规模</div>
+                  <div class="label-val">{{configObj[2].text1 || '151亿RMB'}}</div>
+                  <div class="label-name">{{configObj[2].text2 || '资产规模'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">19个</div>
-                  <div class="label-name">全国项目</div>
+                  <div class="label-val">{{configObj[2].text3 || '19个'}}</div>
+                  <div class="label-name">{{configObj[2].text4 || '全国项目'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">39.6万平方米</div>
-                  <div class="label-name">总建筑面积</div>
+                  <div class="label-val">{{configObj[2].text5 || '39.6万平方米'}}</div>
+                  <div class="label-name">{{configObj[2].text6 || '总建筑面积'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">2个</div>
-                  <div class="label-name">全国城市</div>
+                  <div class="label-val">{{configObj[2].text7 || '2个'}}</div>
+                  <div class="label-name">{{configObj[2].text8 || '全国城市'}}</div>
                 </div>
               </div>
-              <div class="desc-tip">*截至2020年12月30号</div>
+              <div class="desc-tip">{{configObj[2].text9 || '*截至2020年12月30号'}}</div>
             </div>
           </div>
         </div>
         <div class="section">
           <div class="desc-panel" >
-            <img class="bg-img br full" src="~/assets/img/desc_bg_5.png" alt=""/>
+            <img class="bg-img br full" :src="configObj[3].coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
             <div class="desc-dark" >
               <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==3}">
-                <div class="desc-title">锦和资管的多业态运营</div>
-              <div class="desc-subtitle">品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值</div>
+                <div class="desc-title">{{configObj[3].text || '锦和资管的多业态运营'}}</div>
+              <div class="desc-subtitle">{{configObj[3].text1 || '品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值'}}</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
-                  <div class="intro-title">base佰舍 服务式公寓</div>
-                  <div class="intro-text">灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。</div>
+                  <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base佰舍 服务式公寓')"></div>
+                  <div class="intro-text">{{configObj[3].text3 || '灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。'}}</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">Tulu途楼 青年公寓</div>
-                  <div class="intro-text">设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。</div>
+                  <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu途楼 青年公寓')"></div>
+                  <div class="intro-text">{{configObj[3].tex5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">越界 办公</div>
-                  <div class="intro-text">为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。</div>
+                  <div class="intro-title" v-html="brStr(configObj[3].text6 || '越界 办公')"></div>
+                  <div class="intro-text">{{configObj[3].tex7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title">越界/越都荟社区商业</div>
-                  <div class="intro-text">生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。</div>
+                  <div class="intro-title" v-html="brStr(configObj[3].text8 || '越界/越都荟社区商业')"></div>
+                  <div class="intro-text">{{configObj[3].tex9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
                 </div>
               </div>
               </div>
@@ -84,55 +80,55 @@
             <img class="bg-img tl desc-bg-3" style="" src="~/assets/img/desc_bg_3.png" alt=""/>
             <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==4}" :style="maskTopStyle"></div>
             <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==4}">
-              <div class="desc-title">锦和资管合作方</div>
+              <div class="desc-title">{{configObj[4].text || '锦和资管合作方'}}</div>
               <div class="multi-intro">
                 <div class="multi-main">
                   <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-                  <div class="main-title">国际领先的私募股权投资公司</div>
-                  <div class="main-subtitle">自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。</div>
+                  <div class="main-title">{{configObj[4].text1 || '国际领先的私募股权投资公司'}}</div>
+                  <div class="main-subtitle">{{configObj[4].text2 || '自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。'}}</div>
                   <div class="text-group">
                     <div class="text-item bottom right">
-                      <div class="text-title">50年</div>
-                      <div class="text-info">产业投资管理经验</div>
+                      <div class="text-title">{{configObj[4].text3 || '50年'}}</div>
+                      <div class="text-info">{{configObj[4].text4 || '产业投资管理经验'}}</div>
                     </div>
                     <div class="text-item bottom right">
-                      <div class="text-title">370亿美元</div>
-                      <div class="text-info">目前管理资产额</div>
+                      <div class="text-title">{{configObj[4].text5 || '370亿美元'}}</div>
+                      <div class="text-info">{{configObj[4].text6 || '目前管理资产额'}}</div>
                     </div>
                     <div class="text-item bottom ">
-                      <div class="text-title">700家</div>
-                      <div class="text-info">迄今投资企业总数</div>
+                      <div class="text-title">{{configObj[4].text7 || '700家'}}</div>
+                      <div class="text-info">{{configObj[4].text8 || '迄今投资企业总数'}}</div>
                     </div>
                     <div class="text-item right tb">
-                      <div class="text-title">120家</div>
-                      <div class="text-info">目前持有投资企业</div>
+                      <div class="text-title">{{configObj[4].text9 || '120家'}}</div>
+                      <div class="text-info">{{configObj[4].text10 || '目前持有投资企业'}}</div>
                     </div>
                     <div class="text-item right tb">
-                      <div class="text-title">480亿美元</div>
-                      <div class="text-info">迄今投资额</div>
+                      <div class="text-title">{{configObj[4].text11 || '480亿美元'}}</div>
+                      <div class="text-info">{{configObj[4].text12 || '迄今投资额'}}</div>
                     </div>
                     <div class="text-item tb">
-                      <div class="text-title">1994年</div>
-                      <div class="text-info">走进中国</div>
+                      <div class="text-title">{{configObj[4].text13 || '1994年'}}</div>
+                      <div class="text-info">{{configObj[4].text14 || '走进中国'}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="multi-sub">
                   <div class="sub-intro-item">
                     <img style="margin-top:27px;width:265px;width:10.52083vw;margin-top:1.40625vw;" src="~/assets/img/logo_2.png" alt=""/>
-                    <div class="sub-text" style="margin-top:27px;margin-top:1.40625vw;"><span>首创钜大有限公司</span>主要从事商业物业开发及运营管理，致力成为中国领先的商业地产运营商。</div>
+                    <div class="sub-text" style="margin-top:27px;margin-top:1.40625vw;"><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:36px;width:134px;margin-top:1.875vw;width:6.979167vw;" src="~/assets/img/logo_3.png" alt=""/>
-                    <div class="sub-text" style="margin-top:43px;margin-top:2.239583vw;"><span>万科企业股份有限公司</span>成立于1984年，1988年进入房地产行业，经过三十余年的发展，已成为国内领先的城市配套服务商。</div>
+                    <div class="sub-text" style="margin-top:43px;margin-top:2.239583vw;"><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:18px;width:206px;margin-top:0.9375vw;width:10.72916vw;" src="~/assets/img/logo_4.png" alt=""/>
-                    <div class="sub-text" style="margin-top:39px;margin-top:2.03125vw;"><span>“InfraRed南丰大中华房地产基金”</span>为南丰集团于2007年与汇丰银行合作发展的私募房地产基金，致力于中国增值型物业的投资。</div>
+                    <div class="sub-text" style="margin-top:39px;margin-top:2.03125vw;"><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="width:178px;width:9.27083vw;" src="~/assets/img/logo_5.png" alt=""/>
-                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>GIC</span>成立于1981年，是一家来自新加坡的主权投资基金，其主要任务是管理新加坡的外汇储备，跨出新加坡国界向海外大举投资…</div>
+                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
                   </div>
                 </div>
               </div>
@@ -142,27 +138,24 @@
         </div>
         <div class="section">
           <div class="desc-panel">
-            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==5}" style="height:100vh" src="~/assets/img/desc_bg_4.png" alt=""/>
+            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==5}" style="height:100vh" :src="configObj[5].coverUrl || require('~/assets/img/desc_bg_4.png')"  alt=""/>
             <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==5}" :style="maskTopStyle"></div>
             <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==5}">
-              <div class="desc-title" style="margin-bottom:22px;">锦和资管的商业模式</div>
-              <div class="desc-subtitle tag">锦和资管全生命周期管控系</div>
-              <div class="desc-subtitle tag" style="margin-bottom:63px;">“一站式”资产管理服务</div>
+              <div class="desc-title" style="margin-bottom:22px;">{{configObj[5].text || '锦和资管的商业模式'}}</div>
+              <div class="desc-subtitle tag">{{configObj[5].text1 || '锦和资管全生命周期管控系'}}</div>
+              <div class="desc-subtitle tag" style="margin-bottom:63px;">{{configObj[5].text2 || '“一站式”资产管理服务'}}</div>
               <div class="tag-group">
                 <div class="tag-item">
-                  <div class="tag-text">物业收购</div>
+                  <div class="tag-text" v-for="(tag,index) in configObj[5].text3.split('\n')" :key="index">{{tag}}</div>
                 </div>
                 <div class="tag-item">
-                  <div class="tag-text">产品定位</div>
-                  <div class="tag-text">工程管理</div>
+                  <div class="tag-text" v-for="(tag,index) in configObj[5].text4.split('\n')" :key="index">{{tag}}</div>
                 </div>
                 <div class="tag-item">
-                  <div class="tag-text">多元化的</div>
-                  <div class="tag-text">盈利基础</div>
-
+                  <div class="tag-text" v-for="(tag,index) in configObj[5].text5.split('\n')" :key="index">{{tag}}</div>
                 </div>
                 <div class="tag-item">
-                  <div class="tag-text">运营管理</div>
+                  <div class="tag-text" v-for="(tag,index) in configObj[5].text6.split('\n')" :key="index">{{tag}}</div>
                 </div>
               </div>
             </div>
@@ -170,28 +163,31 @@
         </div>      
         <div class="section">  
           <div class="desc-panel">
-            <img class="bg-img br  full" src="~/assets/img/desc_bg_5.png" alt=""/>
+            <img class="bg-img br  full"  :src="configObj[6].coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
             <div class="desc-dark">
               <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
-                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">锦和资管的运营优势</div>
+                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">{{configObj[6].text || '锦和资管的运营优势'}}</div>
                 <div class="desc-intro-group">
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">资源</div>
-                    <div class="intro-text">优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势</div>
+                    <div class="intro-title no-border">{{configObj[6].text1 || '资源'}}</div>
+                    <div class="intro-text bold" v-html="brStr(configObj[6].text2 || '优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势')"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">资本</div>
-                    <div class="intro-text">强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投</div>
+                    <div class="intro-title no-border">{{configObj[6].text3 || '资本'}}</div>
+                    <div class="intro-text bold" v-html="brStr(configObj[6].text4 || '强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投')" ></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">市场</div>
-                    <div class="intro-text">敏锐的市场洞察力<br>精准的市场定位</div>
+                    <div class="intro-title no-border">{{configObj[6].text5 || '市场'}}</div>
+                    <div class="intro-text bold" v-html="brStr(configObj[6].text6 || '敏锐的市场洞察力<br>精准的市场定位')"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">创新</div>
-                    <div class="intro-text">产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力</div>
+                    <div class="intro-title no-border">{{configObj[6].text7 || '创新'}}</div>
+                    <div class="intro-text bold" v-html="brStr(configObj[6].text8 || '产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力')"></div>
                   </div>
                 </div>
+              </div>
+              <div style="position:absolute;bottom:0px;left:0px;width:100%;">
+                <Foot/>
               </div>
             </div>
           </div>
@@ -203,9 +199,27 @@
 
 <script>
 import bus from '@/assets/js/eventBus';
+import axios from 'axios'
 export default {
+ async  asyncData ({ params }) {//请求
+    let configObj = {};
+    let banners = [];
+    let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/ipe/screen',{data:{status:true},start:0,limit:1000});
+    if(code == 0){
+      data.forEach(config => {
+        configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
+      });
+    }
+    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/banner/screen',{data:{status:true,belong:'home',types:['pc']},start:0,limit:1000});
+    if(code2 == 0){
+     banners = data2;
+    }
+    return { configObj ,banners}
+
+	},
     data(){
       return {
+        
         option:{
           licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
           resize: true,
@@ -227,6 +241,7 @@ export default {
       }
     },
     mounted() {
+      console.log(this.banners);
       bus.$on('hashchange',()=>{
         console.log('hashChange',window.location.hash);
         setTimeout(()=>{
@@ -259,6 +274,17 @@ export default {
               }
             },100)
             
+        },
+        brStr(val){
+          return val ? val.split('\n').join('<br>') : '';
+        },
+        tagText(val){
+          let arr = val.split('\n');
+          let str = '';
+          arr.forEach(text => {
+              str+= `<div class="tag-text">${text}</div>`
+          });
+          return str;
         }
     },
 }
@@ -461,6 +487,7 @@ export default {
           line-height: 41px;
           font-size: 1.510417vw;
           line-height: 2.135417vw;
+          margin-top:10px;
 
         }
       }
@@ -530,7 +557,7 @@ export default {
           margin-bottom:1.927083vw;
         }
         .text-group{
-          border-top:1px dashed #898989;
+          border-top:1px dashed rgba(137,137,137,.1);
           padding-top:26px;
           display: flex;
           flex-flow: row wrap;
@@ -547,10 +574,10 @@ export default {
             flex-flow:column;
             align-items: center;
             &.bottom{
-              border-bottom:1px dashed #b3b3b3;
+              border-bottom:1px dashed rgba(137,137,137,.1);
             }
             &.right{
-              border-right:1px dashed #b3b3b3;
+              border-right:1px dashed rgba(137,137,137,.1);
             }
             &.tb{
               justify-content: flex-end;
@@ -564,8 +591,8 @@ export default {
             .text-title{
               opacity: 1;
               font-size: 35px;
-              font-family: Arial, Arial-BoldMT;
-              font-weight: BoldMT;
+              font-family:  PingFangSC, PingFangSC-Medium;
+              font-weight: 500;
               color: #af1f22;
               line-height: 41px;
               font-size: 1.822916vw;
@@ -722,12 +749,12 @@ export default {
         height: 244px;
         opacity: 1;
         border: 1px solid #898989;
-        padding:64px 30px 20px  30px;
+        padding:38px 30px 20px  30px;
         margin-right:30px;
         background: rgba(255,255,255,.8);
         width: 13.59375vw;
         height: 12.7083vw;
-        padding:3.489583vw 1.5625vw 1.0417vw  1.5625vw;
+        padding:1.9791vw 1.5625vw 1.0417vw  1.5625vw;
         margin-right:1.5625vw;
         margin-bottom:1.5625vw;
         min-width:170px;
@@ -766,9 +793,13 @@ export default {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 4;
           overflow: hidden;
-          // font-size: 0.625vw;
           // line-height: 0.88541vw;
-
+          &.bold{
+            font-size:17px;
+            line-height:24px;
+            font-size:0.88541vw;
+            line-height:1.25vw;
+          }
         }
       }
     }
@@ -804,6 +835,13 @@ export default {
     font-size:17px !important;
     line-height:21px !important;
   }
+}
+
+@media screen and  (max-width:1360px) {
+    .intro-text.bold{
+      font-size:12px !important;
+      line-height:17px !important;
+    }
 }
 @media screen and  (max-width:1445px) {
   .sub-intro-item{
@@ -851,7 +889,7 @@ fp-scroller{
   width:15px;
   height:15px;
   margin-right:88px;
-
+  opacity:1;
   width:0.78125vw;
   height:0.78125vw;
   margin-right:4.583vw;
@@ -870,5 +908,8 @@ fp-scroller{
   width:15px;
   background: #B21E27;
   width:0.78125vw;
+}
+.ant-carousel .slick-dots li button:hover, .ant-carousel .slick-dots li button:focus{
+  opacity:1;
 }
 </style>

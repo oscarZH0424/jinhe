@@ -4,14 +4,14 @@
       <div class="news-list">
           <div class="news-item" v-for="(news,index) in newsList" :key="index">
               <div class="news-cover">
-                  <img :src="news.src" alt=""/>
+                  <img :src="news.coverUrl" alt=""/>
               </div>
-              <div class="news-mask wow" :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==1}"></div>
+              <div class="news-mask wow" :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}"></div>
               <div class="mask-item">
                 <div class="news-info wow fadeInUp"  data-wow-delay="1s">
-                    <div class="news-time">{{news.time}}</div>
+                    <div class="news-time">{{news.editTime}}</div>
                     <div class="news-title">{{news.title}}</div>
-                    <div class="news-btn" @click="toDetail(news.link)">了解详情</div>
+                    <div class="news-btn" @click="toDetail(news)">了解详情</div>
                 </div>
             </div>
           </div>
@@ -20,26 +20,54 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8282/article/screen',
+        data:{data:{status:true,types:['3']},limit:5,start:0}
+	    })
+	    .then(function (res) {
+            let newsList = [];
+            let total = 0;
+            if(res.data.code == 0){
+                newsList = res.data.data;
+                total = res.data.totalRecord;
+            }
+		  return { newsList,total }
+	    })
+	},
     scrollToTop: true,
     data(){
         return {
-            newsList:[
-                {time:'2020-10-29',title:'锦和商业上市后并购项目第一单',src:require('~/assets/img/m/news_1.png'),link:'/news/1'},
-                {time:'2020-12-28',title:'锦和越界陕康里荣获2020【金文旅奖】上海在线新文旅20强',src:require('~/assets/img/m/news_2.png'),link:'http://www.iyuejie.com/#/newDatail?id=56bc342f2b1342cc9a0e231537b6a556'},
-                {time:'2020-10-18',title:'锦和商业荣膺财联社“2020中国新经济最具投资价值上市公司奖”',src:require('~/assets/img/m/news_3.png'),link:'http://www.iyuejie.com/#/newDatail?id=c924c597e5054240a87f559f4a038eae'},
-                {time:'2020-8-24',title:'疫”境前行 | 锦和受邀与沪上商办行业共论创变新机遇',src:require('~/assets/img/m/news_4.png'),link:'http://www.iyuejie.com/#/newDatail?id=c6dddab283c1442fb3257f0a6531ee27'},
-                {time:'2020-4-18',title:'湖北省省委宣传部副部长、广播电视局局长邓务贵等一行探访越界•田林坊',src:require('~/assets/img/m/news_5.png'),link:'http://www.iyuejie.com/#/newDatail?id=42491e810ff14474a934a33e487a5ffb'},
-            ]
+            pageSize:5,
+            pageNum:0
         }
     },
     mounted(){
       new this.$wow.WOW({live:true}).init();
     },
     methods:{
-        toDetail(link){
-            window.open(link);
-        }
+        toDetail(news){
+            this.$router.push({
+                path:`/news/${news.id}`
+            })
+        },
+        getData(){
+            let _this = this;
+            axios({
+            method: 'post',
+            url: 'http://www.dream-fly.com.cn:8282/article/screen',
+            data:{data:{status:true,types:['3']},limit:this.pageSize,start:this.pageNum*this.pageSize}
+            })
+            .then( (res)=> {
+                if(res.data.code == 0){
+                    _this.total = res.data.totalRecord;
+                    _this.newsList = res.data.data;
+                }
+            })
+        },
     },
 }
 </script>

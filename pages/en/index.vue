@@ -191,7 +191,9 @@
                   </div>
                 </div>
               </div>
-              
+              <div style="position:absolute;bottom:0px;left:0px;width:100%;">
+                <Foot/>
+              </div>
             </div>
           </div>
         </div>      
@@ -855,7 +857,7 @@ fp-scroller{
   width:15px;
   height:15px;
   margin-right:88px;
-
+  opacity:1;
   width:0.78125vw;
   height:0.78125vw;
   margin-right:4.583vw;
@@ -874,5 +876,8 @@ fp-scroller{
   width:15px;
   background: #B21E27;
   width:0.78125vw;
+}
+.ant-carousel .slick-dots li button:hover, .ant-carousel .slick-dots li button:focus{
+  opacity:1;
 }
 </style>

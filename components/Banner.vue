@@ -1,12 +1,10 @@
 <template>
   <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile}" :style="styleCss">
-      <img v-show="!isMobile" src="~/assets/img/home-banner.png" alt="">
-      <img v-show="isMobile" src="~/assets/img/m/home-banner.png" alt="">
+      <img  :src="info.coverUrl || require('~/assets/img/home-banner.png')" alt="">
       <div class="content-area">
           <div class="title-area">
-            <div v-show="lan=='ch'" class="title">提升城市活力<br>激发城市经济增长</div>
-            <div v-show="lan=='ch'" class="sub-title">Enhance Urban Vitality And <br> Stimulate Urban Economic Growth</div>
-            <div v-show="lan=='en'" class="title">Enhance Urban Vitality And <br> Stimulate Urban Economic Growth</div>
+            <div class="title" v-html="brStr(info.firstTitle)"></div>
+            <div class="sub-title" v-html="brStr(info.secondTitle)"></div>
         </div>
       </div>
       
@@ -15,6 +13,14 @@
 
 <script>
 export default {
+    props:{
+        info:{
+            type:Object,
+            default:()=>{
+                return {}
+            }
+        }
+    },
     data(){
         return {
             isMobile:false,
@@ -43,6 +49,9 @@ export default {
                 this.styleCss.width = `${document.documentElement.clientWidth}px`;
 
             }
+        },
+        brStr(val){
+            return val ? val.split('\n').join('<br>') : '';
         }
     }
 }

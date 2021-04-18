@@ -2,73 +2,83 @@
   <div class="container">
       <Pagebanner keystr="pro"/>
       <div class="pro-list">
-          <div class="pro-item" id="pro1">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_1.png" alt=""/>
-              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
+          <div class="pro-item" v-for="(pro,index) in proList" :key="pro.id" :id="`pro${pro.id}`" >
+              <img class="bg-img wow fadeIn" :src="pro.coverUrl" alt=""/>
+              <div class="pro-mask wow " :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}" data-wow-delay="1s"></div>
               <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">上海御锦<br>凯宾斯基全套房酒店</div>
-                <div class="pro-desc">酒店坐落于静安区凤阳路601号，毗邻繁华商圈“梅、泰、恒”。步行可至地铁一、二、十二、十三号线，出行便捷。锦和投资集团联袂凯宾斯基，将其打造为上海市中心独一无二的酒店式公寓。</div>
-                <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">了解详情</div>
+                <div class="pro-title">{{pro.firstTitle}}<br v-if="pro.secondTitle">{{pro.secondTitle}}</div>
+                <div class="pro-desc" v-html="brStr(pro.information)"></div>
+                <div class="pro-btn" @click="toDetail(pro)">了解详情</div>
             </div>
           </div>
-          <div class="pro-item" id="pro2">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_2.png" alt=""/>
-              <div class="pro-mask wow fadeInRight"  data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">北京广安门越都荟</div>
-                <div class="pro-desc">2019年，北京广安门越都荟的开业标志着锦和城市更新项目成功进军北京市场，为集团走出长三角地区开疆扩土。</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
-            </div>
-          </div>
-          <div class="pro-item" id="pro3">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_3.png" alt=""/>
-              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">锦和越界陕康里</div>
-                <div class="pro-desc">2020年8月焕新登场，位于老静安的核心区域， 是由锦和资管操盘，锦和商业运营管理的经典案例，通过设计改造和综合运管能力提升物业价值，打造引领现代生活方式的经典街区。</div>
-                <div class="pro-btn" @click="toDetail2('/product/1')">了解详情</div>
-            </div>
-          </div>
-          <div class="pro-item" id="pro4">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_4.png" alt=""/>
-              <div class="pro-mask wow fadeInRight" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">越界锦和尚城</div>
-                <div class="pro-desc">位于漕河泾核心区域，前身为上海金星电视机厂， 后为越界创意园，是锦和进入城市更新领域的第一个项目。 <br> 2019年起，对越界创意园重新设计改造，新项目将成为融合街区社区、商业办公、商务休闲为一体的大型综合体。</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
-            </div>
-          </div>
-          <div class="pro-item" id="pro5">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_5.png" alt=""/>
-              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                    <div class="pro-title">base佰舍<br>服务式公寓</div>
-                    <div class="pro-desc">2021年初，base佰舍 服务式公寓在上海及北京等一线城市中心区域运营管理着服务式公寓项目17家共1532套公寓。是目前上海市场上管理服务公寓数量最多的运营品牌。base佰舍 服务式公寓将继续致力于成为引领现代生活方式，注重品质生活的设计型服务式公寓运营商。</div>
-                    <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">了解详情</div>
-                </div>
-          </div>
+          
+      </div>
+      <div class="page-bottom">
+          <a-pagination :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
       </div>
   </div>
 </template>
 
 <script>
 import bus from '@/assets/js/eventBus';
+import axios from 'axios';
 export default {
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8282//project/screen',
+        data:{data:true,limit:1000,start:0}
+	    })
+	    .then(function (res) {
+            let oriProList = [];
+            let total = 0;
+            if(res.data.code == 0){
+                oriProList = res.data.data;
+                total = res.data.totalRecord;
+            }
+		  return { oriProList,total }
+	    })
+	},
+    data(){
+        return{
+            proList:[],
+            pageSize:10,
+            pageNum:0
+        }
+    },
     mounted() {
-      new this.$wow.WOW({live:true}).init();
-      bus.$on('hashchange',()=>{
-        setTimeout(()=>{
-          if (window.location.hash) {
-              this.goAnchor(window.location.hash)
-          }
-        },10)
-      })
-      if (window.location.hash) {
-          this.goAnchor(window.location.hash)
-      }
-      
+        this.init();
+        this.setData();
     },
     methods: {
+        onChange(page){
+            this.pageNum = page -1;
+            this.setData();
+        },
+        setData(){
+            let arr = [];
+            this.oriProList.forEach((pro,index) => {
+                let start = this.pageNum*this.pageSize;
+                let end = start + this.pageSize;
+                if(index >= start && index < end){
+                    arr.push(pro)
+                }
+            });
+            this.proList = arr;
+        },
+        init(){
+            new this.$wow.WOW({live:true}).init();
+            bus.$on('hashchange',()=>{
+                setTimeout(()=>{
+                if (window.location.hash) {
+                    this.goAnchor(window.location.hash)
+                }
+                },10)
+            })
+            if (window.location.hash) {
+                this.goAnchor(window.location.hash)
+            }
+        },
         goAnchor(selector) {
             // 最好加个定时器给页面缓冲时间
             setTimeout(() => {
@@ -77,14 +87,27 @@ export default {
                 anchor.scrollIntoView()
             }, 500)
         },
-        toDetail(link){
-            window.open(link);
+        toDetail(pro){
+            if(pro.urlType == 1){
+                window.open(pro.url);
+            }else{
+                this.$router.push({
+                    path:`/product/${pro.url}`
+                })
+            }
         },
         toDetail2(path){
             this.$router.push({
                 path
             })
-        }
+        },
+        brStr(val){
+            if(val){
+                return val.split('\n').join('<br>');
+            }else{
+                return '';
+            }
+        },
     }
 }
 </script>
@@ -104,6 +127,7 @@ export default {
         height:1080px;
         height:56.25vw;
         min-height:540px;
+        overflow:hidden;
         .bg-img{
             position:absolute;
             height:1080px;
@@ -183,7 +207,7 @@ export default {
                 font-size: 1.04167vw;
                 min-width:106px;
                 min-height:33px;
-
+                cursor: pointer;
             }
         }
         &:nth-child(odd){
@@ -192,9 +216,9 @@ export default {
             }
             .pro-mask{
                 left:0;
-                top:0;
+                top:-1px;
                 border-bottom: 1080px solid #b21e27;
-                border-bottom: 56.25vw solid #b21e27;
+                border-bottom: 57.25vw solid #b21e27;
 
                 border-left: 0px solid transparent;
                 border-right: 400px solid transparent; 
@@ -222,9 +246,9 @@ export default {
             }
             .pro-mask{
                 right:0;
-                top:0;
+                top:-1px;
                 border-bottom: 1080px solid #b21e27;
-                border-bottom: 56.25vw solid #b21e27;
+                border-bottom: 57.25vw solid #b21e27;
 
                 border-right: 0px solid transparent;
                 border-left: 400px solid transparent; 
@@ -249,7 +273,9 @@ export default {
         }
     }
 }
-
+.page-bottom{
+    padding:55px 0px;
+}
 @media screen and (max-width:960px) {
 
     .pro-title{

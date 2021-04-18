@@ -2,10 +2,10 @@
     <div class="menu-item">
         <div class="menu-fa" @click="tapHead($event)" :class="{'active':open}">
             <div class="menu-title">{{menu.name}}</div>
-            <div v-show="menu.child && menu.child.length>0" class="menu-arrow" :class="{'active':open}">></div>
+            <div v-show="menu.children && menu.children.length>0" class="menu-arrow" :class="{'active':open}">></div>
         </div>
         <div  class="menu-ch" :class="{'show':open}">
-            <div v-for="(item,index) in menu.child" :key="index">
+            <div v-for="(item,index) in menu.children" :key="index">
                 <menu-item :menu="item" @tap="onTap"></menu-item>
             </div>
         </div>
@@ -14,6 +14,7 @@
 
 <script>
     export default {
+        
         name:'menuItem',
         props:{
             menu:Object
@@ -26,16 +27,18 @@
         methods:{
             tapHead(e){
                 e.stopPropagation();
-                if(this.menu.child && this.menu.child.length>0){
+                if(this.menu.children && this.menu.children.length>0){
                  this.open = !this.open;
                 }
-                if(this.menu.path){
+                if(this.menu.banner){
                     let base = this.$store.state.lan == 'en' ? '/en' : '';
-                    let path = `${base}${this.menu.path}` ;
-                    this.$router.push({
-                        path
-                    })
-                    this.$emit('tap');
+                    let path = `${base}${this.menu.banner}` ;
+                    if(!this.menu.children || this.menu.children.length<=0){
+                        this.$router.push({
+                            path
+                        })
+                        this.$emit('tap');
+                    }
                 }
             },
             onTap(){
