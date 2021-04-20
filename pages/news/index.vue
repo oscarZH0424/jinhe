@@ -233,7 +233,6 @@ export default {
         }
     }
 }
-
 .page-bottom{
     padding:55px 0px;
 }

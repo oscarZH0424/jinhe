@@ -5,85 +5,133 @@
           <div class="leader-mask">
           </div>
           <div class="leader-info">
-                  <div class="leader-title">Jesscia Yu<span>Chairman</span></div>
-                  <div class="leader-desc">
-                      Chairman of Shanghai Golden Union Investment Co., Ltd. <br>Chairman & General Manager of Shanghai Golden Union Business Management Co., Ltd. <br> Member of the 13th Shanghai Municipal Committee of the Chinese People's Political Consultative Conference <br>  Vice Chairman of the 3rd Shanghai Services Federation <br>Executive Vice Chairman of Ningbo Chamber of Commerce in Shanghai <br>  Vice Chairman of Shanghai Cultural and Creative Industry Promotion Association <br>  Director of the 13th Shanghai Creative Industry Committee of China National Democratic Construction Association  <br> Executive Vice Chairman of the 10th Council of Zhejiang Chamber of Commerce in Shanghai
+                  <div class="leader-title">{{ceo.name}}<span>{{ceo.title}}</span></div>
+                  <div class="leader-desc" v-html="brStr(ceo.information)">
                   </div>
               </div>
-          <img src="~/assets/img/main-leader.png" alt="">
+          <img :src="ceo.coverUrl" alt="">
       </div>
-      <div class="leaders-container">
-          <div class="leader-group">
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_1.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">Ricky Huang<span>Vice Chief Financial Officer</span></div>
-                      <div class="leader-desc">Master of Finance and accounting. Former ED at LCA and DaiWa capital market. More than 20 years of financial management and operating experiences in Asia with multinational and PE backed companies.</div>
-                  </div>
-              </div>
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_2.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">Sandy Yu<span>Investment Director</span></div>
-                      <div class="leader-desc">
-                        Former investment director of the CEFC Asset Management Company;<br>
-                        Former investment consultant and member of CEFC investment review committee;<br>
-                        7 years’ experience in land purchasing and market research and planning in the development companies;<br>
-                        11 years’ experience in assets and equity M&A of domestic and overseas real estate projects;<br>
-                        Tens of billions of yuan AUM;<br>
-                        Sophisticated in asset value judgment, transaction structuring, risk assessment and control
-                       </div>
-                  </div>
-              </div>
-          </div>
-          <div class="leader-group-divide"></div>
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_3.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">Jeff Gu<span>Legal Director</span></div>
-                      <div class="leader-desc">
-                            Many years’ experience in real estate investment and financing and asset management;<br>
-                            Former president assistant and legal director of EBA Investments Business Division, legal manager & Foreign trade trust risk control compliance senior manager of INSITE, legal director of Kastar Real Estate Fund;<br>
-                            Certificated practicing lawyer in China
+        <div class="leaders-container">
+            <div style="background:rgba(0,0,0,.69);">
+                <div class="leader-group">
+                    <div v-for="(mems,index) in teams" :key="`mem-g-${index}`">
+                        <div class="leader-group-content" >
+                            <div class="leader-item" v-for="(mem,index2) in mems" :key="`mem-${index}-${index2}`">
+                                <img :src="mem.coverUrl" alt=""/>
+                                <div class="leader-info">
+                                    <div class="leader-title">{{mem.name}}<span>{{mem.title}}</span></div>
+                                    <div class="leader-desc">{{mem.information}}</div>
+                                </div>
+                            </div>
                         </div>
-                  </div>
-              </div>
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_4.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">Steven Lu<span>COO Of base &. Tulu</span></div>
-                      <div class="leader-desc">
-                            Master of Business Administration from Bangor University, UK;<br>
-                            Former general manager and regional general manager at Shama, Morgan Stanley, Ascott, etc., and now is Chief Operating Officer of Base;<br>
-                            More than 20 years’ experience in asset management and operation
+                        <div class="leader-group-divide"></div>
+                    </div>
+                    <!-- <div class="leader-group-content">
+                        <div class="leader-item">
+                            <img src="~/assets/img/leader_1.png" alt=""/>
+                            <div class="leader-info">
+                                <div class="leader-title">Ricky Huang<span>Vice Chief Financial Officer</span></div>
+                                <div class="leader-desc">Master of Finance and accounting. Former ED at LCA and DaiWa capital market. More than 20 years of financial management and operating experiences in Asia with multinational and PE backed companies.</div>
+                            </div>
                         </div>
-                  </div>
-              </div>
-          </div>
-          <div class="leader-group-divide"></div>
-          <div class="leader-group-content">
-              <div class="leader-item">
-                  <img src="~/assets/img/leader_5.png" alt=""/>
-                  <div class="leader-info">
-                      <div class="leader-title">Charley Shen<span> Leasing Marketing Director</span></div>
-                      <div class="leader-desc">
-                            More than 20 years’ experience in hotel and apartment market sales and management;<br>
-                            Previously worked for Kempinski Hotels and Shama Serviced Apartments under ONYX Hospitality Group;<br>
-                            Developed abundant market resources with his sharp business insights and accumulated rich experience in sales management.
+                        <div class="leader-item">
+                            <img src="~/assets/img/leader_2.png" alt=""/>
+                            <div class="leader-info">
+                                <div class="leader-title">Sandy Yu<span>Investment Director</span></div>
+                                <div class="leader-desc">
+                                    Former investment director of the CEFC Asset Management Company;<br>
+                                    Former investment consultant and member of CEFC investment review committee;<br>
+                                    7 years’ experience in land purchasing and market research and planning in the development companies;<br>
+                                    11 years’ experience in assets and equity M&A of domestic and overseas real estate projects;<br>
+                                    Tens of billions of yuan AUM;<br>
+                                    Sophisticated in asset value judgment, transaction structuring, risk assessment and control
+                                </div>
+                            </div>
                         </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      </div>
+                    </div>
+                    <div class="leader-group-divide"></div>
+                    <div class="leader-group-content">
+                        <div class="leader-item">
+                            <img src="~/assets/img/leader_3.png" alt=""/>
+                            <div class="leader-info">
+                                <div class="leader-title">Jeff Gu<span>Legal Director</span></div>
+                                <div class="leader-desc">
+                                        Many years’ experience in real estate investment and financing and asset management;<br>
+                                        Former president assistant and legal director of EBA Investments Business Division, legal manager & Foreign trade trust risk control compliance senior manager of INSITE, legal director of Kastar Real Estate Fund;<br>
+                                        Certificated practicing lawyer in China
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="leader-item">
+                            <img src="~/assets/img/leader_4.png" alt=""/>
+                            <div class="leader-info">
+                                <div class="leader-title">Steven Lu<span>COO Of base &. Tulu</span></div>
+                                <div class="leader-desc">
+                                        Master of Business Administration from Bangor University, UK;<br>
+                                        Former general manager and regional general manager at Shama, Morgan Stanley, Ascott, etc., and now is Chief Operating Officer of Base;<br>
+                                        More than 20 years’ experience in asset management and operation
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leader-group-divide"></div>
+                    <div class="leader-group-content">
+                        <div class="leader-item">
+                            <img src="~/assets/img/leader_5.png" alt=""/>
+                            <div class="leader-info">
+                                <div class="leader-title">Charley Shen<span> Leasing Marketing Director</span></div>
+                                <div class="leader-desc">
+                                        More than 20 years’ experience in hotel and apartment market sales and management;<br>
+                                        Previously worked for Kempinski Hotels and Shama Serviced Apartments under ONYX Hospitality Group;<br>
+                                        Developed abundant market resources with his sharp business insights and accumulated rich experience in sales management.
+                                    </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
       
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8383/team/screen',
+        data:{data:true,limit:100,start:0}
+	    })
+	    .then(function (res) {
+            let ceo = {};
+            let arr = []; 
+            let teams = [];
+            if(res.data.code == 0){
+                res.data.data.forEach(member => {
+                    if(member.chairman){
+                        ceo = member
+                    }else{
+                        arr.push(member);
+                    }
+                });
+            }
+            for(var i=0;i<arr.length;i+=2){
+                teams.push(arr.slice(i,i+2));
+            }
+		  return { ceo,teams }
+	    })
+	},
+    mounted(){
+        console.log(this.teams,this.ceo)
+    },
+    methods:{
+        brStr(val){
+            return val.split('\n').join('<br>')
+        }
+    }
 
 }
 </script>
@@ -192,12 +240,14 @@ export default {
 .leaders-container{
     width:100%;
     background: rgba(0,0,0,.9);
+    background-image: url('~/assets/img/team-bg.png');
+    background-size: 100% 100%;
 }
 .leader-group{
     padding:134px 0px;
     box-sizing: border-box;
     // padding:6.979167vw 11.4583vw;
-    width:77%;
+    // width:77%;
     overflow: hidden;
     margin:0 auto;
     .leader-group-content{
@@ -205,6 +255,8 @@ export default {
         flex-flow:row wrap;
         justify-content: space-between;
         align-items: center;
+        max-width:1465px;
+        margin:0 auto;
         .leader-item{
             display: flex;
             flex-flow:row nowrap;
@@ -279,7 +331,7 @@ export default {
         margin:90px auto;
         margin-top:0px;
         opacity: .7;
-
+        max-width:1465px;
     }
 }
 
@@ -320,10 +372,27 @@ export default {
 //       }
 //   }
 }
-@media screen and  (max-width:1745px) {
+@media screen and  (max-width:1320px) {
     .leader-group-content{
         justify-content: center !important;
     }
 }
-
+@media screen and  (min-width:1920px) {
+    .leader-group-content{
+        .leader-item{
+            .leader-info{
+                margin-left:55px !important;
+                margin-top:36px !important;
+                .leader-title{
+                    >span{
+                        margin-left:20px !important;
+                    }
+                    &::after{
+                        height:4px !important;
+                    }
+                }
+            }
+        }
+    }
+}
 </style>

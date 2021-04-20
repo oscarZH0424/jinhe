@@ -59,7 +59,7 @@
                 </div>
                 <div class="desc-intro-item">
                   <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu途楼 青年公寓')"></div>
-                  <div class="intro-text">{{configObj[3].tex5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
+                  <div class="intro-text"></div>
                 </div>
                 <div class="desc-intro-item">
                   <div class="intro-title" v-html="brStr(configObj[3].text6 || '越界 办公')"></div>

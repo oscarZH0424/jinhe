@@ -2,7 +2,7 @@
   <div class="container">
       <div class="content">
             <div class="main-title">搜索</div>
-            <div class="search-tip">对于“xxx”的搜索结果</div>
+            <div class="search-tip">对于“{{searchKey}}”的搜索结果</div>
             <div class="tag-group">
                 <div class="tag-item">总（0）</div>
                 <div class="tag-item">项目（0）</div>
@@ -12,35 +12,37 @@
 
             </div>
             <div class="result-group">
-                <div class="result-item">
-                    <div class="result-type">项目</div>
+                <div v-for="(item,index) in list" :key="index">
+                <div v-if="item.type == 1 || item.type==2" class="result-item">
+                    <div class="result-type">{{item.type == 1 ? '项目' : '品牌'}}</div>
                     <div class="pro-item">
-                        <div class="title">锦和越界陕康里</div>
+                        <div class="title">{{item.title}}</div>
                         <div class="subtitle">
-                            <div class="top">餐饮酒吧、精品咖啡、创意工坊、潮流设计</div>
+                            <div class="top">{{item.tag}}</div>
                             <div class="line"></div>
                             <div class="bottom">
-                                <span>可租面积m2：约10000㎡</span> <span>园区服务电话：021-6288 6309</span> <span>地址：上海市静安区康定路358号</span> 
+                                <span>可租面积m2：{{item.area}}</span> <span>园区服务电话：{{item.telPhone}}</span> <span>地址：{{item.address}}</span> 
                             </div>
-                            <div class="tag">热租中</div>
+                            <div v-if="item.hot" class="tag">热租中</div>
                         </div>
                     </div>
                 </div>
-                <div class="result-item">
+                <div v-if="item.type == 3 " class="result-item">
                      <div class="result-type">新闻中心</div>
                      <div class="news-item">
-                        <div class="title">锦和越界陕康里</div>
+                        <div class="title">{{item.title}}</div>
                         <div class="subtitle">
                             <div class="line"></div>
-                            <div class="bottom">2021-12-12</div>
+                            <div class="bottom">{{item.editTime}}</div>
                         </div>
                     </div>
                 </div>
-                <div class="result-item">
+                <div v-if="item.type == 0 "  class="result-item">
                      <div class="result-type">企业招聘</div>
                      <div class="staff-item">
-                        <div class="title">集团管培生 （幕墙设计方向）-2021届毕业生</div>
+                        <div class="title">{{item.title}}</div>
                     </div>
+                </div>
                 </div>
             </div>
       </div>
@@ -48,8 +50,28 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
+export default {
+    asyncData ({ params }) {//请求
+        console.log(params);
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8383/article/search',
+        data:{data:params.search,start:0,limit:10}
+	    })
+	    .then(function (res) {
+            let list;
+            if(res.data.code == 0){
+               list = res.data.data
+            }
+
+		  return { list , searchKey:params.search}
+	    })
+	},
+    mounted(){
+        console.log(this.list);
+    }
 }
 </script>
 

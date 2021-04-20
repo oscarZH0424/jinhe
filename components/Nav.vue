@@ -86,8 +86,11 @@ export default {
     this.lan = this.$store.state.lan;
     // console.log('nav',this.lan);
     let menuList = this.$store.state.menu;
+    let menuEnList = this.$store.state.menuEn;
+
     // console.log('menuList',menuList);
     this.menus.ch = menuList;
+    this.menus.en = menuEnList;
 
   },
   mounted(){

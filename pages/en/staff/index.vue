@@ -4,58 +4,75 @@
       <div class="staff-container">
           <div class="staff-title">Careers</div>
           <div class="position-group">
-              <div class="position-item" @click="toDetail">
-                  <div class="position-title">Curtain wall design direction</div>
-                  <div class="position-desc">Jinhe Asset Management Trainee - 2021 graduates</div>
-                  <div class="position-btn">more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Mechanical and electrical engineering...</div>
-                  <div class="position-desc">Jinhe Asset Management Trainee - 2021 graduates...</div>
-                  <div class="position-btn" >more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Direction of decoration</div>
-                  <div class="position-desc">Jinhe Asset Management Trainee - 2021 graduates...</div>
-                  <div class="position-btn">more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Mechanical and Electrical Division</div>
-                  <div class="position-desc">Hydropower Engineer</div>
-                  <div class="position-btn">more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Direction of decoration</div>
-                  <div class="position-desc">Hydropower Engineer</div>
-                  <div class="position-btn">more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Direction of decoration</div>
-                  <div class="position-desc">Jinhe Asset Management Trainee - 2021 graduates...</div>
-                  <div class="position-btn">more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Mechanical and Electrical Division</div>
-                  <div class="position-desc">Hydropower Engineer</div>
-                  <div class="position-btn">more</div>
-              </div>
-              <div class="position-item">
-                  <div class="position-title">Direction of decoration</div>
-                  <div class="position-desc">Hydropower Engineer</div>
-                  <div class="position-btn">more</div>
-              </div>
+                <div class="position-group">
+                    <div class="position-item" v-for="(job,index) in jobs" :key="index" @click="toDetail(job)">
+                        <div class="position-title">{{job.title}}</div>
+                        <div class="position-desc">{{job.titleDesc}}</div>
+                        <div class="position-btn">more</div>
+                    </div>
+                </div>
+                <div style="text-align:center;width:100%;">
+                    <a-pagination class="dark" :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
+                </div>
           </div>
       </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+const PAGESIZE = 8;
 export default { 
-    
-    methods:{
-        toDetail(){
-            window.open('/en/staff/1');
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8383/job/list',
+        data:{limit:PAGESIZE,start:0}
+	    })
+	    .then(function (res) {
+            let jobs = [];
+            let total = 0;
+            if(res.data.code == 0){
+                jobs = res.data.data;
+                total = res.data.totalRecord;
+            }
+		  return { jobs,total }
+	    })
+	},
+    data(){
+        return {
+            pageSize:PAGESIZE,
+            pageNum:0
         }
+    },
+    mounted(){
+        console.log(this.jobs);
+    },
+    methods:{
+        toDetail(job){
+            this.$router.push({
+                path:`/staff/${job.id}`
+            })
+        },
+        onChange(page){
+            console.log(page);
+            this.pageNum = page -1;
+            this.getData()
+        },
+        getData(){
+            let _this = this;
+            axios({
+            method: 'post',
+            url: 'http://www.dream-fly.com.cn:8282/job/list',
+            data:{limit:this.pageSize,start:this.pageSize*this.pageNum}
+            })
+            .then( (res)=> {
+                if(res.data.code == 0){
+                    _this.total = res.data.totalRecord;
+                    _this.jobs = res.data.data;
+                }
+            })
+        },
     }
 }
 </script>

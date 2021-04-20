@@ -2,73 +2,82 @@
   <div class="container">
       <Pagebanner keystr="pro"/>
       <div class="pro-list">
-          <div class="pro-item" id="pro1">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_1.png" alt=""/>
-              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s"> 
-                <div class="pro-title">Kempinski The One Suites <br> Hotel Shanghai Downtown</div>
-                <div class="pro-desc">The hotel is located at No.601 Fengyang Road, Jing'an District, adjacent to the bustling business circle Plaza 66, CITIC Pacific Plaza and Westgate Plaza, with Metro Lines 1, Line 2, Line 12 and Line 13 nearby that is convenient for travel and is accessible by walking. Shanghai Golden Union Investment and Kempinski Hotels co-create a unique service apartment in downtown Shanghai.</div>
-                <div class="pro-btn" @click="toDetail('https://www.kempinski.com/zh-cn/shanghai/the-one-executive-suites/')">Learn More</div>
+          <div class="pro-item" v-for="(pro,index) in proList" :key="pro.id" :id="`pro${pro.id}`" >
+              <img class="bg-img wow fadeIn" :src="pro.coverUrl" alt=""/>
+              <div class="pro-mask wow " :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}" data-wow-delay="1s"></div>
+              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
+                <div class="pro-title">{{pro.firstTitle}}<br v-if="pro.secondTitle">{{pro.secondTitle}}</div>
+                <div class="pro-desc" v-html="brStr(pro.information)"></div>
+                <div class="pro-btn" @click="toDetail(pro)">Learn More</div>
             </div>
           </div>
-          <div class="pro-item" id="pro2">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_2.png" alt=""/>
-              <div class="pro-mask wow fadeInRight"  data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">Infinity Space Beijing</div>
-                <div class="pro-desc">In 2019, the opening of Infinity Space Beijing marked the successful entry into the Beijing market. The Group to scale out of the Yangtze River Delta region to northern part of China.</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
-            </div>
-          </div>
-          <div class="pro-item" id="pro3">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_3.png" alt=""/>
-              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">Surpass Space Shankang Alley</div>
-                <div class="pro-desc">Renewal debut in August 2020, it is located in the core area of Jing’an district. It is a typical case run and managed by Golden Union Asset Management. It enhances property value through design and comprehensive management, and creates a modern lifestyle to the neighborhood.</div>
-                <div class="pro-btn" @click="toDetail2('/product/1')">Learn More</div>
-            </div>
-          </div>
-          <div class="pro-item" id="pro4">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_4.png" alt=""/>
-              <div class="pro-mask wow fadeInRight" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                <div class="pro-title">Surpass Space <br> Golden Union Shang City</div>
-                <div class="pro-desc">The project is located in the core area of Caohejing, formerly known as Shanghai Jinxing TV Factory and later as Surpass Space Creative Park. It is Golden Union's first project of urban renewal. Starting in 2019, the Surpass Space Creative Park will be redesigned and transformed into a large-scale complex integrated with neighborhood communities, commercial offices, business and leisure.</div>
-                <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
-            </div>
-          </div>
-          <div class="pro-item" id="pro5">
-              <img class="bg-img wow fadeIn" src="~/assets/img/pro_5.png" alt=""/>
-              <div class="pro-mask wow fadeInLeft" data-wow-delay="1s"></div>
-              <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
-                    <div class="pro-title">base Serviced Apartment</div>
-                    <div class="pro-desc">Base serviced apartment has managed and operated total number of 17 projects with 1532 apartments in city center of Shanghai and Beijing at the beginning of 2021. It currently manages the largest number of serviced apartments in the Shanghai market. base service apartment will continue to be the brand that leading the modern lifestyle and providing high quality of life.</div>
-                    <div class="pro-btn" @click="toDetail('http://www.iyuejie.com/#/home')">Learn More</div>
-                </div>
-          </div>
+      </div>
+      <div class="page-bottom">
+          <a-pagination :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
       </div>
   </div>
 </template>
 
 <script>
 import bus from '@/assets/js/eventBus';
+import axios from 'axios';
 export default {
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8383/project/screen',
+        data:{data:true,limit:1000,start:0}
+	    })
+	    .then(function (res) {
+            let oriProList = [];
+            let total = 0;
+            if(res.data.code == 0){
+                oriProList = res.data.data;
+                total = res.data.totalRecord;
+            }
+		  return { oriProList,total }
+	    })
+	},
+    data(){
+        return{
+            proList:[],
+            pageSize:10,
+            pageNum:0
+        }
+    },
     mounted() {
-        new this.$wow.WOW({live:true}).init();
-      bus.$on('hashchange',()=>{
-        setTimeout(()=>{
-          if (window.location.hash) {
-              this.goAnchor(window.location.hash)
-          }
-        },10)
-      })
-      if (window.location.hash) {
-          this.goAnchor(window.location.hash)
-      }
-      
+        this.init();
+        this.setData();
     },
     methods: {
+        onChange(page){
+            this.pageNum = page -1;
+            this.setData();
+        },
+        setData(){
+            let arr = [];
+            this.oriProList.forEach((pro,index) => {
+                let start = this.pageNum*this.pageSize;
+                let end = start + this.pageSize;
+                if(index >= start && index < end){
+                    arr.push(pro)
+                }
+            });
+            this.proList = arr;
+        },
+        init(){
+            new this.$wow.WOW({live:true}).init();
+            bus.$on('hashchange',()=>{
+                setTimeout(()=>{
+                if (window.location.hash) {
+                    this.goAnchor(window.location.hash)
+                }
+                },10)
+            })
+            if (window.location.hash) {
+                this.goAnchor(window.location.hash)
+            }
+        },
         goAnchor(selector) {
             // 最好加个定时器给页面缓冲时间
             setTimeout(() => {
@@ -77,13 +86,26 @@ export default {
                 anchor.scrollIntoView()
             }, 500)
         },
-        toDetail(link){
-            window.open(link);
+        toDetail(pro){
+           if(pro.urlType == 1){
+                window.open(pro.url);
+            }else{
+                this.$router.push({
+                    path:`/product/${pro.url}`
+                })
+            }
         },
         toDetail2(path){
             this.$router.push({
                 path:`/en${path}`
             })
+        },
+        brStr(val){
+            if(val){
+                return val.split('\n').join('<br>');
+            }else{
+                return '';
+            }
         }
     }
 }
@@ -104,6 +126,7 @@ export default {
         height:1080px;
         height:56.25vw;
         min-height:540px;
+        overflow:hidden;
         .bg-img{
             position:absolute;
             height:1080px;
@@ -121,7 +144,7 @@ export default {
         .pro-info-container{
             position:absolute;
             top:212px;
-            top:10.04167vw;
+            top:11.04167vw;
             .pro-title{
                 position: relative;
                 opacity: 1;
@@ -184,7 +207,7 @@ export default {
                 font-size: 1.04167vw;
                 min-width:106px;
                 min-height:33px;
-
+                cursor: pointer;
             }
         }
         &:nth-child(odd){
@@ -193,9 +216,9 @@ export default {
             }
             .pro-mask{
                 left:0;
-                top:0;
+                top:-1px;
                 border-bottom: 1080px solid #b21e27;
-                border-bottom: 56.25vw solid #b21e27;
+                border-bottom: 57.25vw solid #b21e27;
 
                 border-left: 0px solid transparent;
                 border-right: 400px solid transparent; 
@@ -223,9 +246,9 @@ export default {
             }
             .pro-mask{
                 right:0;
-                top:0;
+                top:-1px;
                 border-bottom: 1080px solid #b21e27;
-                border-bottom: 56.25vw solid #b21e27;
+                border-bottom: 57.25vw solid #b21e27;
 
                 border-right: 0px solid transparent;
                 border-left: 400px solid transparent; 
@@ -252,6 +275,9 @@ export default {
             }
         }
     }
+}
+.page-bottom{
+    padding:55px 0px;
 }
 
 @media screen and (max-width:960px) {
