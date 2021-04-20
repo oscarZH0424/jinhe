@@ -5,7 +5,7 @@
           <div class="title">{{detail.title}}</div>
           <div class="subtitle">
               <div class="line"></div>
-              <div class="bottom">{{detail.editTime}}</div>
+              <div class="bottom">{{detail.editTime | timeFormat}}</div>
           </div>
           <div class="content" v-html="detail.body">
           </div>
@@ -31,6 +31,11 @@ export default {
             return { detail }
         })
     },
+    filters:{
+        timeFormat(val){
+            return val.split('-').join('.');
+        }
+    }
 }
 </script>
 

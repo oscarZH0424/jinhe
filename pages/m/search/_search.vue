@@ -35,7 +35,7 @@
                             <div class="title">{{item.title}}</div>
                             <div class="subtitle">
                                 <div class="line"></div>
-                                <div class="bottom">{{item.editTime}}</div>
+                                <div class="bottom">{{item.editTime | timeForamt}}</div>
                             </div>
                         </div>
                     </div>
@@ -70,6 +70,11 @@ export default {
 		  return { list , searchKey:params.search}
 	    })
 	},
+    filters:{
+        timeForamt(val){
+            return val.substring(0,10).split('-').join('.');
+        }
+    }
 }
 </script>
 

@@ -51,7 +51,7 @@ export default {
     methods:{
         toDetail(job){
             this.$router.push({
-                path:`/staff/${job.id}`
+                path:`/en/staff/${job.id}`
             })
         },
         onChange(page){

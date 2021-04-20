@@ -196,7 +196,6 @@ export default {
 	},
     mounted() {
       new this.$wow.WOW({live:true}).init();
-
       bus.$on('hashchange',()=>{
         setTimeout(()=>{
           if (window.location.hash) {

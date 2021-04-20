@@ -9,7 +9,7 @@
               <div class="news-mask wow" :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}"></div>
               <div class="mask-item">
                 <div class="news-info wow fadeInUp"  data-wow-delay="1s">
-                    <div class="news-time">{{news.editTime}}</div>
+                    <div class="news-time">{{news.editTime | timeFormat}}</div>
                     <div class="news-title">{{news.title}}</div>
                     <div class="news-btn" @click="toDetail(news)">了解详情</div>
                 </div>
@@ -26,7 +26,7 @@ export default {
 	    return  axios({
 		method: 'post',
 		url: 'http://www.dream-fly.com.cn:8282/article/screen',
-        data:{data:{status:true,types:['3']},limit:5,start:0}
+        data:{data:{status:true,types:['3'],editTimeSort:true},limit:5,start:0}
 	    })
 	    .then(function (res) {
             let newsList = [];
@@ -59,7 +59,7 @@ export default {
             axios({
             method: 'post',
             url: 'http://www.dream-fly.com.cn:8282/article/screen',
-            data:{data:{status:true,types:['3']},limit:this.pageSize,start:this.pageNum*this.pageSize}
+            data:{data:{status:true,types:['3'],editTimeSort:true},limit:this.pageSize,start:this.pageNum*this.pageSize}
             })
             .then( (res)=> {
                 if(res.data.code == 0){
@@ -69,6 +69,11 @@ export default {
             })
         },
     },
+    filters:{
+        timeFormat(val){
+            return val.split('-').join('.');
+        }
+    }
 }
 </script>
 

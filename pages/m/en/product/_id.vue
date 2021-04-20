@@ -2,31 +2,42 @@
   <div class="container">
       <Pagebanner keystr="prod"/>
       <div class="paragraph">
-          <div class="title">锦和越界陕康里</div>
+          <div class="title">{{detail.title}}</div>
           <div class="subtitle">
-              <div class="top">餐饮酒吧、精品咖啡、创意工坊、潮流设计</div>
+              <div class="top">{{detail.tag}}</div>
               <div class="line"></div>
               <div class="bottom">
                   <div class="bottom-info">
-                      <span>可租面积m2：约10000㎡</span> <span>园区服务电话：021-6288 6309</span> <span>地址：上海市静安区康定路358号</span> 
+                      <span>Gross Leasable Area(sqm)：{{detail.area}}</span> <span> Tel：{{detail.telPhone}}</span> <span>ADD：{{detail.address}}</span> 
                   </div>
-                  <div class="tag">热租中</div>
+                  <div v-if="detail.hot" class="tag">Hot rent</div>
               </div>
                 
           </div>
-          <div class="content">
-              <p>随着城市推进，市中心扩容，许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。随着城市推进，市中心扩容， 许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。</p>
-              <img src="~/assets/img/pro/pro_img_1.png" alt=""/>
-              <p>随着城市推进，市中心扩容，许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。 随着城市推进，市中心扩容，许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。随着城市推进，市中心扩容， 许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。</p>
-              <p>随着城市推进，市中心扩容，许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。 随着城市推进，市中心扩容，许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。随着城市推进，市中心扩容， 许多原本废弃的老厂房又重获新生，加上商业的去中心化，消费观念的升级，激发新一代的消费群体。人们不再只追求高大上的物质需求，而转为更有个性的生活方式，锦和越界陕康里正是在这样的时代背景下破茧而出。</p>
+          <div class="content" v-html="detail.body">
           </div>
       </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-
+asyncData ({ params }) {//请求
+        console.log(params);
+        return  axios({
+        method: 'post',
+        url: 'http://www.dream-fly.com.cn:8383/article/detail',
+        data:{data:params.id}
+        })
+        .then(function (res) {
+            let detail;
+            if(res.data.code == 0){
+                detail = res.data.data;
+            }
+            return { detail }
+        })
+    },
 }
 </script>
 
@@ -132,4 +143,26 @@ export default {
 }
 
 
+</style>
+<style lang="scss">
+.content{
+        margin-top:30px;
+        p{
+            opacity: 1;
+            font-size: 26px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            text-align: left;
+            color: #787878;
+            line-height: 46px;
+            margin-bottom:30px;
+            padding:0px 48px;
+        }
+        img{
+            max-width:100%;
+            margin:0 auto;
+            display: block;
+            margin-bottom:60px;
+        }
+    }
 </style>

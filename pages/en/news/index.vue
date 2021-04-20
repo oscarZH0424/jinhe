@@ -30,7 +30,7 @@ export default {
 	    return  axios({
 		method: 'post',
 		url: 'http://www.dream-fly.com.cn:8383/article/screen',
-        data:{data:{status:true,types:['3']},limit:5,start:0}
+        data:{data:{status:true,types:['3'],editTimeSort:true},limit:5,start:0}
 	    })
 	    .then(function (res) {
             let newsList = [];
@@ -55,7 +55,7 @@ export default {
     methods:{
         toDetail(news){
             this.$router.push({
-                path:`/news/${news.id}`
+                path:`/en/news/${news.id}`
             })
         },
         onChange(page){
@@ -66,8 +66,8 @@ export default {
             let _this = this;
             axios({
             method: 'post',
-            url: 'http://www.dream-fly.com.cn:8282/article/screen',
-            data:{data:{status:true,types:['3']},limit:this.pageSize,start:this.pageNum*this.pageSize}
+            url: 'http://www.dream-fly.com.cn:8383/article/screen',
+            data:{data:{status:true,types:['3'],editTimeSort:true},limit:this.pageSize,start:this.pageNum*this.pageSize}
             })
             .then( (res)=> {
                 if(res.data.code == 0){

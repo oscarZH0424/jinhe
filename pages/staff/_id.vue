@@ -27,7 +27,7 @@
                   <div class="position-label block">招聘要求：</div>
                   <div class="position-text" v-html="brStr(detail.description)"></div>
               </div>
-              <div class="bottom-info">人力资源经理/管培生项目招聘负责人：某 手机：137********* 人才专线：021-******** 邮箱：********@163.com</div>
+              <div class="bottom-info">人力资源经理/管培生项目招聘负责人：{{detail.publishName}} 手机：{{detail.publishPhone}} 人才专线：{{detail.telephone}} 邮箱：{{detail.email}}</div>
           </div>
       </div>
   </div>

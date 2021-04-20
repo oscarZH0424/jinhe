@@ -21,13 +21,13 @@
               </div>
               <div class="position-info">
                   <div class="position-label">发布日期：</div>
-                  <div class="position-text">{{detail.createTime}}</div>
+                  <div class="position-text">{{detail.createTime | timeForamt}}</div>
               </div>
               <div class="position-info">
                   <div class="position-label block">招聘要求：</div>
                   <div class="position-text" v-html="brStr(detail.description)"></div>
               </div>
-              <div class="bottom-info">人力资源经理/管培生项目招聘负责人：某 <br> 手机：137********* <br>人才专线：021-******** <br>邮箱：********@163.com</div>
+              <div class="bottom-info">人力资源经理/管培生项目招聘负责人：{{detail.publishName}} <br> 手机：{{detail.publishPhone}} <br>人才专线：{{detail.telephone}} <br>邮箱：{{detail.email}}</div>
           </div>
       </div>
   </div>
@@ -61,6 +61,11 @@ export default {
             }else{
                 return '';
             }
+        }
+    },
+    filters:{
+        timeForamt(val){
+            return val.substring(0,10).split('-').join('.');
         }
     }
 }

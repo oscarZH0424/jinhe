@@ -27,7 +27,7 @@ export default {
 	    return  axios({
 		method: 'post',
 		url: 'http://www.dream-fly.com.cn:8282//project/screen',
-        data:{data:true,limit:1000,start:0}
+        data:{data:{status:true,type:[]},limit:1000,start:0}
 	    })
 	    .then(function (res) {
             let oriProList = [];

@@ -16,7 +16,7 @@
                 <img :src="mem.coverUrl" alt=""/>
                 <div class="leader-info">
                     <div class="leader-title">{{mem.name}}<span>{{mem.title}}</span></div>
-                    <div class="leader-desc">{{mem.information}}</div>
+                    <div class="leader-desc" v-html="brStr(mem.information)"></div>
                 </div>
             </div>
       </div>

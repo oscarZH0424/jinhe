@@ -4,7 +4,7 @@
       <div class="pro-list">
           <div class="pro-item" v-for="(pro,index) in proList" :key="pro.id" :id="`pro${pro.id}`">
               <img class="bg-img wow fadeIn" :src="pro.mobileCoverUrl" alt=""/>
-              <div class="pro-mask wow " :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}" data-wow-delay="1s"></div>
+              <div class="pro-mask wow" :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}" data-wow-delay="1s"></div>
               <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">{{pro.firstTitle}}<br v-if="pro.secondTitle">{{pro.secondTitle}}</div>
                 <div class="pro-desc" v-html="brStr(pro.information)"></div>
@@ -22,8 +22,8 @@ export default {
     asyncData ({ params }) {//请求
 	    return  axios({
 		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282//project/screen',
-        data:{data:true,limit:1000,start:0}
+		url: 'http://www.dream-fly.com.cn:8282/project/screen',
+        data:{data:{status:true,type:[]},limit:1000,start:0}
 	    })
 	    .then(function (res) {
             let oriProList = [];

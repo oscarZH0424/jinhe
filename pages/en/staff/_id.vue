@@ -27,7 +27,7 @@
                   <div class="position-label block">Requirements:</div>
                   <div class="position-text" v-html="brStr(detail.description)"></div>
               </div>
-              <div class="bottom-info">HR Manager：某 Tel：137********* Green Channel For Job Hunters：021-******** E-mail：********@163.com</div>
+              <div class="bottom-info">HR Manager：{{detail.publishName}} Tel：{{detail.publishPhone}} Green Channel For Job Hunters：{{detail.telephone}} E-mail：{{detail.email}}</div>
           </div>
       </div>
   </div>

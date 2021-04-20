@@ -5,81 +5,61 @@
           <div class="leader-mask">
           </div>
           <div class="leader-info">
-                  <div class="leader-title">Jesscia Yu<span>Chairwoman</span></div>
-                  <div class="leader-desc">
-                      <span>Chairman of Shanghai Golden Union Investment Co., Ltd. </span>
-                      <span>Chairman & General Manager of Shanghai Golden Union Business Management Co., Ltd. </span>
-                      <span>Member of the 13th Shanghai Municipal Committee of the Chinese People's Political Consultative Conference</span>
-                      <span>Vice Chairman of the 3rd Shanghai Services Federation</span>
-                      <span>Executive Vice Chairman of Ningbo Chamber of Commerce in Shanghai</span>
-                      <span>Vice Chairman of Shanghai Cultural and Creative Industry Promotion Association</span>
-                      <span>Director of the 13th Shanghai Creative Industry Committee of China National Democratic Construction Association</span>
-                      <span>Executive Vice Chairman of the 10th Council of Zhejiang Chamber of Commerce in Shanghai</span>
+                  <div class="leader-title">{{ceo.name}}<span>{{ceo.title}}</span></div>
+                  <div class="leader-desc" v-html="spanStr(ceo.information)">
                   </div>
               </div>
-          <img src="~/assets/img/main-leader.png" alt="">
+          <img :src="ceo.coverUrl" alt="">
       </div>
       <div class="leader-group">
-           <div class="leader-item">
-                <img src="~/assets/img/leader_1.png" alt=""/>
+           <div class="leader-item" v-for="(mem,index) in teams" :key="`mem-${index}`">
+                <img :src="mem.coverUrl" alt=""/>
                 <div class="leader-info">
-                    <div class="leader-title">Ricky Huang<span>Vice Chief Financial Officer</span></div>
-                    <div class="leader-desc">Master of Finance and accounting. Former ED at LCA and DaiWa capital market. More than 20 years of financial management and operating experiences in Asia with multinational and PE backed companies.</div>
+                    <div class="leader-title">{{mem.name}}<span>{{mem.title}}</span></div>
+                    <div class="leader-desc" v-html="brStr(mem.information)"></div>
                 </div>
-            </div>
-            <div class="leader-item">
-                <img src="~/assets/img/leader_2.png" alt=""/>
-                <div class="leader-info">
-                      <div class="leader-title">Sandy Yu<span>Investment Director</span></div>
-                      <div class="leader-desc">
-                        Former investment director of the CEFC Asset Management Company;<br>
-                        Former investment consultant and member of CEFC investment review committee;<br>
-                        7 years’ experience in land purchasing and market research and planning in the development companies;<br>
-                        11 years’ experience in assets and equity M&A of domestic and overseas real estate projects;<br>
-                        Tens of billions of yuan AUM;<br>
-                        Sophisticated in asset value judgment, transaction structuring, risk assessment and control
-                       </div>
-                  </div>
-            </div>
-            <div class="leader-item">
-                <img src="~/assets/img/leader_3.png" alt=""/>
-                <div class="leader-info">
-                      <div class="leader-title">Jeff Gu<span>Legal Director</span></div>
-                      <div class="leader-desc">
-                            Many years’ experience in real estate investment and financing and asset management;<br>
-                            Former president assistant and legal director of EBA Investments Business Division, legal manager & Foreign trade trust risk control compliance senior manager of INSITE, legal director of Kastar Real Estate Fund;<br>
-                            Certificated practicing lawyer in China
-                        </div>
-                  </div>
-            </div>
-            <div class="leader-item">
-                <img src="~/assets/img/leader_4.png" alt=""/>
-                <div class="leader-info">
-                      <div class="leader-title">Steven Lu<span>COO Of base &. Tulu</span></div>
-                      <div class="leader-desc">
-                            Master of Business Administration from Bangor University, UK;<br>
-                            Former general manager and regional general manager at Shama, Morgan Stanley, Ascott, etc., and now is Chief Operating Officer of Base;<br>
-                            More than 20 years’ experience in asset management and operation
-                        </div>
-                  </div>
-            </div>
-            <div class="leader-item">
-                <img src="~/assets/img/leader_5.png" alt=""/>
-                <div class="leader-info">
-                      <div class="leader-title">Charley Shen<span> Leasing Marketing Director</span></div>
-                      <div class="leader-desc">
-                            More than 20 years’ experience in hotel and apartment market sales and management;<br>
-                            Previously worked for Kempinski Hotels and Shama Serviced Apartments under ONYX Hospitality Group;<br>
-                            Developed abundant market resources with his sharp business insights and accumulated rich experience in sales management.
-                        </div>
-                  </div>  
             </div>
       </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+    asyncData ({ params }) {//请求
+	    return  axios({
+		method: 'post',
+		url: 'http://www.dream-fly.com.cn:8383/team/screen',
+        data:{data:true,limit:100,start:0}
+	    })
+	    .then(function (res) {
+            let ceo = {};
+            let arr = []; 
+            let teams = [];
+            if(res.data.code == 0){
+                res.data.data.forEach(member => {
+                    if(member.chairman){
+                        ceo = member
+                    }else{
+                        teams.push(member);
+                    }
+                });
+            }
+		  return { ceo,teams }
+	    })
+	},
+    methods:{
+        brStr(val){
+            return val.split('\n').join('<br>')
+        },
+        spanStr(val){
+            let str = "";
+            val.split('\n').forEach(text=>{
+                str+=`<span>${text}</span>`
+            })
+            return str;
+        }
+    }
 
 }
 </script>

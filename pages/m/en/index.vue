@@ -1,68 +1,64 @@
 <template>
   <div class="container">
     <a-carousel>
-      <Banner />
-      <Banner />
-      <Banner />
-      <Banner />
-      <Banner />
+      <Banner v-for="(banner,index) in banners" :info="banner" :key="index"/>
     </a-carousel>
     <div class="desc-panel">
-      <img class="bg-img bl wow fadeIn" src="~/assets/img/m/desc_bg_1.png" alt=""/>
+      <img class="bg-img bl wow fadeIn" :src="configObj[1].mobileCoverUrl || require('~/assets/img/m/desc_bg_1.png')" alt=""/>
       <div class="panel-mask br wow fadeInRight"  data-wow-delay="1s"></div>
       <div class="desc-info p1 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title">Golden Union Asset Management Co., Ltd.</div>
-        <div class="desc-text">Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.</div>
+        <div class="desc-title">{{configObj[1].text1 || 'Golden Union Asset Management Co., Ltd.'}}</div>
+        <div class="desc-text">{{configObj[1].text2 || 'Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.'}}</div>
       </div> 
     </div>
     <div class="desc-panel" id="glgm">
-      <img class="bg-img br  wow fadeIn" src="~/assets/img/m/desc_bg_2.png" alt=""/>
+      <img class="bg-img br  wow fadeIn" :src="configObj[2].mobileCoverUrl || require('~/assets/img/m/desc_bg_2.png')" alt=""/>
       <div class="panel-mask bl wow fadeInLeft" data-wow-delay="1s"></div>
       <div class="desc-info p2 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title" style="margin-bottom:50px;">Management <br> Scale</div>
+        <div class="desc-title" style="margin-bottom:50px;">{{configObj[2].text || 'Management  Scale'}}</div>
         <div class="desc-label-group">
           <div class="label-item" style="margin-right:100px;">
-            <div class="label-val">¥ 15.1 billion</div>
-            <div class="label-name">Total AUM</div>
+            <div class="label-val">{{configObj[2].text1 || '¥ 15.1 billion'}}</div>
+            <div class="label-name">{{configObj[2].text2 || 'Total AUM'}}</div>
           </div>
           <div class="label-item" style="margin-right:100px;">
-            <div class="label-val">19</div>
-            <div class="label-name">Projects</div>
+            <div class="label-val">{{configObj[2].text3 || '19'}}</div>
+            <div class="label-name">{{configObj[2].text4 || 'Projects'}}</div>
           </div>
           <div class="label-item">
-            <div class="label-val">396,000 sqm</div>
-            <div class="label-name">GFA</div>
+            <div class="label-val">{{configObj[2].text5 || '396,000 sqm'}}</div>
+            <div class="label-name">{{configObj[2].text6 || 'GFA'}}</div>
           </div>
           <div class="label-item">
-            <div class="label-val">2</div>
-            <div class="label-name"> Cities</div>
+            <div class="label-val">{{configObj[2].text7 || '2'}}</div>
+            <div class="label-name">{{configObj[2].text8 || 'Cities'}}</div>
           </div>
         </div>
-        <div class="desc-tip">*By the date of 30th Dec. 2020</div>
+        <div class="desc-tip">{{configObj[2].text9 || '*By the date of 30th Dec. 2020'}}</div>
       </div>
     </div>
     <div class="desc-panel"  id="dytyy">
-      <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
+      <img class="bg-img br" :src="configObj[3].mobileCoverUrl || require('~/assets/img/m/desc_bg_5.png')" alt=""/>
       <div class="desc-dark">
         <div class="wow fadeInUp">
-          <div class="desc-title">Multi-format Operation</div>
-          <div class="desc-subtitle">Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.</div>
+          <div class="desc-title">{{configObj[3].text || 'Multi-format Operation'}}</div>
+          <div class="desc-subtitle">{{configObj[3].text1 || 'Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.'}}</div>
           <div class="desc-intro-group">
             <div class="desc-intro-item">
-              <div class="intro-title">base Serviced Apartment</div>
-              <div class="intro-text">An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.</div>
+              <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base Serviced Apartment')"></div>
+              <div class="intro-text">{{configObj[3].text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title">Tulu Co-Living Apartment</div>
-              <div class="intro-text">Design-led modern urban co-living space is built to inspire and promote communication among young sprits.</div>
+              <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu Co-Living Apartment')"></div>
+              <div class="intro-text">{{configObj[3].tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title">Surpass Space <br> Office Space</div>
-              <div class="intro-text">It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.</div>
+              <div class="intro-title" v-html="brStr(configObj[3].text6 || 'Surpass Space <br> Office Space')"></div>
+              <div class="intro-text">{{configObj[3].tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title">Surpass / Infinity Space Community Business</div>
-              <div class="intro-text over">It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.</div>
+              <div class="intro-title" v-html="brStr(configObj[3].text8 || 'Surpass / Infinity Space Community Business')"></div>
+              <div class="intro-text over">{{configObj[3].tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
             </div>
           </div>
         </div>
@@ -73,106 +69,103 @@
       <img class="bg-img tl wow fadeIn" src="~/assets/img/m/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr wow fadeInRight"  data-wow-delay="1s"></div>
       <div class="desc-info p3 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title">Partners</div>
+        <div class="desc-title">{{configObj[4].text || 'Partners'}}</div>
         <div class="multi-intro">
           <div class="multi-main">
             <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-            <div class="main-title">A leading global private equity firm</div>
-            <div class="main-subtitle">Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.</div>
+            <div class="main-title">{{configObj[4].text1 || 'A leading global private equity firm'}}</div>
+            <div class="main-subtitle">{{configObj[4].text2 || 'Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.'}}</div>
             <div class="text-group">
               <div class="text-item">
-                <div class="text-title">50 YEARS</div>
-                <div class="text-info" style="text-align:left;">INVESTING</div>
+                <div class="text-title">{{configObj[4].text3 || '50 YEARS'}}</div>
+                <div class="text-info" style="text-align:left;">{{configObj[4].text4 || 'INVESTING'}}</div>
               </div>
               <div class="text-item">
-                <div class="text-title">$37 Billion</div>
-                <div class="text-info">AUM</div>
+                <div class="text-title">{{configObj[4].text5 || '$37 Billion'}}</div>
+                <div class="text-info">{{configObj[4].text6 || 'AUM'}}</div>
               </div>
               <div class="text-item">
-                <div class="text-title">700</div>
-                <div class="text-info">COMPANIES SINCE INCEPTION</div>
+                <div class="text-title">{{configObj[4].text7 || '700'}}</div>
+                <div class="text-info">{{configObj[4].text8 || 'COMPANIES SINCE INCEPTION'}}</div>
               </div>
               <div class="text-item">
-                <div class="text-title">120</div>
-                <div class="text-info">PORTFOLIO COMPANIES</div>
+                <div class="text-title">{{configObj[4].text9 || '120'}}</div>
+                <div class="text-info">{{configObj[4].text10 || 'PORTFOLIO COMPANIES'}}</div>
               </div>
               <div class="text-item no">
-                <div class="text-title">$48 billion</div>
-                <div class="text-info">INVESTMENTS</div>
+                <div class="text-title">{{configObj[4].text11 || '$48 billion'}}</div>
+                <div class="text-info">{{configObj[4].text12 || 'INVESTMENTS'}}</div>
               </div>
               <div class="text-item no">
-                <div class="text-title">1994</div>
-                <div class="text-info">MARKS ITS INCEPTION IN CHINA</div>
+                <div class="text-title">{{configObj[4].text13 || '1994'}}</div>
+                <div class="text-info">{{configObj[4].text14 || 'MARKS ITS INCEPTION IN CHINA'}}</div>
               </div>
             </div>
           </div>
           <div class="multi-sub">
             <div class="sub-intro-item">
               <img style="margin-top:13px;height:30px;" src="~/assets/img/logo_2.png" alt=""/>
-              <div class="sub-text" style="margin-top:13px;"><span>Beijing Capital Grand Limited (“Capital Grand”)</span>is mainly engaged in commercial property development and operation management, and aims at a leading commercial real estate operator in China.</div>
+              <div class="sub-text" style="margin-top:13px;"><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
             </div>
             <div class="sub-intro-item">
               <img style="margin-top:18px;height:19px;" src="~/assets/img/logo_3.png" alt=""/>
-              <div class="sub-text" style="margin-top:20px;">China Vanke Co., Ltd. was established in 1984. After more than 30 years of development in real estate industry since 1988, it has been a leading city supporting service provider in China.</div>
+              <div class="sub-text" style="margin-top:20px;"><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
             </div>
             <div class="sub-intro-item">
               <img style="margin-top:9px;height:32px;" src="~/assets/img/logo_4.png" alt=""/>
-              <div class="sub-text" style="margin-top:12px;"><span>“InfraRed NF Greater China Real Estate Fund"</span>is a private property fund developed by Nan Fung Group in cooperation with HSBC in 2007, striving for investing the value-added properties in China.</div>
+              <div class="sub-text" style="margin-top:12px;"><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
             </div>
             <div class="sub-intro-item">
               <img  style="margin-top:0px;height:50px;" src="~/assets/img/logo_5.png" alt=""/>
-              <div class="sub-text" style="margin-top:5px;"><span>GIC</span>Private Limited is a sovereign wealth fund established by the Government of Singapore in 1981 to manage Singapore's foreign reserves. Its mission is to manage Singapore’s foreign reserves and to invest overseas. It currently invests more than $100 billion across 6 core asset classes in more than 40 countries around the world.</div>
+              <div class="sub-text" style="margin-top:5px;"><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="desc-panel" id="syms">
-      <img class="bg-img br wow fadeIn" src="~/assets/img/m/desc_bg_4.png" alt=""/>
+      <img class="bg-img br wow fadeIn" :src="configObj[5].mobileCoverUrl || require('~/assets/img/m/desc_bg_4.png')" alt=""/>
       <div class="panel-mask tl wow fadeInLeft" data-wow-delay="1s"></div>
       <div class="desc-info p4 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title" style="margin-bottom:10px;">Business Model</div>
-        <div class="desc-subtitle" style="margin-bottom:33px;">Golden Union Asset Management’s Full Lifecycle Control System<br>"One-stop" Asset Management Service</div>
+        <div class="desc-title" style="margin-bottom:10px;">{{configObj[5].text || 'Business Model'}}</div>
+        <div class="desc-subtitle" style="margin-bottom:33px;">{{configObj[5].text1 || 'Golden Union Asset Management’s Full Lifecycle Control System'}}<br>{{configObj[5].text2 || '"One-stop" Asset Management Service'}}</div>
         <div class="tag-group">
           <div class="tag-item">
-            <div class="tag-text">Property Acquisition</div>
+            <div class="tag-text" v-for="(tag,index) in configObj[5].text3.split('\n')" :key="index">{{tag}}</div>
           </div>
           <div class="tag-item">
-            <div class="tag-text">Product Positioning</div>
-            <div class="tag-text">Construction Management</div>
+            <div class="tag-text" v-for="(tag,index) in configObj[5].text4.split('\n')" :key="index">{{tag}}</div>
           </div>
           <div class="tag-item">
-            <div class="tag-text">Diversified</div>
-            <div class="tag-text">Profit Base</div>
-
+            <div class="tag-text" v-for="(tag,index) in configObj[5].text5.split('\n')" :key="index">{{tag}}</div>
           </div>
           <div class="tag-item">
-            <div class="tag-text">Operation Management</div>
+            <div class="tag-text" v-for="(tag,index) in configObj[5].text6.split('\n')" :key="index">{{tag}}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="desc-panel" id="yyys">
-      <img class="bg-img br" src="~/assets/img/m/desc_bg_5.png" alt=""/>
+      <img class="bg-img br" :src="configObj[6].mobileCoverUrl || require('~/assets/img/m/desc_bg_5.png')" alt=""/>
       <div class="desc-dark">
         <div class="wow fadeInUp">
-          <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">Operational Advantages</div>
+          <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">{{configObj[6].text || 'Operational Advantages'}}</div>
           <div class="desc-intro-group">
             <div class="desc-intro-item">
-              <div class="intro-title no-border">Resource</div>
-              <div class="intro-text">High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage</div>
+              <div class="intro-title no-border">{{configObj[6].text1 || 'Resource'}}</div>
+              <div class="intro-text" v-html="brStr(configObj[6].text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title no-border">Capital</div>
-              <div class="intro-text">Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States</div>
+              <div class="intro-title no-border">{{configObj[6].text3 || 'Capital'}}</div>
+              <div class="intro-text" v-html="brStr(configObj[6].text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title no-border">Market</div>
-              <div class="intro-text">Sharp market insight<br>Precise market positioning</div>
+              <div class="intro-title no-border">{{configObj[6].text5 || 'Market'}}</div>
+              <div class="intro-text" v-html="brStr(configObj[6].text6 || 'Sharp market insight<br>Precise market positioning')"></div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title no-border">Innovation</div>
-              <div class="intro-text">Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities</div>
+              <div class="intro-title no-border">{{configObj[6].text7 || 'Innovation'}}</div>
+              <div class="intro-text" v-html="brStr(configObj[6].text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
             </div>
           </div>
         </div>
@@ -184,7 +177,24 @@
 
 <script>
 import bus from '@/assets/js/eventBus';
+import axios from 'axios'
 export default {
+  async  asyncData ({ params }) {//请求
+    let configObj = {};
+    let banners = [];
+    let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8383/ipe/screen',{data:{status:true},start:0,limit:1000});
+    if(code == 0){
+      data.forEach(config => {
+        configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
+      });
+    }
+    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8383/banner/screen',{data:{status:true,belong:'home',types:['mobile']},start:0,limit:1000});
+    if(code2 == 0){
+     banners = data2;
+    }
+    return { configObj ,banners}
+
+	},
     mounted() {
       new this.$wow.WOW({live:true}).init();
       bus.$on('hashchange',()=>{
@@ -207,6 +217,9 @@ export default {
                 let anchor = this.$el.querySelector(selector)
                 anchor.scrollIntoView()
             }, 500)
+        },
+        brStr(val){
+          return val ? val.split('\n').join('<br>') : '';
         }
     },
 }
