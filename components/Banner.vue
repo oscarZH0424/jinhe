@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile}" :style="styleCss">
+  <div :class="{'banner-item':!isMobile,'m-banner-item':isMobile,'en':lan=='en'}" :style="styleCss">
       <img  :src="info.coverUrl || require('~/assets/img/home-banner.png')" alt="">
       <div class="content-area">
           <div class="title-area">
@@ -61,8 +61,6 @@ export default {
 .banner-item{
     position: relative;
     width:100%;
-    // background: url('~/assets/img/home-banner.png');
-    // background-size:100% 100%;
     img{
         width:100%;
         height: 100%;
@@ -75,6 +73,7 @@ export default {
         left:0px;
         right:0px;
     }
+    
     .title-area{
         position:absolute;
         top:187px;
@@ -103,6 +102,12 @@ export default {
             color: #ffffff;
             line-height: 53px;
             line-height: 2.76vw;
+        }
+    }
+    &.en{
+        .title-area{
+            width:740px;
+            width:38.54167vw;
         }
     }
 }

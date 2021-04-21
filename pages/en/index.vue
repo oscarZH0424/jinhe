@@ -52,22 +52,22 @@
               <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==3}">
                 <div class="desc-title">{{configObj[3].text || 'Multi-format Operation'}}</div>
                 <div class="desc-subtitle">{{configObj[3].text1 || 'Accurate positioning of brand products, good at multi-format management, revitalizing the community, and comprehensively enhancing the value of property assets.'}}</div>
-                <div class="desc-intro-group">
+                <div class="desc-intro-group a">
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base Serviced Apartment')"></div>
-                    <div class="intro-text hidden">{{configObj[3].text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
+                    <div class="intro-text ">{{configObj[3].text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu Co-Living Apartment')"></div>
-                    <div class="intro-text hidden">{{configObj[3].tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
+                    <div class="intro-text ">{{configObj[3].tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(configObj[3].text6 || 'Surpass Space <br> Office Space')"></div>
-                    <div class="intro-text hidden">{{configObj[3].tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
+                    <div class="intro-text ">{{configObj[3].tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(configObj[3].text8 || 'Surpass / Infinity Space Community Business')"></div>
-                    <div class="intro-text hidden">{{configObj[3].tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
+                    <div class="intro-text ">{{configObj[3].tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
                   </div>
                 </div>
               </div>
@@ -114,20 +114,28 @@
                 </div>
                 <div class="multi-sub">
                   <div class="sub-intro-item">
-                    <img style="margin-top:27px;width:265px;width:10.52083vw;margin-top:1.40625vw;" src="~/assets/img/logo_2.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:27px;margin-top:1.40625vw;"><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
+                    <div class="sub-img">
+                      <img style="width:265px;width:10.52083vw;min-width:129px;" src="~/assets/img/logo_2.png" alt=""/>
+                    </div>
+                    <div class="sub-text "><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
-                    <img style="margin-top:36px;width:134px;margin-top:1.875vw;width:6.979167vw;" src="~/assets/img/logo_3.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:43px;margin-top:2.239583vw;"><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
+                    <div class="sub-img">
+                        <img style="width:134px;width:6.979167vw;min-width:85.7px;" src="~/assets/img/logo_3.png" alt=""/>
+                    </div>
+                    <div class="sub-text "><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
-                    <img style="margin-top:18px;width:206px;margin-top:0.9375vw;width:10.72916vw;" src="~/assets/img/logo_4.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:39px;margin-top:2.03125vw;"><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
+                    <div class="sub-img">
+                      <img style="width:206px;width:10.72916vw;min-width:131.8px;" src="~/assets/img/logo_4.png" alt=""/>
+                    </div>
+                    <div class="sub-text "><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
-                    <img style="width:178px;width:9.27083vw;" src="~/assets/img/logo_5.png" alt=""/>
-                    <div class="sub-text over" style="margin-top:25px;margin-top:1.302083vw;"><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
+                    <div class="sub-img">
+                      <img style="width:178px;width:9.27083vw;min-width:113.9px;" src="~/assets/img/logo_5.png" alt=""/>
+                    </div>
+                    <div class="sub-text "><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
                   </div>
                 </div>
               </div>
@@ -166,22 +174,26 @@
             <div class="desc-dark">
               <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
                 <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">{{configObj[6].text || 'Operational Advantages'}}</div>
-                <div class="desc-intro-group">
+                <div class="desc-intro-group b">
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text1 || 'Resource'}}</div>
                     <div class="intro-text bold" v-html="brStr(configObj[6].text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text3 || 'Capital'}}</div>
                     <div class="intro-text hidden bold"  v-html="brStr(configObj[6].text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text5 || 'Market'}}</div>
                     <div class="intro-text bold" v-html="brStr(configObj[6].text6 || 'Sharp market insight<br>Precise market positioning')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text7 || 'Innovation'}}</div>
                     <div class="intro-text bold"  v-html="brStr(configObj[6].text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
                   </div>
                 </div>
               </div>
@@ -375,10 +387,10 @@ export default {
     &.p1{
       top:198px;
       right:192px;
-      width:639px;
+      width:700px;
       // top:10.3125vw;
       right:10vw;
-      width:33.28125vw;
+      width:36.4583vw;
     }
     &.p2{
       left:250px;
@@ -443,8 +455,8 @@ export default {
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: flex-start;
-      width:700px;
-      width:36.4583vw;
+      width:566px;
+      width:29.47917vw;
       .label-item{
         position: relative;
         margin-bottom:118px;
@@ -507,14 +519,14 @@ export default {
       align-items: stretch;
       .multi-main{
         width:815px;
-        height:531px;
+        height:591px;
         background: white;
         border:1px solid #b3b3b3;
         text-align:center;
         margin-right:31px;
         padding:67px 60px 30px 60px;
         width:42.447917vw;
-        height:27.65625vw;
+        height:30.78125vw;
         margin-right:1.614583vw;
         padding:3.489583vw 3.125vw 1.5625vw 3.125vw;
         min-width:612px;
@@ -537,7 +549,6 @@ export default {
         }
         .main-subtitle{
           margin:0 auto;
-          width:70.4%;
           opacity: 1;
           font-size: 16px;
           font-family: LucidaGrande;
@@ -576,7 +587,7 @@ export default {
               border-right:1px dashed rgba(137,137,137,.1);
             }
             &.tb{
-              justify-content: flex-end;
+              margin-top:15px;
             }
             // margin-bottom:49px;
             // margin-bottom:2.552083vw;
@@ -604,36 +615,50 @@ export default {
               line-height: 25px;
               font-size: 0.9375vw;
               line-height: 1.302083vw;
+              width:215px;
+              width:11.1979vw;
             }
           }
         }
       }
       .multi-sub{
-        width:555px;
-        height:531px;
+        width:631px;
+        height:591px;
         display: flex;
         flex-flow:row wrap;
         justify-content: space-between;
         align-items: center;
-        width:28.90625vw;
-        height:27.65625vw;
+        width:32.864583vw;
+        height:30.78125vw;
         min-width:417px;
         .sub-intro-item{
-          width:261px;
-          height:244px;
-          margin-right:31px;
-          margin-bottom:41px;
+          width:300px;
+          height:280px;
+          margin-right:30px;
+          margin-bottom:31px;
           background: white;
           padding:30px;
-          width:13.59375vw;
-          height:12.7083vw;
+          width: 15.625vw;
+          height: 14.583vw;
           margin-right:1.614583vw;
-          margin-bottom:2.1354167vw;
+          margin-bottom:1.614583vw;
           padding:1.5625vw;
           min-width:196.3px;
           min-height:183.5px;
           &:nth-child(2n){
             margin-right:0px;
+          }
+          .sub-img{
+            width:100%;
+            height:94px;
+            border-bottom:1px dashed rgba(137,137,137,.1);
+            height:4.89583vw;
+            min-height:60px;
+            text-align: center;
+            display: flex;
+            flex-flow:row nowrap;
+            justify-content: center;
+            align-items: center;
           }
           .sub-text{
             text-align: left;
@@ -641,11 +666,15 @@ export default {
             font-size: 12px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
+            height:102px;
+            height:5.3125vw;
+            min-height:65px;
             color: #000;
             line-height: 17px;
+            margin-top:15px;
             display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;
+            // -webkit-box-orient: vertical;
+            // -webkit-line-clamp: 6;
             overflow: hidden;
             // font-size: 0.625vw;
             // line-height: 0.8854167vw;
@@ -682,10 +711,12 @@ export default {
         margin-bottom:1.979167vw;
         min-width:170px;
         min-height:160px;
+        padding:19px;
         &:nth-child(2n){
           margin-right:0px;
         }
         .tag-text{
+          width:100%;
           opacity: 1;
           font-size: 34px;
           font-family: PingFangSC, PingFangSC-Regular;
@@ -694,7 +725,7 @@ export default {
           line-height: 48px;
           font-size: 1.77083vw;
           line-height: 2.5vw;
-          text-align: center;
+          text-align: left;
         }
       }
     }
@@ -743,21 +774,21 @@ export default {
       justify-content: center;
       align-items: center;
       .desc-intro-item{
-        flex: 0 0 13.59375vw;
-        width: 261px;
-        height: 244px;
+        flex: 0 0 15.625vw;
+        width: 300px;
+        height: 280px;
         opacity: 1;
         border: 1px solid #898989;
-        padding:38px 30px 20px  30px;
+        padding:32px 30px 20px  30px;
         margin-right:30px;
         background: rgba(255,255,255,.8);
-        width: 13.59375vw;
-        height: 12.7083vw;
-        padding:1.489583vw 0.5625vw 0.0417vw  0.5625vw;
+        width: 15.625vw;
+        height: 15vw;
+        padding:1.67vw 1.5625vw 0.0417vw  1.5625vw;
         margin-right:1.5625vw;
         margin-bottom:1.5625vw;
-        min-width:170px;
-        min-height:147px;
+        min-width:263px;
+        min-height:252px;
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -803,6 +834,22 @@ export default {
           // font-size: 0.625vw;
           // line-height: 0.88541vw;
 
+        }
+        .intro-sub-text{
+            margin-top:8px;
+            opacity: 1;
+            font-size: 12px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            color: #727171;
+            line-height: 17px;
+            text-align: left;
+          }
+      }
+      &.a{
+        .intro-title{
+          height:106px;
+          height:5.5208vw;
         }
       }
     }
@@ -867,6 +914,39 @@ export default {
   //   top:156.1px !important;
   // }
 }
+@media screen and  (max-width:1680px) {
+  .desc-intro-group.b{
+    .desc-intro-item{
+      padding:28px 26.25px 0.7px 26.25px !important; 
+      .intro-title{
+        font-size:23.7px !important;
+        line-height:28.2px !important;
+      }
+      .intro-text.bold{
+        font-size:14px !important;
+        line-height:21px !important;
+      }
+    }
+    
+  }
+  
+}
+@media screen and  (max-width:1690px) {
+  .desc-intro-group.a{
+    .desc-intro-item{
+      padding:28px 26px 0.7px 26px !important; 
+      .intro-title{
+        font-size:23.7px !important;
+        height:93px !important;
+        line-height:28.2px !important;
+      }
+    }
+    
+  }
+  
+}
+
+
 </style>
 <style>
 

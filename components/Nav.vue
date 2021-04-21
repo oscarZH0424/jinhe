@@ -160,8 +160,9 @@ export default {
       this.isSearch = true;
     },
     toSearch2(){
+       let base = this.lan == 'en' ? '/en' : '';
       this.$router.push({
-        path:`/search/${this.searchKey}`
+        path:`${base}/search/${this.searchKey}`
       })
     },
     close(){
@@ -171,8 +172,9 @@ export default {
     },
     onInputKeyDown(){
       console.log(this.searchKey);
+       let base = this.lan == 'en' ? '/en' : '';
       this.$router.push({
-        path:`/search/${this.searchKey}`
+        path:`${base}/search/${this.searchKey}`
       })
     },
   }

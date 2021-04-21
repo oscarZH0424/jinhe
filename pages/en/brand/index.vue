@@ -8,10 +8,9 @@
               <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">{{pro.firstTitle}}<br v-if="pro.secondTitle">{{pro.secondTitle}}</div>
                 <div class="pro-desc" v-html="brStr(pro.information)"></div>
-                <div class="pro-btn" @click="toDetail(pro)">了解详情</div>
+                <div class="pro-btn" @click="toDetail(pro)">Learn More</div>
             </div>
           </div>
-          
       </div>
       <div class="page-bottom">
           <a-pagination :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
@@ -26,8 +25,8 @@ export default {
     asyncData ({ params }) {//请求
 	    return  axios({
 		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282/project/screen',
-        data:{data:{status:true,types:[1]},limit:1000,start:0}
+		url: 'http://www.dream-fly.com.cn:8383/project/screen',
+        data:{data:{status:true,types:[2]},limit:1000,start:0}
 	    })
 	    .then(function (res) {
             let oriProList = [];
@@ -88,17 +87,17 @@ export default {
             }, 500)
         },
         toDetail(pro){
-            if(pro.urlType == 1){
+           if(pro.urlType == 1){
                 window.open(pro.url);
             }else{
                 this.$router.push({
-                    path:`/product/${pro.url}`
+                    path:`/en/product/${pro.url}`
                 })
             }
         },
         toDetail2(path){
             this.$router.push({
-                path
+                path:`/en${path}`
             })
         },
         brStr(val){
@@ -107,7 +106,7 @@ export default {
             }else{
                 return '';
             }
-        },
+        }
     }
 }
 </script>
@@ -181,11 +180,12 @@ export default {
                 color: #ffffff;
                 line-height: 42px;
                 margin-bottom:50px;
-                width:29.479167vw;
+
+                width:40.479167vw;
                 font-size: 1.25vw;
                 line-height: 2.1875vw;
                 margin-bottom:2.604167vw;
-                min-width:300px;
+                min-width:400px;
 
             }
             .pro-btn{
@@ -230,7 +230,7 @@ export default {
             }
             .pro-info-container{
                 left:241px;
-                left:12.552083vw;
+                left:10.552083vw;
 
                 text-align:left;
                 .pro-title{
@@ -261,13 +261,16 @@ export default {
             }
             .pro-info-container{
                 right:241px;
-                right:12.552083vw;
+                right:10.552083vw;
                 text-align: right;
                 .pro-title{
                     text-align: right;
                     &::after{
                         right:0;
                     }
+                }
+                .pro-desc{
+                    text-align: right;
                 }
             }
         }
@@ -276,6 +279,7 @@ export default {
 .page-bottom{
     padding:55px 0px;
 }
+
 @media screen and (max-width:960px) {
 
     .pro-title{

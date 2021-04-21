@@ -115,6 +115,7 @@ export default {
     align-items: center;
     background: #806842;
     padding:50px 0px;
+    overflow:hidden;
     .menu-group{
         display: flex;
         flex-flow:row nowrap;

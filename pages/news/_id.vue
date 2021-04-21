@@ -5,7 +5,7 @@
           <div class="title">{{detail.title}}</div>
           <div class="subtitle">
               <div class="line"></div>
-              <div class="bottom">{{detail.editTime | timeFormat}}</div>
+              <div class="bottom">{{detail.editTime}}</div>
           </div>
           <div class="content" v-html="detail.body">
           </div>
@@ -31,11 +31,6 @@ asyncData ({ params }) {//请求
             return { detail }
         })
     },
-    filters:{
-        timeFormat(val){
-            return val.split('-').join('.');
-        }
-    }
 }
 </script>
 
@@ -181,4 +176,28 @@ asyncData ({ params }) {//请求
 
         }
     }
+    @media screen and (max-width:1450px) {
+    .paragraph{
+        .title{
+            font-size:24px !important;
+            line-height:34px !important;
+            margin-bottom:15px !important;
+        }
+        .subtitle{
+            
+            .bottom{
+                font-size:12px !important;
+                line-height:15px !important;
+            }
+            
+        }
+    }
+    .content{
+        margin-top:22.6px !important;
+    }
+    .content p{
+        font-size:12px !important;
+        line-height:21px !important;
+    }
+}
 </style>

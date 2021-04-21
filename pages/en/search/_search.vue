@@ -13,7 +13,7 @@
             </div>
             <div class="result-group">
                 <div v-for="(item,index) in list" :key="index">
-                <div v-if="item.type == 1 || item.type==2" class="result-item">
+                <div v-if="item.type == 1 || item.type==2" class="result-item" @click="toProduct(item)">
                     <div class="result-type">{{item.type == 1 ? 'Projects' : 'Brands'}}</div>
                     <div class="pro-item">
                         <div class="title">{{item.title}}</div>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="item.type == 3 " class="result-item">
+                <div v-if="item.type == 3 " class="result-item" @click="toNews(item)">
                      <div class="result-type">Media</div>
                      <div class="news-item">
                         <div class="title">{{item.title}}</div>
@@ -37,13 +37,16 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="item.type == 0 "  class="result-item">
+                <div v-if="item.type == 0 "  class="result-item" @click="toCareer(item)">
                      <div class="result-type">Careers</div>
                      <div class="staff-item">
                         <div class="title">{{item.title}}</div>
                     </div>
                 </div>
                 </div>
+            </div>
+            <div class="page-bottom">
+                <a-pagination :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
             </div>
       </div>
   </div>
@@ -61,16 +64,58 @@ export default {
         data:{data:params.search,start:0,limit:10}
 	    })
 	    .then(function (res) {
-            let list;
+            let list,total;
             if(res.data.code == 0){
-               list = res.data.data
+               list = res.data.data;
+               total = res.data.totalRecord;
             }
 
-		  return { list , searchKey:params.search}
+		  return { list ,total, searchKey:params.search}
 	    })
 	},
+    data(){
+        return {
+            pageSize:10,
+            pageNum:0
+        }
+    },
     mounted(){
         console.log(this.list);
+    },
+    methods:{
+        toProduct(item){
+            this.$router.push({
+                path:`/en/product/${item.id}`
+            })
+        },
+        toNews(item){
+            this.$router.push({
+                path:`/en/news/${item.id}`
+            })
+        },
+        toCareer(item){
+            this.$router.push({
+                path:`/en/staff/${item.id}`
+            })
+        },
+        onChange(page){
+            this.pageNum = page -1;
+            this.getData();
+        },
+        getData(){
+            let _this = this;
+            axios({
+            method: 'post',
+            url: 'http://www.dream-fly.com.cn:8383/article/search',
+            data:{data:_this.searchKey,start:_this.pageNum*_this.pageSize,limit:_this.pageSize}
+            })
+            .then( (res)=> {
+                if(res.data.code == 0){
+                    _this.total = res.data.totalRecord;
+                    _this.list = res.data.data;
+                }
+            })
+        },
     },
     filters:{
         timeForamt(val){
@@ -83,16 +128,18 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .content{
     position:relative;
-    width:1200px;
+    min-height:80vh;
+    max-width:1200px;
     margin:0 auto;
+    padding:0px 30px;
+    padding-top:35px;
 }
 .main-title{
-    margin-top:35px;
     opacity: 1;
     font-size: 48px;
     font-family: PingFangSC, PingFangSC-Medium;
@@ -132,6 +179,7 @@ export default {
         font-weight: 500;
         color: #ffffff;
         margin-right:16px;
+        margin-bottom:16px;
     }
 
 }
@@ -140,6 +188,7 @@ export default {
     .result-item{
         padding:25px 0px;
         border-bottom:1px solid #979797;
+        cursor: pointer;
         .result-type{
             opacity: 1;
             font-size: 16px;
@@ -258,5 +307,7 @@ export default {
     }
     
 }
-
+.page-bottom{
+    padding:55px 0px;
+}
 </style>

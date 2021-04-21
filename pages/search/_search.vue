@@ -13,7 +13,7 @@
             </div>
             <div class="result-group">
                 <div v-for="(item,index) in list" :key="index">
-                    <div v-if="item.type == 1 || item.type==2" class="result-item">
+                    <div v-if="item.type == 1 || item.type==2" class="result-item" @click="toProduct(item)">
                         <div class="result-type">{{item.type == 1 ? '项目' : '品牌'}}</div>
                         <div class="pro-item">
                             <div class="title">{{item.title}}</div>
@@ -27,23 +27,26 @@
                             </div>
                         </div>
                     </div>
-                    <div v-if="item.type == 3 " class="result-item">
+                    <div v-if="item.type == 3 " class="result-item" @click="toNews(item)">
                         <div class="result-type">新闻中心</div>
                         <div class="news-item">
                             <div class="title">{{item.title}}</div>
                             <div class="subtitle">
                                 <div class="line"></div>
-                                <div class="bottom">{{item.editTime}}</div>
+                                <div class="bottom">{{item.editTime | timeForamt}}</div>
                             </div>
                         </div>
                     </div>
-                    <div v-if="item.type == 0 " class="result-item">
+                    <div v-if="item.type == 0 " class="result-item" @click="toCareer(item)">
                         <div class="result-type">企业招聘</div>
                         <div class="staff-item">
                             <div class="title">{{item.title}}</div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="page-bottom">
+                <a-pagination :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
             </div>
       </div>
   </div>
@@ -52,24 +55,68 @@
 <script>
 import axios from 'axios'
 export default {
-    asyncData ({ params }) {//请求
-        console.log(params);
-	    return  axios({
-		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282/article/search',
-        data:{data:params.search,start:0,limit:10}
-	    })
-	    .then(function (res) {
-            let list;
-            if(res.data.code == 0){
-               list = res.data.data
-            }
+    async asyncData ({ params }) {//请求
+        let list,total,countObj;
+        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:params.search,start:0,limit:10});
+        if(code == 0){
+            list = data;
+            total = totalRecord;
+        }
+	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:params.search});
+        if(code == 0){
+            countObj = data2;
+        }
+        return { list ,total,countObj, searchKey:params.search}
 
-		  return { list , searchKey:params.search}
-	    })
 	},
+    data(){
+        return {
+            pageSize:10,
+            pageNum:0
+        }
+    },
     mounted(){
-        console.log(this.list);
+        console.log(this.countObj);
+    },
+    methods:{
+        toProduct(item){
+            this.$router.push({
+                path:`/product/${item.id}`
+            })
+        },
+        toNews(item){
+            this.$router.push({
+                path:`/news/${item.id}`
+            })
+        },
+        toCareer(item){
+            this.$router.push({
+                path:`/staff/${item.id}`
+            })
+        },
+        onChange(page){
+            this.pageNum = page -1;
+            this.getData();
+        },
+        getData(){
+            let _this = this;
+            axios({
+            method: 'post',
+            url: 'http://www.dream-fly.com.cn:8282/article/search',
+            data:{data:_this.searchKey,start:_this.pageNum*_this.pageSize,limit:_this.pageSize}
+            })
+            .then( (res)=> {
+                if(res.data.code == 0){
+                    _this.total = res.data.totalRecord;
+                    _this.list = res.data.data;
+                }
+            })
+        },
+    },
+     filters:{
+        timeForamt(val){
+            return val.substring(0,10).split('-').join('.');
+        }
     }
 }
 </script>
@@ -77,16 +124,18 @@ export default {
 <style lang="scss" scoped>
 .container{
     margin:0 auto;
-    width:1920px;
+    width:100%;
     margin-top:108px;
 }
 .content{
     position:relative;
-    width:1200px;
+    min-height:80vh;
+    max-width:1200px;
     margin:0 auto;
+    padding:0px 30px;
+    padding-top:35px;
 }
 .main-title{
-    margin-top:35px;
     opacity: 1;
     font-size: 48px;
     font-family: PingFangSC, PingFangSC-Medium;
@@ -126,6 +175,7 @@ export default {
         font-weight: 500;
         color: #ffffff;
         margin-right:16px;
+        margin-bottom:16px;
     }
 
 }
@@ -134,6 +184,7 @@ export default {
     .result-item{
         padding:25px 0px;
         border-bottom:1px solid #979797;
+        cursor: pointer;
         .result-type{
             opacity: 1;
             font-size: 16px;
@@ -252,5 +303,7 @@ export default {
     }
     
 }
-
+.page-bottom{
+    padding:55px 0px;
+}
 </style>

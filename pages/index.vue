@@ -59,7 +59,7 @@
                 </div>
                 <div class="desc-intro-item">
                   <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu途楼 青年公寓')"></div>
-                  <div class="intro-text"></div>
+                  <div class="intro-text">{{configObj[3].text5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
                 </div>
                 <div class="desc-intro-item">
                   <div class="intro-title" v-html="brStr(configObj[3].text6 || '越界 办公')"></div>
@@ -171,18 +171,22 @@
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text1 || '资源'}}</div>
                     <div class="intro-text bold" v-html="brStr(configObj[6].text2 || '优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text3 || '资本'}}</div>
                     <div class="intro-text bold" v-html="brStr(configObj[6].text4 || '强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投')" ></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text5 || '市场'}}</div>
                     <div class="intro-text bold" v-html="brStr(configObj[6].text6 || '敏锐的市场洞察力<br>精准的市场定位')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text7 || '创新'}}</div>
                     <div class="intro-text bold" v-html="brStr(configObj[6].text8 || '产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力')"></div>
+                    <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
                   </div>
                 </div>
               </div>
@@ -744,7 +748,7 @@ export default {
       justify-content: center;
       align-items: center;
       .desc-intro-item{
-        flex: 0 0 13.59375vw;
+        // flex: 0 0 13.59375vw;
         width: 261px;
         height: 244px;
         opacity: 1;
@@ -752,13 +756,13 @@ export default {
         padding:38px 30px 20px  30px;
         margin-right:30px;
         background: rgba(255,255,255,.8);
-        width: 13.59375vw;
-        height: 12.7083vw;
-        padding:1.9791vw 1.5625vw 1.0417vw  1.5625vw;
-        margin-right:1.5625vw;
-        margin-bottom:1.5625vw;
-        min-width:170px;
-        min-height:147px;
+        // width: 13.59375vw;
+        // height: 12.7083vw;
+        // padding:1.9791vw 1.5625vw 1.0417vw  1.5625vw;
+        // margin-right:1.5625vw;
+        // margin-bottom:1.5625vw;
+        // min-width:170px;
+        // min-height:147px;
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -768,9 +772,9 @@ export default {
           padding-bottom:19px;
           border-bottom:1px dashed #af1e23;
           text-align: left;
-          font-size: 1.40625vw;
-          line-height: 1.67vw;
-          padding-bottom:0.989583vw;
+          // font-size: 1.40625vw;
+          // line-height: 1.67vw;
+          // padding-bottom:0.989583vw;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -788,19 +792,30 @@ export default {
           color: #231815;
           line-height: 17px;
           text-align: left;
-          margin-top:0.78125vw;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 4;
-          overflow: hidden;
+          // margin-top:0.78125vw;
+          // display: -webkit-box;
+          // -webkit-box-orient: vertical;
+          // -webkit-line-clamp: 4;
+          // overflow: hidden;
           // line-height: 0.88541vw;
           &.bold{
             font-size:17px;
             line-height:24px;
-            font-size:0.88541vw;
-            line-height:1.25vw;
+            // font-size:0.88541vw;
+            // line-height:1.25vw;
           }
+          
         }
+        .intro-sub-text{
+            margin-top:8px;
+            opacity: 1;
+            font-size: 12px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            color: #727171;
+            line-height: 17px;
+            text-align: left;
+          }
       }
     }
   }
@@ -832,15 +847,15 @@ export default {
     line-height:26px !important;
   }
   .intro-title{
-    font-size:17px !important;
-    line-height:21px !important;
+    // font-size:17px !important;
+    // line-height:21px !important;
   }
 }
 
 @media screen and  (max-width:1360px) {
     .intro-text.bold{
-      font-size:12px !important;
-      line-height:17px !important;
+      // font-size:12px !important;
+      // line-height:17px !important;
     }
 }
 @media screen and  (max-width:1445px) {
