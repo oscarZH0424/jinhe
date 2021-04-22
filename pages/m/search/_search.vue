@@ -4,11 +4,11 @@
             <div class="main-title">搜索</div>
             <div class="search-tip">对于“{{searchKey}}”的搜索结果</div>
             <div class="tag-group">
-                <div class="tag-item">总（0）</div>
-                <div class="tag-item">项目（0）</div>
-                <div class="tag-item">品牌（0）</div>
-                <div class="tag-item">新闻中心（0）</div>
-                <div class="tag-item">企业招聘（0）</div>
+                <div class="tag-item">总（{{countObj['all'] || 0}}）</div>
+                <div class="tag-item">项目（{{countObj[1] || 0}}）</div>
+                <div class="tag-item">品牌（{{countObj[2] || 0}}）</div>
+                <div class="tag-item">新闻中心（{{countObj[3] || 0}}）</div>
+                <div class="tag-item">企业招聘（{{countObj[4] || 0}}）</div>
 
             </div>
             <div class="result-group">
@@ -42,7 +42,7 @@
                     <div v-if="item.type == 0 " class="result-item" @click="toCareer(item)">
                         <div class="result-type">企业招聘</div>
                         <div class="staff-item">
-                            <div class="title">{{item.title}}</div>
+                            <div class="title">{{item.name}}</div>
                         </div>
                     </div>
                 </div>
@@ -54,21 +54,26 @@
 <script>
 import axios from 'axios'
 export default {
-    asyncData ({ params }) {//请求
-        console.log(params);
-	    return  axios({
-		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282/article/search',
-        data:{data:params.search,start:0,limit:1000}
-	    })
-	    .then(function (res) {
-            let list;
-            if(res.data.code == 0){
-               list = res.data.data
-            }
+    async asyncData ({ params }) {//请求
+        let list,total,countList,countObj,countAll;
+        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:params.search.trim(),start:0,limit:1000});
+        if(code == 0){
+            list = data;
+            total = totalRecord;
+        }
+	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:params.search.trim()});
+        if(code2 == 0){
+            countList = data2;
+            countAll = 0;
+            countObj = {};
+            countList.forEach(count=>{
+                countObj[count.id] = count.name;
+                countAll+=count.name;
+            })
+            countObj['all'] = countAll;
+        }
 
-		  return { list , searchKey:params.search}
-	    })
+        return { list ,total,countObj, searchKey:params.search}
 	},
     methods:{
         toProduct(item){
@@ -105,6 +110,7 @@ export default {
     position:relative;
     width:100%;
     margin:0 auto;
+    height:90vh;
     padding:40px 48px;
 }
 .main-title{

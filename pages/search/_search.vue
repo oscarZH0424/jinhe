@@ -4,11 +4,11 @@
             <div class="main-title">搜索</div>
             <div class="search-tip">对于“{{searchKey}}”的搜索结果</div>
             <div class="tag-group">
-                <div class="tag-item">总（0）</div>
-                <div class="tag-item">项目（0）</div>
-                <div class="tag-item">品牌（0）</div>
-                <div class="tag-item">新闻中心（0）</div>
-                <div class="tag-item">企业招聘（0）</div>
+                <div class="tag-item">总（{{countObj['all'] || 0}}）</div>
+                <div class="tag-item">项目（{{countObj[1] || 0}}）</div>
+                <div class="tag-item">品牌（{{countObj[2] || 0}}）</div>
+                <div class="tag-item">新闻中心（{{countObj[3] || 0}}）</div>
+                <div class="tag-item">企业招聘（{{countObj[4] || 0}}）</div>
 
             </div>
             <div class="result-group">
@@ -40,7 +40,7 @@
                     <div v-if="item.type == 0 " class="result-item" @click="toCareer(item)">
                         <div class="result-type">企业招聘</div>
                         <div class="staff-item">
-                            <div class="title">{{item.title}}</div>
+                            <div class="title">{{item.name}}</div>
                         </div>
                     </div>
                 </div>
@@ -56,16 +56,24 @@
 import axios from 'axios'
 export default {
     async asyncData ({ params }) {//请求
-        let list,total,countObj;
+        let list,total,countList,countObj,countAll;
         let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:params.search,start:0,limit:10});
         if(code == 0){
             list = data;
             total = totalRecord;
         }
 	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:params.search});
-        if(code == 0){
-            countObj = data2;
+        if(code2 == 0){
+            countList = data2;
+            countAll = 0;
+            countObj = {};
+            countList.forEach(count=>{
+                countObj[count.id] = count.name;
+                countAll+=count.name;
+            })
+            countObj['all'] = countAll;
         }
+
         return { list ,total,countObj, searchKey:params.search}
 
 	},
@@ -103,7 +111,7 @@ export default {
             axios({
             method: 'post',
             url: 'http://www.dream-fly.com.cn:8282/article/search',
-            data:{data:_this.searchKey,start:_this.pageNum*_this.pageSize,limit:_this.pageSize}
+            data:{data:_this.searchKey.trim(),start:_this.pageNum*_this.pageSize,limit:_this.pageSize}
             })
             .then( (res)=> {
                 if(res.data.code == 0){

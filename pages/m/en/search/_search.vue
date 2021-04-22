@@ -4,11 +4,11 @@
             <div class="main-title">Search</div>
             <div class="search-tip">Result For Searching “{{searchKey}}”</div>
             <div class="tag-group">
-                <div class="tag-item">Total（0）</div>
-                <div class="tag-item">Projects（0）</div>
-                <div class="tag-item">Brands（0）</div>
-                <div class="tag-item">Media（0）</div>
-                <div class="tag-item">Careers（0）</div>
+                <div class="tag-item">Total（{{countObj['all'] || 0}}）</div>
+                <div class="tag-item">Projects（{{countObj[1] || 0}}）</div>
+                <div class="tag-item">Brands（{{countObj[2] || 0}}）</div>
+                <div class="tag-item">Media（{{countObj[3] || 0}}）</div>
+                <div class="tag-item">Careers（{{countObj[4] || 0}}）</div>
 
             </div>
             <div class="result-group">
@@ -24,7 +24,7 @@
                                 <div class="bottom-info">
                                     <span>Gross Leasable Area(sqm)：{{item.area}}</span> <span> Tel：{{item.telPhone}}</span> <span>ADD：{{item.address}}</span> 
                                 </div>
-                                <div v-if="item.hot || true" class="tag">Hot rent</div>
+                                <div v-if="item.hot" class="tag">Hot rent</div>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div v-if="item.type == 0 " class="result-item" @click="toCareer(item)">
                      <div class="result-type">Careers</div>
                      <div class="staff-item">
-                        <div class="title">{{item.title}}</div>
+                        <div class="title">{{item.name}}</div>
                     </div>
                 </div>
                 </div>
@@ -54,36 +54,41 @@
 <script>
 import axios from 'axios'
 export default {
-    asyncData ({ params }) {//请求
-        console.log(params);
-	    return  axios({
-		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8383/article/search',
-        data:{data:params.search,start:0,limit:1000}
-	    })
-	    .then(function (res) {
-            let list;
-            if(res.data.code == 0){
-               list = res.data.data
-            }
+    async asyncData ({ params }) {//请求
+    let list,total,countList,countObj,countAll;
+        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search',{data:params.search.trim(),start:0,limit:1000});
+        if(code == 0){
+            list = data;
+            total = totalRecord;
+        }
+	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search/count',{data:params.search.trim()});
+        if(code2 == 0){
+            countList = data2;
+            countAll = 0;
+            countObj = {};
+            countList.forEach(count=>{
+                countObj[count.id] = count.name;
+                countAll+=count.name;
+            })
+            countObj['all'] = countAll;
+        }
 
-		  return { list , searchKey:params.search}
-	    })
+        return { list ,total,countObj, searchKey:params.search}
 	},
     methods:{
         toProduct(item){
             this.$router.push({
-                path:`/product/${item.id}`
+                path:`/en/product/${item.id}`
             })
         },
         toNews(item){
             this.$router.push({
-                path:`/news/${item.id}`
+                path:`/en/news/${item.id}`
             })
         },
         toCareer(item){
             this.$router.push({
-                path:`/staff/${item.id}`
+                path:`/en/staff/${item.id}`
             })
         },
     },
@@ -105,6 +110,7 @@ export default {
     position:relative;
     width:100%;
     margin:0 auto;
+    height:90vh;
     padding:40px 48px;
 }
 .main-title{
