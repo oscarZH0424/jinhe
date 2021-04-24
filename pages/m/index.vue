@@ -46,19 +46,19 @@
           <div class="desc-intro-group">
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base佰舍 服务式公寓')"></div>
-              <div class="intro-text">{{configObj[3].text3 || '灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。'}}</div>
+              <div class="intro-text over">{{configObj[3].text3 || '灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。'}}</div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu途楼 青年公寓')"></div>
-              <div class="intro-text">{{configObj[3].tex5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
+              <div class="intro-text over">{{configObj[3].tex5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(configObj[3].text6 || '越界 办公')"></div>
-              <div class="intro-text">{{configObj[3].tex7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
+              <div class="intro-text over">{{configObj[3].tex7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(configObj[3].text8 || '越界/越都荟社区商业')"></div>
-              <div class="intro-text">{{configObj[3].tex9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
+              <div class="intro-text over">{{configObj[3].tex9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
             </div>
           </div>
         </div>
@@ -153,19 +153,23 @@
           <div class="desc-intro-group">
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text1 || '资源'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text2 || '优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text2 || '优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text3 || '资本'}}</div>
-                <div class="intro-text" v-html="brStr(configObj[6].text4 || '强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投')" ></div>
+                <div class="intro-text bold" v-html="brStr(configObj[6].text4 || '强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投')" ></div>
+                <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text5 || '市场'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text6 || '敏锐的市场洞察力<br>精准的市场定位')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text6 || '敏锐的市场洞察力<br>精准的市场定位')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text7 || '创新'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text8 || '产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text8 || '产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
             </div>
           </div>
         </div>
@@ -634,7 +638,27 @@ export default {
           color: #231815;
           line-height: 32px;
           text-align: left;
+          &.bold{
+            font-size: 24px;
+            line-height: 40px;
+          }
+          &.over{
+            display: -webkit-box;    
+            -webkit-box-orient: vertical;    
+            -webkit-line-clamp: 4;    
+            overflow: hidden;
+          }
         }
+        .intro-sub-text{
+            margin-top:8px;
+            opacity: 1;
+            font-size: 18px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            color: #727171;
+            line-height: 24px;
+            text-align: left;
+          }
       }
     }
   }

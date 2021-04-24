@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pc">
       <Pagebanner keystr="newsd"/>
       <div class="paragraph">
           <div class="title">{{detail.title}}</div>
@@ -126,33 +126,37 @@ asyncData ({ params }) {//请求
 }
 
 @media screen and (max-width:1450px) {
-    .paragraph{
-        .title{
-            font-size:24px !important;
-            line-height:34px !important;
-            margin-bottom:15px !important;
-        }
-        .subtitle{
-            
-            .bottom{
-                font-size:12px !important;
-                line-height:15px !important;
+    .pc{
+        .paragraph{
+            .title{
+                font-size:24px !important;
+                line-height:34px !important;
+                margin-bottom:15px !important;
             }
-            
+            .subtitle{
+                
+                .bottom{
+                    font-size:12px !important;
+                    line-height:15px !important;
+                }
+                
+            }
+        }
+        .content{
+            margin-top:22.6px !important;
+        }
+        .content p{
+            font-size:12px !important;
+            line-height:21px !important;
         }
     }
-    .content{
-        margin-top:22.6px !important;
-    }
-    .content p{
-        font-size:12px !important;
-        line-height:21px !important;
-    }
+    
 }
 
 </style>
 
 <style lang="scss">
+.pc{
 .content{
         margin-top:30px;
         margin-top:1.5625vw;
@@ -182,29 +186,32 @@ asyncData ({ params }) {//请求
 
         }
     }
-
+}
     @media screen and (max-width:1450px) {
-    .paragraph{
-        .title{
-            font-size:24px !important;
-            line-height:34px !important;
-            margin-bottom:15px !important;
-        }
-        .subtitle{
-            
-            .bottom{
-                font-size:12px !important;
-                line-height:15px !important;
+        .pc{
+            .paragraph{
+                .title{
+                    font-size:24px !important;
+                    line-height:34px !important;
+                    margin-bottom:15px !important;
+                }
+                .subtitle{
+                    
+                    .bottom{
+                        font-size:12px !important;
+                        line-height:15px !important;
+                    }
+                    
+                }
             }
-            
+            .content{
+                margin-top:22.6px !important;
+            }
+            .content p{
+                font-size:12px !important;
+                line-height:21px !important;
+            }
         }
-    }
-    .content{
-        margin-top:22.6px !important;
-    }
-    .content p{
-        font-size:12px !important;
-        line-height:21px !important;
-    }
+    
 }
 </style>

@@ -124,7 +124,7 @@ export default {
         position:absolute;
         top:280px;
         left:45px;
-        width:80%;
+        width:498px;
         .title{
             opacity: 1;
             font-size: 46px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pc">
       <Pagebanner keystr="prod"/>
       <div class="paragraph">
           <div class="title">{{detail.title}}</div>
@@ -52,6 +52,7 @@ export default {
     width:100%;
     margin-top:108px;
 }
+.pc{
 .paragraph{
     position:relative;
     width:1200px;
@@ -179,46 +180,52 @@ export default {
     }
     
 }
+}
+
 
 @media screen and (max-width:1450px) {
-    .paragraph{
-        .title{
-            font-size:24px !important;
-            line-height:34px !important;
-            margin-bottom:15px !important;
+    .pc{
+        .paragraph{
+            .title{
+                font-size:24px !important;
+                line-height:34px !important;
+                margin-bottom:15px !important;
+            }
+            .subtitle{
+                .top{
+                    font-size:12px !important;
+                    line-height:15px !important;
+                }
+                .bottom >span{
+                    font-size:12px !important;
+                    line-height:15px !important;
+                }
+                .tag{
+                    width:79px !important;
+                    height:22.6px !important;
+                    line-height:22.6px !important;
+                    font-size:12px !important;
+                    border-bottom:22.6px solid #b21e27 !important;
+                    border-left:15px solid transparent !important;
+                    top:-7.5px !important;
+                    padding-right:7.5px !important;
+                }
+            }
         }
-        .subtitle{
-            .top{
-                font-size:12px !important;
-                line-height:15px !important;
-            }
-            .bottom >span{
-                font-size:12px !important;
-                line-height:15px !important;
-            }
-            .tag{
-                width:79px !important;
-                height:22.6px !important;
-                line-height:22.6px !important;
-                font-size:12px !important;
-                border-bottom:22.6px solid #b21e27 !important;
-                border-left:15px solid transparent !important;
-                top:-7.5px !important;
-                padding-right:7.5px !important;
-            }
+        .content{
+            margin-top:22.6px !important;
         }
-    }
-    .content{
-        margin-top:22.6px !important;
-    }
-    .content p{
-        font-size:12px !important;
-        line-height:21px !important;
-    }
+        .content p{
+            font-size:12px !important;
+            line-height:21px !important;
+        }
+    }   
+    
 }
 </style>
 <style lang="scss">
-.content{
+.pc{
+    .content{
         margin-top:30px;
         margin-top:1.5625vw;
         p{
@@ -247,41 +254,46 @@ export default {
 
         }
     }
+}
+
 
     @media screen and (max-width:1450px) {
-    .paragraph{
-        .title{
-            font-size:24px !important;
-            line-height:34px !important;
-            margin-bottom:15px !important;
+        .pc{
+            .paragraph{
+                .title{
+                    font-size:24px !important;
+                    line-height:34px !important;
+                    margin-bottom:15px !important;
+                }
+                .subtitle{
+                    .top{
+                        font-size:12px !important;
+                        line-height:15px !important;
+                    }
+                    .bottom >span{
+                        font-size:12px !important;
+                        line-height:15px !important;
+                    }
+                    .tag{
+                        width:79px !important;
+                        height:22.6px !important;
+                        line-height:22.6px !important;
+                        font-size:12px !important;
+                        border-bottom:22.6px solid #b21e27 !important;
+                        border-left:15px solid transparent !important;
+                        top:-7.5px !important;
+                        padding-right:7.5px !important;
+                    }
+                }
+            }
+            .content{
+                margin-top:22.6px !important;
+            }
+            .content p{
+                font-size:12px !important;
+                line-height:21px !important;
+            }
         }
-        .subtitle{
-            .top{
-                font-size:12px !important;
-                line-height:15px !important;
-            }
-            .bottom >span{
-                font-size:12px !important;
-                line-height:15px !important;
-            }
-            .tag{
-                width:79px !important;
-                height:22.6px !important;
-                line-height:22.6px !important;
-                font-size:12px !important;
-                border-bottom:22.6px solid #b21e27 !important;
-                border-left:15px solid transparent !important;
-                top:-7.5px !important;
-                padding-right:7.5px !important;
-            }
-        }
-    }
-    .content{
-        margin-top:22.6px !important;
-    }
-    .content p{
-        font-size:12px !important;
-        line-height:21px !important;
-    }
+    
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <div class="container">
       <div class="content">
+            <div class="search-input">
+                <input type="text"  placeholder="Enter Keywords" v-model="searchKey">
+                <img @click="toSearch" src="~/assets/img/ic_search_1.png" style="width:21px;" alt="">
+            </div>
             <div class="main-title">Search</div>
             <div class="search-tip">Result For Searching “{{searchKey}}”</div>
             <div class="tag-group">
@@ -76,6 +80,28 @@ export default {
         return { list ,total,countObj, searchKey:params.search}
 	},
     methods:{
+        async toSearch(){
+            let list,total,countList,countObj,countAll;
+            let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search',{data:this.searchKey.trim(),start:0,limit:1000});
+            if(code == 0){
+                list = data;
+                total = totalRecord;
+            }
+            let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search/count',{data:this.searchKey.trim()});
+            if(code2 == 0){
+                countList = data2;
+                countAll = 0;
+                countObj = {};
+                countList.forEach(count=>{
+                    countObj[count.id] = count.name;
+                    countAll+=count.name;
+                })
+                countObj['all'] = countAll;
+            }
+            this.list = list;
+            this.countObj = countObj;
+
+        },
         toProduct(item){
             this.$router.push({
                 path:`/en/product/${item.id}`
@@ -110,8 +136,42 @@ export default {
     position:relative;
     width:100%;
     margin:0 auto;
-    height:90vh;
+    min-height:90vh;
     padding:40px 48px;
+    box-sizing: border-box;
+    overflow:hidden;
+}
+.search-input{
+    width:100%;
+    height:58px;
+    line-height:58px;
+    padding:0px 22px;
+    opacity: 1;
+    font-size: 24px;
+    font-family: PingFangSC, PingFangSC-Regular;
+    font-weight: 400;
+    text-align: left;
+    color: #b21e27;
+    border:1px solid #b21e27;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    input{
+        width:100%;
+        height:100%;
+        outline: none;
+        border:0px;
+        &::-webkit-input-placeholder {
+              color: #b21e27;
+        }
+        &::-moz-input-placeholder {
+            color: #b21e27;
+        }
+        &::-ms-input-placeholder {
+            color: #b21e27;
+        }
+    }
 }
 .main-title{
     margin-top:26px;

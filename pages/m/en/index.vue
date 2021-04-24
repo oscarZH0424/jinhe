@@ -17,17 +17,17 @@
       <div class="desc-info p2 wow fadeInUp" data-wow-delay="2s">
         <div class="desc-title" style="margin-bottom:50px;">{{configObj[2].text || 'Management  Scale'}}</div>
         <div class="desc-label-group">
-          <div class="label-item" style="margin-right:100px;">
+          <div class="label-item" >
             <div class="label-val">{{configObj[2].text1 || '¥ 15.1 billion'}}</div>
             <div class="label-name">{{configObj[2].text2 || 'Total AUM'}}</div>
           </div>
-          <div class="label-item" style="margin-right:100px;">
-            <div class="label-val">{{configObj[2].text3 || '19'}}</div>
-            <div class="label-name">{{configObj[2].text4 || 'Projects'}}</div>
-          </div>
-          <div class="label-item">
+          <div class="label-item" style="margin-right:10px;">
             <div class="label-val">{{configObj[2].text5 || '396,000 sqm'}}</div>
             <div class="label-name">{{configObj[2].text6 || 'GFA'}}</div>
+          </div>
+          <div class="label-item" style="margin-right:45px; ">
+            <div class="label-val">{{configObj[2].text3 || '19'}}</div>
+            <div class="label-name">{{configObj[2].text4 || 'Projects'}}</div>
           </div>
           <div class="label-item">
             <div class="label-val">{{configObj[2].text7 || '2'}}</div>
@@ -153,19 +153,23 @@
           <div class="desc-intro-group">
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text1 || 'Resource'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text3 || 'Capital'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text5 || 'Market'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text6 || 'Sharp market insight<br>Precise market positioning')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text6 || 'Sharp market insight<br>Precise market positioning')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title no-border">{{configObj[6].text7 || 'Innovation'}}</div>
-              <div class="intro-text" v-html="brStr(configObj[6].text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
+              <div class="intro-text bold" v-html="brStr(configObj[6].text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
+              <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
             </div>
           </div>
         </div>
@@ -332,9 +336,12 @@ export default {
     &.p1{
       top:264px;
       right:45px;
-      width:398px;
+      width:426px;
       .desc-title{
         text-align: right;
+        font-size:40px;
+        line-height:58px;
+        margin-bottom:40px;
       }
       .desc-text{
         text-align: right;
@@ -345,7 +352,7 @@ export default {
       top:178px;
     }
     &.p3{
-      right:45px;
+      right:24px;
       top:100px;
       .desc-title{
         text-align: right;
@@ -382,14 +389,14 @@ export default {
       font-weight: 400;
       text-align: left;
       color: #ffffff;
-      line-height: 45px;
+      line-height: 36px;
     }
     .desc-label-group{
       display: flex;
       flex-flow: row wrap;
       justify-content: flex-start;
       align-items: flex-start;
-      width:600px;
+      width:377px;
       .label-item{
         position: relative;
         margin-bottom:55px;
@@ -437,7 +444,7 @@ export default {
       justify-content: center;
       align-items: stretch;
       .multi-main{
-        width:660px;
+        width:701px;
         height:702px;
         background: white;
         border:1px solid #898989;
@@ -478,11 +485,12 @@ export default {
           .text-item{
             width:212px;
             height:112px;
-            padding-top:20px;
             display: flex;
             flex-flow:column;
             justify-content: flex-start;
             align-items: center;
+            padding:0 30px;
+            box-sizing: content-box;
             &:nth-child(odd){
               border-right:1PX dashed #c5c1c1;
               border-bottom:1PX dashed #c5c1c1;
@@ -502,6 +510,8 @@ export default {
               line-height: 39px;
               text-align: center;
               white-space: nowrap;
+              margin-top:20px;
+              
             }
             .text-info{
               opacity: 1;
@@ -516,7 +526,7 @@ export default {
         }
       }
       .multi-sub{
-        width:660px;
+        width:701px;
         min-height:331px;
         display: flex;
         flex-flow:row wrap;
@@ -524,8 +534,8 @@ export default {
         align-items: center;
         margin-top:40px;
         .sub-intro-item{
-          width:311px;
-          height:292px;
+          width:341px;
+          height:320px;
           margin-bottom:39px;
           background: white;
           padding:30px;
@@ -535,15 +545,16 @@ export default {
           }
           .sub-text{
             text-align: left;
+            height:130px;
             opacity: 1;
             font-size: 16px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             color: #000;
-            line-height: 28px;
+            line-height: 28px; 
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 5;
             overflow: hidden;
             >span{
               color: #af1e23;
@@ -591,7 +602,7 @@ export default {
     height:100%;
     background:rgba(0,0,0,.6);
     text-align: center;
-    padding:0px 46px;
+    padding:0px 24px;
     .desc-title{
       margin-top:131px;
       opacity: 1;
@@ -617,8 +628,8 @@ export default {
       justify-content: space-between;
       align-items: center;
       .desc-intro-item{
-        width: 314px;
-        height: 294px;
+        width: 342px;
+        height: 320px;
         opacity: 1;
         border: 1px solid #898989;
         padding:30px 20px 20px 20px;
@@ -647,7 +658,27 @@ export default {
           color: #231815;
           line-height: 28px;
           text-align: left;
+          &.over{
+            display: -webkit-box;    
+            -webkit-box-orient: vertical;    
+            -webkit-line-clamp: 4;    
+            overflow: hidden;
+          }
+          &.bold{
+            font-size: 20px;
+            line-height: 32px;
+          }
         }
+        .intro-sub-text{
+            margin-top:8px;
+            opacity: 1;
+            font-size: 18px;
+            font-family: PingFangSC, PingFangSC-Regular;
+            font-weight: 400;
+            color: #727171;
+            line-height: 24px;
+            text-align: left;
+          }
       }
     }
   }

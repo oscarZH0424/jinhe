@@ -125,12 +125,17 @@ export default {
                 .news-title{
                     width:350px;
                     opacity: 1;
+                    height:200px;
                     font-size: 36px;
                     font-family: PingFangSC, PingFangSC-Semibold;
                     font-weight: 600;
                     color: #ffffff;
                     line-height: 50px;
                     margin-bottom:30px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 4;
+                    overflow: hidden;
                 }
                 .news-btn{
                     display: inline-block;

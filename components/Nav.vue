@@ -88,7 +88,7 @@ export default {
     let menuList = this.$store.state.menu;
     let menuEnList = this.$store.state.menuEn;
 
-    // console.log('menuList',menuList);
+    console.log('menuList',menuList);
     this.menus.ch = menuList;
     this.menus.en = menuEnList;
 
