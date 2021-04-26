@@ -68,6 +68,9 @@ export default {
     align-items: center;
     background: #806842;
     overflow: hidden;
+    height:13.2vw;
+    min-height:135px;
+    max-height:254px;
     .menu-group{
         display: flex;
         flex-flow:row nowrap;

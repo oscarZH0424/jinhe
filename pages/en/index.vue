@@ -168,7 +168,7 @@
             </div>
           </div>
         </div>      
-        <div class="section">
+        <div class="section  section6">
           <div class="desc-panel">
             <img class="bg-img br  full" :src="configObj[6].coverUrl || require('~/assets/img/desc_bg_5.png')" alt=""/>
             <div class="desc-dark">
@@ -787,8 +787,8 @@ export default {
         padding:1.67vw 1.5625vw 0.0417vw  1.5625vw;
         margin-right:1.5625vw;
         margin-bottom:1.5625vw;
-        min-width:263px;
-        min-height:252px;
+        // min-width:263px;
+        // min-height:252px;
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -856,6 +856,10 @@ export default {
   }
 }
 
+.section6 .desc-title{
+  margin-bottom:85px;margin-top:169px;margin-top:5.8020vw !important;margin-bottom:4.427vw !important;
+}
+
 @media screen and  (max-width:765px) {
   .desc-text{
     line-height:20px !important;
@@ -893,6 +897,9 @@ export default {
     }
 }
 @media screen and  (max-width:1445px) {
+  .desc-intro-item{
+    padding:15px !important;
+  }
   .sub-intro-item{
     margin-bottom:30.8px !important;
   }
@@ -917,7 +924,9 @@ export default {
 @media screen and  (max-width:1680px) {
   .desc-intro-group.b{
     .desc-intro-item{
-      padding:28px 26.25px 0.7px 26.25px !important; 
+      padding:15px !important; 
+      min-width:238px !important;
+        min-height:228px !important;
       .intro-title{
         font-size:23.7px !important;
         line-height:28.2px !important;

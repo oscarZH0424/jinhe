@@ -161,12 +161,12 @@
             </div>
           </div>
         </div>      
-        <div class="section">  
+        <div class="section section6">  
           <div class="desc-panel">
             <img class="bg-img br  full"  :src="configObj[6].coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
             <div class="desc-dark">
               <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
-                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">{{configObj[6].text || '锦和资管的运营优势'}}</div>
+                <div class="desc-title " style="">{{configObj[6].text || '锦和资管的运营优势'}}</div>
                 <div class="desc-intro-group">
                   <div class="desc-intro-item">
                     <div class="intro-title no-border">{{configObj[6].text1 || '资源'}}</div>
@@ -756,13 +756,13 @@ export default {
         padding:38px 30px 20px  30px;
         margin-right:30px;
         background: rgba(255,255,255,.8);
-        // width: 13.59375vw;
-        // height: 12.7083vw;
-        // padding:1.9791vw 1.5625vw 1.0417vw  1.5625vw;
+        width: 13.59375vw;
+        height: 12.7083vw;
+        padding:1.9791vw 1.5625vw 1.0417vw  1.5625vw;
         // margin-right:1.5625vw;
         // margin-bottom:1.5625vw;
-        // min-width:170px;
-        // min-height:147px;
+        min-width:185px;
+        min-height:173px;
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -772,9 +772,9 @@ export default {
           padding-bottom:19px;
           border-bottom:1px dashed #af1e23;
           text-align: left;
-          // font-size: 1.40625vw;
-          // line-height: 1.67vw;
-          // padding-bottom:0.989583vw;
+          font-size: 1.40625vw;
+          line-height: 1.67vw;
+          padding-bottom:0.989583vw;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -801,8 +801,8 @@ export default {
           &.bold{
             font-size:17px;
             line-height:24px;
-            // font-size:0.88541vw;
-            // line-height:1.25vw;
+            font-size:0.88541vw;
+            line-height:1.25vw;
           }
           
         }
@@ -820,7 +820,9 @@ export default {
     }
   }
 }
-
+.section6 .desc-title{
+  margin-bottom:85px;margin-top:169px;margin-top:6.8020vw;margin-bottom:4.427vw;
+}
 @media screen and  (max-width:765px) {
   .desc-text{
     line-height:20px !important;
@@ -847,18 +849,21 @@ export default {
     line-height:26px !important;
   }
   .intro-title{
-    // font-size:17px !important;
-    // line-height:21px !important;
+    font-size:17px !important;
+    line-height:21px !important;
   }
 }
 
 @media screen and  (max-width:1360px) {
     .intro-text.bold{
-      // font-size:12px !important;
-      // line-height:17px !important;
+      font-size:12px !important;
+      line-height:17px !important;
     }
 }
 @media screen and  (max-width:1445px) {
+  .desc-intro-item{
+    padding:15px !important;
+  }
   .sub-intro-item{
     margin-bottom:30.8px !important;
   }
@@ -879,6 +884,13 @@ export default {
   //   left:138.6px !important;
   //   top:156.1px !important;
   // }
+}
+
+@media screen and (min-width:1920px) {
+  .intro-sub-text{
+    font-size: 0.625vw !important;
+    line-height: 0.885vw !important;
+  }
 }
 </style>
 <style>

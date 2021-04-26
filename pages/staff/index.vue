@@ -77,7 +77,7 @@ export default {
 .container{
     margin:0 auto;
     width:100%;
-    margin-top:108px;
+    margin-top:75px;
 }
 .staff-container{
     width:100%;

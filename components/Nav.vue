@@ -189,7 +189,7 @@ a{
     position:fixed;
     top:0px;
     width:100%;
-    height:108px;
+    height:75px;
     background: #B21E27;
     display: flex;
     flex-flow:row nowrap;
@@ -213,16 +213,16 @@ a{
         padding-right:100px;
         padding-right:5.2083vw;
         >a{
-          line-height: 135px;
+          line-height: 75px;
           color:white;
         }
         .text-btn-group{
           position:absolute;
           right:5px;
           bottom:0px;
-          height:108px;
+          height:75px;
           color: white;
-          line-height: 135px;
+          line-height: 75px;
           font-size: 14px;
           font-family: PingFangSC, PingFangSC-Medium;
           background: #B21E27;
@@ -254,7 +254,7 @@ a{
             height:50px;
             border-bottom:1px solid white;
             padding-right:50px;
-            margin-top:40px;
+            margin-top:10px;
             input{
               position:absolute;
               bottom:0px;
@@ -281,14 +281,14 @@ a{
         }
         .menu-item{
             position:relative;
-            height:108px;
+            height:75px;
             opacity: 1;
             font-size: 18px;
             font-family: PingFangSC, PingFangSC-Regular;
             font-weight: 400;
             text-align: center;
             color: white;
-            line-height: 135px;
+            line-height: 75px;
             padding:0px 42px;
             padding:0px 2.1875vw;
             white-space: nowrap;
@@ -307,7 +307,7 @@ a{
             }
             .drop-down-group{
               position:absolute;
-              top:108px;
+              top:75px;
               min-width:100%;
               left:0px;
               height:auto;
