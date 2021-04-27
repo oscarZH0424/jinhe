@@ -150,14 +150,17 @@ export default {
                 opacity: 1;
                 font-size: 62px;
                 font-family: PingFangSC, PingFangSC-Semibold;
-                font-weight: 600;
+                // font-weight: 600;
                 text-align: left;
                 color: #ffffff;
-                line-height: 93px;
+                line-height: 87px;
                 margin-bottom:74px;
                 font-size: 3.229167vw;
-                line-height: 4.84375vw;
+                line-height: 4.53125vw;
                 margin-bottom:3.854167vw;
+                width:630px;
+                width:32.8125vw;
+                min-width:400px;
                 &::after{
                     position:absolute;
                     content:' ';
@@ -171,7 +174,8 @@ export default {
                 }
             }
             .pro-desc{
-                width:566px;
+                width:630px;
+                width:32.8125vw;
                 opacity: 1;
                 font-size: 24px;
                 font-family: PingFangSC, PingFangSC-Regular;
@@ -180,8 +184,6 @@ export default {
                 color: #ffffff;
                 line-height: 42px;
                 margin-bottom:50px;
-
-                width:40.479167vw;
                 font-size: 1.25vw;
                 line-height: 2.1875vw;
                 margin-bottom:2.604167vw;
