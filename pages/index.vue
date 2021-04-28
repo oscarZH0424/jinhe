@@ -504,7 +504,7 @@ export default {
       text-align: left;
       color: #ffffff;
       line-height: 21px;
-      margin-top:16.7592vh;
+      margin-top:10.7592vh;
       font-size: 0.9375vw;
       line-height: 1.09375vw;
     }

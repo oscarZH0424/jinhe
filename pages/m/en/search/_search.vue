@@ -262,7 +262,7 @@ export default {
                     width:100%;
                     height: 0px;
                     opacity: 0.26;
-                    border: 1px solid #979797;
+                    border: 1px dashed #979797;
                     margin:20px auto;
                 }
                 .bottom{
@@ -328,7 +328,7 @@ export default {
                     width:100%;
                     height: 0px;
                     opacity: 0.26;
-                    border: 1px solid #979797;
+                    border: 1px dashed #979797;
                     margin:10px auto;
                 }
                 .bottom{

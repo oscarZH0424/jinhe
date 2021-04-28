@@ -2,7 +2,7 @@
   <div :class="{'nav-head':!isMobile && !mobileStyle,'m-nav-head':isMobile || mobileStyle,'m-pc':mobileStyle}">
     <img class="logo" src="../assets/img/logo.png" alt="" @click="tapMenu($event,'/')">  
     <div v-show="!isMobile && !mobileStyle" class="menu-group">
-      <div class="menu-item" v-for="(menu,index) in menus[lan]" :key="index" @click="tapMenu($event,menu.banner)">
+      <div class="menu-item" v-for="(menu,index) in menus[lan]" :key="index" @click="tapMenu($event,menu.banner)" @mouseleave="onMenuBlur">
         <span>{{menu.name}} <span v-show="menu.children && menu.children.length>0" class="arrow1">></span> </span>
         <div class="drop-down-group" v-show="menu.children && menu.children.length>0" >
           <!-- :style="{width:index==1?'19.53125vw':''}" -->
@@ -101,6 +101,10 @@ export default {
     }
   },
   methods:{
+    onMenuBlur(){
+      console.log('blur');
+      this.activeIndexMap = {};
+    },
     changeMode(){
       let w = document.documentElement.clientWidth;
       this.mobileStyle = w <= 750;
@@ -110,15 +114,21 @@ export default {
     },
     
     toggleLan(){
+      console.log(this.$route);
+      let fullPath = this.$route.fullPath;
+      if(this.$route.name.indexOf('id')!=-1){
+        fullPath = '/';
+      }
       this.lan = this.lan == 'ch' ? 'en' : 'ch';
       bus.$emit('lanchange',this.lan);
       if(this.lan == 'ch'){
+        fullPath = fullPath.replace('/en','');
         this.$router.push({
-          path:'/'
+          path:fullPath
         })
       }else{
          this.$router.push({
-          path:'/en/'
+          path:`/en${fullPath}`
         })
       }
     },
@@ -161,9 +171,11 @@ export default {
     },
     toSearch2(){
        let base = this.lan == 'en' ? '/en' : '';
-      this.$router.push({
-        path:`${base}/search/${this.searchKey}`
-      })
+       if(this.searchKey){
+         this.$router.push({
+          path:`${base}/search/${this.searchKey}`
+        })
+       }
     },
     close(){
       this.isSearch = false;
@@ -173,9 +185,11 @@ export default {
     onInputKeyDown(){
       console.log(this.searchKey);
        let base = this.lan == 'en' ? '/en' : '';
-      this.$router.push({
-        path:`${base}/search/${this.searchKey}`
-      })
+       if(this.searchKey){
+         this.$router.push({
+          path:`${base}/search/${this.searchKey}`
+        })
+       }
     },
   }
 }

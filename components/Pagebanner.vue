@@ -1,7 +1,7 @@
 <template>
     <div :class="{'page-banner':!isMobile,'m-page-banner':isMobile}">
-         <img  :src="banner.coverUrl" alt="" />
-         <div  class="text">{{banner.firstTitle}}</div>
+         <img  :src="src||banner.coverUrl" alt="" />
+         <div  class="text">{{title || banner.firstTitle}}</div>
     </div>
 </template>
 
@@ -10,7 +10,9 @@ import axios from 'axios'
     export default {
         props:{
             keystr:String,
-            theme:String
+            theme:String,
+            src:String,
+            title:String
         },
         data(){
             return {

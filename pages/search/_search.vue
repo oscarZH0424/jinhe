@@ -206,7 +206,7 @@ export default {
         .pro-item{
             .title{
                 opacity: 1;
-                font-size: 32px;
+                font-size: 27px;
                 font-family: PingFangSC, PingFangSC-Semibold;
                 font-weight: 600;
                 text-align: left;
@@ -229,7 +229,7 @@ export default {
                     width:100%;
                     height: 1px;
                     opacity: 0.26;
-                    border: 1px solid #979797;
+                    border: 1px dashed #979797;
                     margin:5px auto;
                 }
                 .bottom{
@@ -268,7 +268,7 @@ export default {
         .news-item{
             .title{
                 opacity: 1;
-                font-size: 32px;
+                font-size: 27px;
                 font-family: PingFangSC, PingFangSC-Semibold;
                 font-weight: 600;
                 text-align: left;
@@ -282,7 +282,7 @@ export default {
                     width:100%;
                     height: 1px;
                     opacity: 0.26;
-                    border: 1px dotted #979797;
+                    border: 1px dashed #979797;
                     margin:5px auto;
                 }
                 .bottom{
@@ -300,7 +300,7 @@ export default {
         .staff-item{
             .title{
                 opacity: 1;
-                font-size: 32px;
+                font-size: 27px;
                 font-family: PingFangSC, PingFangSC-Semibold;
                 font-weight: 600;
                 text-align: left;

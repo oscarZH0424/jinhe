@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <Pagebanner keystr="newsd"/>
+      <Pagebanner keystr="newsd"  :src="detail.bannerMobileCoverUrl" :title="detail.bannerTitle"/>
       <div class="paragraph">
           <div class="title">{{detail.title}}</div>
           <div class="subtitle">
@@ -78,7 +78,7 @@ export default {
             width:100%;
             height: 0px;
             opacity: 0.26;
-            border: 1px solid #979797;
+            border: 1px dashed #979797;
             margin:20px auto;
         }
         .bottom{
@@ -134,7 +134,7 @@ export default {
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:60px;
+            // margin-bottom:60px;
         }
     }
     
@@ -160,7 +160,7 @@ export default {
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:60px;
+            // margin-bottom:60px;
         }
     }
 </style>

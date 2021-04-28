@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <Pagebanner keystr="pro"/>
+      <Pagebanner keystr="brand"/>
       <div class="pro-list">
           <div class="pro-item" v-for="(pro,index) in proList" :key="pro.id" :id="`pro${pro.id}`" >
               <img class="bg-img wow fadeIn" :src="pro.coverUrl" alt=""/>

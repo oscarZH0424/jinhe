@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-        <Pagebanner keystr="staffd"/>
+        <Pagebanner keystr="staffd"  :src="detail.bannerCoverUrl" :title="detail.bannerTitle"/>
       <div class="paragraph">
           <div class="title">{{detail.name}}</div>
           <div class="subtitle">

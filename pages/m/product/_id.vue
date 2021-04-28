@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <Pagebanner keystr="prod"/>
+      <Pagebanner keystr="prod"  :src="detail.bannerMobileCoverUrl" :title="detail.bannerTitle"/>
       <div class="paragraph">
           <div class="title">{{detail.title}}</div>
           <div class="subtitle">
@@ -57,7 +57,7 @@ export default {
         opacity: 1;
         font-size: 40px;
         font-family: PingFangSC, PingFangSC-Semibold;
-        font-weight: 600;
+        font-weight: 800;
         text-align: left;
         color: #000000;
         line-height: 56px;
@@ -80,12 +80,12 @@ export default {
             width:100%;
             height: 0px;
             opacity: 0.26;
-            border: 1px solid #979797;
+            border: 1px dashed #979797;
             margin:20px auto;
         }
         .bottom{
             opacity: 1;
-            font-size: 28px;
+            font-size: 24px;
             font-family: PingFangSC, PingFangSC-Medium;
             font-weight: 500;
             text-align: left;
@@ -136,7 +136,7 @@ export default {
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:60px;
+            // margin-bottom:60px;
         }
     }
     
@@ -162,7 +162,7 @@ export default {
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:60px;
+            // margin-bottom:60px;
         }
     }
 </style>

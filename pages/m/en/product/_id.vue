@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <Pagebanner keystr="prod"/>
+      <Pagebanner keystr="prod"  :src="detail.bannerMobileCoverUrl" :title="detail.bannerTitle"/>
       <div class="paragraph">
           <div class="title">{{detail.title}}</div>
           <div class="subtitle">
@@ -80,7 +80,7 @@ asyncData ({ params }) {//请求
             width:100%;
             height: 0px;
             opacity: 0.26;
-            border: 1px solid #979797;
+            border: 1px dashed #979797;
             margin:20px auto;
         }
         .bottom{
@@ -136,7 +136,7 @@ asyncData ({ params }) {//请求
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:60px;
+            // margin-bottom:60px;
         }
     }
     
@@ -162,7 +162,7 @@ asyncData ({ params }) {//请求
             max-width:100%;
             margin:0 auto;
             display: block;
-            margin-bottom:60px;
+            // margin-bottom:60px;
         }
     }
 </style>
