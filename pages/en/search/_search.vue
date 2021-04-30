@@ -4,11 +4,11 @@
             <div class="main-title">Search</div>
             <div class="search-tip">Result For Searching “{{searchKey}}”</div>
             <div class="tag-group">
-                <div class="tag-item">Total（{{countObj['all'] || 0}}）</div>
-                <div class="tag-item">Projects（{{countObj[1] || 0}}）</div>
-                <div class="tag-item">Brands（{{countObj[2] || 0}}）</div>
-                <div class="tag-item">Media（{{countObj[3] || 0}}）</div>
-                <div class="tag-item">Careers（{{countObj[4] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(-1)" :class="{'active':curTag==-1}">Total（{{countObj['all'] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(1)" :class="{'active':curTag==1}">Projects（{{countObj[1] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(2)" :class="{'active':curTag==2}">Brands（{{countObj[2] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(3)" :class="{'active':curTag==3}">Media（{{countObj[3] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(0)" :class="{'active':curTag==0}">Careers（{{countObj[4] || 0}}）</div>
 
             </div>
             <div class="result-group">
@@ -54,13 +54,14 @@
 
 <script>
 import axios from 'axios'
-
+const PAGESIZE = 10;
 export default {
     async asyncData ({ params }) {//请求
-        let list,total,countList,countObj,countAll;
-        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search',{data:params.search.trim(),start:0,limit:10});
+        let list,total,countList,countObj,countAll,oriList;
+        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search',{data:params.search.trim(),start:0,limit:1000});
         if(code == 0){
-            list = data;
+            oriList = data;
+            list = oriList.slice(0,PAGESIZE);
             total = totalRecord;
         }
 	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8383/article/search/count',{data:params.search.trim()});
@@ -75,18 +76,24 @@ export default {
             countObj['all'] = countAll;
         }
 
-        return { list ,total,countObj, searchKey:params.search}
+        return { oriList,list ,total,countObj, searchKey:params.search}
 	},
     data(){
         return {
-            pageSize:10,
-            pageNum:0
+            pageSize:PAGESIZE,
+            pageNum:0,
+            curTag:-1
         }
     },
     mounted(){
         console.log(this.list);
     },
     methods:{
+        chooseTag(tag){
+            this.curTag = tag;
+            this.pageNum = 0;
+            this.getData();
+        },
         toProduct(item){
             this.$router.push({
                 path:`/en/product/${item.id}`
@@ -107,18 +114,9 @@ export default {
             this.getData();
         },
         getData(){
-            let _this = this;
-            axios({
-            method: 'post',
-            url: 'http://www.dream-fly.com.cn:8383/article/search',
-            data:{data:_this.searchKey.trim(),start:_this.pageNum*_this.pageSize,limit:_this.pageSize}
-            })
-            .then( (res)=> {
-                if(res.data.code == 0){
-                    _this.total = res.data.totalRecord;
-                    _this.list = res.data.data;
-                }
-            })
+            let start = this.pageNum*this.pageSize;
+            this.list = this.oriList.filter(item=>this.curTag<0||item.type==this.curTag).slice(start,start+this.pageSize);       
+            this.total = this.oriList.filter(item=>this.curTag<0||item.type==this.curTag).length;  
         },
     },
     filters:{
@@ -184,6 +182,12 @@ export default {
         color: #ffffff;
         margin-right:16px;
         margin-bottom:16px;
+        cursor: pointer;
+        border:1px solid #B21E27;
+        &.active{
+            background: white;
+            color:#B21E27;
+        }
     }
 
 }
