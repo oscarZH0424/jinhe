@@ -501,16 +501,15 @@ export default {
       }
     }
     .desc-tip{
-      margin-top:181px;
+      margin-top:100px;
       opacity: 1;
       font-size: 18px;
       font-family: LucidaGrande;
       text-align: left;
       color: #ffffff;
       line-height: 21px;
-      margin-top:10.7592vh;
+      margin-top:0.5208vw;
       font-size: 0.9375vw;
-      line-height: 1.09375vw;
     }
     .multi-intro{
       display: flex;

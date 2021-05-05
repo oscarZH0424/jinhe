@@ -8,16 +8,16 @@
             <div class="main-title">搜索</div>
             <div class="search-tip">对于“{{searchKey}}”的搜索结果</div>
             <div class="tag-group">
-                <div class="tag-item">总（{{countObj['all'] || 0}}）</div>
-                <div class="tag-item">项目（{{countObj[1] || 0}}）</div>
-                <div class="tag-item">品牌（{{countObj[2] || 0}}）</div>
-                <div class="tag-item">新闻中心（{{countObj[3] || 0}}）</div>
-                <div class="tag-item">企业招聘（{{countObj[4] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(-1)" :class="{'active':curTag==-1}">总（{{countObj['all'] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(1)" :class="{'active':curTag==1}">项目（{{countObj[1] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(2)" :class="{'active':curTag==2}">品牌（{{countObj[2] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(3)" :class="{'active':curTag==3}">新闻中心（{{countObj[3] || 0}}）</div>
+                <div class="tag-item" @click="chooseTag(0)" :class="{'active':curTag==0}">企业招聘（{{countObj[4] || 0}}）</div>
 
             </div>
             <div class="result-group">
                 <div v-for="(item,index) in list" :key="index">
-                    <div v-if="item.type == 1 || item.type==2" class="result-item"  @click="toProduct(item)">
+                    <div v-if="item.type == 1 || item.type==2" class="result-item" @click="toProduct(item)">
                         <div class="result-type">{{item.type == 1 ? '项目' : '品牌'}}</div>
                         <div class="pro-item">
                             <div class="title">{{item.title}}</div>
@@ -59,10 +59,10 @@
 import axios from 'axios'
 export default {
     async asyncData ({ params }) {//请求
-        let list,total,countList,countObj,countAll;
+        let list,total,countList,countObj,countAll,oriList;
         let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:params.search.trim(),start:0,limit:1000});
         if(code == 0){
-            list = data;
+            oriList = list = data;
             total = totalRecord;
         }
 	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:params.search.trim()});
@@ -77,17 +77,27 @@ export default {
             countObj['all'] = countAll;
         }
 
-        return { list ,total,countObj, searchKey:params.search}
+        return { oriList,list ,total,countObj, searchKey:params.search}
 	},
+    data(){
+        return {
+            curTag:-1
+        }
+    },
     methods:{
+        chooseTag(tag){
+            this.curTag = tag;
+            this.pageNum = 0;
+            this.getData();
+        },
         async toSearch(){
-            let list,total,countList,countObj,countAll;
-            let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:this.searchKey.trim(),start:0,limit:1000});
+            let list,countList,countObj,countAll,oriList;
+            let searchKey = this.searchKey ? this.searchKey.trim() : '';
+            let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:searchKey,start:0,limit:1000});
             if(code == 0){
-                list = data;
-                total = totalRecord;
+                oriList = list = data;
             }
-            let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:this.searchKey.trim()});
+            let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:searchKey});
             if(code2 == 0){
                 countList = data2;
                 countAll = 0;
@@ -98,9 +108,13 @@ export default {
                 })
                 countObj['all'] = countAll;
             }
+            this.oriList = oriList;
             this.list = list;
             this.countObj = countObj;
 
+        },
+        getData(){
+            this.list = this.oriList.filter(item=>this.curTag<0||item.type==this.curTag);       
         },
         toProduct(item){
             this.$router.push({
@@ -217,8 +231,13 @@ export default {
         color: #ffffff;
         margin-right:16px;
         margin-top:32px;
+        border:1px solid #B21E27;
         &:nth-child(3n){
             margin-right:0px;
+        }
+        &.active{
+            background: white;
+            color:#B21E27;
         }
     }
 
@@ -264,7 +283,7 @@ export default {
                     width:100%;
                     height: 0px;
                     opacity: 0.26;
-                    border: 1px solid #979797;
+                    border: 1px dashed #979797;
                     margin:20px auto;
                 }
                 .bottom{
@@ -330,7 +349,7 @@ export default {
                     width:100%;
                     height: 0px;
                     opacity: 0.26;
-                    border: 1px solid #979797;
+                    border: 1px dashed #979797;
                     margin:10px auto;
                 }
                 .bottom{

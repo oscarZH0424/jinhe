@@ -119,6 +119,7 @@ export default {
       if(this.$route.name.indexOf('id')!=-1){
         fullPath = '/';
       }
+      fullPath = fullPath.replace('/m','');
       this.lan = this.lan == 'ch' ? 'en' : 'ch';
       bus.$emit('lanchange',this.lan);
       if(this.lan == 'ch'){
