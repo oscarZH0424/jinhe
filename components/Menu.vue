@@ -6,7 +6,7 @@
         </div>
         <div  class="menu-ch" :class="{'show':open}">
             <div v-for="(item,index) in menu.children" :key="index">
-                <menu-item :menu="item" @tap="onTap"></menu-item>
+                <menu-item :menu="item" @tap="onTap" :show="show"></menu-item>
             </div>
         </div>
     </div>
@@ -17,7 +17,8 @@
         
         name:'menuItem',
         props:{
-            menu:Object
+            menu:Object,
+            show:Boolean
         },
         data(){
             return {
@@ -44,6 +45,11 @@
             onTap(){
                 this.$emit('tap');
             },
+        },
+        watch:{
+            show(v){
+                this.open = false
+            }
         }
     }
 </script>

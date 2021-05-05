@@ -7,108 +7,102 @@
             <Banner v-for="(banner,index) in banners" :info="banner" :key="index"/>
           </a-carousel>
         </div>
-        <div class="section">
-          <div class="desc-panel">
-            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==1}" style="height:100vh;" :src="configObj[1].coverUrl || require('~/assets/img/desc_bg_1.png')" alt=""/>
-            <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==1}" :style="maskBottomStyle"></div>
-            <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==1}">
-              <div class="desc-title" style="margin-bottom:2vw;">{{configObj[1].text1 || 'Golden Union Asset Management Co., Ltd.'}}</div>
-              <div class="desc-text">{{configObj[1].text2 || 'Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.'}}</div>
+        <div class="section" v-for="(config,index) in configList" :key="index" :class="{'section6':config.templateType==6}">
+          <div class="desc-panel" v-show="config.templateType == 1">
+            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==(index+1)}" style="height:100vh;" :src="config.coverUrl || require('~/assets/img/desc_bg_1.png')" alt=""/>
+            <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==(index+1)}" :style="maskBottomStyle"></div>
+            <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==(index+1)}">
+              <div class="desc-title" style="margin-bottom:2vw;">{{config.text1 || 'Golden Union Asset Management Co., Ltd.'}}</div>
+              <div class="desc-text">{{config.text2 || 'Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.'}}</div>
             </div> 
           </div>
-        </div>      
-        <div class="section">
-          <div class="desc-panel">
-            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==2}" style="width:56.25vw;" :src="configObj[2].coverUrl || require('~/assets/img/desc_bg_2.png')" alt=""/>
-            <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==2}" :style="maskBottomStyle"></div>
-            <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==2}">
-              <div class="desc-title">{{configObj[2].text || 'Management Scale'}}</div>
+          <div class="desc-panel" v-show="config.templateType == 2">
+            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==(index+1)}" style="width:56.25vw;" :src="config.coverUrl || require('~/assets/img/desc_bg_2.png')" alt=""/>
+            <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==(index+1)}" :style="maskBottomStyle"></div>
+            <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==(index+1)}">
+              <div class="desc-title">{{config.text || 'Management Scale'}}</div>
               <div class="desc-label-group">
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text1 || '¥ 15.1 billion'}}</div>
-                  <div class="label-name">{{configObj[2].text2 || 'Total AUM'}}</div>
+                  <div class="label-val">{{config.text1 || '¥ 15.1 billion'}}</div>
+                  <div class="label-name">{{config.text2 || 'Total AUM'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text3 || '19'}}</div>
-                  <div class="label-name">{{configObj[2].text4 || 'Projects'}}</div>
+                  <div class="label-val">{{config.text3 || '19'}}</div>
+                  <div class="label-name">{{config.text4 || 'Projects'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text5 || '396,000 sqm'}}</div>
-                  <div class="label-name">{{configObj[2].text6 || 'GFA'}}</div>
+                  <div class="label-val">{{config.text5 || '396,000 sqm'}}</div>
+                  <div class="label-name">{{config.text6 || 'GFA'}}</div>
                 </div>
                 <div class="label-item" style="width:6vw;">
-                  <div class="label-val">{{configObj[2].text7 || '2'}}</div>
-                  <div class="label-name">{{configObj[2].text8 || 'Cities'}}</div>
+                  <div class="label-val">{{config.text7 || '2'}}</div>
+                  <div class="label-name">{{config.text8 || 'Cities'}}</div>
                 </div>
               </div>
-              <div class="desc-tip">{{configObj[2].text9 || '*By the date of 30th Dec. 2020'}}</div>
+              <div class="desc-tip">{{config.text9 || '*By the date of 30th Dec. 2020'}}</div>
             </div>
           </div>
-        </div>
-        <div class="section">
-          <div class="desc-panel" >
-            <img class="bg-img br full" :src="configObj[3].coverUrl || require('~/assets/img/desc_bg_5.png')" alt=""/>
+          <div class="desc-panel" v-show="config.templateType == 3" >
+            <img class="bg-img br full" :src="config.coverUrl || require('~/assets/img/desc_bg_5.png')" alt=""/>
             <div class="desc-dark">
-              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==3}">
-                <div class="desc-title">{{configObj[3].text || 'Multi-format Operation'}}</div>
-                <div class="desc-subtitle">{{configObj[3].text1 || 'Accurate positioning of brand products, good at multi-format management, revitalizing the community, and comprehensively enhancing the value of property assets.'}}</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==(index+1)}">
+                <div class="desc-title">{{config.text || 'Multi-format Operation'}}</div>
+                <div class="desc-subtitle">{{config.text1 || 'Accurate positioning of brand products, good at multi-format management, revitalizing the community, and comprehensively enhancing the value of property assets.'}}</div>
                 <div class="desc-intro-group a">
                   <div class="desc-intro-item">
-                    <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base Serviced Apartment')"></div>
-                    <div class="intro-text ">{{configObj[3].text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
+                    <div class="intro-title" v-html="brStr(config.text2 || 'base Serviced Apartment')"></div>
+                    <div class="intro-text ">{{config.text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu Co-Living Apartment')"></div>
-                    <div class="intro-text ">{{configObj[3].tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
+                    <div class="intro-title" v-html="brStr(config.text4 || 'Tulu Co-Living Apartment')"></div>
+                    <div class="intro-text ">{{config.tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title" v-html="brStr(configObj[3].text6 || 'Surpass Space <br> Office Space')"></div>
-                    <div class="intro-text ">{{configObj[3].tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
+                    <div class="intro-title" v-html="brStr(config.text6 || 'Surpass Space <br> Office Space')"></div>
+                    <div class="intro-text ">{{config.tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title" v-html="brStr(configObj[3].text8 || 'Surpass / Infinity Space Community Business')"></div>
-                    <div class="intro-text ">{{configObj[3].tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
+                    <div class="intro-title" v-html="brStr(config.text8 || 'Surpass / Infinity Space Community Business')"></div>
+                    <div class="intro-text ">{{config.tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="section">
-          <div class="desc-panel">
+          <div class="desc-panel" v-show="config.templateType == 4">
             <img class="bg-img tl desc-bg-3" src="~/assets/img/desc_bg_3.png" alt=""/>
-            <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==4}" :style="maskTopStyle"></div>
-            <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==4}">
-              <div class="desc-title">{{configObj[4].text || 'Partners'}}</div>
+            <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==(index+1)}" :style="maskTopStyle"></div>
+            <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==(index+1)}">
+              <div class="desc-title">{{config.text || 'Partners'}}</div>
               <div class="multi-intro">
                 <div class="multi-main">
                   <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-                  <div class="main-title">{{configObj[4].text1 || 'A leading global private equity firm'}}</div>
-                  <div class="main-subtitle">{{configObj[4].text2 || 'Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.'}}</div>
+                  <div class="main-title">{{config.text1 || 'A leading global private equity firm'}}</div>
+                  <div class="main-subtitle">{{config.text2 || 'Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.'}}</div>
                   <div class="text-group">
                     <div class="text-item bottom right">
-                      <div class="text-title">{{configObj[4].text3 || '50 YEARS'}}</div>
-                      <div class="text-info">{{configObj[4].text4 || 'INVESTING'}}</div>
+                      <div class="text-title">{{config.text3 || '50 YEARS'}}</div>
+                      <div class="text-info">{{config.text4 || 'INVESTING'}}</div>
                     </div>
                     <div class="text-item bottom right">
-                      <div class="text-title">{{configObj[4].text5 || '$37 Billion'}}</div>
-                      <div class="text-info">{{configObj[4].text6 || 'AUM'}}</div>
+                      <div class="text-title">{{config.text5 || '$37 Billion'}}</div>
+                      <div class="text-info">{{config.text6 || 'AUM'}}</div>
                     </div>
                     <div class="text-item bottom">
-                      <div class="text-title">{{configObj[4].text7 || '700'}}</div>
-                      <div class="text-info">{{configObj[4].text8 || 'COMPANIES SINCE INCEPTION'}}</div>
+                      <div class="text-title">{{config.text7 || '700'}}</div>
+                      <div class="text-info">{{config.text8 || 'COMPANIES SINCE INCEPTION'}}</div>
                     </div>
                     <div class="text-item right tb">
-                      <div class="text-title">{{configObj[4].text9 || '120'}}</div>
-                      <div class="text-info">{{configObj[4].text10 || 'PORTFOLIO COMPANIES'}}</div>
+                      <div class="text-title">{{config.text9 || '120'}}</div>
+                      <div class="text-info">{{config.text10 || 'PORTFOLIO COMPANIES'}}</div>
                     </div>
                     <div class="text-item right tb">
-                      <div class="text-title">{{configObj[4].text11 || '$48 Billion'}}</div>
-                      <div class="text-info">{{configObj[4].text12 || 'INVESTMENTS'}}</div>
+                      <div class="text-title">{{config.text11 || '$48 Billion'}}</div>
+                      <div class="text-info">{{config.text12 || 'INVESTMENTS'}}</div>
                     </div>
                     <div class="text-item tb">
-                      <div class="text-title">{{configObj[4].text13 || '1994'}}</div>
-                      <div class="text-info">{{configObj[4].text14 || 'MARKS ITS INCEPTION IN CHINA'}}</div>
+                      <div class="text-title">{{config.text13 || '1994'}}</div>
+                      <div class="text-info">{{config.text14 || 'MARKS ITS INCEPTION IN CHINA'}}</div>
                     </div>
                   </div>
                 </div>
@@ -117,87 +111,83 @@
                     <div class="sub-img">
                       <img style="width:265px;width:10.52083vw;min-width:129px;" src="~/assets/img/logo_2.png" alt=""/>
                     </div>
-                    <div class="sub-text "><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
+                    <div class="sub-text "><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <div class="sub-img">
                         <img style="width:134px;width:6.979167vw;min-width:85.7px;" src="~/assets/img/logo_3.png" alt=""/>
                     </div>
-                    <div class="sub-text "><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
+                    <div class="sub-text "><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <div class="sub-img">
                       <img style="width:206px;width:10.72916vw;min-width:131.8px;" src="~/assets/img/logo_4.png" alt=""/>
                     </div>
-                    <div class="sub-text "><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
+                    <div class="sub-text "><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <div class="sub-img">
                       <img style="width:178px;width:9.27083vw;min-width:113.9px;" src="~/assets/img/logo_5.png" alt=""/>
                     </div>
-                    <div class="sub-text "><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
+                    <div class="sub-text "><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
                   </div>
                 </div>
               </div>
             </div>
             <img class="desc-hand" style="" src="~/assets/img/desc_head.png" alt="">
           </div>
-        </div>
-        <div class="section">
-          <div class="desc-panel">
-            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==5}" style="height:100vh" :src="configObj[5].coverUrl || require('~/assets/img/desc_bg_4.png')" alt=""/>
-            <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==5}" :style="maskTopStyle"></div>
-            <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==5}">
-              <div class="desc-title" style="margin-bottom:22px;">{{configObj[5].text || 'Business Model'}}</div>
-              <div class="desc-subtitle tag">{{configObj[5].text1 || 'Golden Union Asset Management’s Full Lifecycle Control System'}}</div>
-              <div class="desc-subtitle tag" style="margin-bottom:63px;">{{configObj[5].text2 || '"One-stop" Asset Management Service'}}</div>
+          <div class="desc-panel" v-show="config.templateType == 5">
+            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==(index+1)}" style="height:100vh" :src="config.coverUrl || require('~/assets/img/desc_bg_4.png')" alt=""/>
+            <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==(index+1)}" :style="maskTopStyle"></div>
+            <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==(index+1)}">
+              <div class="desc-title" style="margin-bottom:22px;">{{config.text || 'Business Model'}}</div>
+              <div class="desc-subtitle tag">{{config.text1 || 'Golden Union Asset Management’s Full Lifecycle Control System'}}</div>
+              <div class="desc-subtitle tag" style="margin-bottom:63px;">{{config.text2 || '"One-stop" Asset Management Service'}}</div>
               <div class="tag-group">
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text3.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text3">
+                  <div class="tag-text" v-for="(tag,index) in config.text3.split('\n')" :key="index">{{tag}}</div>
                 </div>
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text4.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text4">
+                  <div class="tag-text" v-for="(tag,index) in config.text4.split('\n')" :key="index">{{tag}}</div>
                 </div>
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text5.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text5">
+                  <div class="tag-text" v-for="(tag,index) in config.text5.split('\n')" :key="index">{{tag}}</div>
                 </div>
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text6.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text6">
+                  <div class="tag-text" v-for="(tag,index) in config.text6.split('\n')" :key="index">{{tag}}</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>      
-        <div class="section  section6">
-          <div class="desc-panel">
-            <img class="bg-img br  full" :src="configObj[6].coverUrl || require('~/assets/img/desc_bg_5.png')" alt=""/>
+          <div class="desc-panel" v-show="config.templateType == 6">
+            <img class="bg-img br  full" :src="config.coverUrl || require('~/assets/img/desc_bg_5.png')" alt=""/>
             <div class="desc-dark">
-              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
-                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">{{configObj[6].text || 'Operational Advantages'}}</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==(index+1)}">
+                <div class="desc-title" style="margin-bottom:85px;margin-top:169px;">{{config.text || 'Operational Advantages'}}</div>
                 <div class="desc-intro-group b">
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text1 || 'Resource'}}</div>
-                    <div class="intro-text bold" v-html="brStr(configObj[6].text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
+                    <div class="intro-title no-border">{{config.text1 || 'Resource'}}</div>
+                    <div class="intro-text bold" v-html="brStr(config.text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text21)"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text3 || 'Capital'}}</div>
-                    <div class="intro-text hidden bold"  v-html="brStr(configObj[6].text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
+                    <div class="intro-title no-border">{{config.text3 || 'Capital'}}</div>
+                    <div class="intro-text hidden bold"  v-html="brStr(config.text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text41)"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text5 || 'Market'}}</div>
-                    <div class="intro-text bold" v-html="brStr(configObj[6].text6 || 'Sharp market insight<br>Precise market positioning')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
+                    <div class="intro-title no-border">{{config.text5 || 'Market'}}</div>
+                    <div class="intro-text bold" v-html="brStr(config.text6 || 'Sharp market insight<br>Precise market positioning')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text61)"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text7 || 'Innovation'}}</div>
-                    <div class="intro-text bold"  v-html="brStr(configObj[6].text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
+                    <div class="intro-title no-border">{{config.text7 || 'Innovation'}}</div>
+                    <div class="intro-text bold"  v-html="brStr(config.text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text81)"></div>
                   </div>
                 </div>
               </div>
-              <div style="position:absolute;bottom:0px;left:0px;width:100%;">
+              <div style="position:absolute;bottom:0px;left:0px;width:100%;" v-if="index==configList.length-1">
                 <Foot/>
               </div>
             </div>
@@ -215,8 +205,12 @@ export default {
   async  asyncData ({ params }) {//请求
     let configObj = {};
     let banners = [];
+    let configList;
     let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8383/ipe/screen',{data:{status:true},start:0,limit:1000});
     if(code == 0){
+      configList = data.map(config=>{
+        return Object.assign(config,JSON.parse(config.config));
+      });
       data.forEach(config => {
         configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
       });
@@ -225,7 +219,7 @@ export default {
     if(code2 == 0){
      banners = data2;
     }
-    return { configObj ,banners}
+    return { configList,configObj ,banners}
 
 	},
     data(){
@@ -288,11 +282,13 @@ export default {
           return val ? val.split('\n').join('<br>') : '';
         },
         tagText(val){
-          let arr = val.split('\n');
           let str = '';
-          arr.forEach(text => {
-              str+= `<div class="tag-text">${text}</div>`
-          });
+          if(val){
+            let arr = val.split('\n');
+            arr.forEach(text => {
+                str+= `<div class="tag-text">${text}</div>`
+            });
+          }
           return str;
         }
     },

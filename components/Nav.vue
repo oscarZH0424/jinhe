@@ -39,15 +39,16 @@
       <div class="m-drop-container" :class="{'show':open}" @click="tapMask($event)">
         <div class="m-drop-menu" >
           <div v-for="(menu,index) in menus[lan]" :key="index">
-            <Menu :menu="menu" @tap="onMenuTap"/>
+            <Menu :menu="menu" @tap="onMenuTap" :show="open"/>
           </div>
           <div>
-            <div class="drop-menu-item">
+            <div class="drop-menu-item" :class="{'fixed':inputFocus}">
             <span class="menu-title"><input @click="inputClick($event)" type="text" v-model="searchKey" :placeholder="placeholdStr[lan]"></span>
             <span class="menu-arrow"><img @click="toSearch2" class="search-btn" src="~/assets/img/ic_search.png" alt=""></span>
           </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -79,7 +80,7 @@ export default {
       placeholdStr:{ch:'输入关键词搜索',en:'Enter keywords'},
       mobileStyle:false,
       activeIndexMap:{},
-
+      inputFocus:false
     }
   },
   created(){
@@ -102,7 +103,6 @@ export default {
   },
   methods:{
     onMenuBlur(){
-      console.log('blur');
       this.activeIndexMap = {};
     },
     changeMode(){
@@ -110,6 +110,7 @@ export default {
       this.mobileStyle = w <= 750;
     },
     inputClick(e){
+      this.inputFocus = true;
       e.stopPropagation();
     },
     
@@ -145,6 +146,7 @@ export default {
     },
     
     tapMask(e){
+      e.stopPropagation();
       this.open = false;
     },
     onMenuTap(){
@@ -166,6 +168,7 @@ export default {
     },
     tapMenuBtn(){
       this.open = !this.open;
+      this.inputFocus = false;
     },
     toSearch(){
       this.isSearch = true;
@@ -191,6 +194,27 @@ export default {
           path:`${base}/search/${this.searchKey}`
         })
        }
+    },
+    toggleContainerTouchAction(v) {
+      const container = document.querySelector('.container')
+      if (!container) {
+        return
+      }
+      console.log(container);
+      container.style['touch-action'] = v ? 'none' : 'auto'
+    },
+    stopTouch(e) {
+      e.preventDefault()
+    },
+  },
+  watch:{
+    open(v) {
+      // this.toggleContainerTouchAction(v)
+      // if (v) {
+      //   document.body.addEventListener('touchmove', this.stopTouch, { passive: false, capture: true })
+      // } else {
+      //   document.body.removeEventListener('touchmove', this.stopTouch, { capture: true })
+      // }
     },
   }
 }
@@ -389,7 +413,7 @@ a{
     height:67px;
   }
   .en{
-    font-size: 30px;
+    font-size: 38px;
     font-family: PingFangSC, PingFangSC-Regular;
     font-weight: 400;
     text-align: left;
@@ -402,15 +426,18 @@ a{
     width:40px;
   }
   .m-drop-container{
-    position:absolute;
+    position:fixed;
+    min-height:80vh;
     width:100%;
-    height:100vh;
     top:128px;
+    left:0px;
+    bottom:0px;
     right:0;
     background: transparent;
     visibility: hidden;
     opacity:0;
     transition: all 0.3s ease;
+    overflow-y: scroll;
     &.show{
       visibility: visible;
       opacity:1;
@@ -419,9 +446,9 @@ a{
       position:absolute;
       right:0;
       top:0;
-      width:60%;
+      width:100%;
       .drop-menu-item{
-        width:100%;
+         width:100%;
         height:88px;
         padding:24px;
         background:#B21E27;
@@ -429,6 +456,12 @@ a{
         flex-flow:row nowrap;
         justify-content: space-between;
         align-items: center;
+        box-sizing: border-box;
+        &.fixed{
+          position:fixed;
+          bottom:0;
+          left:0;
+        }
         .menu-title{
           opacity: 1;
           font-size: 30px;
@@ -437,6 +470,7 @@ a{
           text-align: left;
           color: #ffffff;
           line-height: 42px;
+         
           input{
             background: transparent;
             outline: none;
@@ -464,11 +498,11 @@ a{
   
 }
 
-.menu{display:inline-block;cursor:pointer;height:35px;width:35px;position:relative;}
-.menu span{display:inline-block;width:35px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:20px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
-.menu span:before{content:'';display:inline-block;width:35px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:-12px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
-.menu span:after{content:'';display:inline-block;width:35px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:12px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu{display:inline-block;cursor:pointer;height:42px;width:42px;position:relative;}
+.menu span{display:inline-block;width:42px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:28px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
+.menu span:before{content:'';display:inline-block;width:42px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:-16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span:after{content:'';display:inline-block;width:42px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
 .menu.menu_click span{background-color:transparent;}
-.menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:35px;}
-.menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:35px;}
+.menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:42px;}
+.menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:42px;}
 </style>

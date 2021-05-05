@@ -6,7 +6,7 @@
           </div>
           <div class="leader-info">
                 <div class="leader-title">{{ceo.name}}<span>{{ceo.title}}</span></div>
-                    <div class="leader-desc" v-html="brStr(ceo.information)">
+                    <div class="leader-desc" v-html="spanStr(ceo.information)">
                 </div>
             </div>
             <img :src="ceo.coverUrl" alt="">
@@ -51,6 +51,13 @@ export default {
     methods:{
         brStr(val){
             return val.split('\n').join('<br>')
+        },
+        spanStr(val){
+            let str = "";
+            val.split('\n').forEach(text=>{
+                str+=`<span>${text}</span>`
+            })
+            return str;
         }
     }
 
@@ -80,7 +87,7 @@ export default {
         height:100%;
         width:100%;
         mix-blend-mode: multiply;
-        border-bottom:980px solid rgba(128,0,0,.9);
+        border-bottom:981px solid #af1e23;
         border-left:0px solid transparent;
         border-right:400px solid transparent;
         z-index: 10;
@@ -131,7 +138,8 @@ export default {
 }
 .leader-group{
     padding:0px 23px;
-    background: rgba(0,0,0,.9);
+    background-image: url('~/assets/img/m/team-bg.png');
+    background-size: 100% 100%;
     box-sizing: border-box;
     .leader-item{
         display: flex;
@@ -198,4 +206,24 @@ export default {
     }
 }
 
+</style>
+<style lang="scss">
+    .main-leader{
+        .leader-desc{
+            span{
+                display: block;
+                position:relative;
+                &::before{
+                    position:absolute;
+                    width:6px;
+                    height:6px;
+                    overflow:hidden;
+                    background: white;
+                    content:' ';
+                    left:-15px;
+                    top:16px;
+                }
+            }
+        }
+    }
 </style>

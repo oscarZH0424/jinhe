@@ -7,195 +7,185 @@
             <Banner v-for="(banner,index) in banners" :info="banner" :key="index"/>
           </a-carousel>
         </div>
-        <div class="section">
-          <div class="desc-panel">
-            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==1}" style="height:100vh;" :src="configObj[1].coverUrl || require('~/assets/img/desc_bg_1.png')" alt=""/>
-            <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==1}" :style="maskBottomStyle"></div>
-            <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==1}">
-              <div class="desc-title">{{configObj[1].text1 || '锦和资产管理公司'}}</div>
-              <div class="desc-text">{{configObj[1].text2 || '锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。'}}</div>
+        <div class="section" v-for="(config,index) in configList" :key="index" :class="{'section6':config.templateType==6}">
+          <div class="desc-panel" v-show="config.templateType == 1">
+            <img class="bg-img bl  hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==(index+1)}" style="height:100vh;" :src="config.coverUrl || require('~/assets/img/desc_bg_1.png')" alt=""/>
+            <div class="panel-mask br  hidden"  :class="{'visible  animate__animated animate__fadeInRight animate__delay-1s':activeIndex==(index+1)}" :style="maskBottomStyle"></div>
+            <div class="desc-info p1 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==(index+1)}">
+              <div class="desc-title">{{config.text1 || '锦和资产管理公司'}}</div>
+              <div class="desc-text">{{config.text2 || '锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。'}}</div>
             </div>
-          </div>
-        </div>      
-        <div class="section">
-          <div class="desc-panel">
-            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==2}" style="width:56.25vw;" :src="configObj[2].coverUrl || require('~/assets/img/desc_bg_2.png')" alt=""/>
-            <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==2}" :style="maskBottomStyle"></div>
-            <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==2}">
-              <div class="desc-title">{{configObj[2].text || '锦和资管的管理规模'}}</div>
+          </div>      
+          <div style="height:100%;" v-show="config.templateType == 2" class="desc-panel">
+            <img class="bg-img br hidden" :class="{'visible animate__animated animate__fadeIn':activeIndex==(index+1)}" style="width:56.25vw;" :src="config.coverUrl || require('~/assets/img/desc_bg_2.png')" alt=""/>
+            <div class="panel-mask bl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==(index+1)}" :style="maskBottomStyle"></div>
+            <div class="desc-info p2 hidden"  :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==(index+1)}">
+              <div class="desc-title">{{config.text || '锦和资管的管理规模'}}</div>
               <div class="desc-label-group">
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text1 || '151亿RMB'}}</div>
-                  <div class="label-name">{{configObj[2].text2 || '资产规模'}}</div>
+                  <div class="label-val">{{config.text1 || '151亿RMB'}}</div>
+                  <div class="label-name">{{config.text2 || '资产规模'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text3 || '19个'}}</div>
-                  <div class="label-name">{{configObj[2].text4 || '全国项目'}}</div>
+                  <div class="label-val">{{config.text3 || '19个'}}</div>
+                  <div class="label-name">{{config.text4 || '全国项目'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text5 || '39.6万平方米'}}</div>
-                  <div class="label-name">{{configObj[2].text6 || '总建筑面积'}}</div>
+                  <div class="label-val">{{config.text5 || '39.6万平方米'}}</div>
+                  <div class="label-name">{{config.text6 || '总建筑面积'}}</div>
                 </div>
                 <div class="label-item">
-                  <div class="label-val">{{configObj[2].text7 || '2个'}}</div>
-                  <div class="label-name">{{configObj[2].text8 || '全国城市'}}</div>
+                  <div class="label-val">{{config.text7 || '2个'}}</div>
+                  <div class="label-name">{{config.text8 || '全国城市'}}</div>
                 </div>
               </div>
-              <div class="desc-tip">{{configObj[2].text9 || '*截至2020年12月30号'}}</div>
+              <div class="desc-tip">{{config.text9 || '*截至2020年12月30号'}}</div>
             </div>
           </div>
-        </div>
-        <div class="section">
-          <div class="desc-panel" >
-            <img class="bg-img br full" :src="configObj[3].coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
+          <div class="desc-panel" v-show="config.templateType == 3">
+            <img class="bg-img br full" :src="config.coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
             <div class="desc-dark" >
-              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==3}">
-                <div class="desc-title">{{configObj[3].text || '锦和资管的多业态运营'}}</div>
-              <div class="desc-subtitle">{{configObj[3].text1 || '品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值'}}</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==(index+1)}">
+                <div class="desc-title">{{config.text || '锦和资管的多业态运营'}}</div>
+              <div class="desc-subtitle">{{config.text1 || '品牌产品定位精准，擅长多业态运营，盘活社区，综合提升物业资产价值'}}</div>
               <div class="desc-intro-group">
                 <div class="desc-intro-item">
-                  <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base佰舍 服务式公寓')"></div>
-                  <div class="intro-text">{{configObj[3].text3 || '灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。'}}</div>
+                  <div class="intro-title" v-html="brStr(config.text2 || 'base佰舍 服务式公寓')"></div>
+                  <div class="intro-text">{{config.text3 || '灵感生活空间，服务不同喜好的客户群，通过当代简约的设计，改造城市内的旧建筑，为老社区注入新生活力。'}}</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu途楼 青年公寓')"></div>
-                  <div class="intro-text">{{configObj[3].text5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
+                  <div class="intro-title" v-html="brStr(config.text4 || 'Tulu途楼 青年公寓')"></div>
+                  <div class="intro-text">{{config.text5 || '设计型的现代化城市共舍，筑造可供趣味相近与拥有探索精神的年轻人相互启发、交流。'}}</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title" v-html="brStr(configObj[3].text6 || '越界 办公')"></div>
-                  <div class="intro-text">{{configObj[3].tex7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
+                  <div class="intro-title" v-html="brStr(config.text6 || '越界 办公')"></div>
+                  <div class="intro-text">{{config.tex7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
                 </div>
                 <div class="desc-intro-item">
-                  <div class="intro-title" v-html="brStr(configObj[3].text8 || '越界/越都荟社区商业')"></div>
-                  <div class="intro-text">{{configObj[3].tex9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
+                  <div class="intro-title" v-html="brStr(config.text8 || '越界/越都荟社区商业')"></div>
+                  <div class="intro-text">{{config.tex9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
                 </div>
               </div>
               </div>
               
             </div>
           </div>
-        </div>
-        <div class="section">
-          <div class="desc-panel">
+          <div class="desc-panel" v-show="config.templateType == 4">
             <img class="bg-img tl desc-bg-3" style="" src="~/assets/img/desc_bg_3.png" alt=""/>
-            <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==4}" :style="maskTopStyle"></div>
-            <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==4}">
-              <div class="desc-title">{{configObj[4].text || '锦和资管合作方'}}</div>
+            <div class="panel-mask tr hidden " :class="{'visible  animate__animated animate__fadeInRight':activeIndex==(index+1)}" :style="maskTopStyle"></div>
+            <div class="desc-info p3 hidden" :class="{'visible  animate__animated animate__fadeInUp  animate__delay-1s':activeIndex==(index+1)}">
+              <div class="desc-title">{{config.text || '锦和资管合作方'}}</div>
               <div class="multi-intro">
                 <div class="multi-main">
                   <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-                  <div class="main-title">{{configObj[4].text1 || '国际领先的私募股权投资公司'}}</div>
-                  <div class="main-subtitle">{{configObj[4].text2 || '自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。'}}</div>
+                  <div class="main-title">{{config.text1 || '国际领先的私募股权投资公司'}}</div>
+                  <div class="main-subtitle">{{config.text2 || '自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。'}}</div>
                   <div class="text-group">
                     <div class="text-item bottom right">
-                      <div class="text-title">{{configObj[4].text3 || '50年'}}</div>
-                      <div class="text-info">{{configObj[4].text4 || '产业投资管理经验'}}</div>
+                      <div class="text-title">{{config.text3 || '50年'}}</div>
+                      <div class="text-info">{{config.text4 || '产业投资管理经验'}}</div>
                     </div>
                     <div class="text-item bottom right">
-                      <div class="text-title">{{configObj[4].text5 || '370亿美元'}}</div>
-                      <div class="text-info">{{configObj[4].text6 || '目前管理资产额'}}</div>
+                      <div class="text-title">{{config.text5 || '370亿美元'}}</div>
+                      <div class="text-info">{{config.text6 || '目前管理资产额'}}</div>
                     </div>
                     <div class="text-item bottom ">
-                      <div class="text-title">{{configObj[4].text7 || '700家'}}</div>
-                      <div class="text-info">{{configObj[4].text8 || '迄今投资企业总数'}}</div>
+                      <div class="text-title">{{config.text7 || '700家'}}</div>
+                      <div class="text-info">{{config.text8 || '迄今投资企业总数'}}</div>
                     </div>
                     <div class="text-item right tb">
-                      <div class="text-title">{{configObj[4].text9 || '120家'}}</div>
-                      <div class="text-info">{{configObj[4].text10 || '目前持有投资企业'}}</div>
+                      <div class="text-title">{{config.text9 || '120家'}}</div>
+                      <div class="text-info">{{config.text10 || '目前持有投资企业'}}</div>
                     </div>
                     <div class="text-item right tb">
-                      <div class="text-title">{{configObj[4].text11 || '480亿美元'}}</div>
-                      <div class="text-info">{{configObj[4].text12 || '迄今投资额'}}</div>
+                      <div class="text-title">{{config.text11 || '480亿美元'}}</div>
+                      <div class="text-info">{{config.text12 || '迄今投资额'}}</div>
                     </div>
                     <div class="text-item tb">
-                      <div class="text-title">{{configObj[4].text13 || '1994年'}}</div>
-                      <div class="text-info">{{configObj[4].text14 || '走进中国'}}</div>
+                      <div class="text-title">{{config.text13 || '1994年'}}</div>
+                      <div class="text-info">{{config.text14 || '走进中国'}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="multi-sub">
                   <div class="sub-intro-item">
                     <img style="margin-top:27px;width:265px;width:10.52083vw;margin-top:1.40625vw;" src="~/assets/img/logo_2.png" alt=""/>
-                    <div class="sub-text" style="margin-top:27px;margin-top:1.40625vw;"><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
+                    <div class="sub-text" style="margin-top:27px;margin-top:1.40625vw;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:36px;width:134px;margin-top:1.875vw;width:6.979167vw;" src="~/assets/img/logo_3.png" alt=""/>
-                    <div class="sub-text" style="margin-top:43px;margin-top:2.239583vw;"><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
+                    <div class="sub-text" style="margin-top:43px;margin-top:2.239583vw;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="margin-top:18px;width:206px;margin-top:0.9375vw;width:10.72916vw;" src="~/assets/img/logo_4.png" alt=""/>
-                    <div class="sub-text" style="margin-top:39px;margin-top:2.03125vw;"><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
+                    <div class="sub-text" style="margin-top:39px;margin-top:2.03125vw;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <img style="width:178px;width:9.27083vw;" src="~/assets/img/logo_5.png" alt=""/>
-                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
+                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
                   </div>
                 </div>
               </div>
             </div>
             <img class="desc-hand" style="" src="~/assets/img/desc_head.png" alt="">
           </div>
-        </div>
-        <div class="section">
-          <div class="desc-panel">
-            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==5}" style="height:100vh" :src="configObj[5].coverUrl || require('~/assets/img/desc_bg_4.png')"  alt=""/>
-            <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==5}" :style="maskTopStyle"></div>
-            <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==5}">
-              <div class="desc-title" style="margin-bottom:22px;">{{configObj[5].text || '锦和资管的商业模式'}}</div>
-              <div class="desc-subtitle tag">{{configObj[5].text1 || '锦和资管全生命周期管控系'}}</div>
-              <div class="desc-subtitle tag" style="margin-bottom:63px;">{{configObj[5].text2 || '“一站式”资产管理服务'}}</div>
+          <div class="desc-panel" v-if="config.templateType == 5">
+            <img class="bg-img br hidden" :class="{'visible  animate__animated animate__fadeIn':activeIndex==(index+1)}" style="height:100vh" :src="config.coverUrl || require('~/assets/img/desc_bg_4.png')"  alt=""/>
+            <div class="panel-mask tl hidden"  :class="{'visible  animate__animated animate__fadeInLeft animate__delay-1s':activeIndex==(index+1)}" :style="maskTopStyle"></div>
+            <div class="desc-info p4 hidden" :class="{'visible  animate__animated animate__fadeInUp animate__delay-2s':activeIndex==(index+1)}">
+              <div class="desc-title" style="margin-bottom:22px;">{{config.text || '锦和资管的商业模式'}}</div>
+              <div class="desc-subtitle tag">{{config.text1 || '锦和资管全生命周期管控系'}}</div>
+              <div class="desc-subtitle tag" style="margin-bottom:63px;">{{config.text2 || '“一站式”资产管理服务'}}</div>
               <div class="tag-group">
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text3.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text3">
+                  <div class="tag-text" v-for="(tag,index) in config.text3.split('\n')" :key="index">{{tag}}</div>
                 </div>
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text4.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text4">
+                  <div class="tag-text" v-for="(tag,index) in config.text4.split('\n')" :key="index">{{tag}}</div>
                 </div>
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text5.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text5">
+                  <div class="tag-text" v-for="(tag,index) in config.text5.split('\n')" :key="index">{{tag}}</div>
                 </div>
-                <div class="tag-item">
-                  <div class="tag-text" v-for="(tag,index) in configObj[5].text6.split('\n')" :key="index">{{tag}}</div>
+                <div class="tag-item" v-if="config.text6">
+                  <div class="tag-text" v-for="(tag,index) in config.text6.split('\n')" :key="index">{{tag}}</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>      
-        <div class="section section6">  
-          <div class="desc-panel">
-            <img class="bg-img br  full"  :src="configObj[6].coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
+          <div class="desc-panel" v-show="config.templateType == 6">
+            <img class="bg-img br  full"  :src="config.coverUrl || require('~/assets/img/desc_bg_5.png')"  alt=""/>
             <div class="desc-dark">
-              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==6}">
-                <div class="desc-title " style="">{{configObj[6].text || '锦和资管的运营优势'}}</div>
+              <div class="hidden" :class="{'visible  animate__animated animate__fadeInUp':activeIndex==(index+1)}">
+                <div class="desc-title " style="">{{config.text || '锦和资管的运营优势'}}</div>
                 <div class="desc-intro-group">
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text1 || '资源'}}</div>
-                    <div class="intro-text bold" v-html="brStr(configObj[6].text2 || '优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
+                    <div class="intro-title no-border">{{config.text1 || '资源'}}</div>
+                    <div class="intro-text bold" v-html="brStr(config.text2 || '优质的资源整合能力<br>资源产业布局的优势<br>规模优势和品牌优势')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text21)"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text3 || '资本'}}</div>
-                    <div class="intro-text bold" v-html="brStr(configObj[6].text4 || '强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投')" ></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
+                    <div class="intro-title no-border">{{config.text3 || '资本'}}</div>
+                    <div class="intro-text bold" v-html="brStr(config.text4 || '强大的股东背景和资本实力<br>锦和集团-四大板块的综合房地产集团<br>华平投资-美国历史最悠久的私募股权投')" ></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text41)"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text5 || '市场'}}</div>
-                    <div class="intro-text bold" v-html="brStr(configObj[6].text6 || '敏锐的市场洞察力<br>精准的市场定位')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
+                    <div class="intro-title no-border">{{config.text5 || '市场'}}</div>
+                    <div class="intro-text bold" v-html="brStr(config.text6 || '敏锐的市场洞察力<br>精准的市场定位')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text61)"></div>
                   </div>
                   <div class="desc-intro-item">
-                    <div class="intro-title no-border">{{configObj[6].text7 || '创新'}}</div>
-                    <div class="intro-text bold" v-html="brStr(configObj[6].text8 || '产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力')"></div>
-                    <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
+                    <div class="intro-title no-border">{{config.text7 || '创新'}}</div>
+                    <div class="intro-text bold" v-html="brStr(config.text8 || '产品的创新能力<br>形态优化的业务组合<br>完备的设计及改建能力')"></div>
+                    <div class="intro-sub-text" v-html="brStr(config.text81)"></div>
                   </div>
                 </div>
               </div>
-              <div style="position:absolute;bottom:0px;left:0px;width:100%;">
+              <div style="position:absolute;bottom:0px;left:0px;width:100%;"  v-if="index==configList.length-1">
                 <Foot/>
               </div>
             </div>
           </div>
-        </div>      
+        </div>
       </full-page>
     </client-only>
   </div>
@@ -208,8 +198,12 @@ export default {
  async  asyncData ({ params }) {//请求
     let configObj = {};
     let banners = [];
+    let configList;
     let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/ipe/screen',{data:{status:true},start:0,limit:1000});
     if(code == 0){
+      configList = data.map(config=>{
+        return Object.assign(config,JSON.parse(config.config));
+      });
       data.forEach(config => {
         configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
       });
@@ -218,7 +212,7 @@ export default {
     if(code2 == 0){
      banners = data2;
     }
-    return { configObj ,banners}
+    return { configObj ,banners,configList}
 
 	},
     data(){
@@ -245,7 +239,7 @@ export default {
       }
     },
     mounted() {
-      console.log(this.banners);
+      console.log(this.configList);
       bus.$on('hashchange',()=>{
         console.log('hashChange',window.location.hash);
         setTimeout(()=>{
@@ -283,11 +277,13 @@ export default {
           return val ? val.split('\n').join('<br>') : '';
         },
         tagText(val){
-          let arr = val.split('\n');
           let str = '';
-          arr.forEach(text => {
-              str+= `<div class="tag-text">${text}</div>`
-          });
+          if(val){
+            let arr = val.split('\n');
+            arr.forEach(text => {
+                str+= `<div class="tag-text">${text}</div>`
+            });
+          }
           return str;
         }
     },

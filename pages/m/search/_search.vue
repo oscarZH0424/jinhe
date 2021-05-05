@@ -3,7 +3,7 @@
       <div class="content">
             <div class="search-input">
                 <input type="text" placeholder="输入关键字进行全文搜索" v-model="searchKey">
-                <img @click="toSearch" src="~/assets/img/ic_search_1.png" style="width:21px;" alt="">
+                <img @click="toSearch" src="~/assets/img/ic_search_1.png" style="width:16px;" alt="">
             </div>
             <div class="main-title">搜索</div>
             <div class="search-tip">对于“{{searchKey}}”的搜索结果</div>
@@ -203,7 +203,7 @@ export default {
     opacity: 1;
     font-size: 24px;
     font-family: PingFangSC, PingFangSC-Medium;
-    font-weight: 500;
+    font-weight: 900;
     text-align: left;
     color: #000000;
     line-height: 32px;
@@ -251,7 +251,7 @@ export default {
             opacity: 1;
             font-size: 24px;
             font-family: PingFangSC, PingFangSC-Medium;
-            font-weight: 500;
+            font-weight: 900;
             text-align: left;
             color: #b21e27;
             line-height: 32px;
@@ -262,7 +262,7 @@ export default {
                 opacity: 1;
                 font-size: 40px;
                 font-family: PingFangSC, PingFangSC-Semibold;
-                font-weight: 600;
+                font-weight: 900;
                 text-align: left;
                 color: #000000;
                 line-height: 56px;
@@ -328,7 +328,7 @@ export default {
                 opacity: 1;
                 font-size: 40px;
                 font-family: PingFangSC, PingFangSC-Semibold;
-                font-weight: 600;
+                font-weight: 900;
                 text-align: left;
                 color: #000000;
                 line-height: 56px;
@@ -394,7 +394,7 @@ export default {
                 opacity: 1;
                 font-size: 34px;
                 font-family: PingFangSC, PingFangSC-Semibold;
-                font-weight: 600;
+                font-weight: 900;
                 text-align: left;
                 color: #000000;
                 line-height: 48px;

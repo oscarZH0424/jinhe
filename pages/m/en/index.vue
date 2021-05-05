@@ -3,179 +3,183 @@
     <a-carousel>
       <Banner v-for="(banner,index) in banners" :info="banner" :key="index"/>
     </a-carousel>
-    <div class="desc-panel">
-      <img class="bg-img bl wow fadeIn" :src="configObj[1].mobileCoverUrl || require('~/assets/img/m/desc_bg_1.png')" alt=""/>
+    <div v-for="(config,index) in configList" :key="index" style="width:100%;" :id="config.anchorPoints">
+      <div class="desc-panel" v-show="config.templateType == 1">
+      <img class="bg-img bl wow fadeIn" :src="config.mobileCoverUrl || require('~/assets/img/m/desc_bg_1.png')" alt=""/>
       <div class="panel-mask br wow fadeInRight"  data-wow-delay="1s"></div>
       <div class="desc-info p1 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title">{{configObj[1].text1 || 'Golden Union Asset Management Co., Ltd.'}}</div>
-        <div class="desc-text">{{configObj[1].text2 || 'Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.'}}</div>
+        <div class="desc-title">{{config.text1 || 'Golden Union Asset Management Co., Ltd.'}}</div>
+        <div class="desc-text">{{config.text2 || 'Founded in 2020, Golden Union Asset Management Co., Ltd. is an urban renewal, income-based property investment and asset management platform jointly established by Golden Union and Warburg Pincus. It aims to activating the existing assets to create more value and infusing vitality into cities to stimulate the economic growth.'}}</div>
       </div> 
     </div>
-    <div class="desc-panel" id="glgm">
-      <img class="bg-img br  wow fadeIn" :src="configObj[2].mobileCoverUrl || require('~/assets/img/m/desc_bg_2.png')" alt=""/>
+    <div class="desc-panel" v-show="config.templateType == 2">
+      <img class="bg-img br  wow fadeIn" :src="config.mobileCoverUrl || require('~/assets/img/m/desc_bg_2.png')" alt=""/>
       <div class="panel-mask bl wow fadeInLeft" data-wow-delay="1s"></div>
       <div class="desc-info p2 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title" style="margin-bottom:50px;">{{configObj[2].text || 'Management  Scale'}}</div>
+        <div class="desc-title" style="margin-bottom:50px;">{{config.text || 'Management  Scale'}}</div>
         <div class="desc-label-group">
           <div class="label-item" >
-            <div class="label-val">{{configObj[2].text1 || '¥ 15.1 billion'}}</div>
-            <div class="label-name">{{configObj[2].text2 || 'Total AUM'}}</div>
+            <div class="label-val">{{config.text1 || '¥ 15.1 billion'}}</div>
+            <div class="label-name">{{config.text2 || 'Total AUM'}}</div>
           </div>
           <div class="label-item" style="margin-right:10px;">
-            <div class="label-val">{{configObj[2].text5 || '396,000 sqm'}}</div>
-            <div class="label-name">{{configObj[2].text6 || 'GFA'}}</div>
+            <div class="label-val">{{config.text5 || '396,000 sqm'}}</div>
+            <div class="label-name">{{config.text6 || 'GFA'}}</div>
           </div>
           <div class="label-item" style="margin-right:45px; ">
-            <div class="label-val">{{configObj[2].text3 || '19'}}</div>
-            <div class="label-name">{{configObj[2].text4 || 'Projects'}}</div>
+            <div class="label-val">{{config.text3 || '19'}}</div>
+            <div class="label-name">{{config.text4 || 'Projects'}}</div>
           </div>
           <div class="label-item">
-            <div class="label-val">{{configObj[2].text7 || '2'}}</div>
-            <div class="label-name">{{configObj[2].text8 || 'Cities'}}</div>
+            <div class="label-val">{{config.text7 || '2'}}</div>
+            <div class="label-name">{{config.text8 || 'Cities'}}</div>
           </div>
         </div>
-        <div class="desc-tip">{{configObj[2].text9 || '*By the date of 30th Dec. 2020'}}</div>
+        <div class="desc-tip">{{config.text9 || '*By the date of 30th Dec. 2020'}}</div>
       </div>
     </div>
-    <div class="desc-panel"  id="dytyy">
-      <img class="bg-img br" :src="configObj[3].mobileCoverUrl || require('~/assets/img/m/desc_bg_5.png')" alt=""/>
+    <div class="desc-panel" v-show="config.templateType == 3">
+      <img class="bg-img br" :src="config.mobileCoverUrl || require('~/assets/img/m/desc_bg_5.png')" alt=""/>
       <div class="desc-dark">
         <div class="wow fadeInUp">
-          <div class="desc-title">{{configObj[3].text || 'Multi-format Operation'}}</div>
-          <div class="desc-subtitle">{{configObj[3].text1 || 'Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.'}}</div>
+          <div class="desc-title">{{config.text || 'Multi-format Operation'}}</div>
+          <div class="desc-subtitle">{{config.text1 || 'Accurate positioning of brand products, good at multi-format operation, revitalizing the community, and comprehensively enhancing the value of property assets.'}}</div>
           <div class="desc-intro-group">
             <div class="desc-intro-item">
-              <div class="intro-title" v-html="brStr(configObj[3].text2 || 'base Serviced Apartment')"></div>
-              <div class="intro-text">{{configObj[3].text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
+              <div class="intro-title" v-html="brStr(config.text2 || 'base Serviced Apartment')"></div>
+              <div class="intro-text">{{config.text3 || 'An inspirational living space that serves different kinds of customer. Through the contemporary design, revitalizing the old communities and buildings.'}}</div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title" v-html="brStr(configObj[3].text4 || 'Tulu Co-Living Apartment')"></div>
-              <div class="intro-text">{{configObj[3].tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
+              <div class="intro-title" v-html="brStr(config.text4 || 'Tulu Co-Living Apartment')"></div>
+              <div class="intro-text">{{config.tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title" v-html="brStr(configObj[3].text6 || 'Surpass Space <br> Office Space')"></div>
-              <div class="intro-text">{{configObj[3].tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
+              <div class="intro-title" v-html="brStr(config.text6 || 'Surpass Space <br> Office Space')"></div>
+              <div class="intro-text">{{config.tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title" v-html="brStr(configObj[3].text8 || 'Surpass / Infinity Space Community Business')"></div>
-              <div class="intro-text over">{{configObj[3].tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
+              <div class="intro-title" v-html="brStr(config.text8 || 'Surpass / Infinity Space Community Business')"></div>
+              <div class="intro-text over">{{config.tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
             </div>
           </div>
         </div>
         
       </div>
     </div>
-    <div class="desc-panel long" id="hzf">
+    <div class="desc-panel long" v-show="config.templateType == 4" >
       <img class="bg-img tl wow fadeIn" src="~/assets/img/m/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr wow fadeInRight"  data-wow-delay="1s"></div>
       <div class="desc-info p3 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title">{{configObj[4].text || 'Partners'}}</div>
+        <div class="desc-title">{{config.text || 'Partners'}}</div>
         <div class="multi-intro">
           <div class="multi-main">
             <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
-            <div class="main-title">{{configObj[4].text1 || 'A leading global private equity firm'}}</div>
-            <div class="main-subtitle">{{configObj[4].text2 || 'Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.'}}</div>
+            <div class="main-title">{{config.text1 || 'A leading global private equity firm'}}</div>
+            <div class="main-subtitle">{{config.text2 || 'Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.'}}</div>
             <div class="text-group">
               <div class="text-item">
-                <div class="text-title">{{configObj[4].text3 || '50 YEARS'}}</div>
-                <div class="text-info" style="text-align:left;">{{configObj[4].text4 || 'INVESTING'}}</div>
+                <div class="text-title">{{config.text3 || '50 YEARS'}}</div>
+                <div class="text-info" style="text-align:left;">{{config.text4 || 'INVESTING'}}</div>
               </div>
               <div class="text-item">
-                <div class="text-title">{{configObj[4].text5 || '$37 Billion'}}</div>
-                <div class="text-info">{{configObj[4].text6 || 'AUM'}}</div>
+                <div class="text-title">{{config.text5 || '$37 Billion'}}</div>
+                <div class="text-info">{{config.text6 || 'AUM'}}</div>
               </div>
               <div class="text-item">
-                <div class="text-title">{{configObj[4].text7 || '700'}}</div>
-                <div class="text-info">{{configObj[4].text8 || 'COMPANIES SINCE INCEPTION'}}</div>
+                <div class="text-title">{{config.text7 || '700'}}</div>
+                <div class="text-info">{{config.text8 || 'COMPANIES SINCE INCEPTION'}}</div>
               </div>
               <div class="text-item">
-                <div class="text-title">{{configObj[4].text9 || '120'}}</div>
-                <div class="text-info">{{configObj[4].text10 || 'PORTFOLIO COMPANIES'}}</div>
+                <div class="text-title">{{config.text9 || '120'}}</div>
+                <div class="text-info">{{config.text10 || 'PORTFOLIO COMPANIES'}}</div>
               </div>
               <div class="text-item no">
-                <div class="text-title">{{configObj[4].text11 || '$48 billion'}}</div>
-                <div class="text-info">{{configObj[4].text12 || 'INVESTMENTS'}}</div>
+                <div class="text-title">{{config.text11 || '$48 billion'}}</div>
+                <div class="text-info">{{config.text12 || 'INVESTMENTS'}}</div>
               </div>
               <div class="text-item no">
-                <div class="text-title">{{configObj[4].text13 || '1994'}}</div>
-                <div class="text-info">{{configObj[4].text14 || 'MARKS ITS INCEPTION IN CHINA'}}</div>
+                <div class="text-title">{{config.text13 || '1994'}}</div>
+                <div class="text-info">{{config.text14 || 'MARKS ITS INCEPTION IN CHINA'}}</div>
               </div>
             </div>
           </div>
           <div class="multi-sub">
             <div class="sub-intro-item">
               <img style="margin-top:13px;height:30px;" src="~/assets/img/logo_2.png" alt=""/>
-              <div class="sub-text" style="margin-top:13px;"><span>{{configObj[4].text15 || ''}}</span>{{configObj[4].text16 || ''}}</div>
+              <div class="sub-text" style="margin-top:13px;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
             </div>
             <div class="sub-intro-item">
               <img style="margin-top:18px;height:19px;" src="~/assets/img/logo_3.png" alt=""/>
-              <div class="sub-text" style="margin-top:20px;"><span>{{configObj[4].text17 || ''}}</span>{{configObj[4].text18 || ''}}</div>
+              <div class="sub-text" style="margin-top:20px;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
             </div>
             <div class="sub-intro-item">
               <img style="margin-top:9px;height:32px;" src="~/assets/img/logo_4.png" alt=""/>
-              <div class="sub-text" style="margin-top:12px;"><span>{{configObj[4].text19 || ''}}</span>{{configObj[4].text20 || ''}}</div>
+              <div class="sub-text" style="margin-top:12px;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
             </div>
             <div class="sub-intro-item">
               <img  style="margin-top:0px;height:50px;" src="~/assets/img/logo_5.png" alt=""/>
-              <div class="sub-text" style="margin-top:5px;"><span>{{configObj[4].text21 || ''}}</span>{{configObj[4].text22 || ''}}</div>
+              <div class="sub-text" style="margin-top:5px;"><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="desc-panel" id="syms">
-      <img class="bg-img br wow fadeIn" :src="configObj[5].mobileCoverUrl || require('~/assets/img/m/desc_bg_4.png')" alt=""/>
+    <div class="desc-panel" v-show="config.templateType == 5">
+      <img class="bg-img br wow fadeIn" :src="config.mobileCoverUrl || require('~/assets/img/m/desc_bg_4.png')" alt=""/>
       <div class="panel-mask tl wow fadeInLeft" data-wow-delay="1s"></div>
       <div class="desc-info p4 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title" style="margin-bottom:10px;">{{configObj[5].text || 'Business Model'}}</div>
-        <div class="desc-subtitle" style="margin-bottom:33px;">{{configObj[5].text1 || 'Golden Union Asset Management’s Full Lifecycle Control System'}}<br>{{configObj[5].text2 || '"One-stop" Asset Management Service'}}</div>
+        <div class="desc-title" style="margin-bottom:10px;">{{config.text || 'Business Model'}}</div>
+        <div class="desc-subtitle" style="margin-bottom:33px;">{{config.text1 || 'Golden Union Asset Management’s Full Lifecycle Control System'}}<br>{{config.text2 || '"One-stop" Asset Management Service'}}</div>
         <div class="tag-group">
-          <div class="tag-item">
-            <div class="tag-text" v-for="(tag,index) in configObj[5].text3.split('\n')" :key="index">{{tag}}</div>
+          <div class="tag-item" v-if="config.text3">
+            <div class="tag-text" v-for="(tag,index2) in config.text3.split('\n')" :key="index2">{{tag}}</div>
           </div>
-          <div class="tag-item">
-            <div class="tag-text" v-for="(tag,index) in configObj[5].text4.split('\n')" :key="index">{{tag}}</div>
+          <div class="tag-item" v-if="config.text4">
+            <div class="tag-text" v-for="(tag,index2) in config.text4.split('\n')" :key="index2">{{tag}}</div>
           </div>
-          <div class="tag-item">
-            <div class="tag-text" v-for="(tag,index) in configObj[5].text5.split('\n')" :key="index">{{tag}}</div>
+          <div class="tag-item" v-if="config.text5">
+            <div class="tag-text" v-for="(tag,index2) in config.text5.split('\n')" :key="index2">{{tag}}</div>
           </div>
-          <div class="tag-item">
-            <div class="tag-text" v-for="(tag,index) in configObj[5].text6.split('\n')" :key="index">{{tag}}</div>
+          <div class="tag-item" v-if="config.text6">
+            <div class="tag-text" v-for="(tag,index2) in config.text6.split('\n')" :key="index2">{{tag}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="desc-panel" id="yyys">
-      <img class="bg-img br" :src="configObj[6].mobileCoverUrl || require('~/assets/img/m/desc_bg_5.png')" alt=""/>
+    <div class="desc-panel" v-show="config.templateType == 6">
+      <img class="bg-img br" :src="config.mobileCoverUrl || require('~/assets/img/m/desc_bg_5.png')" alt=""/>
       <div class="desc-dark">
         <div class="wow fadeInUp">
-          <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">{{configObj[6].text || 'Operational Advantages'}}</div>
+          <div class="desc-title" style="margin-bottom:40px;margin-top:80px;">{{config.text || 'Operational Advantages'}}</div>
           <div class="desc-intro-group">
             <div class="desc-intro-item">
-              <div class="intro-title no-border">{{configObj[6].text1 || 'Resource'}}</div>
-              <div class="intro-text bold" v-html="brStr(configObj[6].text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
-              <div class="intro-sub-text" v-html="brStr(configObj[6].text21)"></div>
+              <div class="intro-title no-border">{{config.text1 || 'Resource'}}</div>
+              <div class="intro-text bold" v-html="brStr(config.text2 || 'High-quality resource integration capabilities<br>Advantages of resource industry layout<br>Scale advantage and brand advantage')"></div>
+              <div class="intro-sub-text" v-html="brStr(config.text21)"></div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title no-border">{{configObj[6].text3 || 'Capital'}}</div>
-              <div class="intro-text bold" v-html="brStr(configObj[6].text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
-              <div class="intro-sub-text" v-html="brStr(configObj[6].text41)"></div>
+              <div class="intro-title no-border">{{config.text3 || 'Capital'}}</div>
+              <div class="intro-text bold" v-html="brStr(config.text4 || 'Strong shareholder background and capital strength<br>Golden Union, a comprehensive real estate group with four major business sectors<br>Warburg Pincus, one of the oldest private equity firms in the United States')"></div>
+              <div class="intro-sub-text" v-html="brStr(config.text41)"></div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title no-border">{{configObj[6].text5 || 'Market'}}</div>
-              <div class="intro-text bold" v-html="brStr(configObj[6].text6 || 'Sharp market insight<br>Precise market positioning')"></div>
-              <div class="intro-sub-text" v-html="brStr(configObj[6].text61)"></div>
+              <div class="intro-title no-border">{{config.text5 || 'Market'}}</div>
+              <div class="intro-text bold" v-html="brStr(config.text6 || 'Sharp market insight<br>Precise market positioning')"></div>
+              <div class="intro-sub-text" v-html="brStr(config.text61)"></div>
             </div>
             <div class="desc-intro-item">
-              <div class="intro-title no-border">{{configObj[6].text7 || 'Innovation'}}</div>
-              <div class="intro-text bold" v-html="brStr(configObj[6].text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
-              <div class="intro-sub-text" v-html="brStr(configObj[6].text81)"></div>
+              <div class="intro-title no-border">{{config.text7 || 'Innovation'}}</div>
+              <div class="intro-text bold" v-html="brStr(config.text8 || 'Product innovation ability<br>Optimized business portfolio<br>Self-contained design and reconstruction capabilities')"></div>
+              <div class="intro-sub-text" v-html="brStr(config.text81)"></div>
             </div>
           </div>
         </div>
         
       </div>
     </div>
+    
+    </div>
+    
   </div>
 </template>
 
@@ -186,8 +190,12 @@ export default {
   async  asyncData ({ params }) {//请求
     let configObj = {};
     let banners = [];
+    let configList;
     let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8383/ipe/screen',{data:{status:true},start:0,limit:1000});
     if(code == 0){
+      configList = data.map(config=>{
+        return Object.assign(config,JSON.parse(config.config));
+      });
       data.forEach(config => {
         configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
       });
@@ -196,7 +204,7 @@ export default {
     if(code2 == 0){
      banners = data2;
     }
-    return { configObj ,banners}
+    return { configList,configObj ,banners}
 
 	},
     mounted() {
@@ -254,25 +262,25 @@ export default {
     top:0;
     mix-blend-mode: multiply;
     &.br{
-      border-bottom:1108px solid rgba(128,0,0,.8);
+      border-bottom:1108px solid #af1e23;
       border-left:280px solid transparent;
       border-right:0px solid transparent;
       right:0;
     }
     &.bl{
-      border-bottom:1108px solid rgba(128,0,0,.8);
+      border-bottom:1108px solid #af1e23;
       border-right:280px solid transparent;
       border-left:0px solid transparent;
       left:0;
     }
     &.tr{
-      border-top:1108px solid rgba(128,0,0,.8);
+      border-top:1108px solid #af1e23;
       border-left:280px solid transparent;
       border-right:0px solid transparent;
       right:0;
     }
     &.tl{
-      border-top:1108px solid rgba(128,0,0,.8);
+      border-top:1108px solid #af1e23;
       border-right:280px solid transparent;
       border-left:0px solid transparent;
       left:0;
@@ -286,25 +294,25 @@ export default {
       width:100%;
       top:0;
       &.br{
-        border-bottom:1709px solid rgba(128,0,0,.8);
+        border-bottom:1709px solid #af1e23;
         border-left:280px solid transparent;
         border-right:0px solid transparent;
         right:0;
       }
       &.bl{
-        border-bottom:1709px solid rgba(128,0,0,.8);
+        border-bottom:1709px solid #af1e23;
         border-right:280px solid transparent;
         border-left:0px solid transparent;
         left:0;
       }
       &.tr{
-        border-top:1709px solid rgba(128,0,0,.8);
+        border-top:1709px solid #af1e23;
         border-left:280px solid transparent;
         border-right:0px solid transparent;
         right:0;
       }
       &.tl{
-        border-top:1709px solid rgba(128,0,0,.8);
+        border-top:1709px solid #af1e23;
         border-right:280px solid transparent;
         border-left:0px solid transparent;
         left:0;
