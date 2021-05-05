@@ -68,7 +68,7 @@ export default {
     }
     .content-area{
         position:absolute;
-        top:108px;
+        top:75px;
         bottom:0px;
         left:0px;
         right:0px;
