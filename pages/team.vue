@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="leader-group-divide"></div>
+                        <div class="leader-group-divide"  v-if="index<teams.length-1"></div>
                     </div>
                 </div>
             </div>

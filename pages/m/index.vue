@@ -8,7 +8,7 @@
       <img class="bg-img bl wow fadeIn" :src="config.mobileCoverUrl || require('~/assets/img/m/desc_bg_1.png')"  alt=""/>
       <div class="panel-mask br wow fadeInRight"  data-wow-delay="1s"></div>
       <div class="desc-info p1 wow fadeInUp" data-wow-delay="2s">
-        <div class="desc-title">{{config.text1 || '锦和资产管理公司'}}</div>
+        <div class="desc-title" style="text-align:right;">{{config.text1 || '锦和资产管理公司'}}</div>
         <div class="desc-text">{{config.text2 || '锦和资产管理公司成立于2020年， 是锦和集团与华平投资集团共同创立的一个城市更新/收益型物业投资和资产管理平台， 致力于为存量资产创造更多价值，提升城市活力，激发城市经济增长。'}}</div>
       </div>
     </div>
@@ -364,7 +364,7 @@ export default {
       opacity: 1;
       font-size: 50px;
       font-family: PingFangSC, PingFangSC-Semibold;
-      font-weight: 600;
+      font-weight: 900;
       color: #ffffff;
       text-align: left;
       line-height: 70px;
@@ -472,7 +472,7 @@ export default {
           margin-bottom:25px;
         }
         .text-group{
-          border-top:1PX dashed #898989;
+          border-top:1PX dashed rgba(137,137,137,.1);
           padding-top:25px;
           display: flex;
           flex-flow: row wrap;
@@ -488,11 +488,11 @@ export default {
             justify-content: center;
             align-items: center;
             &:nth-child(odd){
-              border-right:1PX dashed #c5c1c1;
-              border-bottom:1PX dashed #c5c1c1;
+              border-right:1PX dashed rgba(137,137,137,.1);
+              border-bottom:1PX dashed rgba(137,137,137,.1);
             }
             &:nth-child(even){
-              border-bottom:1PX dashed #c5c1c1;
+              border-bottom:1PX dashed rgba(137,137,137,.1);
             }
             &.no{
               border-bottom:0px !important;
@@ -628,8 +628,8 @@ export default {
           font-family: LucidaGrande;
           color: #af1e23;
           line-height: 38px;
-          padding-bottom:25px;
-          border-bottom:1PX dashed #af1e23 ;
+          padding-bottom:9px;
+          border-bottom:1PX dashed rgba(175, 30, 35, 0.36) ;
           text-align: left;
           &.no-border{
             padding-bottom:0px;

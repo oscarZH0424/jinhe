@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="leader-group-divide"></div>
+                        <div v-if="index<teams.length-1" class="leader-group-divide"></div>
                     </div>
                     <!-- <div class="leader-group-content">
                         <div class="leader-item">
@@ -289,7 +289,7 @@ export default {
                     // line-height: 2.34375vw;
                     // margin-bottom:1.875vw;
                     >span{
-                        display: inline-block;
+                        display: block;
                         font-size:22px;
                     }
                     &::after{

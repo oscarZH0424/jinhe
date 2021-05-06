@@ -375,7 +375,7 @@ export default {
       opacity: 1;
       font-size: 50px;
       font-family: PingFangSC, PingFangSC-Semibold;
-      font-weight: 600;
+      font-weight: 900;
       color: #ffffff;
       text-align: left;
       line-height: 70px;
@@ -483,7 +483,7 @@ export default {
           margin-bottom:25px;
         }
         .text-group{
-          border-top:1PX dashed #898989;
+          border-top:1PX dashed rgba(137,137,137,.1);
           padding-top:25px;
           display: flex;
           flex-flow: row wrap;
@@ -500,11 +500,11 @@ export default {
             padding:0 30px;
             box-sizing: content-box;
             &:nth-child(odd){
-              border-right:1PX dashed #c5c1c1;
-              border-bottom:1PX dashed #c5c1c1;
+              border-right:1PX dashed rgba(137,137,137,.1);
+              border-bottom:1PX dashed rgba(137,137,137,.1);
             }
             &:nth-child(even){
-              border-bottom:1PX dashed #c5c1c1;
+              border-bottom:1PX dashed rgba(137,137,137,.1);
             }
             &.no{
               border-bottom:0px !important;
