@@ -42,7 +42,7 @@
             <Menu :menu="menu" @tap="onMenuTap" :show="open"/>
           </div>
           <div>
-            <div class="drop-menu-item" :class="{'fixed':inputFocus}">
+            <div class="drop-menu-item" >
             <span class="menu-title"><input @click="inputClick($event)" type="text" v-model="searchKey" :placeholder="placeholdStr[lan]"></span>
             <span class="menu-arrow"><img @click="toSearch2" class="search-btn" src="~/assets/img/ic_search.png" alt=""></span>
           </div>
@@ -180,6 +180,7 @@ export default {
           path:`${base}/search/${this.searchKey}`
         })
        }
+       this.searchKey = '';
     },
     close(){
       this.isSearch = false;
@@ -447,6 +448,8 @@ a{
       right:0;
       top:0;
       width:100%;
+      background:white;
+      padding-bottom:56px;
       .drop-menu-item{
          width:100%;
         height:88px;
@@ -475,7 +478,7 @@ a{
             background: transparent;
             outline: none;
             color:white;
-            width:100%;
+            width:650px;
             border:0px;
             &::-webkit-input-placeholder {
               color: #fff;
@@ -499,9 +502,9 @@ a{
 }
 
 .menu{display:inline-block;cursor:pointer;height:42px;width:42px;position:relative;}
-.menu span{display:inline-block;width:42px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:28px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
-.menu span:before{content:'';display:inline-block;width:42px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:-16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
-.menu span:after{content:'';display:inline-block;width:42px;height:2px;background-color:#fff;border-radius: 10px;position:absolute;top:16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span{display:inline-block;width:42px;height:4px;background-color:#fff;border-radius: 10px;position:absolute;top:28px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
+.menu span:before{content:'';display:inline-block;width:42px;height:4px;background-color:#fff;border-radius: 10px;position:absolute;top:-16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span:after{content:'';display:inline-block;width:42px;height:4px;background-color:#fff;border-radius: 10px;position:absolute;top:16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
 .menu.menu_click span{background-color:transparent;}
 .menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:42px;}
 .menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:42px;}

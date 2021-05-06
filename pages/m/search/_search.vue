@@ -194,7 +194,7 @@ export default {
     opacity: 1;
     font-size: 50px;
     font-family: PingFangSC, PingFangSC-Medium;
-    font-weight: 500;
+    font-weight: 900;
     text-align: left;
     color: #000000;
     line-height: 70px;
@@ -230,7 +230,7 @@ export default {
         font-weight: 500;
         color: #ffffff;
         margin-right:16px;
-        margin-top:32px;
+        margin-top:20px;
         border:1px solid #B21E27;
         &:nth-child(3n){
             margin-right:0px;

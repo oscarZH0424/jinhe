@@ -55,15 +55,15 @@
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(config.text4 || 'Tulu Co-Living Apartment')"></div>
-                    <div class="intro-text ">{{config.tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
+                    <div class="intro-text ">{{config.text5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(config.text6 || 'Surpass Space <br> Office Space')"></div>
-                    <div class="intro-text ">{{config.tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
+                    <div class="intro-text ">{{config.text7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
                   </div>
                   <div class="desc-intro-item">
                     <div class="intro-title" v-html="brStr(config.text8 || 'Surpass / Infinity Space Community Business')"></div>
-                    <div class="intro-text ">{{config.tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
+                    <div class="intro-text ">{{config.text9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
                   </div>
                 </div>
               </div>
@@ -206,6 +206,7 @@ export default {
     let configObj = {};
     let banners = [];
     let configList;
+    let anchors = [];
     let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8383/ipe/screen',{data:{status:true},start:0,limit:1000});
     if(code == 0){
       configList = data.map(config=>{
@@ -213,13 +214,14 @@ export default {
       });
       data.forEach(config => {
         configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
+        anchors.push(config.anchorPoints);
       });
     }
     let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8383/banner/screen',{data:{status:true,belong:'home',types:['pc']},start:0,limit:1000});
     if(code2 == 0){
      banners = data2;
     }
-    return { configList,configObj ,banners}
+    return { anchors,configList,configObj ,banners}
 
 	},
     data(){
@@ -231,7 +233,7 @@ export default {
           navigation: false,//是否显示导航，默认为false
           navigationPosition: 'right',//导航小圆点的位置
           scrollBar: false,
-          anchors: ["banner", "desc", "glgm","dytyy","hzf","syms","yyys"],
+          anchors: ["banner"],
           lockAnchors: true,
           afterLoad: this.afterLoad,
         },
@@ -245,6 +247,7 @@ export default {
       }
     },
     mounted() {
+      this.option.anchors = this.option.anchors.concat(this.anchors);
       bus.$on('hashchange',()=>{
         console.log('hashChange',window.location.hash);
         setTimeout(()=>{
@@ -782,8 +785,8 @@ export default {
         padding:1.67vw 1.5625vw 0.0417vw  1.5625vw;
         margin-right:1.5625vw;
         margin-bottom:1.5625vw;
-        // min-width:263px;
-        // min-height:252px;
+        min-width:263px;
+        min-height:252px;
         .intro-title{
           opacity: 1;
           font-size: 27px;
@@ -854,47 +857,52 @@ export default {
 .section6 .desc-title{
   margin-bottom:85px;margin-top:169px;margin-top:5.8020vw !important;margin-bottom:4.427vw !important;
 }
-
-@media screen and  (max-width:765px) {
-  .desc-text{
-    line-height:20px !important;
+@media screen and  (max-width:1840px) {
+  .sub-text{
+    height:85px !important;
   }
 }
-
-@media screen and  (max-width:960px) {
-  .desc-title{
-    font-size:31px !important;
-    line-height:43.5px !important;
-  }
-  .desc-subtitle{
-    font-size:12px !important;
-    line-height:16.5px !important;
-  }
-}
-@media screen and  (max-width:1255px) {
-  .tag-text{
-    font-size:22px !important;
-    line-height:32px !important;
-  }
-  .desc-subtitle.tag{
-    font-size:18px !important;
-    line-height:26px !important;
-  }
-  .intro-title{
-    font-size:17px !important;
-    line-height:21px !important;
-  }
-}
-@media screen and  (max-width:1360px) {
-    .intro-text.bold{
-      font-size:12px !important;
-      line-height:17px !important;
+@media screen and  (max-width:1690px) {
+  .desc-intro-group.a{
+    .desc-intro-item{
+      padding:28px 26px 0.7px 26px !important; 
+      .intro-title{
+        font-size:23.7px !important;
+        height:93px !important;
+        line-height:28.2px !important;
+      }
     }
-}
-@media screen and  (max-width:1445px) {
-  .desc-intro-item{
-    padding:15px !important;
+    
   }
+  
+}
+@media screen and  (max-width:1680px) {
+  .desc-intro-group.b{
+    .desc-intro-item{
+      padding:15px !important; 
+      min-width:238px !important;
+        min-height:228px !important;
+      .intro-title{
+        font-size:23.7px !important;
+        line-height:28.2px !important;
+      }
+      .intro-text.bold{
+        font-size:14px !important;
+        line-height:21px !important;
+      }
+    }
+    
+  }
+  
+}
+
+@media screen and  (max-width:1445px) {
+  .desc-intro-group.a{
+    .desc-intro-item{
+      padding:15px !important;
+    }
+  }
+  
   .sub-intro-item{
     margin-bottom:30.8px !important;
   }
@@ -916,39 +924,52 @@ export default {
   //   top:156.1px !important;
   // }
 }
-@media screen and  (max-width:1680px) {
-  .desc-intro-group.b{
-    .desc-intro-item{
-      padding:15px !important; 
-      min-width:238px !important;
-        min-height:228px !important;
-      .intro-title{
-        font-size:23.7px !important;
-        line-height:28.2px !important;
-      }
-      .intro-text.bold{
-        font-size:14px !important;
-        line-height:21px !important;
-      }
+
+@media screen and  (max-width:1360px) {
+    .intro-text.bold{
+      font-size:12px !important;
+      line-height:17px !important;
     }
-    
-  }
-  
 }
-@media screen and  (max-width:1690px) {
-  .desc-intro-group.a{
-    .desc-intro-item{
-      padding:28px 26px 0.7px 26px !important; 
-      .intro-title{
-        font-size:23.7px !important;
-        height:93px !important;
-        line-height:28.2px !important;
-      }
-    }
-    
+
+@media screen and  (max-width:1255px) {
+  .tag-text{
+    font-size:22px !important;
+    line-height:32px !important;
   }
-  
+  .desc-subtitle.tag{
+    font-size:18px !important;
+    line-height:26px !important;
+  }
+  .intro-title{
+    font-size:17px !important;
+    line-height:21px !important;
+  }
 }
+
+@media screen and  (max-width:960px) {
+  .desc-title{
+    font-size:31px !important;
+    line-height:43.5px !important;
+  }
+  .desc-subtitle{
+    font-size:12px !important;
+    line-height:16.5px !important;
+  }
+}
+
+@media screen and  (max-width:765px) {
+  .desc-text{
+    line-height:20px !important;
+  }
+}
+
+
+
+
+
+
+
 
 
 </style>

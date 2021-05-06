@@ -59,11 +59,11 @@
                 </div>
                 <div class="desc-intro-item">
                   <div class="intro-title" v-html="brStr(config.text6 || '越界 办公')"></div>
-                  <div class="intro-text">{{config.tex7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
+                  <div class="intro-text">{{config.text7 || '为不同规模的企业提供办公空间解决方案，符合现代办公需求，涵盖商务写字楼、精品办公室、创意园区等多样类型。'}}</div>
                 </div>
                 <div class="desc-intro-item">
                   <div class="intro-title" v-html="brStr(config.text8 || '越界/越都荟社区商业')"></div>
-                  <div class="intro-text">{{config.tex9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
+                  <div class="intro-text">{{config.text9 || '生活时尚街区，纳入富有特色的配套商业、社区商业，不仅能为办公租户及周边社区提供便利，更是物业升级的综合体现。'}}</div>
                 </div>
               </div>
               </div>
@@ -199,6 +199,7 @@ export default {
     let configObj = {};
     let banners = [];
     let configList;
+    let anchors = [];
     let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/ipe/screen',{data:{status:true},start:0,limit:1000});
     if(code == 0){
       configList = data.map(config=>{
@@ -206,18 +207,18 @@ export default {
       });
       data.forEach(config => {
         configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
+        anchors.push(config.anchorPoints);
       });
     }
     let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/banner/screen',{data:{status:true,belong:'home',types:['pc']},start:0,limit:1000});
     if(code2 == 0){
      banners = data2;
     }
-    return { configObj ,banners,configList}
+    return {anchors, configObj ,banners,configList}
 
 	},
     data(){
       return {
-        
         option:{
           licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
           resize: true,
@@ -225,7 +226,7 @@ export default {
           navigation: false,//是否显示导航，默认为false
           navigationPosition: 'right',//导航小圆点的位置
           scrollBar: false,
-          anchors: ["banner", "desc", "glgm","dytyy","hzf","syms","yyys"],
+          anchors: ['banner'],
           lockAnchors: true,
           afterLoad: this.afterLoad,
         },
@@ -240,6 +241,7 @@ export default {
     },
     mounted() {
       console.log(this.configList);
+      this.option.anchors = this.option.anchors.concat(this.anchors);
       bus.$on('hashchange',()=>{
         console.log('hashChange',window.location.hash);
         setTimeout(()=>{
