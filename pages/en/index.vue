@@ -671,8 +671,8 @@ export default {
             line-height: 17px;
             margin-top:15px;
             display: -webkit-box;
-            // -webkit-box-orient: vertical;
-            // -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
             overflow: hidden;
             // font-size: 0.625vw;
             // line-height: 0.8854167vw;
@@ -860,6 +860,7 @@ export default {
 @media screen and  (max-width:1840px) {
   .sub-text{
     height:85px !important;
+    -webkit-line-clamp: 5 !important;
   }
 }
 @media screen and  (max-width:1690px) {

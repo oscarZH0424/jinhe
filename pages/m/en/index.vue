@@ -51,15 +51,15 @@
             </div>
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(config.text4 || 'Tulu Co-Living Apartment')"></div>
-              <div class="intro-text">{{config.tex5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
+              <div class="intro-text">{{config.text5 || 'Design-led modern urban co-living space is built to inspire and promote communication among young sprits.'}}</div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(config.text6 || 'Surpass Space <br> Office Space')"></div>
-              <div class="intro-text">{{config.tex7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
+              <div class="intro-text">{{config.text7 || 'It provides different sizes office space to meet the different modern office needs of enterprise, covering various types of business office buildings, boutique offices, creative space etc.'}}</div>
             </div>
             <div class="desc-intro-item">
               <div class="intro-title" v-html="brStr(config.text8 || 'Surpass / Infinity Space Community Business')"></div>
-              <div class="intro-text over">{{config.tex9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
+              <div class="intro-text over">{{config.text9 || 'It’s a modern life style block with the distinctive supporting community commerce, provides the convenience for the office tenants and surrounding communities, and upgrades the value of the property.'}}</div>
             </div>
           </div>
         </div>
