@@ -364,7 +364,7 @@ export default {
       opacity: 1;
       font-size: 50px;
       font-family: PingFangSC, PingFangSC-Semibold;
-      font-weight: 900;
+      font-weight: bold;
       color: #ffffff;
       text-align: left;
       line-height: 70px;
@@ -384,6 +384,7 @@ export default {
       font-size: 26px;
       font-family: PingFangSC, PingFangSC-Regular;
       font-weight: 400;
+      
       text-align: left;
       color: #ffffff;
       line-height: 45px;
@@ -595,7 +596,7 @@ export default {
       opacity: 1;
       font-size: 50px;
       font-family: PingFangSC, PingFangSC-Semibold;
-      font-weight: 600;
+      font-weight: bold;
       color: #ffffff;
       line-height: 70px;
       margin-bottom:26px;

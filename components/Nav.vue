@@ -502,9 +502,9 @@ a{
 }
 
 .menu{display:inline-block;cursor:pointer;height:42px;width:42px;position:relative;}
-.menu span{display:inline-block;width:42px;height:4px;background-color:#fff;border-radius: 10px;position:absolute;top:28px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
-.menu span:before{content:'';display:inline-block;width:42px;height:4px;background-color:#fff;border-radius: 10px;position:absolute;top:-16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
-.menu span:after{content:'';display:inline-block;width:42px;height:4px;background-color:#fff;border-radius: 10px;position:absolute;top:16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span{display:inline-block;width:42px;height:2PX;background-color:#fff;border-radius: 10px;position:absolute;top:26px;left:0px;transition:background-color 0.2s ease-out 0.1s;}
+.menu span:before{content:'';display:inline-block;width:42px;height:2PX;background-color:#fff;border-radius: 10px;position:absolute;top:-16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
+.menu span:after{content:'';display:inline-block;width:42px;height:2PX;background-color:#fff;border-radius: 10px;position:absolute;top:16px;left:0px;transition:transform 0.1s ease-out,top 0.3s ease 0.2s;transform:rotate(0deg);}
 .menu.menu_click span{background-color:transparent;}
 .menu.menu_click span:before{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(45deg);top:0px;height:4px;width:42px;}
 .menu.menu_click span:after{transition:top 0.3s ease,transform 0.1s ease-out 0.2s;transform:rotate(-45deg);top:0px;height:4px;width:42px;}

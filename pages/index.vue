@@ -240,7 +240,6 @@ export default {
       }
     },
     mounted() {
-      console.log(this.configList);
       this.option.anchors = this.option.anchors.concat(this.anchors);
       bus.$on('hashchange',()=>{
         console.log('hashChange',window.location.hash);

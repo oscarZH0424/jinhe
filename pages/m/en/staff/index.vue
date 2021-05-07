@@ -76,7 +76,7 @@ export default {
         opacity: 1;
         font-size: 40px;
         font-family: PingFangSC, PingFangSC-Medium;
-        font-weight: 500;
+        font-weight: 900;
         text-align: left;
         color: #ffffff;
         line-height: 75px;
@@ -101,7 +101,7 @@ export default {
                 margin-right:0px;
             }
             .position-title{
-                height:90px;
+                // height:90px;
                 overflow : hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
