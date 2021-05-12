@@ -59,9 +59,9 @@ export default {
   },
   router:{
     middleware:"common",
-    scrollBehavior (to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
+    // scrollBehavior (to, from, savedPosition) {
+    //   return { x: 0, y: 0 }
+    // }
   },
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
