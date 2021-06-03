@@ -73,7 +73,7 @@ export default {
                 if (window.location.hash) {
                     this.goAnchor(window.location.hash)
                 }
-                },10)
+                },0)
             })
             if (window.location.hash) {
                 this.goAnchor(window.location.hash)
@@ -85,7 +85,7 @@ export default {
                 // 获取锚点元素
                 let anchor = this.$el.querySelector(selector)
                 anchor.scrollIntoView()
-            }, 500)
+            }, 0)
         },
         toDetail(pro){
             if(pro.urlType == 1){
