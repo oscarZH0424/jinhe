@@ -25,9 +25,9 @@ const store = ()=>{
         },
         actions:{
             async nuxtServerInit({commit},{req,app}){
-                const {data:{code,data}}  = await app.$axios.post('http://www.dream-fly.com.cn:8282/menu/tree');
+                const {data:{code,data}}  = await app.$axios.post('https://api.goldenunionassets.com/menu/tree');
                 commit('SET_MENU',data);
-                const {data:{code:code2,data:data2}}  = await app.$axios.post('http://www.dream-fly.com.cn:8383/menu/tree');
+                const {data:{code:code2,data:data2}}  = await app.$axios.post('https://enapi.goldenunionassets.com/menu/tree');
                 commit('SET_MENUEN',data2);
 
             }

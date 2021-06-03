@@ -22,7 +22,7 @@ export default {
     asyncData ({ params }) {//请求
 	    return  axios({
 		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282/project/screen',
+		url: 'https://api.goldenunionassets.com/project/screen',
         data:{data:{status:true,types:[1]},limit:1000,start:0}
 	    })
 	    .then(function (res) {

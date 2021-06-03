@@ -20,7 +20,7 @@ export default {
         console.log(params);
         return  axios({
         method: 'post',
-        url: 'http://www.dream-fly.com.cn:8383/article/detail',
+        url: 'https://enapi.goldenunionassets.com/article/detail',
         data:{data:params.id}
         })
         .then(function (res) {

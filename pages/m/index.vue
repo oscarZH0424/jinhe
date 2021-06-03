@@ -189,7 +189,7 @@ export default {
     let configObj = {};
     let banners = [];
     let configList;
-    let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/ipe/screen',{data:{status:true},start:0,limit:1000});
+    let {data:{code,data}} = await axios.post('https://api.goldenunionassets.com/ipe/screen',{data:{status:true},start:0,limit:1000});
     if(code == 0){
       configList = data.map(config=>{
         return Object.assign(config,JSON.parse(config.config));
@@ -198,7 +198,7 @@ export default {
         configObj[config.orderNum] = Object.assign(config,JSON.parse(config.config));
       });
     }
-    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/banner/screen',{data:{status:true,belong:'home',types:['mobile']},start:0,limit:1000});
+    let {data:{code:code2,data:data2}} = await axios.post('https://api.goldenunionassets.com/banner/screen',{data:{status:true,belong:'home',types:['mobile']},start:0,limit:1000});
     if(code2 == 0){
      banners = data2;
     }

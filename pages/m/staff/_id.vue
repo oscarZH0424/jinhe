@@ -40,7 +40,7 @@ export default {
         console.log(params);
         return  axios({
         method: 'post',
-        url: 'http://www.dream-fly.com.cn:8282/job/detail',
+        url: 'https://api.goldenunionassets.com/job/detail',
         data:{data:params.id}
         })
         .then(function (res) {

@@ -40,7 +40,7 @@ asyncData ({ params }) {//请求
         console.log(params);
         return  axios({
         method: 'post',
-        url: 'http://www.dream-fly.com.cn:8383/job/detail',
+        url: 'https://enapi.goldenunionassets.com/job/detail',
         data:{data:params.id}
         })
         .then(function (res) {

@@ -29,7 +29,7 @@ export default {
     asyncData ({ params }) {//请求
 	    return  axios({
 		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282/article/screen',
+		url: 'https://api.goldenunionassets.com/article/screen',
         data:{data:{status:true,types:['3'],editTimeSort:true},limit:5,start:0}
 	    })
 	    .then(function (res) {
@@ -67,7 +67,7 @@ export default {
             let _this = this;
             axios({
             method: 'post',
-            url: 'http://www.dream-fly.com.cn:8282/article/screen',
+            url: 'https://api.goldenunionassets.com/article/screen',
             data:{data:{status:true,types:['3'],editTimeSort:true},limit:this.pageSize,start:this.pageNum*this.pageSize}
             })
             .then( (res)=> {

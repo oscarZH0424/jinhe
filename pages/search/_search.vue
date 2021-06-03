@@ -58,13 +58,13 @@ const PAGESIZE = 10;
 export default {
     async asyncData ({ params }) {//请求
         let list,total,countList,countObj,countAll,oriList;
-        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:params.search,start:0,limit:1000});
+        let {data:{code,data,totalRecord}} = await axios.post('https://api.goldenunionassets.com/article/search',{data:params.search,start:0,limit:1000});
         if(code == 0){
             oriList = data;
             list = oriList.slice(0,PAGESIZE);
             total = totalRecord;
         }
-	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:params.search});
+	    let {data:{code:code2,data:data2}} = await axios.post('https://api.goldenunionassets.com/article/search/count',{data:params.search});
         if(code2 == 0){
             countList = data2;
             countAll = 0;

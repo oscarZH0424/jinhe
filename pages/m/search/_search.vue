@@ -60,12 +60,12 @@ import axios from 'axios'
 export default {
     async asyncData ({ params }) {//请求
         let list,total,countList,countObj,countAll,oriList;
-        let {data:{code,data,totalRecord}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:params.search.trim(),start:0,limit:1000});
+        let {data:{code,data,totalRecord}} = await axios.post('https://api.goldenunionassets.com/article/search',{data:params.search.trim(),start:0,limit:1000});
         if(code == 0){
             oriList = list = data;
             total = totalRecord;
         }
-	    let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:params.search.trim()});
+	    let {data:{code:code2,data:data2}} = await axios.post('https://api.goldenunionassets.com/article/search/count',{data:params.search.trim()});
         if(code2 == 0){
             countList = data2;
             countAll = 0;
@@ -93,11 +93,11 @@ export default {
         async toSearch(){
             let list,countList,countObj,countAll,oriList;
             let searchKey = this.searchKey ? this.searchKey.trim() : '';
-            let {data:{code,data}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search',{data:searchKey,start:0,limit:1000});
+            let {data:{code,data}} = await axios.post('https://api.goldenunionassets.com/article/search',{data:searchKey,start:0,limit:1000});
             if(code == 0){
                 oriList = list = data;
             }
-            let {data:{code:code2,data:data2}} = await axios.post('http://www.dream-fly.com.cn:8282/article/search/count',{data:searchKey});
+            let {data:{code:code2,data:data2}} = await axios.post('https://api.goldenunionassets.com/article/search/count',{data:searchKey});
             if(code2 == 0){
                 countList = data2;
                 countAll = 0;

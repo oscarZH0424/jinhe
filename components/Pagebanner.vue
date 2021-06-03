@@ -54,7 +54,7 @@ import axios from 'axios'
         },
         methods:{
             async getData(){
-                let postUrl =  this.lan == 'ch' ?  'http://www.dream-fly.com.cn:8282/banner/screen'  : 'http://www.dream-fly.com.cn:8383/banner/screen';
+                let postUrl =  this.lan == 'ch' ?  'https://api.goldenunionassets.com/banner/screen'  : 'https://enapi.goldenunionassets.com/banner/screen';
                 let {data:{code,data}} = await axios.post(postUrl,{data:{status:true,belong:this.keystr,types:[this.isMobile?'mobile':'pc']},start:0,limit:1000});
                 if(code == 0){
                     this.banner = data[0] || {};

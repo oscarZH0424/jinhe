@@ -21,7 +21,7 @@ export default {
     asyncData ({ params }) {//请求
 	    return  axios({
 		method: 'post',
-		url: 'http://www.dream-fly.com.cn:8282/job/list',
+		url: 'https://api.goldenunionassets.com/job/list',
         data:{limit:PAGESIZE,start:0}
 	    })
 	    .then(function (res) {
@@ -44,7 +44,7 @@ export default {
             let _this = this;   
             axios({
             method: 'post',
-            url: 'http://www.dream-fly.com.cn:8282/job/list',
+            url: 'https://api.goldenunionassets.com/job/list',
             data:{limit:this.pageSize,start:this.pageSize*this.pageNum}
             })
             .then( (res)=> {
