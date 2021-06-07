@@ -135,14 +135,18 @@ export default {
       }
     },
     choose(index){
-      if(!this.activeIndexMap[index]){
-        this.$set(this.activeIndexMap,index,1);
+      if(this.activeIndexMap[index] == undefined){
+        this.$set(this.activeIndexMap,index,0);
       }else{
-        this.activeIndexMap[index] = 0;
+        if(this.activeIndexMap[index] == 0){
+          this.activeIndexMap[index] = 1;
+        }else{
+          this.activeIndexMap[index] = 0;
+        }
       }
     },
     isActive(index){
-      return this.activeIndexMap[index];
+      return this.activeIndexMap[index] == undefined ? 1 : this.activeIndexMap[index];
     },
     
     tapMask(e){
