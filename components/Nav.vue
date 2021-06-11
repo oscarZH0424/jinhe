@@ -146,7 +146,7 @@ export default {
       }
     },
     isActive(index){
-      return this.activeIndexMap[index]==undefined ? 1 : this.activeIndexMap[index];
+      return this.activeIndexMap[index] == undefined ? 1 : this.activeIndexMap[index];
     },
     
     tapMask(e){
