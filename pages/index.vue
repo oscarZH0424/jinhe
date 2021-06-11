@@ -30,6 +30,8 @@
                   <div class="label-val">{{config.text3 || '19个'}}</div>
                   <div class="label-name">{{config.text4 || '全国项目'}}</div>
                 </div>
+              </div>
+              <div class="desc-label-group">
                 <div class="label-item">
                   <div class="label-val">{{config.text5 || '39.6万平方米'}}</div>
                   <div class="label-name">{{config.text6 || '总建筑面积'}}</div>
@@ -448,7 +450,7 @@ export default {
       justify-content: space-between;
       align-items: flex-start;
       width:700px;
-      width:36.4583vw;
+      width:31.4583vw;
       .label-item{
         position: relative;
         margin-bottom:118px;

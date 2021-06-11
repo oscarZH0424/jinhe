@@ -30,6 +30,8 @@
                   <div class="label-val">{{config.text3 || '19'}}</div>
                   <div class="label-name">{{config.text4 || 'Projects'}}</div>
                 </div>
+              </div>
+              <div class="desc-label-group">
                 <div class="label-item">
                   <div class="label-val">{{config.text5 || '396,000 sqm'}}</div>
                   <div class="label-name">{{config.text6 || 'GFA'}}</div>
