@@ -18,15 +18,17 @@
       <div class="desc-info p2 wow fadeInUp" data-wow-delay="2s">
         <div class="desc-title" style="margin-bottom:50px;">{{config.text || '锦和资管的管理规模'}}</div>
         <div class="desc-label-group">
-          <div class="label-item" style="margin-right:100px;">
+          <div class="label-item">
             <div class="label-val">{{config.text1 || '151亿RMB'}}</div>
             <div class="label-name">{{config.text2 || '资产规模'}}</div>
           </div>
-          <div class="label-item" style="margin-right:100px;">
+          <div class="label-item" style="">
             <div class="label-val">{{config.text3 || '19个'}}</div>
             <div class="label-name">{{config.text4 || '全国项目'}}</div>
           </div>
-          <div class="label-item">
+        </div>
+         <div class="desc-label-group">
+           <div class="label-item">
             <div class="label-val">{{config.text5 || '39.6万平方米'}}</div>
             <div class="label-name">{{config.text6 || '总建筑面积'}}</div>
           </div>
@@ -34,7 +36,7 @@
             <div class="label-val">{{config.text7 || '2个'}}</div>
             <div class="label-name">{{config.text8 || '全国城市'}}</div>
           </div>
-        </div>
+         </div>
         <div class="desc-tip">{{config.text9 || '*截至2020年12月30号'}}</div>
       </div>
     </div>
@@ -392,12 +394,13 @@ export default {
     .desc-label-group{
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between;
       align-items: flex-start;
-      width:500px;
       .label-item{
         position: relative;
-        margin-bottom:55px;
+        margin-bottom:70px;
+        &:first-child{
+          margin-right:128px;
+        }
         &::after{
           position:absolute;
           content:' ';

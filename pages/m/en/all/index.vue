@@ -23,13 +23,20 @@ export default {
 	    return  axios({
 		method: 'post',
 		url: 'https://enapi.goldenunionassets.com/project/screen',
-        data:{data:{status:true,type:[1]},limit:1000,start:0}
+        data:{data:{status:true,type:[1,2]},limit:1000,start:0}
 	    })
 	    .then(function (res) {
             let oriProList = [];
             let total = 0;
             if(res.data.code == 0){
                 oriProList = res.data.data;
+                let arr1 = oriProList.filter(item=>{
+                    return item.type == 1;
+                })
+                let arr2 = oriProList.filter(item=>{
+                    return item.type == 2;
+                })
+                oriProList = arr1.concat(arr2);
                 total = res.data.totalRecord;
             }
 		  return { oriProList,total }
@@ -38,7 +45,7 @@ export default {
     data(){
         return{
             proList:[],
-            pageSize:10,
+            pageSize:1000,
             pageNum:0
         }
     },

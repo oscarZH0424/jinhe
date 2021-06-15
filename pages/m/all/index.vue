@@ -8,8 +8,8 @@
               <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">{{pro.firstTitle}}<br v-if="pro.secondTitle">{{pro.secondTitle}}</div>
                 <div class="pro-desc" v-html="brStr(pro.information)"></div>
-                <div class="pro-btn" @click="toDetail(pro)">Learn More</div>
-            </div> 
+                <div class="pro-btn" @click="toDetail(pro)">了解详情</div>
+            </div>
           </div>
       </div>
   </div>
@@ -22,14 +22,21 @@ export default {
     asyncData ({ params }) {//请求
 	    return  axios({
 		method: 'post',
-		url: 'https://enapi.goldenunionassets.com/project/screen',
-        data:{data:{status:true,type:[1]},limit:1000,start:0}
+		url: 'https://api.goldenunionassets.com/project/screen',
+        data:{data:{status:true,types:[1,2]},limit:1000,start:0}
 	    })
 	    .then(function (res) {
             let oriProList = [];
             let total = 0;
             if(res.data.code == 0){
                 oriProList = res.data.data;
+                let arr1 = oriProList.filter(item=>{
+                    return item.type == 1;
+                })
+                let arr2 = oriProList.filter(item=>{
+                    return item.type == 2;
+                })
+                oriProList = arr1.concat(arr2);
                 total = res.data.totalRecord;
             }
 		  return { oriProList,total }
@@ -38,7 +45,7 @@ export default {
     data(){
         return{
             proList:[],
-            pageSize:10,
+            pageSize:1000,
             pageNum:0
         }
     },
@@ -84,12 +91,11 @@ export default {
                 window.open(pro.url);
             }else{
                 this.$router.push({
-                    path:`/en/product/${pro.url}`
+                    path:`/product/${pro.url}`
                 })
             }
         },
         toDetail2(path){
-            path = (this.lan == 'en' ? '/en' :'')+path;
             window.open(path);
         },
         brStr(val){
@@ -98,7 +104,7 @@ export default {
             }else{
                 return '';
             }
-        }
+        },
     }
 }
 </script>
@@ -158,10 +164,6 @@ export default {
                 color: #ffffff;
                 line-height: 45px;
                 margin-bottom:30px;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 4;
-                overflow: hidden;
             }
             .pro-btn{
                 display: inline-block;

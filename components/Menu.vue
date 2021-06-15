@@ -1,6 +1,6 @@
 <template>
     <div class="menu-item">
-        <div class="menu-fa" @click="tapHead($event)" :class="{'active':open}">
+        <div class="menu-fa" @click="tapHead($event)" :class="{'active':open && menu.children && menu.children.length>0 }">
             <div class="menu-title">{{menu.name}}</div>
             <div v-show="menu.children && menu.children.length>0" class="menu-arrow" :class="{'active':open}">></div>
         </div>
@@ -48,7 +48,7 @@
         },
         watch:{
             show(v){
-                this.open = false
+                this.open = v;
             }
         }
     }

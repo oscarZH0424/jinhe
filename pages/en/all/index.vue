@@ -1,16 +1,19 @@
 <template>
   <div class="container">
-      <Pagebanner keystr="pro"/>
+      <Pagebanner keystr="all"/>
       <div class="pro-list">
-          <div class="pro-item" v-for="(pro,index) in proList" :key="pro.id" :id="`pro${pro.id}`">
-              <img class="bg-img wow fadeIn" :src="pro.mobileCoverUrl" alt=""/>
-              <div class="pro-mask wow" :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}" data-wow-delay="1s"></div>
+          <div class="pro-item" v-for="(pro,index) in proList" :key="pro.id" :id="`pro${pro.id}`" >
+              <img class="bg-img wow fadeIn" :src="pro.coverUrl" alt=""/>
+              <div class="pro-mask wow " :class="{'fadeInLeft':index%2==1,'fadeInRight':index%2==0}" data-wow-delay="1s"></div>
               <div class="pro-info-container wow fadeInUp" data-wow-delay="2s">
                 <div class="pro-title">{{pro.firstTitle}}<br v-if="pro.secondTitle">{{pro.secondTitle}}</div>
                 <div class="pro-desc" v-html="brStr(pro.information)"></div>
                 <div class="pro-btn" @click="toDetail(pro)">Learn More</div>
-            </div> 
+            </div>
           </div>
+      </div>
+      <div class="page-bottom">
+          <a-pagination :show-quick-jumper="true"  :pageSize="pageSize" :total="total" @change="onChange" />
       </div>
   </div>
 </template>
@@ -23,13 +26,20 @@ export default {
 	    return  axios({
 		method: 'post',
 		url: 'https://enapi.goldenunionassets.com/project/screen',
-        data:{data:{status:true,type:[1]},limit:1000,start:0}
+        data:{data:{status:true,types:[1,2]},limit:1000,start:0}
 	    })
 	    .then(function (res) {
             let oriProList = [];
             let total = 0;
             if(res.data.code == 0){
                 oriProList = res.data.data;
+                let arr1 = oriProList.filter(item=>{
+                    return item.type == 1;
+                })
+                let arr2 = oriProList.filter(item=>{
+                    return item.type == 2;
+                })
+                oriProList = arr1.concat(arr2);
                 total = res.data.totalRecord;
             }
 		  return { oriProList,total }
@@ -47,6 +57,10 @@ export default {
         this.setData();
     },
     methods: {
+        onChange(page){
+            this.pageNum = page -1;
+            this.setData();
+        },
         setData(){
             let arr = [];
             this.oriProList.forEach((pro,index) => {
@@ -80,7 +94,7 @@ export default {
             }, 500)
         },
         toDetail(pro){
-            if(pro.urlType == 1){
+           if(pro.urlType == 1){
                 window.open(pro.url);
             }else{
                 this.$router.push({
@@ -89,8 +103,9 @@ export default {
             }
         },
         toDetail2(path){
-            path = (this.lan == 'en' ? '/en' :'')+path;
-            window.open(path);
+            this.$router.push({
+                path:`/en${path}`
+            })
         },
         brStr(val){
             if(val){
@@ -107,74 +122,101 @@ export default {
 .container{
     margin:0 auto;
     width:100%;
-    margin-top:128px;
+    margin-top:75px;
+    overflow-x:hidden ;
 }
+
 .pro-list{
     .pro-item{
         position: relative;
         width:100%;
-        height:908px;
+        height:1080px;
+        height:56.25vw;
+        min-height:540px;
+        overflow:hidden;
         .bg-img{
             position:absolute;
-            height:908px;
+            height:1080px;
+            height:56.25vw;
+            min-height:540px;
             bottom:0;
         }
         .pro-mask{
             position:absolute;
-            height:908px;
+            height:1080px;
+            height:56.25vw;
+            min-height:540px;
             mix-blend-mode: multiply;
         }
         .pro-info-container{
             position:absolute;
-            top:160px;
+            top:212px;
+            top:11.04167vw;
             .pro-title{
                 position: relative;
-                width:380px;
                 opacity: 1;
-                font-size: 50px;
+                font-size: 62px;
                 font-family: PingFangSC, PingFangSC-Semibold;
-                font-weight: 600;
                 text-align: left;
                 color: #ffffff;
-                line-height: 70px;
-                margin-bottom:53px;
-                display: inline-block;
+                line-height: 87px;
+                margin-bottom:74px;
+                font-size: 3.229167vw;
+                line-height: 4.53125vw;
+                margin-bottom:3.854167vw;
+                width:630px;
+                width:32.8125vw;
+                min-width:400px;
                 &::after{
                     position:absolute;
                     content:' ';
+                    bottom:-18px;
                     width:100px;
                     height:4px;
-                    bottom:-18px;
                     background: #8f6d39;
+                    bottom:-0.9375vw;
+                    width:5.2083vw;
+                    height:0.2083vw;
                 }
             }
             .pro-desc{
-                width:380px;
+                width:630px;
+                width:32.8125vw;
                 opacity: 1;
-                font-size: 26px;
+                font-size: 24px;
                 font-family: PingFangSC, PingFangSC-Regular;
                 font-weight: 400;
                 text-align: left;
                 color: #ffffff;
-                line-height: 45px;
-                margin-bottom:30px;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 4;
-                overflow: hidden;
+                line-height: 42px;
+                margin-bottom:50px;
+                font-size: 1.25vw;
+                line-height: 2.1875vw;
+                margin-bottom:2.604167vw;
+                min-width:400px;
+                
+
             }
             .pro-btn{
                 display: inline-block;
-                width:200px;
-                height:58px;
-                line-height:58px;
+                width:214px;
+                height:66px;
+                line-height:66px;
                 background: white;
                 text-align: center;
                 opacity: 1;
-                font-size: 24px;
+                font-size: 20px;
                 font-family: PingFangSC, PingFangSC-Medium;
                 font-weight: 500;
                 color: #b21e27;
+
+                width:11.14583vw;
+                height:3.4375vw;
+                line-height:3.4375vw;
+                font-size: 1.04167vw;
+                min-width:106px;
+                min-height:33px;
+                cursor: pointer;
             }
         }
         &:nth-child(odd){
@@ -183,14 +225,22 @@ export default {
             }
             .pro-mask{
                 left:0;
-                top:0;
-                border-bottom: 908px solid #b21e27;
+                top:-1px;
+                border-bottom: 1080px solid #b21e27;
+                border-bottom: 57.25vw solid #b21e27;
+
                 border-left: 0px solid transparent;
-                border-right: 380px solid transparent; 
-                width: 100%;
+                border-right: 400px solid transparent; 
+                border-right: 20.83vw solid transparent; 
+
+                width: 1320px;
+                width: 68.75vw;
+
             }
             .pro-info-container{
-                left:45px;
+                left:241px;
+                left:10.552083vw;
+
                 text-align:left;
                 .pro-title{
                     &::after{
@@ -205,14 +255,22 @@ export default {
             }
             .pro-mask{
                 right:0;
-                top:0;
-                border-bottom: 908px solid #b21e27;
+                top:-1px;
+                border-bottom: 1080px solid #b21e27;
+                border-bottom: 57.25vw solid #b21e27;
+
                 border-right: 0px solid transparent;
-                border-left: 380px solid transparent; 
-                width: 100%;
+                border-left: 400px solid transparent; 
+                border-left: 20.83vw solid transparent; 
+
+                width: 1320px;
+                width: 68.75vw;
+
+
             }
             .pro-info-container{
-                right:45px;
+                right:241px;
+                right:10.552083vw;
                 text-align: right;
                 .pro-title{
                     text-align: right;
@@ -220,8 +278,35 @@ export default {
                         right:0;
                     }
                 }
+                .pro-desc{
+                    text-align: right;
+                }
             }
         }
+    }
+}
+.page-bottom{
+    padding:55px 0px;
+}
+
+@media screen and (max-width:960px) {
+
+    .pro-title{
+        font-size:31px !important;
+        line-height:46.5px !important;
+    }
+    .pro-desc{
+        font-size:12px !important;
+        line-height:21px !important;
+    }
+    .pro-mask{
+        border-bottom: 540px solid #b21e27 !important;
+    }
+    .pro-info-container{
+        top:106px !important;
+    }
+    .pro-btn{
+        line-height:33px !important;
     }
 }
 </style>
