@@ -105,19 +105,19 @@
           </div>
           <div class="multi-sub">
             <div class="sub-intro-item">
-              <img style="margin-top:13px;height:30px;" src="~/assets/img/logo_2.png" alt=""/>
-              <div class="sub-text" style="margin-top:13px;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
+              <img style="height:50px;" :src="config.logo1" alt=""/>
+              <div class="sub-text" style="margin-top:5px;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
             </div>
             <div class="sub-intro-item">
-              <img style="margin-top:18px;height:19px;" src="~/assets/img/logo_3.png" alt=""/>
-              <div class="sub-text" style="margin-top:20px;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
+              <img style="height:50px;" :src="config.logo2" alt=""/>
+              <div class="sub-text" style="margin-top:5px;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
             </div>
             <div class="sub-intro-item">
-              <img style="margin-top:9px;height:32px;" src="~/assets/img/logo_4.png" alt=""/>
-              <div class="sub-text" style="margin-top:12px;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
+              <img style="height:50px;" :src="config.logo3" alt=""/>
+              <div class="sub-text" style="margin-top:5px;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
             </div>
             <div class="sub-intro-item">
-              <img  style="margin-top:0px;height:50px;" src="~/assets/img/logo_5.png" alt=""/>
+              <img  style="height:50px;" :src="config.logo4" alt=""/>
               <div class="sub-text" style="margin-top:5px;"><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
             </div>
           </div>

@@ -111,25 +111,25 @@
                 <div class="multi-sub">
                   <div class="sub-intro-item">
                     <div class="sub-img">
-                      <img style="width:265px;width:10.52083vw;min-width:129px;" src="~/assets/img/logo_2.png" alt=""/>
+                      <img :src="config.logo1" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <div class="sub-img">
-                        <img style="width:134px;width:6.979167vw;min-width:85.7px;" src="~/assets/img/logo_3.png" alt=""/>
+                        <img  :src="config.logo2" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <div class="sub-img">
-                      <img style="width:206px;width:10.72916vw;min-width:131.8px;" src="~/assets/img/logo_4.png" alt=""/>
+                      <img :src="config.logo3" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
                     <div class="sub-img">
-                      <img style="width:178px;width:9.27083vw;min-width:113.9px;" src="~/assets/img/logo_5.png" alt=""/>
+                      <img  :src="config.logo4" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
                   </div>
@@ -377,11 +377,13 @@ export default {
       height:100%;
     }
   }
+
   .desc-bg-3{
-    width:57.604167vw;
+    width:63.3vw;
+    left:-5vw !important;
   }
   .desc-hand{
-    position:absolute;left:10.3125vw;top:11.614583vw;width:16.5104167vw;
+    position:absolute;left:10.052vw;top:11.4583vw;width:16.5104167vw;
   }
   .desc-info{
     position:absolute;

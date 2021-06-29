@@ -111,19 +111,19 @@
                 </div>
                 <div class="multi-sub">
                   <div class="sub-intro-item">
-                    <img style="margin-top:27px;width:265px;width:10.52083vw;margin-top:1.40625vw;" src="~/assets/img/logo_2.png" alt=""/>
-                    <div class="sub-text" style="margin-top:27px;margin-top:1.40625vw;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
+                    <img style="width:265px;width:10.52083vw;" :src="config.logo1" alt=""/>
+                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
-                    <img style="margin-top:36px;width:134px;margin-top:1.875vw;width:6.979167vw;" src="~/assets/img/logo_3.png" alt=""/>
-                    <div class="sub-text" style="margin-top:43px;margin-top:2.239583vw;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
+                    <img style="width:265px;width:10.52083vw;" :src="config.logo2" alt=""/>
+                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
-                    <img style="margin-top:18px;width:206px;margin-top:0.9375vw;width:10.72916vw;" src="~/assets/img/logo_4.png" alt=""/>
-                    <div class="sub-text" style="margin-top:39px;margin-top:2.03125vw;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
+                    <img style="width:265px;width:10.52083vw;" :src="config.logo3" alt=""/>
+                    <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
                   </div>
                   <div class="sub-intro-item">
-                    <img style="width:178px;width:9.27083vw;" src="~/assets/img/logo_5.png" alt=""/>
+                    <img style="width:178px;width:9.27083vw;" :src="config.logo4" alt=""/>
                     <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
                   </div>
                 </div>
@@ -371,10 +371,10 @@ export default {
     }
   }
   .desc-bg-3{
-    width:57.604167vw;
+    width:63.3vw;
   }
   .desc-hand{
-    position:absolute;left:10.3125vw;top:11.614583vw;width:16.5104167vw;
+    position:absolute;left:15.052vw;top:11.4583vw;width:16.5104167vw;
   }
   .desc-info{
     position:absolute;
