@@ -79,7 +79,7 @@
               <div class="desc-title">{{config.text || '锦和资管合作方'}}</div>
               <div class="multi-intro">
                 <div class="multi-main">
-                  <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
+                  <img class="main-logo" :src="config.logo" alt=""/>
                   <div class="main-title">{{config.text1 || '国际领先的私募股权投资公司'}}</div>
                   <div class="main-subtitle">{{config.text2 || '自1966年成立以来，华平和世界各地数千名企业家和管理团队建立了密切的合作伙伴关系，积累了丰富的行业经验。'}}</div>
                   <div class="text-group">

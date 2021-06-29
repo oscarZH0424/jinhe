@@ -73,7 +73,7 @@
         <div class="desc-title">{{config.text || 'Partners'}}</div>
         <div class="multi-intro">
           <div class="multi-main">
-            <img class="main-logo" src="~/assets/img/logo_1.png" alt=""/>
+            <img class="main-logo" :src="config.logo" alt=""/>
             <div class="main-title">{{config.text1 || 'A leading global private equity firm'}}</div>
             <div class="main-subtitle">{{config.text2 || 'Since its establishment in 1966, it has built close partnerships with thousands of entrepreneurs and management teams throughout the world, and has accumulated rich industry experience.'}}</div>
             <div class="text-group">
