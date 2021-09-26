@@ -109,21 +109,33 @@
                     </div>
                   </div>
                 </div>
-                <div class="multi-sub">
+                <div class="multi-sub" :class="{'count3':!config.text21&&!config.text22,'count2':!config.text21&&!config.text22&&!config.text19&&!config.text20,'count1':!config.text21&&!config.text22&&!config.text19&&!config.text20&&!config.text17&&!config.text18}">
                   <div class="sub-intro-item">
-                    <img style="width:265px;width:10.52083vw;" :src="config.logo1" alt=""/>
+                    <div class="sub-img">
+                      <img :src="config.logo1" alt=""/>
+                    </div>
+                    <!-- <img style="width:265px;width:10.52083vw;" :src="config.logo1" alt=""/> -->
                     <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
                   </div>
-                  <div class="sub-intro-item">
-                    <img style="width:265px;width:10.52083vw;" :src="config.logo2" alt=""/>
+                  <div class="sub-intro-item" v-if="config.text17 || config.text18">
+                    <div class="sub-img">
+                      <img :src="config.logo2" alt=""/>
+                    </div>
+                    <!-- <img style="width:265px;width:10.52083vw;" :src="config.logo2" alt=""/> -->
                     <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
                   </div>
-                  <div class="sub-intro-item">
-                    <img style="width:265px;width:10.52083vw;" :src="config.logo3" alt=""/>
+                  <div class="sub-intro-item" v-if="config.text19 || config.text20">
+                    <div class="sub-img">
+                      <img :src="config.logo3" alt=""/>
+                    </div>
+                    <!-- <img style="width:265px;width:10.52083vw;" :src="config.logo3" alt=""/> -->
                     <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
                   </div>
-                  <div class="sub-intro-item">
-                    <img style="width:178px;width:9.27083vw;" :src="config.logo4" alt=""/>
+                  <div class="sub-intro-item" v-if="config.text21 || config.text22">
+                    <div class="sub-img">
+                      <img :src="config.logo4" alt=""/>
+                    </div>
+                    <!-- <img style="width:178px;width:9.27083vw;" :src="config.logo4" alt=""/> -->
                     <div class="sub-text" style="margin-top:25px;margin-top:1.302083vw;"><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
                   </div>
                 </div>
@@ -242,6 +254,7 @@ export default {
       }
     },
     mounted() {
+      console.log(this.configList);
       this.option.anchors = this.option.anchors.concat(this.anchors);
       bus.$on('hashchange',()=>{
         console.log('hashChange',window.location.hash);
@@ -641,6 +654,21 @@ export default {
           &:nth-child(2n){
             margin-right:0px;
           }
+          .sub-img{
+            width:100%;
+            height:94px;
+            border-bottom:1px dashed rgba(137,137,137,.1);
+            height:4.89583vw;
+            min-height:60px;
+            text-align: center;
+            display: flex;
+            flex-flow:row nowrap;
+            justify-content: center;
+            align-items: center;
+            img{
+              height:100%;
+            }
+          }
           .sub-text{
             text-align: left;
             opacity: 1;
@@ -658,6 +686,49 @@ export default {
 
             >span{
               color: #af1e23;
+            }
+          }
+        }
+        &.count3{
+          .sub-intro-item{
+            margin-right:0;
+            text-align: center;
+            &:first-child{
+              width:28.90625vw;
+              min-width:417px;
+              margin-right:0;
+              .sub-text{
+                text-align: center;
+              }
+            }
+          }
+        }
+        &.count2{
+          width:261px;
+          width:13.59375vw;
+          min-width:196.3px;
+          .sub-intro-item{
+            margin-right:0;
+            text-align: center;
+            &:first-child{
+              width:13.59375vw;
+              min-width:196.3px;
+              margin-right:0;
+              .sub-text{
+                text-align: left;
+              }
+            }
+          }
+        }
+        &.count1{
+          .sub-intro-item{
+            &:first-child{
+              height: 27.65625vw;
+              min-height:399px;
+              display: flex;
+              flex-flow: column;
+              justify-content: center;
+              align-items: center;
             }
           }
         }

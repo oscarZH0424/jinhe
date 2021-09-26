@@ -66,7 +66,7 @@
         
       </div>
     </div>
-    <div class="desc-panel long" v-show="config.templateType == 4" >
+    <div class="desc-panel long" v-show="config.templateType == 4" :class="{'count2':!config.text21&&!config.text22&&!config.text19&&!config.text20,}">
       <img class="bg-img tl wow fadeIn" src="~/assets/img/m/desc_bg_3.png" alt=""/>
       <div class="panel-mask tr wow fadeInRight"  data-wow-delay="1s"></div>
       <div class="desc-info p3 wow fadeInUp" data-wow-delay="2s">
@@ -103,21 +103,29 @@
               </div>
             </div>
           </div>
-          <div class="multi-sub">
+          <div class="multi-sub" :class="{'count3':!config.text21&&!config.text22,'count2':!config.text21&&!config.text22&&!config.text19&&!config.text20,'count1':!config.text21&&!config.text22&&!config.text19&&!config.text20&&!config.text17&&!config.text18}">
             <div class="sub-intro-item">
-              <img style="height:50px;" :src="config.logo1" alt=""/>
+              <div class="sub-img">
+                <img style="height:50px;" :src="config.logo1" alt=""/>
+              </div>
               <div class="sub-text" style="margin-top:5px;"><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
             </div>
-            <div class="sub-intro-item">
-              <img style="height:50px;" :src="config.logo2" alt=""/>
+            <div class="sub-intro-item" v-if="config.text17 || config.text18">
+              <div class="sub-img">
+                <img style="height:50px;" :src="config.logo2" alt=""/>
+              </div>
               <div class="sub-text" style="margin-top:5px;"><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
             </div>
-            <div class="sub-intro-item">
-              <img style="height:50px;" :src="config.logo3" alt=""/>
+            <div class="sub-intro-item" v-if="config.text19 || config.text20">
+              <div class="sub-img">
+                <img style="height:50px;" :src="config.logo3" alt=""/>
+              </div>
               <div class="sub-text" style="margin-top:5px;"><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
             </div>
-            <div class="sub-intro-item">
-              <img  style="height:50px;" :src="config.logo4" alt=""/>
+            <div class="sub-intro-item"  v-if="config.text21 || config.text22">
+              <div class="sub-img">
+                <img style="height:50px;" :src="config.logo4" alt=""/>
+              </div>
               <div class="sub-text" style="margin-top:5px;"><span>{{config.text21 || ''}}</span>{{config.text22 || ''}}</div>
             </div>
           </div>
@@ -288,6 +296,9 @@ export default {
   }
   &.long{
     height:1709px;
+    &.count2{
+      height:1389px;
+    }
     .panel-mask{
       position:absolute;
       height:1709px;
@@ -552,6 +563,19 @@ export default {
           &:nth-child(2n){
             margin-right:0px;
           }
+          .sub-img{
+            width:100%;
+            height:110px;
+            border-bottom:2px dashed rgba(137,137,137,.1);
+            text-align: center;
+            display: flex;
+            flex-flow:row nowrap;
+            justify-content: center;
+            align-items: center;
+            img{
+              height:50px;
+            }
+          }
           .sub-text{
             text-align: left;
             height:130px;
@@ -567,6 +591,27 @@ export default {
             overflow: hidden;
             >span{
               color: #af1e23;
+            }
+          }
+        }
+        &.count3{
+          .sub-intro-item{
+            &:first-child{
+              width:100%;              
+            }
+          }
+        }
+        &.count2{
+          .sub-intro-item{
+            &:first-child{
+              width:341px;              
+            }
+          }
+        }
+        &.count1{
+          .sub-intro-item{
+            &:first-child{
+              width:100%;              
             }
           }
         }

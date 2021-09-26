@@ -108,26 +108,26 @@
                     </div>
                   </div>
                 </div>
-                <div class="multi-sub">
+                <div class="multi-sub" :class="{'count3':!config.text21&&!config.text22,'count2':!config.text21&&!config.text22&&!config.text19&&!config.text20,'count1':!config.text21&&!config.text22&&!config.text19&&!config.text20&&!config.text17&&!config.text18}">
                   <div class="sub-intro-item">
                     <div class="sub-img">
                       <img :src="config.logo1" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text15 || ''}}</span>{{config.text16 || ''}}</div>
                   </div>
-                  <div class="sub-intro-item">
+                  <div class="sub-intro-item" v-if="config.text17 || config.text18">
                     <div class="sub-img">
                         <img  :src="config.logo2" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text17 || ''}}</span>{{config.text18 || ''}}</div>
                   </div>
-                  <div class="sub-intro-item">
+                  <div class="sub-intro-item" v-if="config.text19 || config.text20">
                     <div class="sub-img">
                       <img :src="config.logo3" alt=""/>
                     </div>
                     <div class="sub-text "><span>{{config.text19 || ''}}</span>{{config.text20 || ''}}</div>
                   </div>
-                  <div class="sub-intro-item">
+                  <div class="sub-intro-item" v-if="config.text21 || config.text22">
                     <div class="sub-img">
                       <img  :src="config.logo4" alt=""/>
                     </div>
@@ -661,6 +661,9 @@ export default {
             flex-flow:row nowrap;
             justify-content: center;
             align-items: center;
+            img{
+              height: 100%;
+            }
           }
           .sub-text{
             text-align: left;
@@ -683,6 +686,49 @@ export default {
 
             >span{
               color: #af1e23;
+            }
+          }
+        }
+        &.count3{
+          .sub-intro-item{
+            margin-right:0;
+            text-align: center;
+            &:first-child{
+              width:32.864583vw;
+              min-width:417px;
+              margin-right:0;
+              .sub-text{
+                text-align: center;
+              }
+            }
+          }
+        }
+        &.count2{
+          width:300px;
+          width: 15.625vw;
+          min-width:196.3px;
+          .sub-intro-item{
+            margin-right:0;
+            text-align: center;
+            &:first-child{
+              width:15.625vw;
+              min-width:196.3px;
+              margin-right:0;
+              .sub-text{
+                text-align: left;
+              }
+            }
+          }
+        }
+        &.count1{
+          .sub-intro-item{
+            &:first-child{
+              height:30.78125vw;
+              min-height:399px;
+              display: flex;
+              flex-flow: column;
+              justify-content: center;
+              align-items: center;
             }
           }
         }
